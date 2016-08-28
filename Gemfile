@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '5.0.0.1'
-gem 'puma',         '3.4.0'   # Used as app server
-gem 'sass-rails',   '5.0.6'   # Use SCSS for stylesheets
-gem 'uglifier',     '3.0.0'   # Used as compressor for JavaScript assets
-gem 'coffee-rails', '4.2.1'   # Used for .coffee assets and views
-gem 'jquery-rails', '4.1.1'   # Use as the JavaScript library
-gem 'turbolinks',   '5.0.1'   # Makes navigating your web application faster
-gem 'jbuilder',     '2.4.1'   # Build JSON APIs with ease.
+gem 'rails',          '5.0.0.1'
+gem 'bootstrap-sass', '3.3.6'   # Add boostrap
+gem 'puma',           '3.4.0'   # Used as app server
+gem 'sass-rails',     '5.0.6'   # Use SCSS for stylesheets
+gem 'uglifier',       '3.0.0'   # Used as compressor for JavaScript assets
+gem 'coffee-rails',   '4.2.1'   # Used for .coffee assets and views
+gem 'jquery-rails',   '4.1.1'   # Use as the JavaScript library
+gem 'turbolinks',     '5.0.1'   # Makes navigating your web application faster
+gem 'jbuilder',       '2.4.1'   # Build JSON APIs with ease.
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
