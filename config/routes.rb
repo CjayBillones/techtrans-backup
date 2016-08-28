@@ -3,10 +3,9 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-  get 'static_pages/home'
-  get 'static_pages/about'
-  get 'static_pages/expertise'
-  get 'static_pages/opportunities'
-  get 'static_pages/itso_ipophl'
-  get 'static_pages/resources'
+  get '/about' => 'static_pages#about'
+  get '/expertise'=> 'static_pages#expertise'
+  get '/opportunities' => 'static_pages#opportunities'
+  get '/itso-ipophl' => 'static_pages#itso_ipophl'
+  get '/resources' => 'static_pages#resources'
 end
