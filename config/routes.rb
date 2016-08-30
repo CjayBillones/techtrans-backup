@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get '/itso-ipophl' => 'static_pages#itso_ipophl'
   get '/resources' => 'static_pages#resources'
 
+  resources :users
   get '/register' => 'users#new'
+  post '/register' => 'users#create'
 end

@@ -45,7 +45,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get register" do
     get register_path
     assert_response :success
-    assert_select "title", "#{@base_title}"
+    assert_select "title", "Register | #{@base_title}"
   end
 
 end
