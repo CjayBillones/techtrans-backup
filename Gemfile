@@ -10,6 +10,7 @@ gem 'jquery-rails',   '4.1.1'   # Use as the JavaScript library
 gem 'turbolinks',     '5.0.1'   # Makes navigating your web application faster
 gem 'jbuilder',       '2.4.1'   # Build JSON APIs with ease.
 gem 'bcrypt',         '3.1.11'  # Use ActiveModel has_secure_password
+gem "slim-rails"
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
