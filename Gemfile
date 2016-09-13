@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
+
 gem 'rails',          '5.0.0.1'
 gem 'bootstrap-sass', '3.3.6'   # Add boostrap
 gem 'puma',           '3.4.0'   # Used as app server
