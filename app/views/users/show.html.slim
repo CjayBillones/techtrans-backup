@@ -2,6 +2,6 @@
   aside.col-md-4
     section.user_info
       h1
-        = "Name: #{@user.first_name} #{@user.last_name}"
+        = "Name: " + fullname(@user)
       h4
         = "Email: #{@user.email}"
