@@ -7,6 +7,11 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user_dyosa = users(:dyosa)
   end
 
+  test "should redirect index when not logged in" do
+    get users_path
+    assert_redirected_to login_path
+  end
+
   test "unsuccessful edit" do
     log_in_as(@user_cjay)
     get edit_user_path(@user_cjay)
@@ -43,7 +48,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   test "should redirect edit when not logged in" do
     get edit_user_path(@user_cjay)
     assert_not flash.empty?
-    assert_redirected_to login_url
+    assert_redirected_to login_path
   end
 
   test "should redirect update when not logged in" do
@@ -51,7 +56,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               last_name: @user_cjay.last_name,
                                               email: @user_cjay.email } }
     assert_not flash.empty?
-    assert_redirected_to login_url
+    assert_redirected_to login_path
   end
 
   test "should redirect edit when logged in as wrong user" do
