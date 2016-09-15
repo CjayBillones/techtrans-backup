@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(first_name: "Cjay", last_name: "Billones", email: "billonesciprian08@yahoo.com", 
-                  password: "password", password_confirmation: "password", admin: true)
+user = User.create!(first_name: "Cjay", last_name: "Billones", email: "billonesciprian08@yahoo.com", 
+                  password: "password", password_confirmation: "password", admin: true, activated: true,
+                  activated_at: Time.zone.now)
 
-user = User.create(first_name: "Dyosa", last_name: "Andaca", email: "mariaaprilrose@gmail.com",
-                  password: "password", password_confirmation: "password")
+user = User.create!(first_name: "Dyosa", last_name: "Andaca", email: "mariaaprilrose@gmail.com",
+                  password: "password", password_confirmation: "password", activated: true,
+                  activated_at: Time.zone.now)
 
 10.times do |n|
   name  = Faker::Name.name
@@ -22,6 +24,8 @@ user = User.create(first_name: "Dyosa", last_name: "Andaca", email: "mariaaprilr
                last_name: last_name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               activated: true,
+               activated_at: Time.zone.now)
 end
 
