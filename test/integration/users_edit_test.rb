@@ -7,11 +7,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user_dyosa = users(:dyosa)
   end
 
-  test "should redirect index when not logged in" do
-    get users_path
-    assert_redirected_to login_path
-  end
-
   test "unsuccessful edit" do
     log_in_as(@user_cjay)
     get edit_user_path(@user_cjay)
@@ -43,36 +38,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal first_name,  @user_cjay.first_name
     assert_equal last_name, @user_cjay.last_name
     assert_equal email, @user_cjay.email
-  end
-
-  test "should redirect edit when not logged in" do
-    get edit_user_path(@user_cjay)
-    assert_not flash.empty?
-    assert_redirected_to login_path
-  end
-
-  test "should redirect update when not logged in" do
-    patch user_path(@user_cjay), params: { user: { first_name: @user_cjay.first_name,
-                                              last_name: @user_cjay.last_name,
-                                              email: @user_cjay.email } }
-    assert_not flash.empty?
-    assert_redirected_to login_path
-  end
-
-  test "should redirect edit when logged in as wrong user" do
-    log_in_as(@user_dyosa)
-    get edit_user_path(@user_cjay)
-    assert flash.empty?
-    assert_redirected_to root_url
-  end
-
-  test "should redirect update when logged in as wrong user" do
-    log_in_as(@user_dyosa)
-    patch user_path(@user_cjay), params: { user: { first_name: @user_cjay.first_name,
-                                              last_name: @user_cjay.last_name,
-                                              email: @user_cjay.email } }
-    assert flash.empty?
-    assert_redirected_to root_url
   end
 
 end
