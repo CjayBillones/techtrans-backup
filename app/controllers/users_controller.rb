@@ -21,8 +21,9 @@ class UsersController < ApplicationController
 
     if @user.save
       # login @user # Login user upon signup
-      flash[:success] = "Succesfully created account!"
-      redirect_to root_path
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to login_path
     else
       render 'new'
     end
