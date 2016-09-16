@@ -14,6 +14,7 @@ gem 'jbuilder',       '2.4.1'   # Build JSON APIs with ease.
 gem 'bcrypt',         '3.1.11'  # Use ActiveModel has_secure_password
 gem "slim-rails"
 gem 'faker',          '1.6.3'
+gem "figaro"
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 
