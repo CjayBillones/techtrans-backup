@@ -1,5 +1,13 @@
+# Case (1): An expired password reset
+# Case (2): A failed update due to an invalid password
+# Case (3): A failed update (which initially looks “successful”) due to a blank password and confirmation
+# Case (4): A successful update 
+
 class PasswordResetsController < ApplicationController
-  
+  before_action :get_user,         only: [:edit, :update]
+  before_action :valid_user,       only: [:edit, :update]
+  before_action :check_expiration, only: [:edit, :update]    # Case (1)
+
   def new
   end
 
@@ -13,9 +21,46 @@ class PasswordResetsController < ApplicationController
     else
       flash.now[:danger] = "Email address not found"
       render 'new'
-    end    
+    end
   end
 
   def edit
   end
+
+  def update
+    if params[:user][:password].empty?                  # Case (3)
+      @user.errors.add(:password, "Can't be empty")
+      render 'edit'
+    elsif @user.update_attributes(user_params)          # Case (4)
+      log_in @user
+      flash[:success] = "Password has been reset."
+      redirect_to @user
+    else
+      render 'edit'                                     # Case (2)
+    end
+  end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:password, :password_confirmation)
+    end
+
+    def get_user
+      @user = User.find_by(email: params[:email])
+    end
+
+    def valid_user
+      unless (@user && @user.activated? &&
+              @user.authenticated?(:reset, params[:id]))
+        redirect_to root_url
+      end
+    end
+
+    def check_expiration
+      if @user.password_reset_expired?
+        flash[:danger] = "Password reset has expired."
+        redirect_to new_password_reset_url
+      end
+    end
 end
