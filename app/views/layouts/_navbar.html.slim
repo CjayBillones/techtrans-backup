@@ -9,8 +9,14 @@ header.navbar.navbar-fixed-top.navbar-inverse
           = link_to "About Us", about_path
         li
           = link_to "Expertise", expertise_path
-        li
-          = link_to "Opportunities", opportunities_path
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            | Opportunities
+          ul.dropdown-menu role="menu"
+            li
+              = link_to "IP Offers", '#'
+            li
+              = link_to "IP Needs", '#'
         li
           = link_to "ITSO-IPOPHL", itso_ipophl_path
         li
