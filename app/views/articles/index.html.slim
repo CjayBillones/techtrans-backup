@@ -1,0 +1,8 @@
+h1
+  | All Articles
+
+- @articles.each do |article|
+  h1
+    = article.title
+  p
+    = article.content 
