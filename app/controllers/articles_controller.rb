@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   include ApplicationHelper
-  
+
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
@@ -33,6 +33,13 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+
+    if @article.update_attributes(article_params)
+      flash[:success] = "Succesfully updated article!"
+      redirect_to @article
+    else
+      render 'edit'
+    end    
   end
 
   def destroy
