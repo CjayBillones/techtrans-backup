@@ -4,5 +4,9 @@ h1
 - @articles.each do |article|
   h1
     = article.title
+  h2
+    | Posted by 
+    = fullname(User.find(article.user_id)) + ' | '
+    = local_time(article.created_at)
   p
     = article.content 
