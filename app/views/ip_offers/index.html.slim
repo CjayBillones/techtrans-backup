@@ -18,9 +18,6 @@
           = local_time(ip_offer.created_at)
         p
           = simple_format(truncate(ip_offer.description, length: 500))
-        br
-        .btn.btn-primary
-          | View IP Offer
-          = link_to ip_offer do 
+          = link_to ip_offer, class: "btn btn-primary" do 
+            | View IP Offer
             span.glyphicon.glyphicon-chevron-right
-        br
