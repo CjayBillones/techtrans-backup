@@ -4,6 +4,19 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$main-red: #7b1113; //dark red
+$main-green: #094424; //dark green
+$main-orange: #ff6e1f; //main orange
+$light-red: #cc0001;  //bright red
+$light-green: #a2fa4c; //bright green
+$light-orange: #fbae5c; //brigh orange
+
+$main-red: #7b1113; //dark red
+$main-green: #094424; //dark green
+$main-orange: #ff6e1f; //main orange
+$light-red: #cc0001;  //bright red
+$light-green: #a2fa4c; //bright green
+$light-orange: #fbae5c; //brigh orange
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -14,12 +27,21 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
+html, body {
+  height: 100%;
+  background-color: #1B1C1D;
+}
+
+.main {
+  background-color: $light-red;
+  min-height: 640px;
+  min-width: 360px;
+  margin-top: 60px;
 }
 
 section {
   overflow: auto;
+  min-height: 640px;
 }
 
 textarea {
@@ -227,7 +249,10 @@ input {
   }
 }
 
-/* home page*/
-.introduction{
-  min-height: 640px;
+/*navbar*/
+.navbar-inverse{
+  margin: 0px;
+  padding-top: 25px;
+  border: 0px;
+  background-color: $main-red;
 }
