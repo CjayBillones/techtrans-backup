@@ -9,6 +9,7 @@ cjay:
   activated_at: <%= Time.zone.now %>
 
 dyosa:
+  id: 2
   first_name: Dyosa
   last_name: Andaca
   email: dyosa@example.com
