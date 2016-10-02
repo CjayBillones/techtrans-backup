@@ -2,15 +2,14 @@
   #bannerhead
     .container.fluid
       .row
-        .col-xs-6.col-md-4
-        .col-xs-6.col-md-4  
-          .boxed#rcorners.w3.theme.border          
-              h1
-                | Intellectual Property and Technology Transfer Unit
-              h2
-                | Showcase your IP Offers and Post IP Needs 
-          br
-        .col-xs-6.col-md-4
+        .span6 style="float:none;margin-left:110px;"
+      .boxed#rcorners.w3.theme.border          
+        .text-center
+          h1
+            | Intellectual Property and Technology Transfer Unit
+          h2
+            | Showcase your IP Offers and Post IP Needs 
+      br
       .text-center
         btn.btn-primary.btn-lg
           | Begin
@@ -22,7 +21,7 @@ hr
       .col-md-8
         .section-img
           #img-responsiveIP
-            img name="Tech Offers" type="img/jpg" image_tag= ("ipoffers.jpg")
+            = image_tag("ipoffers.jpg", style:"width: 100%;")
       .col-md-4
         h1
           | Technology Offers
@@ -45,6 +44,17 @@ hr
         .text-center
           btn.btn-primary.btn-lg
             | Begin
+
       .col-md-8
-      
-    
+        .section-img
+          #img-responsiveIP
+            = image_tag("ipneeds.jpg", style:"width: 100%;")
+
+.introduction
+  .container.fluid
+    .row
+      h1
+        |Something about OVCRD
+      .text-center
+        btn.btn-primary.btn-lg
+          | About Us
