@@ -1,11 +1,23 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+coatin:
+  title: "CoaTIN"
+  description: "I just ate an orange!"
+  created_at: <%= 10.minutes.ago %>
+  user_id: 1
 
-one:
-  title: MyString
-  description: MyText
-  user: one
+oral_vaccine:
+  title: "Oral Vaccine" 
+  description: "Check out the @tauday site by @mhartl: http://tauday.com"
+  created_at: <%= 3.years.ago %>
+  user_id: 2
 
-two:
-  title: MyString
-  description: MyText
-  user: two
+gaia_dam:
+  title: "Gaia Dam"
+  description: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  user_id: 2
+
+uprint:
+  title: "UPrint"
+  description: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user_id: 1
