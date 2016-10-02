@@ -4,6 +4,16 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$main-red: #7b1113; //dark red
+$main-green: #094424; //dark green
+$main-orange: #ff6e1f; //main orange
+$main-blue: #4b68ff;
+$accent-blue: #27a2ff;
+$light-red: #cc0001;  //bright red
+$light-green: #a2fa4c; //bright green
+$light-orange: #fbae5c; //brigh orange
+$light-blue: #67c7ff;
+
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -14,12 +24,25 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
+html, body {
+  height: 100%;
+  background-color: #1B1C1D;
+  font-family: "proxima-nova",helvetica,arial,sans-serif;
+
+}
+
+.main {
+  background-image: url('headersbg-blue.png');
+  background-repeat: repeat;
+  background-position: center;
+  min-height: 640px;
+  min-width: 640px;
+  margin-top: 60px;
 }
 
 section {
   overflow: auto;
+  min-height: 640px;
 }
 
 textarea {
@@ -201,8 +224,8 @@ input {
 /** FORM FAVICON **/
 
 /* enable absolute positioning */
-.inner-addon { 
-    position: relative; 
+.inner-addon {
+    position: relative;
 }
 
 /* style icon */
@@ -230,4 +253,13 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+/*navbar*/
+.navbar-inverse{
+  margin: 0px;
+  padding-top: 10px;
+  border: 0px;
+  background-color: black;
+  font-size: 1.2em;
 }

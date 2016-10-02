@@ -1,15 +1,22 @@
 doctype html
 html
   head
-    title
-      = full_title(yield(:title))
+  
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"  
+    = yield :stylesheets
+    
+    title = full_title(yield(:title))
     = render 'layouts/rails_default'
     = render 'layouts/shim'
     = favicon_link_tag 'favicon.ico'
+  
   body
     = render 'layouts/navbar'
-    .container
+    .main
       = render 'shared/flash'
+      
       = yield
       = render 'layouts/footer'
-      /= debug(params) if Rails.env.development?
+      = javascript_include_tag :application, 'data-turbolinks-track' => true
+      = yield :javascripts
