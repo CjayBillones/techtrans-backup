@@ -1,2 +1,8 @@
-h1 IpOffers#create
-p Find me in app/views/ip_offers/create.html.slim
+- provide(:title, 'New IP Offer')
+- provide(:button_text, 'Create')
+
+h1
+  | Create New IP Offer
+.row
+  .col-md-6.col-md-offset-3
+    = render 'ip_offer_form'

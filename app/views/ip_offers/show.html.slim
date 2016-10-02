@@ -1,2 +1,8 @@
-h1 IpOffers#show
-p Find me in app/views/ip_offers/show.html.slim
+h1
+  = @ip_offer.title
+h2
+  | Posted by 
+  = fullname(@user) + ' | '
+  = local_time(@ip_offer.created_at)
+p
+  = simple_format(@ip_offer.description) 
