@@ -4,6 +4,7 @@ $accent-blue: #27a2ff;
 $light-orange: #fbae5c;
 $light-blue: #67c7ff;
 
+/*Home Page*/
 .introduction{
   min-height: 640px;
   //margin-top: 75px;
@@ -20,8 +21,12 @@ $light-blue: #67c7ff;
 #bannerhead{
   margin-top: 0;
   padding-top: 50px;
-  min-height: 200px;
+  min-height: 320px;
 
+}
+
+.container-fluid{
+  align-items: center;
 }
 
 .boxed{
@@ -29,14 +34,18 @@ $light-blue: #67c7ff;
 //  border: 1px $light-blue;
   color: $light-blue;
   opacity: 50%;
+  align-items: center;
+  display: flex;
+
 }
 
 #rcorners {
-    margin-top: 30px;
+    //margin-top: 30px;
+    margin: 30px auto 0 auto;
     border-radius: 25px;
     border: 2px solid $light-blue;
     padding: 0px;
-    width: 370px;
+    width: 500px;
     height: 250px;
 }
 
