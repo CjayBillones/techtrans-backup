@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   
   resources :articles
   resources :ip_offers
+  resources :ip_needs
 end

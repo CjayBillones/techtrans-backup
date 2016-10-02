@@ -21,7 +21,7 @@ class IpOffersController < ApplicationController
     @ip_offer = current_user.ip_offers.build(ip_offer_params)
 
     if @ip_offer.save
-      flash[:success] = "Successfully created IP Offer!"
+      flash[:success] = "Successfully created listing!"
       redirect_to @ip_offer
     else
       render 'new'
@@ -36,7 +36,7 @@ class IpOffersController < ApplicationController
     @ip_offer = IpOffer.find(params[:id])
   
     if @ip_offer.update_attributes(ip_offer_params)
-      flash[:success] = "Sucessfully edited IP Offer!"
+      flash[:success] = "Sucessfully updated listing!"
       redirect_to @ip_offer
     else
       render 'edit'
@@ -45,7 +45,7 @@ class IpOffersController < ApplicationController
 
   def destroy
     @ip_offer = IpOffer.find(params[:id]).destroy
-    flash[:success] = "Sucessfully deleted IP Offer"
+    flash[:success] = "Sucessfully deleted listing!"
     redirect_to ip_offers_path
   end
 
