@@ -3,12 +3,12 @@
     h1.page-header
       | IP Needs Listing
 
-  - @ip_needs.each do |ip_need|
+  - @ip_needs.each_with_index do |ip_need, index|
     .row
       .col-md-3.vcenter
         a href='#'
           img-responsive
-            = image_tag "IPLogo.jpg", :size => "250x200"
+            = image_tag "ip-need-#{index}.jpeg", :size => "250x200"
       .col-md-9.vcenter
         h3
           = ip_need.title
