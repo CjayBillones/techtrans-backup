@@ -6,8 +6,9 @@ html
       = full_title(yield(:title))
     = render 'layouts/rails_default'
     = render 'layouts/shim'
+    = favicon_link_tag 'favicon.ico'
   body
-    = render 'layouts/header'
+    = render 'layouts/navbar'
     .container
       = render 'shared/flash'
       = yield
