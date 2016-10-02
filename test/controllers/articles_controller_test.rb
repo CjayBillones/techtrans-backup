@@ -37,7 +37,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect destroy when not logged in" do
-    assert_no_difference 'User.count' do
+    assert_no_difference 'Article.count' do
       delete article_path(@article)
     end
     assert_redirected_to login_url
@@ -45,7 +45,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect destroy when logged in as a non-admin" do
     log_in_as(@other_user)
-    assert_no_difference 'User.count' do
+    assert_no_difference 'Article.count' do
       delete article_path(@article)
     end
     assert_redirected_to root_url

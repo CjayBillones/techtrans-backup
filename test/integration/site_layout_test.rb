@@ -8,7 +8,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", root_path, count: 2
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", expertise_path
-    assert_select "a[href=?]", opportunities_path
     assert_select "a[href=?]", itso_ipophl_path
     assert_select "a[href=?]", resources_path
     assert_select "a[href=?]", register_path

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   get '/about' => 'static_pages#about'
   get '/expertise'=> 'static_pages#expertise'
-  get '/opportunities' => 'static_pages#opportunities'
   get '/itso-ipophl' => 'static_pages#itso_ipophl'
   get '/resources' => 'static_pages#resources'
 
@@ -22,4 +21,5 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   
   resources :articles
+  resources :ip_offers
 end

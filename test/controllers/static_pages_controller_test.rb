@@ -24,12 +24,6 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "Expertise | #{@base_title}"
   end
 
-  test "should get opportunities" do
-    get opportunities_path
-    assert_response :success
-    assert_select "title", "Opportunities | #{@base_title}"
-  end
-
   test "should get itso_ipophl" do
     get itso_ipophl_path
     assert_response :success

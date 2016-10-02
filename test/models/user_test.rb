@@ -84,4 +84,12 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test "associated ip_offers should be destroyed" do
+    @user.save
+    @user.ip_offers.create!(title: "Lorem ipsum", description: "Lorem ipsum")
+    assert_difference 'IpOffer.count', -1 do
+      @user.destroy
+    end
+  end
 end
