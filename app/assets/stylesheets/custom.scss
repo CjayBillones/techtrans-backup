@@ -80,10 +80,29 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
 
-#logo {
-  float: left;
+/*navbar*/
+.navbar{
+  margin: 0px;
+  height: 60px;
+  padding-top: 10px;
+  border: 0px;
+  background-color: $main-blue;
+  // li, a{
+  //   color:white;
+  //   margin:0px;
+  // }
+
+}
+
+/*Find this next time*/
+// color of text in navbar
+.navbar-right a{
+  color: white !important;
+}
+
+#iptulogo {
+  //float: right;
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
@@ -97,32 +116,42 @@ p {
   }
 }
 
+#iplogo {
+  float: left;
+  margin-top: 0px;
+  margin-right: 10px;
+}
 /* footer */
 
-footer {
-  margin-top: 45px;
+.footer-above {
+  //margin-top: 45px;
+  background-color: $main-blue;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  border-top: 1px solid $accent-blue;
+  color: white;
+  h1,h2,h3{
+    color: white;
+  }
   a {
-    color: $gray;
+    text-align: center;
+    color: white;
     &:hover {
-      color: $gray-darker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
+      color: $light-orange;
     }
   }
 }
 
+.footer-below{
+  //margin-top: 45px;
+  background-color: $light-blue;
+  padding-top: 5px;
+  border-top: 1px solid $main-blue;
+  color: white;
+  p{
+    text-align: center;
+    font-size: 1em;
+  }
+}
 /* miscellaneous */
 
 .debug_dump {
@@ -215,8 +244,8 @@ input {
 /** FORM FAVICON **/
 
 /* enable absolute positioning */
-.inner-addon { 
-    position: relative; 
+.inner-addon {
+    position: relative;
 }
 
 /* style icon */

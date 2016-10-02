@@ -8,7 +8,7 @@ $light-blue: #67c7ff;
 .introduction{
   min-height: 640px;
   //margin-top: 75px;
-  padding-top: 75px;
+  padding-top: 65px;
   background-image: url('headersbg-blue.png');
   background-repeat: repeat;
   background-position: center;
@@ -42,6 +42,7 @@ $light-blue: #67c7ff;
 #rcorners {
     //margin-top: 30px;
     margin: 30px auto 0 auto;
+    padding: auto;
     border-radius: 25px;
     border: 2px solid $light-blue;
     padding: 0px;
@@ -50,6 +51,6 @@ $light-blue: #67c7ff;
 }
 
 #img-responsiveIP{
-  min-height: 500px;
+  min-height: 250px;
   background-image: url('ipoffers.jpg');
 }
