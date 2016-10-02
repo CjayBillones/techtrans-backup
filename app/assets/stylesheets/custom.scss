@@ -196,8 +196,8 @@ input {
 /** FORM FAVICON **/
 
 /* enable absolute positioning */
-.inner-addon { 
-    position: relative; 
+.inner-addon {
+    position: relative;
 }
 
 /* style icon */
@@ -225,4 +225,9 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+/* home page*/
+.introduction{
+  min-height: 640px;
 }
