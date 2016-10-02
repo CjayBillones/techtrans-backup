@@ -1,7 +1,46 @@
 /* home page*/
+$main-blue: #4b68ff;
+$accent-blue: #27a2ff;
+$light-orange: #fbae5c;
+$light-blue: #67c7ff;
+
 .introduction{
   min-height: 640px;
-  background-image: url('headersbg-red.png');
+  //margin-top: 75px;
+  padding-top: 75px;
+  background-image: url('headersbg-blue.png');
   background-repeat: repeat;
-  background-position: center
+  background-position: center;
+  //background-image: url('headersbg-red.png');
+
+  //background-repeat: repeat;
+  //background-position: center
+}
+
+#bannerhead{
+  margin-top: 0;
+  padding-top: 50px;
+  min-height: 200px;
+
+}
+
+.boxed{
+//  color: b;
+//  border: 1px $light-blue;
+  color: $light-blue;
+  opacity: 50%;
+}
+
+#rcorners {
+    margin-top: 30px;
+    border-radius: 25px;
+    border: 2px solid $light-blue;
+    padding: 0px;
+    width: 370px;
+    height: 250px;
+}
+
+#img-responsiveIP{
+  min-height: 500px;
+  background-image: url('ipoffers.jpg');
 }
