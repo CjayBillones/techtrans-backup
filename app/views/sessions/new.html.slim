@@ -1,21 +1,52 @@
-- provide(:title, "Login")
-h1
-  | Login
-.row
-  .col-md-6.col-md-offset-3
-    = form_for(:session, url: login_path) do |f|
-      
-      .inner-addon.left-addon
-        i.glyphicon.glyphicon-user
-        = f.email_field :email, placeholder: "Email Address", class: 'form-control'
+/- provide(:title, "Login")
+/h1
+/  | Login
+/.row
+/  .col-md-6.col-md-offset-3
+/    = form_for(:session, url: login_path) do |f|
+/      
+/      .inner-addon.left-addon
+/        i.glyphicon.glyphicon-user
+/        = f.email_field :email, placeholder: "Email Address", class: 'form-control'
+/
+/      .inner-addon.left-addon
+/        i.glyphicon.glyphicon-lock
+/        = f.password_field :password, placeholder: "Password", class: 'form-control'
+/
+/      = f.label :remember_me, class: "checkbox inline" do
+/        = f.check_box :remember_me
+/        span Remember me
+/        span = link_to "Forgot Password", new_password_reset_path
+/
+/      = f.submit "Login", class: "btn btn-primary"
+#container.container
+  section#form
+    .container
+      #loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+        .panel.white-alpha-90
+          .panel-heading
+            .panel-title.text-center
+              h2
+                | Login to 
+                span.text-primary
+                  | IPTTU
+          .panel-body
+            = form_for(:session, url: login_path, :html => {:id => 'loginform', :class => 'form-horizontal'}) do |f|
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-user
+                = f.email_field :email, placeholder: "Email Address", class: 'form-control'
+        
+              .input-group
+                span.input-group-addon
+                  i.fa.fa-lock
+                = f.password_field :password, placeholder: "Password", class: 'form-control'
+              
+              = f.label :remember_me, class: "checkbox" do
+                = f.check_box :remember_me, class: "pull-left"
+                span
+                  | Remember me
 
-      .inner-addon.left-addon
-        i.glyphicon.glyphicon-lock
-        = f.password_field :password, placeholder: "Password", class: 'form-control'
-
-      = f.label :remember_me, class: "checkbox inline" do
-        = f.check_box :remember_me
-        span Remember me
-        span = link_to "Forgot Password", new_password_reset_path
-
-      = f.submit "Login", class: "btn btn-primary"
+                span.pull-right 
+                  = link_to "Forgot Password", new_password_reset_path              
+              = f.submit "Login", class: "btn btn-primary"

@@ -28,7 +28,6 @@ html, body {
   height: 100%;
   background-color: #1B1C1D;
   font-family: "proxima-nova",helvetica,arial,sans-serif;
-
 }
 
 .main {
@@ -43,6 +42,7 @@ html, body {
 section {
   overflow: auto;
   min-height: 640px;
+  overflow-x: hidden;
 }
 
 textarea {
@@ -73,15 +73,6 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
 }
 
 p {
