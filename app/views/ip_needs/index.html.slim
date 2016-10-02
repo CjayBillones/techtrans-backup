@@ -1,12 +1,23 @@
-h1
-  | All IP Needs
+container
+  col-lg-12
+    h1.page-header
+      | IP Needs Listing
 
-- @ip_needs.each do |ip_need|
-  h1
-    = ip_need.title
-  h2
-    | Posted by 
-    = fullname(User.find(ip_need.user_id)) + ' | '
-    = local_time(ip_need.created_at)
-  p
-    = simple_format(ip_need.description) 
+  - @ip_needs.each do |ip_need|
+    .row
+      .col-md-3.vcenter
+        a href='#'
+          img-responsive
+            img src="http://placehold.it/250x200"
+      .col-md-9.vcenter
+        h3
+          = ip_need.title
+        h4
+          | Posted by 
+          = fullname(User.find(ip_need.user_id)) + ' | '
+          = local_time(ip_need.created_at)
+        p
+          = simple_format(truncate(ip_need.description, length: 500))
+          = link_to ip_need, class: "btn btn-primary" do
+            | View IP Need
+            span.glyphicon.glyphicon-chevron-right
