@@ -104,21 +104,12 @@ p {
   // }
 
 }
-#navbar-right{
-  float: right !important;
-  margin-right: -15px;
-}
-/*Find this next time*/
-// color of text in navbar
-.navbar-right a{
-  color: white !important;
-}
 
 #iptulogo {
   //float: right;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: $accent-blue;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
