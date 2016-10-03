@@ -11,7 +11,7 @@ $main-blue: #4b68ff;
 $accent-blue: #27a2ff;
 $light-red: #cc0001;  //bright red
 $light-green: #a2fa4c; //bright green
-$light-orange: #fbae5c; //bright orange
+$light-orange: #fbae5c; //brigh orange
 $light-blue: #67c7ff;
 
 
@@ -28,7 +28,6 @@ html, body {
   height: 100%;
   background-color: #1B1C1D;
   font-family: "proxima-nova",helvetica,arial,sans-serif;
-
 }
 
 .main {
@@ -43,6 +42,7 @@ html, body {
 section {
   overflow: auto;
   min-height: 640px;
+  overflow-x: hidden;
 }
 
 textarea {
@@ -73,15 +73,6 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
 }
 
 p {
@@ -199,15 +190,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -282,4 +264,13 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+/*navbar*/
+.navbar-inverse{
+  margin: 0px;
+  padding-top: 10px;
+  border: 0px;
+  background-color: black;
+  font-size: 1.2em;
 }
