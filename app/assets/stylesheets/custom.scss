@@ -14,7 +14,6 @@ $light-green: #a2fa4c; //bright green
 $light-orange: #fbae5c; //brigh orange
 $light-blue: #67c7ff;
 
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -31,12 +30,14 @@ html, body {
 }
 
 .main {
-  background-image: url('headersbg-blue.png');
-  background-repeat: repeat;
-  background-position: center;
-  min-height: 640px;
-  min-width: 640px;
-  margin-top: 60px;
+  //wtf does this do?
+
+  //background-image: url('headersbg-blue.png');
+  //background-repeat: repeat;
+  //background-position: center;
+  // min-height: 640px;
+  // min-width: 640px;
+  // margin-top: 60px;
 }
 
 section {
@@ -75,6 +76,15 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -94,7 +104,10 @@ p {
   // }
 
 }
-
+#navbar-right{
+  float: right !important;
+  margin-right: -15px;
+}
 /*Find this next time*/
 // color of text in navbar
 .navbar-right a{
@@ -152,6 +165,7 @@ p {
     font-size: 1em;
   }
 }
+
 /* miscellaneous */
 
 .debug_dump {
@@ -189,6 +203,7 @@ aside {
     }
   }
 }
+
 
 /* forms */
 
@@ -267,10 +282,3 @@ input {
 }
 
 /*navbar*/
-.navbar-inverse{
-  margin: 0px;
-  padding-top: 10px;
-  border: 0px;
-  background-color: black;
-  font-size: 1.2em;
-}

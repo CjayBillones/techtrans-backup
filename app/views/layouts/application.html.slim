@@ -8,10 +8,10 @@ html
   
   body
     = render 'layouts/navbar'
-    .main
-      = render 'shared/flash'
-      
-      = yield
-      = render 'layouts/footer'
-      = javascript_include_tag :application, 'data-turbolinks-track' => true
-      = yield :javascripts
+    
+    = render 'shared/flash'
+    
+    = yield
+    = render 'layouts/footer'
+    = javascript_include_tag :application, 'data-turbolinks-track' => true
+    = yield :javascripts

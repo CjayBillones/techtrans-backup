@@ -12,11 +12,6 @@ $light-blue: #67c7ff;
   background-image: url('headersbg-blue.png');
   background-repeat: repeat;
   background-position: center;
-
-  //background-image: url('headersbg-red.png');
-
-  //background-repeat: repeat;
-  //background-position: center
 }
 
 //Should be at custom.css
@@ -31,6 +26,8 @@ hr{
   background-image: url(bluewaves.jpg);
   background-repeat:no-repeat;
   background-size: 100%;
+  overflow: auto;
+  overflow-x: hidden;
 
 }
 
@@ -39,28 +36,16 @@ hr{
   max-height: 60px;
 }
 
-.boxed{
-//  color: b;
-//  border: 1px $light-blue;
-  color: $light-blue;
-  opacity: 50%;
-  align-items: center;
-  display: flex;
-
+.navbar-logo{
+  float: left;
+//  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 50px;
+  padding: 0px;
 }
 
-#rcorners {
-    //margin-top: 30px;
-    margin: 30px auto 0 auto;
-    padding: auto;
-    border-radius: 25px;
-    border: 2px solid $light-blue;
-    padding: 0px;
-    width: 500px;
-    height: 250px;
-}
-
-#img-responsiveIP{
-  min-height: 250px;
-  background-image: url('ipoffers.jpg');
-}
+// #img-responsiveIP{
+//   min-height: 250px;
+//   background-image: url('ipoffers.jpg');
+// }
