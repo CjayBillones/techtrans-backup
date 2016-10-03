@@ -8,15 +8,21 @@ $light-blue: #67c7ff;
 .introduction{
   min-height: 640px;
   //margin-top: 75px;
-  padding-top: 50px;
+  padding-top: 30px;
   background-image: url('headersbg-blue.png');
   background-repeat: repeat;
   background-position: center;
 }
 
 //Should be at custom.css
-hr{
-  margin: 0px;
+// something is fucking wrong with the margin 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0px;
+    padding: 0px;
 }
 
 #bannerhead{
@@ -34,7 +40,7 @@ hr{
 
 .container-fluid{
   align-items: center;
-  max-height: 60px;
+  max-height: 640px;
 }
 
 .navbar-logo{
@@ -46,7 +52,12 @@ hr{
   padding: 0px;
 }
 
-// #img-responsiveIP{
-//   min-height: 250px;
-//   background-image: url('ipoffers.jpg');
-// }
+.section-img{
+  padding: 0 30px 0 auto;
+
+}
+
+// For main images of ip offers and ip needs
+ #img-responsiveIP{
+  margin-left: 70px;
+ }
