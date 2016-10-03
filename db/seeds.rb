@@ -22,7 +22,7 @@ user = User.create!(first_name: "Dyosa", last_name: "Andaca", email: "mariaapril
 end
 
 10.times do |n|
-  title = Faker::Lorem.words(rand(5...16)).join(' ')
+  title = Faker::Lorem.words(rand(5...9)).join(' ')
   description = Faker::Lorem.paragraph(rand(10...26))
   user = User.find(rand(1...User.count+1)).ip_needs.build(title: title, description: description).save
 end
