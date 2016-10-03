@@ -5,10 +5,13 @@ html
     = render 'layouts/rails_default'
     = render 'layouts/shim'
     = favicon_link_tag 'favicon.ico'
+  
   body
     = render 'layouts/navbar'
     .main
-      = render 'shared/flash'      
+      = render 'shared/flash'
+      
       = yield
       = render 'layouts/footer'
-
+      = javascript_include_tag :application, 'data-turbolinks-track' => true
+      = yield :javascripts
