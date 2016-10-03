@@ -89,10 +89,29 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
 
-#logo {
-  float: left;
+/*navbar*/
+.navbar{
+  margin: 0px;
+  height: 60px;
+  padding-top: 10px;
+  border: 0px;
+  background-color: $main-blue;
+  // li, a{
+  //   color:white;
+  //   margin:0px;
+  // }
+
+}
+
+/*Find this next time*/
+// color of text in navbar
+.navbar-right a{
+  color: white !important;
+}
+
+#iptulogo {
+  //float: right;
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
@@ -106,6 +125,11 @@ p {
   }
 }
 
+#iplogo {
+  float: left;
+  margin-top: 0px;
+  margin-right: 10px;
+}
 /* footer */
 
 footer {
@@ -253,13 +277,4 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
-}
-
-/*navbar*/
-.navbar-inverse{
-  margin: 0px;
-  padding-top: 10px;
-  border: 0px;
-  background-color: black;
-  font-size: 1.2em;
 }
