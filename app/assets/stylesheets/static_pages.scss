@@ -15,8 +15,14 @@ $light-blue: #67c7ff;
 }
 
 //Should be at custom.css
-hr{
-  margin: 0px;
+// something is fucking wrong with the margin 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0px;
+    padding: 0px;
 }
 
 #bannerhead{
@@ -48,8 +54,10 @@ hr{
 
 .section-img{
   padding: 0 30px 0 auto;
+
 }
-//  #img-responsiveIP{
-//    min-height: 250px;
-// //   background-image: url('ipoffers.jpg');
-//  }
+
+// For main images of ip offers and ip needs
+ #img-responsiveIP{
+  margin-left: 70px;
+ }
