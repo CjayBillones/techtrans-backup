@@ -124,30 +124,35 @@ p {
   float: left;
   margin-top: 0px;
   margin-right: 10px;
+  max-height: 45px
 }
 /* footer */
 
 .footer-above {
   //margin-top: 45px;
-  background-color: $main-blue;
-  padding-top: 5px;
-  border-top: 1px solid $accent-blue;
+  background-color: #f8f8f8;//$main-blue;
+  padding: 5px 10px 10px 5px;
+  border-top: 2px solid #999999;
   color: white;
   h1,h2,h3{
-    color: white;
+    color: #999999;
+  }
+  p#para{
+    color: #999999;
+    font-size: 1em;
   }
   a {
     text-align: center;
-    color: white;
+    color: #999999;
     &:hover {
-      color: $light-orange;
+      color: black;//$light-orange;
     }
   }
 }
 
 .footer-below{
   //margin-top: 45px;
-  background-color: $light-blue;
+  background-color: #1B1C1D;
   padding-top: 5px;
   border-top: 1px solid $main-blue;
   color: white;
