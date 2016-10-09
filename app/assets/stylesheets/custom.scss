@@ -1,17 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "colors.scss";
 
 /* mixins, variables, etc. */
-
-$gray-medium-light: #eaeaea;
-$main-red: #7b1113; //dark red
-$main-green: #094424; //dark green
-$main-orange: #ff6e1f; //main orange
-$main-blue: #4b68ff;
-$light-red: #cc0001;  //bright red
-$light-green: #a2fa4c; //bright green
-$light-orange: #fbae5c; //brigh orange
-$light-blue: #67c7ff;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -19,13 +10,23 @@ $light-blue: #67c7ff;
   box-sizing:         border-box;
 }
 
-
 /* universal */
 
 html, body {
   height: 100%;
-  background-color: #1B1C1D;
   font-family: "proxima-nova",helvetica,arial,sans-serif;
+  background-image: url('headersbg-blue.png');
+  background-repeat: repeat;
+  background-position: center;  
+}
+
+.hr {
+    display: block;
+    height: 1px;
+    border-top: 1px solid #6A6E80;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0px;
 }
 
 section {

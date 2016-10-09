@@ -8,9 +8,6 @@
             | UP DILIMAN IP AND TECHNOLOGY TRANSFER
           h3
             | Bringing innovation and technology closer to your doorsteps.
-          p 
-            | Stop people from drowning in ignorance. 
-            | Share your discoveries  or find the technology you need today.
       br
       .text-center
         .btn.btn-primary.btn-lg
@@ -22,7 +19,7 @@
       .col-md-6
         .section-img
           #img-responsiveIP
-            = image_tag("ipoffers.jpg", style:"width: 80%;")
+            = image_tag("ipoffers.jpg", style:"max-width: 100%; max-height: 100%;")
       .col-md-6
         h1
           | Technology Offers
@@ -32,52 +29,18 @@
             .btn.btn-primary.btn-lg
               | Begin
     .row
-      hr 
+      .hr
       h3
         | Featured Technology
-      .col-md-2
-        .section-img
-          = image_tag("bluebike.jpeg", style:"width: 98%;")
-      .col-md-2
-        .section-img
-          = image_tag("orangenotes.jpeg", style:"width: 100%;")
-      .col-md-2
-        .section-img
-          = image_tag("bluepen.jpg", style:"width: 110%;")
-      .col-md-2
-        .section-img
-          = image_tag("redcoffee.jpg", style:"width: 110%;")
-      .col-md-2
-        .section-img
-          = image_tag("redphone.jpg", style:"width: 100%;")
-      .col-md-2
-        .section-img
-          = image_tag("orangenotes.jpg", style:"width: 97%;")
+      - @ip_offers.each_with_index do |ip_offer, index|
+        .col-md-2
+          .section-img
+            = image_tag "ip-offer-#{ip_offer.id-1}.jpeg", :size => "161x106"
+          h4
+            = simple_format(truncate(ip_offer.title, length: 18))
+        - break if index >= 5
     .row
-      .col-md-2
-        h4
-          | Bike Accelerator
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Desk
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Pens
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Coffee
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Phone Design
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Orange Notes
-        p Lorem ipsum...
+      .hr
 
 .introduction
   .container.fluid
@@ -86,7 +49,7 @@
         h1
           | Technology Needs
         p 
-          |   | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.
         .text-center
           .btn.btn-primary.btn-lg
             | Begin
@@ -94,51 +57,17 @@
       .col-md-6
         .section-img
           #img-responsiveIP
-            = image_tag("ipneeds.jpg", style:"width: 70%;")
+            = image_tag("ipneeds.jpg", style:"max-width: 100%; max-height: 100%;")
     .row
-      hr 
+      .hr
       h3
         | Featured Technology
-      .col-md-2
-        .section-img
-          = image_tag("bluebike.jpeg", style:"width: 98%;")
-      .col-md-2
-        .section-img
-          = image_tag("orangenotes.jpeg", style:"width: 100%;")
-      .col-md-2
-        .section-img
-          = image_tag("bluepen.jpg", style:"width: 110%;")
-      .col-md-2
-        .section-img
-          = image_tag("redcoffee.jpg", style:"width: 110%;")
-      .col-md-2
-        .section-img
-          = image_tag("redphone.jpg", style:"width: 100%;")
-      .col-md-2
-        .section-img
-          = image_tag("orangenotes.jpg", style:"width: 97%;")
+      - @ip_needs.each_with_index do |ip_need, index|
+        .col-md-2
+          .section-img
+            = image_tag "ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
+          h4
+            = simple_format(truncate(ip_need.title, length: 18))
+        - break if index >= 5
     .row
-      .col-md-2
-        h4
-          | Bike Accelerator
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Desk
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Pens
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Coffee
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Phone Design
-        p Lorem ipsum...
-      .col-md-2
-        h4
-          | Orange Notes
-        p Lorem ipsum...
+      .hr
