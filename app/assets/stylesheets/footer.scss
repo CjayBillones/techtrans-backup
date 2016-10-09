@@ -1,0 +1,33 @@
+@import "colors.scss";
+
+.footer-above {
+  background-color: #f8f8f8;
+  padding: 5px 10px 10px 5px;
+  border-top: 2px solid $gray-60;
+  color: white;
+  h1,h2{
+    color: $gray-60;
+  }
+  p#para{
+    color: $gray-60;
+    font-size: 1em;
+  }
+  a {
+    text-align: center;
+    color: $gray-60;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.footer-below{
+  background-color: #1B1C1D;
+  padding-top: 5px;
+  border-top: 1px solid $main-blue;
+  color: white;
+  p{
+    text-align: center;
+    font-size: 1em;
+  }
+}

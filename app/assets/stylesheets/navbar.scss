@@ -1,7 +1,6 @@
 // Contains all navbar-related CSS
 
-$main-blue: #4b68ff;
-$accent-blue: #27a2ff;
+@import "colors.scss";
 
 .navbar{
   margin: 0px;
