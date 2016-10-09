@@ -148,9 +148,9 @@ input {
 }
 
 .checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
+  padding-top: 0px;
   span {
+    padding-top: 0px;
     margin-left: 20px;
     font-weight: normal;
   }
@@ -159,40 +159,6 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
-}
-
-/** FORM FAVICON **/
-
-/* enable absolute positioning */
-.inner-addon {
-    position: relative;
-}
-
-/* style icon */
-.inner-addon .glyphicon {
-  position: absolute;
-  padding: 10px;
-  pointer-events: none;
-}
-
-/* align icon */
-.left-addon .glyphicon  { left:  0px;}
-.right-addon .glyphicon { right: 0px;}
-
-/* add padding  */
-.left-addon input  { padding-left:  30px; }
-.right-addon input { padding-right: 30px; }
-
-/* Users index */
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
 }
 
 .top-buffer {
