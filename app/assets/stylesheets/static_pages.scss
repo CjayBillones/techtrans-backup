@@ -1,5 +1,4 @@
 /* home page*/
-$main-blue: #4b68ff;
 $accent-blue: #27a2ff;
 $light-orange: #fbae5c;
 $light-blue: #67c7ff;
@@ -41,15 +40,6 @@ hr {
 .container-fluid{
   align-items: center;
   max-height: 640px;
-}
-
-.navbar-logo{
-  float: left;
-//  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
-  height: 50px;
-  padding: 0px;
 }
 
 .section-img{

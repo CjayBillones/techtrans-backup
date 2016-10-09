@@ -8,7 +8,6 @@ $main-red: #7b1113; //dark red
 $main-green: #094424; //dark green
 $main-orange: #ff6e1f; //main orange
 $main-blue: #4b68ff;
-$accent-blue: #27a2ff;
 $light-red: #cc0001;  //bright red
 $light-green: #a2fa4c; //bright green
 $light-orange: #fbae5c; //brigh orange
@@ -27,17 +26,6 @@ html, body {
   height: 100%;
   background-color: #1B1C1D;
   font-family: "proxima-nova",helvetica,arial,sans-serif;
-}
-
-.main {
-  //wtf does this do?
-
-  //background-image: url('headersbg-blue.png');
-  //background-repeat: repeat;
-  //background-position: center;
-  // min-height: 640px;
-  // min-width: 640px;
-  // margin-top: 60px;
 }
 
 section {
@@ -90,42 +78,6 @@ p {
   line-height: 1.7em;
 }
 
-
-/*navbar*/
-.navbar{
-  margin: 0px;
-  height: 60px;
-  padding-top: 10px;
-  border: 0px;
-  background-color: $main-blue;
-  // li, a{
-  //   color:white;
-  //   margin:0px;
-  // }
-
-}
-
-#iptulogo {
-  //float: right;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: $accent-blue;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-#iplogo {
-  float: left;
-  margin-top: 0px;
-  margin-right: 10px;
-  max-height: 45px
-}
 /* footer */
 
 .footer-above {
@@ -275,15 +227,6 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
-}
-
-/*navbar*/
-.navbar-inverse{
-  margin: 0px;
-  padding-top: 10px;
-  border: 0px;
-  background-color: black;
-  font-size: 1.2em;
 }
 
 .top-buffer {
