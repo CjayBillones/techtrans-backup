@@ -35,10 +35,6 @@ section {
   overflow-x: hidden;
 }
 
-textarea {
-  resize: vertical;
-}
-
 .center {
   text-align: center;
   h1 {
@@ -116,49 +112,6 @@ aside {
       margin-top: 0px;
     }
   }
-}
-
-
-/* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
-
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
-}
-
-.checkbox {
-  padding-top: 0px;
-  span {
-    padding-top: 0px;
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
 }
 
 .top-buffer {
