@@ -36,11 +36,12 @@
 }
 
 .navbar-default .navbar-nav li a,
-.navbar-default .navbar-nav a.dropdown-toggle{
+.navbar-default .navbar-nav li > a.dropdown-toggle{
   color: $main-blue;
+  background-color: $accent-blue;
   &:hover, &:focus{
     color: $main-blue;
-    background-color: lighten($accent-blue,10%);
+    background-color: lighten($accent-blue,10%) !important;
   }
 }
 
@@ -54,4 +55,8 @@
     color: $main-blue;
     background: lighten($accent-blue,10%);
   }
+ }
+
+ ul.dropdown-menu > li > a{
+   background-color: white !important;
  }
