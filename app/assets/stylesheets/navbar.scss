@@ -35,7 +35,8 @@
   }
 }
 
-.navbar-default .navbar-nav li a{
+.navbar-default .navbar-nav li a,
+.navbar-default .navbar-nav a.dropdown-toggle{
   color: $main-blue;
   &:hover, &:focus{
     color: $main-blue;
@@ -43,7 +44,8 @@
   }
 }
 
-.navbar-default .navbar-nav .active a{
+.navbar-default .navbar-nav .active a,
+.navbar-default .navbar-nav .active a.dropdown-toggle{
   color: $main-blue;
   background: none;
   border-bottom: 5px solid $main-blue;
