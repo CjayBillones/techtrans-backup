@@ -52,7 +52,7 @@ class IpOffersController < ApplicationController
   private
 
     def ip_offer_params
-      params.require(:ip_offer).permit(:title, :description)
+      params.require(:ip_offer).permit(:title, :description, :photo, :document)
     end
 
     def correct_user

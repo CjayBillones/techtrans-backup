@@ -52,7 +52,7 @@ class IpNeedsController < ApplicationController
   private
 
     def ip_need_params
-      params.require(:ip_need).permit(:title, :description)
+      params.require(:ip_need).permit(:title, :description, :photo, :document)
     end
 
     def correct_user
