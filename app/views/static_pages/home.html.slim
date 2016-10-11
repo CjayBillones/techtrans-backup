@@ -19,7 +19,7 @@
       .col-md-6
         .section-img
           #img-responsiveIP
-            = image_tag("ipoffers.jpg", style:"max-width: 100%; max-height: 100%;")
+            = image_tag("static/ipoffers.jpg", style:"max-width: 100%; max-height: 100%;")
       .col-md-6
         h1
           | Technology Offers
@@ -35,7 +35,7 @@
       - @ip_offers.each_with_index do |ip_offer, index|
         .col-md-2
           .section-img
-            = image_tag "ip-offer-#{ip_offer.id-1}.jpeg", :size => "161x106"
+            = image_tag "ip/ip-offer-#{ip_offer.id-1}.jpeg", :size => "161x106"
           h4
             = simple_format(truncate(ip_offer.title, length: 18))
         - break if index >= 5
@@ -57,7 +57,7 @@
       .col-md-6
         .section-img
           #img-responsiveIP
-            = image_tag("ipneeds.jpg", style:"max-width: 100%; max-height: 100%;")
+            = image_tag("static/ipneeds.jpg", style:"max-width: 100%; max-height: 100%;")
     .row
       .hr
       h3
@@ -65,7 +65,7 @@
       - @ip_needs.each_with_index do |ip_need, index|
         .col-md-2
           .section-img
-            = image_tag "ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
+            = image_tag "ip/ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
           h4
             = simple_format(truncate(ip_need.title, length: 18))
         - break if index >= 5
