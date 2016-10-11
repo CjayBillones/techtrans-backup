@@ -13,3 +13,6 @@
     .row
       p
         = simple_format(@ip_need.description) 
+    .row
+      -if !@ip_need.document_file_name.nil?
+        = link_to "Download File Attachment", @ip_need.document.url(:original, false)
