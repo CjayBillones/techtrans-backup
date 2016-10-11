@@ -7,7 +7,8 @@
   height: 60px;
   padding-top: 10px;
   border: 0px;
-  background-color: $main-blue;
+  background-color: $accent-blue;
+
 }
 
 .navbar-logo{
@@ -21,8 +22,9 @@
 #iptulogo {
   float: right;
   margin-right: 10px;
+  margin-left: 5px;
   font-size: 1.5em;
-  color: $accent-blue;
+  color: $main-blue;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -32,3 +34,22 @@
     text-decoration: none;
   }
 }
+
+.navbar-default .navbar-nav li a{
+  color: $main-blue;
+  &:hover, &:focus{
+    color: $main-blue;
+    background-color: lighten($accent-blue,10%);
+  }
+}
+
+.navbar-default .navbar-nav .active a{
+  color: $main-blue;
+  background: none;
+  border-bottom: 5px solid $main-blue;
+  padding-bottom: 10px;
+  &:hover, &:focus{
+    color: $main-blue;
+    background: lighten($accent-blue,10%);
+  }
+ }
