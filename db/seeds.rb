@@ -1,3 +1,5 @@
+require 'csv'
+
 user = User.create!(first_name: "Cjay", last_name: "Billones", email: "billonesciprian08@yahoo.com", 
                   password: "password", password_confirmation: "password", admin: true, activated: true,
                   activated_at: Time.zone.now)
@@ -21,15 +23,28 @@ user = User.create!(first_name: "Dyosa", last_name: "Andaca", email: "mariaapril
                activated_at: Time.zone.now)
 end
 
+ip_offers_csv = File.read(Rails.root.join('lib', 'seeds', 'ip-offers-seeds.csv'))
+csv = CSV.parse(ip_offers_csv, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  image_path = "#{Rails.root}/lib/assets/images/#{row['Image']}"
+  image_file = File.new(image_path)
+  user = User.find(rand(1...User.count+1)).ip_offers.build(title: row['Title'], description: row['Overview'],
+          photo: ActionDispatch::Http::UploadedFile.new(
+          :filename => File.basename(image_file),
+          :tempfile => image_file,
+          :type => MIME::Types.type_for(image_path).first.content_type
+        )).save
+end
+
 10.times do |n|
   title = Faker::Lorem.words(rand(5...9)).join(' ')
   description = Faker::Lorem.paragraph(rand(10...26))
   user = User.find(rand(1...User.count+1)).ip_needs.build(title: title, description: description).save
 end
 
-10.times do |n|
-  title = Faker::Lorem.words(rand(5...16)).join(' ')
-  description = Faker::Lorem.paragraph(rand(10...26))
-  user = User.find(rand(1...User.count+1)).ip_offers.build(title: title, description: description).save
-end
+#10.times do |n|
+#  title = Faker::Lorem.words(rand(5...16)).join(' ')
+#  description = Faker::Lorem.paragraph(rand(10...26))
+#  user = User.find(rand(1...User.count+1)).ip_offers.build(title: title, description: description).save
+#end
 
