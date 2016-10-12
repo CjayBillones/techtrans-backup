@@ -36,7 +36,7 @@
       .col-md-6
         .section-img
           #img-responsiveIP
-            = image_tag("ipoffers.jpg", :size => "400x300")
+            = image_tag("static/ipoffers.jpg", :size => "400x300")
       .col-md-6
         h1
           | Technology Offers
@@ -75,7 +75,7 @@
       .col-md-6
         .section-img
           #img-responsiveIP
-            = image_tag("ipneeds.jpg", :size => "400x300")
+            = image_tag("static/ipneeds.jpg", :size => "400x300")
     .row
       .hr
       h3
@@ -84,7 +84,7 @@
         = link_to ip_need do
           .col-md-2.side-margin-19
             .section-img
-              = image_tag "ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
+              = image_tag "ip/ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
             h5
               = simple_format(truncate(ip_need.title, length: 25))
         - break if index >= 4
