@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002044046) do
+ActiveRecord::Schema.define(version: 20161011073155) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -27,8 +27,16 @@ ActiveRecord::Schema.define(version: 20161002044046) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
     t.index ["user_id", "created_at"], name: "index_ip_needs_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_ip_needs_on_user_id"
   end
@@ -37,8 +45,16 @@ ActiveRecord::Schema.define(version: 20161002044046) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
     t.index ["user_id", "created_at"], name: "index_ip_offers_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_ip_offers_on_user_id"
   end

@@ -1,10 +1,16 @@
 = form_for(@ip_need) do |f|
   = render 'shared/error_messages', object: f.object
 
-  = f.label :title
+  = f.label :title, '* Title:'
   = f.text_field :title, class: 'form-control'
   
-  = f.label :description
+  = f.label :description, '* Description:'
   = f.text_area :description, class: 'form-control'
+
+  = f.label :photo, 'Photo Attachment:'
+  = f.file_field :photo
+
+  = f.label :document, 'Document Attachment:'
+  = f.file_field :document
  
   = f.submit yield(:button_text), class: "btn btn-primary"

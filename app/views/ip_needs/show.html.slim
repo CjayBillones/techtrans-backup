@@ -1,8 +1,18 @@
-h1
-  = @ip_need.title
-h2
-  | Posted by 
-  = fullname(@user) + ' | '
-  = local_time(@ip_need.created_at)
-p
-  = simple_format(@ip_need.description) 
+.introduction
+  .container
+    .row
+      .col-md-4
+        = image_tag @ip_need.photo.url(:small)
+      .col-md-8
+        h1
+          = @ip_need.title
+        h2
+          | Posted by 
+          = fullname(@user) + ' | '
+          = local_time(@ip_need.created_at)
+    .row
+      p
+        = simple_format(@ip_need.description) 
+    .row
+      -if !@ip_need.document_file_name.nil?
+        = link_to "Download File Attachment", @ip_need.document.url(:original, false)
