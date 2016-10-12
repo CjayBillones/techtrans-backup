@@ -27,8 +27,7 @@
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit est. Elit est. Elit est. Elit est. Elit est. Elit est.
       br
       .text-center
-        .btn.btn-primary.btn-lg
-          | Learn More
+        = link_to "Learn More", about_path, class: "btn btn-primary btn-lg"
 
 .introduction
   .container.fluid
@@ -38,24 +37,24 @@
           #img-responsiveIP
             = image_tag("static/ipoffers.jpg", :size => "400x300")
       .col-md-6
-        h1
-          | Technology Offers
+        h2
+          | Intellectual Property Offers
         p 
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum luctus estemi.
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
           .text-center
-            .btn.btn-primary.btn-lg
-              | Begin
+            = link_to "View IP Offers", ip_offers_path, class: "btn btn-primary btn-lg"
     .row
       .hr
       h3
-        | Featured Technology
+        | Featured IP Offers
       - @ip_offers.each_with_index do |ip_offer, index|
         = link_to ip_offer do
           .col-md-2.side-margin-19
             .section-img
               = image_tag ip_offer.photo.url, :size => "161x106"
             h5
-              = simple_format(truncate(ip_offer.title, length: 25))
+              .text-center
+                = simple_format(truncate(ip_offer.title, length: 20))
         - break if index >= 4
     .row
       .hr
@@ -64,14 +63,13 @@
   .container.fluid
     .row
       .col-md-6
-        h1
-          | Technology Needs
+        h2
+          | Intellectual Property Needs
         p 
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum luctus estemi.
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         .text-center
-          .btn.btn-primary.btn-lg
-            | Begin
-            br
+          = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
+          br
       .col-md-6
         .section-img
           #img-responsiveIP
@@ -79,14 +77,15 @@
     .row
       .hr
       h3
-        | Featured Technology
+        | Featured IP Needs
       - @ip_needs.each_with_index do |ip_need, index|
         = link_to ip_need do
           .col-md-2.side-margin-19
             .section-img
               = image_tag "ip/ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
             h5
-              = simple_format(truncate(ip_need.title, length: 25))
+              .text-center
+                = simple_format(truncate(ip_need.title, length: 20))
         - break if index >= 4
     .row
       .hr
