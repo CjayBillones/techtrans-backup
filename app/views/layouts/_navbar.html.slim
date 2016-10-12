@@ -5,12 +5,12 @@ header.navbar.navbar-default.navbar-fixed-top
         = link_to image_tag("logo/UPD_logo.png", style:"max-height: 40px;"), root_path, id:"logo"
         = link_to "UP IPTTU", root_path, id: "iptulogo"
       ul.nav.navbar-nav
-        li.active
-          = link_to "Home", root_path
         li
-          = link_to "About Us", about_path
+          = active_link_to "Home", home_path, :wrap_tag => :li
         li
-          = link_to "Expertise", expertise_path
+          = active_link_to "About Us", about_path, :wrap_tag => :li
+        li
+          = active_link_to "Expertise", expertise_path, :wrap_tag => :li
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#"
             | Opportunities
@@ -20,9 +20,9 @@ header.navbar.navbar-default.navbar-fixed-top
             li
               = link_to "IP Needs", ip_needs_path
         li
-          = link_to "ITSO-IPOPHL", itso_ipophl_path
+          = active_link_to "ITSO-IPOPHL", itso_ipophl_path, :wrap_tag => :li
         li
-          = link_to "Resources", resources_path
+          = active_link_to "Resources", resources_path, :wrap_tag => :li
       - if logged_in?
         ul.nav.navbar-nav.navbar-right
           li.dropdown
@@ -40,6 +40,6 @@ header.navbar.navbar-default.navbar-fixed-top
       - else
         ul.nav.navbar-nav.navbar-right
           li
-            = link_to "Log in", login_path
+            = active_link_to "Log in", login_path, :wrap_tag => :li
           li
-            = link_to "Register", register_path
+            = active_link_to "Register", register_path, :wrap_tag => :li
