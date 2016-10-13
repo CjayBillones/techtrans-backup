@@ -1,6 +1,7 @@
 // Contains all navbar-related CSS
-
-@import "colors.scss";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "vars.scss";
 
 .navbar{
   margin: 0px;
