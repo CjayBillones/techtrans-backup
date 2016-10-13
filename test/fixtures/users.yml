@@ -34,7 +34,7 @@ malory:
 
 <% 30.times do |n| %>
 user_<%= n %>:
-  first_name:  User
+  first_name: User
   last_name: <%= "#{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
