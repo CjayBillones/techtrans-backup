@@ -1,4 +1,7 @@
 // Contains all Static_Pages-related CSS
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "colors.scss";
 
 /*Home Page*/
 .introduction{
@@ -6,15 +9,30 @@
   padding-top: 30px;
 }
 
-
-#bannerhead{
-  margin-top: 0;
-  padding-top: 100px;
-  min-height: 640px;
-  background-image: url(static/bluelb3.jpeg);
-  background-repeat:no-repeat;
-  background-size: 100%;
+.carousel,.item, .active{
+  height: 100%;
 }
+
+.carousel-inner{
+  height: 100%;
+}
+
+.fill{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+// #bannerhead{
+//   margin-top: 0;
+//   padding-top: 100px;
+//   min-height: 640px;
+//   background-image: url(static/bluelb3.jpeg);
+//   background-repeat:no-repeat;
+//   background-size: 100%;
+// }
 
 .container-fluid{
   align-items: center;
