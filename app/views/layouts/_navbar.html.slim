@@ -6,7 +6,7 @@ header.navbar.navbar-default.navbar-fixed-top
         = link_to "UP IPTTU", root_path, id: "iptulogo"
       ul.nav.navbar-nav
         li
-          = active_link_to "Home", home_path, :wrap_tag => :li
+          = active_link_to "Home", root_path, :wrap_tag => :li, :active => [['static_pages'], ['home']]
         li
           = active_link_to "About Us", about_path, :wrap_tag => :li
         li
