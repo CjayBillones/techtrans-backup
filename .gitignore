@@ -25,6 +25,3 @@
 
 # Ignore application configuration
 /config/application.yml
-
-/public/assets/ip-offers/*
-/public/assets/ip-needs/*
