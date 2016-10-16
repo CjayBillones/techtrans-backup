@@ -1,6 +1,25 @@
 .introduction
-  .fill
+  #myCarousel.carousel.slide
+    .carousel-inner
+      .item.active
+        .fill style= "background-image:url ('static/bluebike.jpeg');"
+          / =active_link_to( style:"background-image(static/bluepen)"), :wrap_tag => :item
+        .carousel-caption
+          h2
+            | Carousel1
+      / .item
+      /   .fill style=
+          
+    / ol.carousel-indicators
+    /   li 
+    /     = active_link_to = "#carousel", data-slide-to="0"
+    /   li
+    /     = active_link_to = "#carousel1", data-slide-to="1"
+    /   li 
+    /     = active_link_to = "#carousel2", data-slide-to="2"
 
+  
+  
 / .introduction
 /   #bannerhead
 /     .container.fluid

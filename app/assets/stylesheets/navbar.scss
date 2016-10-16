@@ -1,14 +1,14 @@
 // Contains all navbar-related CSS
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "vars.scss";
+@import "colors.scss";
 
 .navbar{
   margin: 0px;
   height: 60px;
   padding-top: 10px;
   border: 0px;
-  background-color: $accent-blue;
+  background-color: $dark-blue!important;
 
 }
 
@@ -25,7 +25,7 @@
   margin-right: 10px;
   margin-left: 5px;
   font-size: 1.5em;
-  color: $main-blue;
+  color: $gray;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -36,28 +36,32 @@
   }
 }
 
-.navbar-default .navbar-nav li a,
+.navbar-default .navbar-nav li>a,
 .navbar-default .navbar-nav li > a.dropdown-toggle{
-  color: $main-blue;
-  background-color: $accent-blue;
+  color: $gray!important;
+  background-color: $dark-blue!important;
+  padding-bottom: 14px;
   &:hover, &:focus{
-    color: $main-blue;
-    background-color: lighten($accent-blue,10%) !important;
+    color: $gray;
+    background-color: lighten($dark-blue,10%) !important;
   }
 }
 
-.navbar-default .navbar-nav .active a,
-.navbar-default .navbar-nav .active a.dropdown-toggle{
-  color: $main-blue;
-  background: none;
-  border-bottom: 5px solid $main-blue;
-  padding-bottom: 10px;
+// .navbar-default .navbar-nav .active a,
+// .navbar-default .navbar-nav .active a.dropdown-toggle{
+//   color: $gray;
+//   background: none;
+//   border-bottom: 5px solid $gray;
+//   padding-bottom: 10px;
+//   &:hover, &:focus{
+//     color: $gray;
+//     background: lighten($dark-blue,10%);
+//   }
+//  }
+button.navbar-toggle.collapsed,
+ul.dropdown-menu{
+  background-color: $dark-blue;
   &:hover, &:focus{
-    color: $main-blue;
-    background: lighten($accent-blue,10%);
+    background-color: $dark-blue;
   }
- }
-
- ul.dropdown-menu > li > a{
-   background-color: white !important;
  }

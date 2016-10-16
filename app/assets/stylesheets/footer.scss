@@ -1,33 +1,37 @@
 @import "vars.scss";
 
 .footer-above {
-  background-color: #f8f8f8;
+  background-color: $dark-blue;
   padding: 5px 10px 10px 5px;
-  border-top: 2px solid $gray-60;
+  border-top: 2px solid $gray;
   color: white;
-  h1,h2{
-    color: $gray-60;
+
+  h1,h2,h3{
+    color: $gray;
+    text-align: left;
   }
-  p#para{
-    color: $gray-60;
+  p{
+    color: $gray;
     font-size: 1em;
   }
   a {
-    text-align: center;
-    color: $gray-60;
+    color: $gray;
     &:hover {
-      color: black;
+      color: white;
     }
   }
 }
 
 .footer-below{
-  background-color: #1B1C1D;
-  padding-top: 5px;
-  border-top: 1px solid $main-blue;
-  color: white;
+  background-color: $dark-blue;
+  padding-top: 2px;
+  border-top: 2px solid $gray;
+  border-bottom: 2px solid $gray;
+
   p{
     text-align: center;
     font-size: 1em;
+    color:$gray;
+    margin: 0 auto;
   }
 }
