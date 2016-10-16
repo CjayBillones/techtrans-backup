@@ -7,7 +7,7 @@
   height: 60px;
   padding-top: 10px;
   border: 0px;
-  background-color: $accent-blue!important;
+  background-color: $dark-blue!important;
 
 }
 
@@ -24,7 +24,7 @@
   margin-right: 10px;
   margin-left: 5px;
   font-size: 1.5em;
-  color: $main-blue;
+  color: $gray;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -37,23 +37,24 @@
 
 .navbar-default .navbar-nav li>a,
 .navbar-default .navbar-nav li > a.dropdown-toggle{
-  color: $main-blue!important;
-  background-color: $accent-blue!important;
+  color: $gray!important;
+  background-color: $dark-blue!important;
+  padding-bottom: 14px;
   &:hover, &:focus{
-    color: $main-blue;
-    background-color: lighten($accent-blue,10%) !important;
+    color: $gray;
+    background-color: lighten($dark-blue,10%) !important;
   }
 }
 
 .navbar-default .navbar-nav .active a,
 .navbar-default .navbar-nav .active a.dropdown-toggle{
-  color: $main-blue;
+  color: $gray;
   background: none;
-  border-bottom: 5px solid $main-blue;
+  border-bottom: 5px solid $gray;
   padding-bottom: 10px;
   &:hover, &:focus{
-    color: $main-blue;
-    background: lighten($accent-blue,10%);
+    color: $gray;
+    background: lighten($dark-blue,10%);
   }
  }
 

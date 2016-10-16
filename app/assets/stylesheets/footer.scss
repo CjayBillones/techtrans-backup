@@ -1,33 +1,35 @@
 @import "colors.scss";
 
 .footer-above {
-  background-color: #f8f8f8;
+  background-color: $dark-blue;
   padding: 5px 10px 10px 5px;
-  border-top: 2px solid $gray-60;
+  border-top: 2px solid $gray;
   color: white;
-  h1,h2{
-    color: $gray-60;
+  h1,h2,h3{
+    color: $gray;
   }
   p#para{
-    color: $gray-60;
+    color: $gray;
     font-size: 1em;
   }
   a {
     text-align: center;
-    color: $gray-60;
+    color: $gray;
     &:hover {
-      color: black;
+      color: white;
     }
   }
 }
 
 .footer-below{
-  background-color: #1B1C1D;
+  background-color: $dark-blue;
   padding-top: 5px;
-  border-top: 1px solid $main-blue;
-  color: white;
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray; 
+  //color: white;
   p{
     text-align: center;
     font-size: 1em;
+    color:$gray;
   }
 }
