@@ -58,7 +58,10 @@
 //     background: lighten($dark-blue,10%);
 //   }
 //  }
-
- ul.dropdown-menu > li > a{
-   background-color: white !important;
+button.navbar-toggle.collapsed,
+ul.dropdown-menu{
+  background-color: $dark-blue;
+  &:hover, &:focus{
+    background-color: $dark-blue;
+  }
  }
