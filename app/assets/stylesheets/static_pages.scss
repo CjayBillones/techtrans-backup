@@ -25,18 +25,20 @@
   background-position: center;
   // -webkit-background-size: cover;
   // -moz-background-size: cover;
-  // background-size: cover;
 }
-// #bannerhead{
-//   margin-top: 0;
-//   padding-top: 100px;
-//   min-height: 640px;
-//   background-image: url(static/bluelb3.jpeg);
-//   background-repeat:no-repeat;
-//   background-size: 100%;
-// }
+
+#bannerhead{
+  margin-top: 0;
+  padding-top: 100px;
+  min-height: 640px;
+  background-color: white;
+  //background-image: url(static/bluelb3.jpeg);
+  //background-repeat:no-repeat;
+  //background-size: 100%;
+}
 
 .container-fluid{
+  // background-size: cover;
   align-items: center;
   max-height: 640px;
 }
