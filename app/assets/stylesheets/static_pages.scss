@@ -22,10 +22,12 @@
 .carousel-caption{
     top: 50px;
     bottom: auto;
-    size:
+    //background-color: lighten(black,60%);
+    border-radius: 25px;
+    background: rgba(0,0,0,0.3);
     h1{
       color: white;
-      font-size: 10em;
+      font-size: 5em;
     }
 }
 
