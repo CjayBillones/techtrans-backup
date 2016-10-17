@@ -1,4 +1,4 @@
-.introduction
+#carouseltop
   #myCarousel.carousel.slide data-ride="carousel"
     ol.carousel-indicators
       li.active data-target="#myCarousel" data-slide-to="0"
@@ -8,21 +8,22 @@
     .carousel-inner role="listbox"
       .item.active
         .section-img
-          = image_tag("static/bluelb2.jpeg", :size=> "1080x640", :alt=> "LightBulb")        
-        / .fill alt="bg1" style="background-image: url(headersbg-red.png);"
+         = image_tag("static/bluelb2.jpeg", :width=> "100%", :alt=> "LightBulb")        
+        / .fill 
+        //alt="bg1" style="background-image: url(static/bluebike.jpeg);"
         / =active_link_to( style:"background-image(static/bluepen)"), :wrap_tag => :item
         .carousel-caption
           h1
             | Carousel1
       .item        
         .section-img
-          = image_tag("static/redcoffee.jpg", :size=> "1080x640", :alt=> "LightBulb")
+          = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "LightBulb")
         .carousel-caption
           h1
             | Carousel2
       .item        
         .section-img
-          = image_tag("static/orangephone.jpg", :size=> "1080x640", :alt=> "LightBulb")
+          = image_tag("static/orangephone.jpg", :width=> "100%", :alt=> "LightBulb")
         .carousel-caption
           h1
             | Carousel3
