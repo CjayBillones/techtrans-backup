@@ -47,17 +47,17 @@
   }
 }
 
-// .navbar-default .navbar-nav .active a,
-// .navbar-default .navbar-nav .active a.dropdown-toggle{
-//   color: $gray;
-//   background: none;
-//   border-bottom: 5px solid $gray;
-//   padding-bottom: 10px;
-//   &:hover, &:focus{
-//     color: $gray;
-//     background: lighten($dark-blue,10%);
-//   }
-//  }
+.navbar-default .navbar-nav .active a,
+.navbar-default .navbar-nav .active a.dropdown-toggle{
+  color: $gray;
+  background: none;
+  border-bottom: 5px solid $gray;
+  padding-bottom: 10px;
+  &:hover, &:focus{
+    color: $gray;
+    background: lighten($dark-blue,10%);
+  }
+ }
 button.navbar-toggle.collapsed,
 ul.dropdown-menu{
   background-color: $dark-blue;

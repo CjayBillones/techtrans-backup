@@ -12,11 +12,11 @@ header.navbar.navbar-default.navbar-fixed-top role= "navigation"
     .navbar-collapse.collapse                
       ul.nav.navbar-nav
         li
-          = active_link_to "Home", home_path, :wrap_tag => :li
+          = link_to "Home", home_path, :wrap_tag => :li
         li
-          = active_link_to "About Us", about_path, :wrap_tag => :li
+          = link_to "About Us", about_path, :wrap_tag => :li
         li
-          = active_link_to "Expertise", expertise_path, :wrap_tag => :li
+          = link_to "Expertise", expertise_path, :wrap_tag => :li
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#" 
           
@@ -27,9 +27,9 @@ header.navbar.navbar-default.navbar-fixed-top role= "navigation"
             li
               = link_to "IP Needs", ip_needs_path
         li
-          = active_link_to "ITSO-IPOPHL", itso_ipophl_path, :wrap_tag => :li
+          = link_to "ITSO-IPOPHL", itso_ipophl_path, :wrap_tag => :li
         li
-          = active_link_to "Resources", resources_path, :wrap_tag => :li
+          = link_to "Resources", resources_path, :wrap_tag => :li
       - if logged_in?
         ul.nav.navbar-nav.navbar-right
           li.dropdown
@@ -47,6 +47,6 @@ header.navbar.navbar-default.navbar-fixed-top role= "navigation"
       - else
         ul.nav.navbar-nav.navbar-right
           li
-            = active_link_to "Log in", login_path, :wrap_tag => :li
+            = link_to "Log in", login_path, :wrap_tag => :li
           li
-            = active_link_to "Register", register_path, :wrap_tag => :li
+            = link_to "Register", register_path, :wrap_tag => :li
