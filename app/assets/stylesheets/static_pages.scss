@@ -7,25 +7,35 @@
 .introduction{
   min-height: 640px;
   padding-top: 30px;
+  overflow: hidden;
 }
 
 .carousel,.item, .active{
   height: 100%;
-  width: 100%;
+
 }
 
 .carousel-inner{
-  height: 100%;
-  width: 100%;
+  height:  100%;
+  overflow: hidden;
+
 }
 
+///nacommentout yun use nito sa home.html
 .fill{
-  width: 100%;
   height: 100%;
+  width:  100%;
+  background-image: url(static/bluelb3.jpeg);
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
+  background-size: cover;
 }
+
+// #cimage{
+//   height: 640px!important;
+//   width:  1080!important;
+// }
 
 #bannerhead{
   margin-top: 0;

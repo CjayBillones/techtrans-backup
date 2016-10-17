@@ -1,29 +1,31 @@
 .introduction
-  header#myCarousel.carousel.slide
+  #myCarousel.carousel.slide data-ride="carousel"
     ol.carousel-indicators
       li.active data-target="#myCarousel" data-slide-to="0"
       li data-target="#myCarousel" data-slide-to="1"
       li data-target="#myCarousel" data-slide-to="2"      
   
-    .carousel-inner
+    .carousel-inner role="listbox"
       .item.active
-        .fill style= "background-image:url('static/bluebike.jpeg');"
-          / =active_link_to( style:"background-image(static/bluepen)"), :wrap_tag => :item
+        .section-img
+          = image_tag("static/bluelb2.jpeg", :size=> "1080x640", :alt=> "LightBulb")        
+        / .fill alt="bg1" style="background-image: url(headersbg-red.png);"
+        / =active_link_to( style:"background-image(static/bluepen)"), :wrap_tag => :item
         .carousel-caption
-          h2
+          h1
             | Carousel1
-      / .item
-      /   .fill style=
-          
-    / ol.carousel-indicators
-    /   li 
-    /     = active_link_to = "#carousel", data-slide-to="0"
-    /   li
-    /     = active_link_to = "#carousel1", data-slide-to="1"
-    /   li 
-    /     = active_link_to = "#carousel2", data-slide-to="2"
-
-  
+      .item        
+        .section-img
+          = image_tag("static/redcoffee.jpg", :size=> "1080x640", :alt=> "LightBulb")
+        .carousel-caption
+          h1
+            | Carousel2
+      .item        
+        .section-img
+          = image_tag("static/orangephone.jpg", :size=> "1080x640", :alt=> "LightBulb")
+        .carousel-caption
+          h1
+            | Carousel3                  
   
 / .introduction
 /   #bannerhead
@@ -77,7 +79,7 @@
       - @ip_offers.each_with_index do |ip_offer, index|
         = link_to ip_offer do
           .col-md-2.side-margin-19
-            .section-img
+            #cimage.section-img
               = image_tag ip_offer.photo.url, :size => "161x106"
             h5
               .text-center
