@@ -3,12 +3,13 @@
     ol.carousel-indicators
       li.active data-target="#myCarousel" data-slide-to="0"
       li data-target="#myCarousel" data-slide-to="1"
-      li data-target="#myCarousel" data-slide-to="2"      
+      li data-target="#myCarousel" data-slide-to="2" 
+      li data-target="#myCarousel" data-slide-to="3"           
   
     .carousel-inner role="listbox"
       .item.active
         .section-img
-         = image_tag("static/bluelb2.jpeg", :width=> "100%", :alt=> "LightBulb")        
+         = image_tag("static/bluelb2.jpeg", :width=> "100%", :alt=> "About")        
         / .fill 
         //alt="bg1" style="background-image: url(static/bluebike.jpeg);"
         / =active_link_to( style:"background-image(static/bluepen)"), :wrap_tag => :item
@@ -18,17 +19,24 @@
           h3 Lorem ipsum...
       .item        
         .section-img
-          = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "LightBulb")
+          = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "IP Needs")
         .carousel-caption
           h1
             | IP Needs
           h3 Lorem ipsum...
       .item        
         .section-img
-          = image_tag("static/orangephone.jpg", :width=> "100%", :alt=> "LightBulb")
+          = image_tag("static/orangephone.jpg", :width=> "100%", :alt=> "IP Offers")
         .carousel-caption
           h1
             | IP Offers
+          h3 Lorem ipsum...
+      .item        
+        .section-img
+          = image_tag("static/bluenotebook.jpg", :width=> "100%", :alt=> "Featured Articles")
+        .carousel-caption
+          h1
+            | Featured Article
           h3 Lorem ipsum...
     a.left.carousel-control href="#myCarousel" role="button" data-slide="prev"
       span.glyphicon.glyphicon-chevron-left aria-hidden="true"
@@ -69,7 +77,8 @@
       br
       .text-center
         = link_to "Learn More", about_path, class: "btn btn-primary btn-lg"
-
+      .hr
+      
 .introduction
   .container.fluid
     .row
