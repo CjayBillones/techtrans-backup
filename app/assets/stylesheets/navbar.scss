@@ -9,7 +9,6 @@
   padding-top: 10px;
   border: 0px;
   background-color: $dark-blue!important;
-
 }
 
 .navbar-logo{
@@ -40,6 +39,7 @@
 .navbar-default .navbar-nav li > a.dropdown-toggle{
   color: $gray!important;
   background-color: $dark-blue!important;
+  background-color: #000000;
   padding-bottom: 14px;
   &:hover, &:focus{
     color: $gray;
