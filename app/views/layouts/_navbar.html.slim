@@ -12,7 +12,8 @@ header.navbar.navbar-default.navbar-fixed-top role= "navigation"
     .navbar-collapse.collapse                
       ul.nav.navbar-nav
         li
-          = link_to "Home", home_path, :wrap_tag => :li
+          = link_to "Home", root_path, :wrap_tag => :li
+          //= active_link_to "Home", root_path, :wrap_tag => :li, :active => [['static_pages'], ['home']]
         li
           = link_to "About Us", about_path, :wrap_tag => :li
         li
