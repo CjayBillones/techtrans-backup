@@ -2,18 +2,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "colors.scss";
+@import "custom.scss";
 
 /*Home Page*/
 .introduction{
   min-height: 640px;
-  padding-top: 30px;
+//  padding-top: 30px;
 
 }
 
 #carouseltop{
   padding-top: 30px;
   height: 640px;
-  overflow: hidden;
+  overflow: hide;
 //  margin: 0 auto 0 auto;
   display: block;
 
@@ -32,8 +33,9 @@
 }
 
 .carousel-indicators{
-  top: 500px;
-  bottom: auto;
+  //top: 500px;
+  top: auto;
+  bottom: 100px;
 }
 .carousel,.item, .active{
   height: 100%;
@@ -64,22 +66,32 @@
 //   width:  1080!important;
 // }
 
-#bannerhead{
+#mv{
   margin-top: 0;
   padding-top: 100px;
-  min-height: 640px;
-  background-color: white;
+  height: 640px;
+  background-color: $accent-green;
   //background-image: url(static/bluelb3.jpeg);
   //background-repeat:no-repeat;
   //background-size: 100%;
 }
 
-.container-fluid{
+#IPOffers{
   // background-size: cover;
+  padding-top: 100px;
   align-items: center;
-  max-height: 640px;
+  height: 640px;
+  background-color: lighten($dark-blue, 15%);
+
 }
 
+#IPNeeds{
+  // background-size: cover;
+  padding-top: 100px;
+  align-items: center;
+  height: 640px;
+  background-color: $main-red;
+}
 .section-img{
   padding: 0 30px 0 auto;
 }

@@ -8,7 +8,7 @@
   
     .carousel-inner role="listbox"
       .item.active
-        .section-img
+        .img-fluid
          = image_tag("static/bluelb2.jpeg", :width=> "100%", :alt=> "About")        
         / .fill 
         //alt="bg1" style="background-image: url(static/bluebike.jpeg);"
@@ -18,21 +18,21 @@
             | About
           h3 Lorem ipsum...
       .item        
-        .section-img
+        .img-fluid
           = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "IP Needs")
         .carousel-caption
           h1
             | IP Needs
           h3 Lorem ipsum...
       .item        
-        .section-img
+        .img-fluid
           = image_tag("static/orangephone.jpg", :width=> "100%", :alt=> "IP Offers")
         .carousel-caption
           h1
             | IP Offers
           h3 Lorem ipsum...
       .item        
-        .section-img
+        .img-fluid
           = image_tag("static/bluenotebook.jpg", :width=> "100%", :alt=> "Featured Articles")
         .carousel-caption
           h1
@@ -48,7 +48,7 @@
         |Next
   
 .introduction
-  #bannerhead
+  #mv
     .container.fluid
       .row
         .span6 style="float:none;margin-left:110px;"        
@@ -80,7 +80,7 @@
       .hr
       
 .introduction
-  .container.fluid
+  #IPOffers
     .row
       .col-md-6
         .section-img
@@ -110,7 +110,7 @@
       .hr
 
 .introduction
-  .container.fluid
+  #IPNeeds
     .row
       .col-md-6
         h2
