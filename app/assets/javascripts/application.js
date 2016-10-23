@@ -18,4 +18,4 @@
 //= require local_time
 //= require select2-full
 
-$(document).ready(function() { $("#industry_classification, #industry_country_code").select2(); });
+$(document).ready(function() { $("#industry_classification, #industry_country_code, #academe_user_type").select2(); });

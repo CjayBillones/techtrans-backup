@@ -13,11 +13,14 @@
 ActiveRecord::Schema.define(version: 20161016181750) do
 
   create_table "academes", force: :cascade do |t|
-    t.string   "academe_name"
-    t.string   "unit"
-    t.string   "department"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "user_type"
+    t.string   "id_number"
+    t.string   "contact_number"
+    t.text     "address"
+    t.string   "fb_url"
+    t.string   "linkedin_url"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "articles", force: :cascade do |t|

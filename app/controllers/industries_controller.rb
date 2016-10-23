@@ -23,6 +23,7 @@ class IndustriesController < ApplicationController
         flash[:info] = "Please check your email to activate your account."
         redirect_to login_path
       else
+        @industry.destroy
         render 'new'
       end
     else
@@ -52,22 +53,21 @@ class IndustriesController < ApplicationController
   end
 
   private
+    def user_params
+      params.require(:user).permit(:first_name, :middle_initial, :last_name, :email, 
+                                  :password, :password_confirmation)
+    end
 
-  def user_params
-    params.require(:user).permit(:first_name, :middle_initial, :last_name, :email, 
-                                :password, :password_confirmation)
-  end
+    def industry_params
+      params.require(:industry).permit(:industry_name, :country_code, :address, :contact_person,
+                                      :contact_email, :contact_number, :classification, :employee_count,
+                                      :site_url, :fb_url, :linkedin_url)
+    end
 
-  def industry_params
-    params.require(:industry).permit(:industry_name, :country_code, :address, :contact_person,
-                                    :contact_email, :contact_number, :classification, :employee_count,
-                                    :site_url, :fb_url, :linkedin_url)
-  end
-
-  def correct_user
-    @industry = Industry.find(params[:id])
-    @user = @industry.user
-    redirect_to(root_path) unless current_user?(@user)
-  end
+    def correct_user
+      @industry = Industry.find(params[:id])
+      @user = @industry.user
+      redirect_to(root_path) unless current_user?(@user)
+    end
 
 end

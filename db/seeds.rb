@@ -6,9 +6,9 @@ industry = Industry.create(
                     contact_number: "(+63) 995 3769 223")
 
 academe = Academe.create(
-                    academe_name: "UP Diliman",
-                    unit: "Office of the Vice-Chancellor for Research and Development",
-                    department: "Intellectual Property Technology Transfer Unit"
+                    user_type: "Student",
+                    id_number: "2012-27860",
+                    contact_number: "(+63) 995 3769 223",
                   )
 
 user = User.create!(

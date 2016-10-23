@@ -1,0 +1,38 @@
+= form_for @academe do |a| 
+  h2 Personal Information
+  = fields_for @user do |u|
+    = u.label :first_name
+    = u.text_field :first_name, class: 'form-control'
+    
+    = u.label :last_name
+    = u.text_field :last_name, class: 'form-control'
+    
+    = u.label :email
+    = u.email_field :email, class: 'form-control'
+    
+    = u.label :password
+    = u.password_field :password, class: 'form-control'
+    
+    = u.label :password_confirmation, "Password Confirmation"
+    = u.password_field :password_confirmation, class: 'form-control'
+
+  h2 Industry Information
+  = a.label :user_type, 'User Type'
+  = a.select(:user_type, selUserTypes, {prompt: 'Select User Type'}, class: 'form-control')
+
+  = a.label :id_number, 'Student/Employee Number'
+  = a.text_field :id_number, class: 'form-control'
+
+  = a.label :contact_number
+  = a.text_field :contact_number, class: 'form-control'
+
+  = a.label :address
+  = a.text_field :address, class: 'form-control'
+
+  = a.label :fb_url, 'Facebook Link'
+  = a.text_field :fb_url, class: 'form-control'
+
+  = a.label :linkedin_url, 'Linkedin Link'
+  = a.text_field :linkedin_url, class: 'form-control'
+
+  = a.submit yield(:button_text), class: 'btn btn-primary'
