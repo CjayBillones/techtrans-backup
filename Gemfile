@@ -18,6 +18,8 @@ gem 'figaro'
 gem 'local_time'
 gem 'font-awesome-rails'
 gem "paperclip", git: "https://github.com/thoughtbot/paperclip.git"
+gem 'carmen-rails', '~> 1.0.0'
+gem 'country_select', '~> 2.5', '>= 2.5.2'
 gem 'active_link_to'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
