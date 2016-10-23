@@ -16,3 +16,6 @@
 //= require turbolinks
 //= require_tree .
 //= require local_time
+//= require select2-full
+
+$(document).ready(function() { $("#industry_classification, #industry_country_code").select2(); });
