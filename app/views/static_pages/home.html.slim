@@ -83,7 +83,7 @@
   #IPOffers.container-fluid
     .row
       .col-md-6
-        .section-img
+        .img-fluid
           #img-responsiveIP
             = image_tag("static/ipoffers.jpg", :size => "400x300")
       .col-md-6
@@ -100,7 +100,7 @@
       - @ip_offers.each_with_index do |ip_offer, index|
         = link_to ip_offer do
           .col-md-2.side-margin-19
-            #cimage.section-img
+            #cimage.img-fluid
               = image_tag ip_offer.photo.url, :size => "161x106"
             h5
               .text-center
@@ -121,7 +121,7 @@
           = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
           br
       .col-md-6
-        .section-img
+        .img-fluid
           #img-responsiveIP
             = image_tag("static/ipneeds.jpg", :size => "400x300")
     .row
@@ -131,7 +131,7 @@
       - @ip_needs.each_with_index do |ip_need, index|
         = link_to ip_need do
           .col-md-2.side-margin-19
-            .section-img
+            .img-fluid
               = image_tag "ip/ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
             h5
               .text-center
