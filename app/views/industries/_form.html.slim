@@ -1,0 +1,53 @@
+= form_for @industry do |i| 
+  h2 Personal Information
+  = fields_for @user do |u|
+    = u.label :first_name
+    = u.text_field :first_name, class: 'form-control'
+    
+    = u.label :last_name
+    = u.text_field :last_name, class: 'form-control'
+    
+    = u.label :email
+    = u.email_field :email, class: 'form-control'
+    
+    = u.label :password
+    = u.password_field :password, class: 'form-control'
+    
+    = u.label :password_confirmation, "Password Confirmation"
+    = u.password_field :password_confirmation, class: 'form-control'
+
+  h2 Industry Information
+  = i.label :industry_name, 'Name of Organization'
+  = i.text_field :industry_name, class: 'form-control'
+
+  = i.label :classification, 'Industry Classification'
+  = i.select(:classification, selClassification, {prompt: 'Select Classification'}, class: 'form-control')
+
+  = i.label :country_code
+  = i.country_select(:country_code, { priority: %w(US PH) , prompt: 'Select Country'}, class: 'form-control')
+
+  = i.label :address
+  = i.text_field :address, class: 'form-control'
+
+  = i.label :contact_person
+  = i.text_field :contact_person, class: 'form-control'
+
+  = i.label :contact_email
+  = i.text_field :contact_email, class: 'form-control'
+
+  = i.label :contact_number
+  = i.text_field :contact_number, class: 'form-control'
+
+  = i.label :employee_count, 'Number of Employees'
+  = i.number_field :employee_count, value: 1, min: '1', class: 'form-control'
+  
+  = i.label :site_url, 'Website Link'
+  = i.text_field :site_url, class: 'form-control'
+
+  = i.label :fb_url, 'Facebook Link'
+  = i.text_field :fb_url, class: 'form-control'
+
+  = i.label :linkedin_url, 'Linkedin Link'
+  = i.text_field :linkedin_url, class: 'form-control'
+
+  = i.submit yield(:button_text), class: 'btn btn-primary'

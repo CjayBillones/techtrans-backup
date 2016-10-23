@@ -11,8 +11,21 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
 //= require local_time
+//= require select2-full
+//= require bootstrap-datepicker
+//= require_tree .
+
+//$(document).ready(function() { $("#industry_classification, #industry_country_code, #academe_user_type").select2(); });
+$(document).on('turbolinks:load', function() { $("#industry_classification, #industry_country_code, #academe_user_type").select2(); });
+
+$(document).on('turbolinks:load', function(){
+  $('#academe_birthday .input-group.date').datepicker({
+    startView: 'years',
+    autoclose: true
+  });
+});

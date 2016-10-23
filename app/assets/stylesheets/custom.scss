@@ -2,8 +2,8 @@
 @import "bootstrap";
 @import "colors.scss";
 
-/* mixins, variables, etc. */
 
+/* mixins, variables, etc. */
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -13,11 +13,12 @@
 /* universal */
 
 html, body {
-  height: 100%;
   font-family: "proxima-nova",helvetica,arial,sans-serif;
-  background-image: url('headersbg-blue.png');
-  background-repeat: repeat;
-  background-position: center;  
+  // background-color: lighten($dark-blue, 10%);
+  //background-color: $dark-blue;
+  background-image: url('headersbg.png');
+  // background-repeat: repeat;
+  background-position: center;
 }
 
 .hr {
@@ -27,6 +28,7 @@ html, body {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 0px;
+
 }
 
 section {
@@ -50,8 +52,9 @@ section {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   line-height: 1;
+  color:white;
 }
 
 h1 {

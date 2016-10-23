@@ -21,7 +21,23 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   
+  resources :researchers
+
   resources :articles
   resources :ip_offers
   resources :ip_needs
+
+  resources :industries do
+    collection do
+      get 'register' => 'industries#new'
+    end
+  end
+
+  resources :academes do
+    collection do
+      get 'register' => 'academes#new'
+    end
+  end
+
+
 end

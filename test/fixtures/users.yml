@@ -7,6 +7,8 @@ cjay:
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+  accounts_type: Industry
+  accounts_id: 1
 
 dyosa:
   id: 2
@@ -16,6 +18,8 @@ dyosa:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  accounts_type: Academe
+  accounts_id: 1
 
 lana:
   first_name: Lana
@@ -34,7 +38,7 @@ malory:
 
 <% 30.times do |n| %>
 user_<%= n %>:
-  first_name:  User
+  first_name: User
   last_name: <%= "#{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>

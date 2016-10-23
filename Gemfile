@@ -10,15 +10,20 @@ gem 'uglifier',       '3.0.0'   # Used as compressor for JavaScript assets
 gem 'coffee-rails',   '4.2.1'   # Used for .coffee assets and views
 gem 'jquery-rails',   '4.1.1'   # Use as the JavaScript library
 gem 'turbolinks',     '5.0.1'   # Makes navigating your web application faster
+gem 'jquery-turbolinks'
 gem 'jbuilder',       '2.4.1'   # Build JSON APIs with ease.
 gem 'bcrypt',         '3.1.11'  # Use ActiveModel has_secure_password
-gem "slim-rails"
+gem 'slim-rails'
 gem 'faker',          '1.6.3'
 gem 'figaro'
 gem 'local_time'
 gem 'font-awesome-rails'
-gem "paperclip", git: "https://github.com/thoughtbot/paperclip.git"
+gem 'paperclip', git: "https://github.com/thoughtbot/paperclip.git"
+gem 'carmen-rails', '~> 1.0.0'
+gem 'country_select', '~> 2.5', '>= 2.5.2'
 gem 'active_link_to'
+gem 'select2-rails'
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 

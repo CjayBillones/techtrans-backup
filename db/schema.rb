@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011073155) do
+ActiveRecord::Schema.define(version: 20161016181750) do
+
+  create_table "academes", force: :cascade do |t|
+    t.string   "user_type"
+    t.string   "id_number"
+    t.string   "contact_number"
+    t.date     "birthday"
+    t.text     "address"
+    t.string   "fb_url"
+    t.string   "linkedin_url"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -21,6 +33,23 @@ ActiveRecord::Schema.define(version: 20161011073155) do
     t.datetime "updated_at",   null: false
     t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string   "industry_name"
+    t.string   "country_code"
+    t.string   "address"
+    t.string   "contact_person"
+    t.string   "contact_email"
+    t.string   "contact_number"
+    t.string   "classification"
+    t.integer  "employee_count", default: 1, null: false
+    t.string   "locations"
+    t.string   "site_url"
+    t.string   "fb_url"
+    t.string   "linkedin_url"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "ip_needs", force: :cascade do |t|
@@ -61,19 +90,24 @@ ActiveRecord::Schema.define(version: 20161011073155) do
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
+    t.string   "middle_initial"
     t.string   "last_name"
+    t.string   "username"
     t.string   "email"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "admin",             default: false
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.boolean  "admin",             default: false
+    t.string   "accounts_type"
+    t.integer  "accounts_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["accounts_type", "accounts_id"], name: "index_users_on_accounts_type_and_accounts_id"
+    t.index ["username", "email"], name: "index_users_on_username_and_email", unique: true
   end
 
 end

@@ -1,24 +1,25 @@
-.container
-  col-lg-12
-    h1
-      | IP Offers Listing
-  .border-top
-    - @ip_offers.each do |ip_offer|
-      .row.top-buffer.border-bottom
-        .col-md-3.vcenter
-          a href='#'
-            img-responsive
-              = image_tag ip_offer.photo.url, :size => "250x200"
-        .col-md-9.vcenter
-          h3
-            = ip_offer.title
-          h4
-            | Posted by 
-            = fullname(User.find(ip_offer.user_id)) + ' | '
-            = local_time(ip_offer.created_at)
-          p
-            = simple_format(truncate(ip_offer.description, length: 500))
-            = link_to ip_offer, class: "btn btn-primary btn-lg" do 
-              | View IP Offer
-              span.glyphicon.glyphicon-chevron-right
-            .bottom-buffer
+.bg
+  .container
+    col-lg-12
+      h1
+        | IP Offers Listing
+    .border-top
+      - @ip_offers.each do |ip_offer|
+        .row.top-buffer.border-bottom
+          .col-md-3.vcenter
+            a href='#'
+              img-responsive
+                = image_tag ip_offer.photo.url, :size => "250x200"
+          .col-md-9.vcenter
+            h3
+              = ip_offer.title
+            h4
+              | Posted by 
+              = fullname(User.find(ip_offer.user_id)) + ' | '
+              = local_time(ip_offer.created_at)
+            p
+              = simple_format(truncate(ip_offer.description, length: 500))
+              = link_to ip_offer, class: "btn btn-primary btn-lg" do 
+                | View IP Offer
+                span.glyphicon.glyphicon-chevron-right
+              .bottom-buffer
