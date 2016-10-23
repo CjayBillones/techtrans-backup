@@ -18,7 +18,7 @@
               = fullname(User.find(ip_offer.user_id)) + ' | '
               = local_time(ip_offer.created_at)
             p
-              = simple_format(truncate(ip_offer.description, length: 500))
+              = simple_format(truncate(ip_offer.overview, length: 500))
               = link_to ip_offer, class: "btn btn-primary btn-lg" do 
                 | View IP Offer
                 span.glyphicon.glyphicon-chevron-right
