@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "colors.scss";
 
+
 /* mixins, variables, etc. */
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -14,7 +15,7 @@
 html, body {
   font-family: "proxima-nova",helvetica,arial,sans-serif;
   // background-color: lighten($dark-blue, 10%);
-  background-color: $dark-blue;
+  //background-color: $dark-blue;
   background-image: url('headersbg.png');
   // background-repeat: repeat;
   background-position: center;

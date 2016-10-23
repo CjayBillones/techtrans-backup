@@ -4,16 +4,17 @@
 @import "colors.scss";
 @import "custom.scss";
 @import "about.scss";
-//@import "expertise.scss"
+@import "expertise.scss";
 
-/*Home Page*/
+// /* Home Page*/
+
 .introduction{
   max-height: 640px;
 //  padding-top: 30px;
 }
 
 .section{
-  height: 640px;
+  max-height: 640px;
   padding-top: 100px;
 }
 
@@ -67,16 +68,11 @@
   background-size: cover;
 }
 
-// #cimage{
-//   height: 640px!important;
-//   width:  1080!important;
-// }
-
 #mv{
   margin-top: 0;
   padding-top: 100px;
   height: 640px;
-  background-color: $accent-green;
+  background-color: lighten($dark-blue, 15%);
   //background-image: url(static/bluelb3.jpeg);
   //background-repeat:no-repeat;
   //background-size: 100%;
@@ -87,7 +83,7 @@
   padding-top: 100px;
   align-items: center;
   height: 640px;
-  background-color: lighten($dark-blue, 15%);
+  background-color: white;
 
 }
 
@@ -96,7 +92,7 @@
   padding-top: 100px;
   align-items: center;
   height: 640px;
-  background-color: $main-red;
+  background-color: lighten($dark-blue, 15%);
 }
 
 .img-fluid{
