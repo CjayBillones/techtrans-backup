@@ -99,7 +99,8 @@
   padding-top: 100px;
   align-items: center;
   height: 640px;
-  background-color: lighten($dark-blue, 15%);
+  //background-color: rgba(19,46,84,0.95);
+  background-color: lighten($dark-blue, 10%);
   // background-color: lighten($dark-blue, 15%);
 }
 

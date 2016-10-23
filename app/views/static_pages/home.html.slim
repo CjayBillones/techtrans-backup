@@ -9,10 +9,7 @@
     .carousel-inner role="listbox"
       .item.active
         .img-fluid
-         = image_tag("static/bluelb2.jpeg", :width=> "100%", :alt=> "About")        
-        / .fill 
-        //alt="bg1" style="background-image: url(static/bluebike.jpeg);"
-        / =active_link_to( style:"background-image(static/bluepen)"), :wrap_tag => :item
+         = image_tag("static/overview", :width=> "100%", :alt=> "About")        
         .carousel-caption
           h1
             | UP DILIMAN IP AND TECHNOLOGY TRANSFER
@@ -22,30 +19,30 @@
             = link_to "Learn More", about_path, class: "btn btn-primary btn-lg"
       .item        
         .img-fluid
-          = image_tag("static/orangephone.jpg", :width=> "100%", :alt=> "IP Offers")
+          = image_tag("static/ip-offer.png", :width=> "100%", :alt=> "IP Offers")
         .carousel-caption
           h1
             | Share Your Discoveries Now
-          h3 <Insert supporting tagline here>
+          h3 We help university faculty and researchers advance their work by assisting them from disclosure to deployment. Let the world know about your research outputs. Submit your IP Offers today.
           br
           .text-center
             = link_to "View IP Offers", ip_offers_path, class: "btn btn-primary btn-lg"
       .item        
         .img-fluid
-          = image_tag("static/orangenotes.jpg", :width=> "100%", :alt=> "IP Needs")
+          = image_tag("static/ip-need.png", :width=> "100%", :alt=> "IP Needs")
         .carousel-caption
           h1
-            | Find Your Needs Today
-          h3 <Insert supporting tagline here>
+            | Find Your IP Needs
+          h3 When it comes to innovative, real-world industry solutions, we're here to help. Post your IP Needs and partner with us to achieve your business goals.
           br
           .text-center
           = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
       .item        
         .img-fluid
-          = image_tag("static/bluepen.jpg", :width=> "100%", :alt=> "Featured Articles")
+          = image_tag("static/feature1.png", :width=> "100%", :alt=> "Featured Articles")
         .carousel-caption
           h1
-            | Featured Article
+            | UP Diliman student research bags 3rd in the 2015 AMY Intellectual Property Awards
           h3 Lorem ipsum...
     a.left.carousel-control href="#myCarousel" role="button" data-slide="prev"
       span.glyphicon.glyphicon-chevron-left aria-hidden="true"
@@ -64,7 +61,7 @@
       .col-md-6
         .img-fluid
           #img-responsiveIP
-            = image_tag("static/ipoffers.jpg", :size => "400x300")
+            = image_tag("static/ip-offers.jpg", :size => "400x300")
       .col-md-6
         h2
           | Intellectual Property Offers
@@ -80,10 +77,10 @@
         = link_to ip_offer do
           .col-md-2.side-margin-19
             #cimage.img-fluid
-              = image_tag ip_offer.photo.url, :size => "161x106"
+              = image_tag ip_offer.photo.url(:home_display)
             h5
               .text-center
-                = simple_format(truncate(ip_offer.title, length: 20))
+                = simple_format(truncate(ip_offer.title, length: 25))
         - break if index >= 4
 
 
@@ -101,7 +98,7 @@
       .col-md-6
         .img-fluid
           #img-responsiveIP
-            = image_tag("static/ipneeds.jpg", :size => "400x300")
+            = image_tag("static/ip-needs.jpg", :size => "400x300")
     .row
       .hr
       h3
@@ -110,8 +107,8 @@
         = link_to ip_need do
           .col-md-2.side-margin-19
             .img-fluid
-              = image_tag "ip/ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
+              = image_tag ip_need.photo.url(:home_display)
             h5
               .text-center
-                = simple_format(truncate(ip_need.title, length: 20))
+                = simple_format(truncate(ip_need.title, length: 25))
         - break if index >= 4

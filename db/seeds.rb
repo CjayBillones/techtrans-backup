@@ -69,16 +69,49 @@ csv = CSV.parse(ip_offers_csv, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   image_path = "#{Rails.root}/lib/assets/images/#{row['Image']}"
   image_file = File.new(image_path)
-  user = User.find(rand(1...User.count+1)).ip_offers.build(title: row['Title'], description: row['Overview'],
+  document_path = "#{Rails.root}/lib/assets/documents/#{row['Document']}"
+  document_file = File.new(document_path)
+  user = User.find(rand(1...User.count+1)).ip_offers.build(
+          title: row['Title'], 
+          subtitle: row['Subtitle'],
+          overview: row['Overview'],
+          key_features: row['Key Features'],
+          applications: row['Applications'],
+          customer_edge: row['Customer Edge'],
+          market_opportunity: row['Market Opportunity'],
+          inventors: row['Inventors'],
           photo: ActionDispatch::Http::UploadedFile.new(
           :filename => File.basename(image_file),
           :tempfile => image_file,
           :type => MIME::Types.type_for(image_path).first.content_type
-        )).save
+          ),
+          document: ActionDispatch::Http::UploadedFile.new(
+          :filename => File.basename(document_file),
+          :tempfile => document_file,
+          :type => MIME::Types.type_for(document_path).first.content_type
+          )).save
 end
 
-5.times do |n|
-  title = Faker::Lorem.words(rand(5...9)).join(' ')
-  description = Faker::Lorem.paragraph(rand(10...26))
-  user = User.find(rand(1...User.count+1)).ip_needs.build(title: title, description: description).save
+ip_needs_csv = File.read(Rails.root.join('lib', 'seeds', 'ip-needs-seeds.csv'))
+csv = CSV.parse(ip_needs_csv, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  image_path = "#{Rails.root}/lib/assets/images/#{row['Image']}"
+  image_file = File.new(image_path)
+  document_path = "#{Rails.root}/lib/assets/documents/#{row['Document']}"
+  document_file = File.new(document_path)
+  user = User.find(rand(1...User.count+1)).ip_needs.build(
+          title: row['Title'], 
+          description: row['Description'],
+          features: row['Features'],
+          business_model: row['Business Model'],
+          photo: ActionDispatch::Http::UploadedFile.new(
+          :filename => File.basename(image_file),
+          :tempfile => image_file,
+          :type => MIME::Types.type_for(image_path).first.content_type
+          ),
+          document: ActionDispatch::Http::UploadedFile.new(
+          :filename => File.basename(document_file),
+          :tempfile => document_file,
+          :type => MIME::Types.type_for(document_path).first.content_type
+          )).save
 end

@@ -30,7 +30,7 @@
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: $light-blue;
+    color: $csi-blue;
     text-decoration: none;
   }
 }
@@ -55,7 +55,8 @@
   &:hover, &:focus{
     //color: $light-blue;
     // background: lighten($dark-blue,50%);
-    background-color: $gray!important;
+    //background-color: $gray!important;
+    background-color: $csi-blue!important;
   }
  }
 // button.navbar-toggle.collapsed,

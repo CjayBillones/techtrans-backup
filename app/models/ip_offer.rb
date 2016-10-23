@@ -4,11 +4,10 @@ class IpOffer < ApplicationRecord
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }
-  validates :description, presence: true
 
   belongs_to :user
 
-  has_attached_file :photo, :styles => { :small => "250x200>"},
+  has_attached_file :photo, :styles => { :home_display => "200x106!"},
                     :url  => "/assets/ip-offers/:id/images/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/ip-offers/:id/images/:style/:basename.:extension"
   validates_attachment_size :photo, :less_than => 25.megabytes

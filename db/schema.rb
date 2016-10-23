@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(version: 20161016181750) do
   end
 
   create_table "ip_needs", force: :cascade do |t|
-    t.string   "title"
+    t.text     "title"
     t.text     "description"
+    t.text     "features"
+    t.text     "business_model"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -72,7 +74,13 @@ ActiveRecord::Schema.define(version: 20161016181750) do
 
   create_table "ip_offers", force: :cascade do |t|
     t.string   "title"
-    t.text     "description"
+    t.text     "subtitle"
+    t.text     "overview"
+    t.text     "key_features"
+    t.text     "applications"
+    t.text     "customer_edge"
+    t.text     "market_opportunity"
+    t.text     "inventors"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
