@@ -3,15 +3,27 @@
 @import "colors.scss";
 @import "custom.scss";
 
+.section{
+  overflow: auto;
+  min-height: 640px;
+  padding-top: 60px;
+  overflow-x: hidden;
+}
 
 #clusterA{
-  height: 640px;
+  min-height: 640px;
   background-color: lighten($dark-blue, 15%);
+  overflow: visible;
+  padding-bottom: 30px;
 }
 
 .col-md-4{
   border-left: solid white 1px;
-  h1,h2,p{
+  h1,h2,h3{
     text-align: left;
+  }
+  p,a{
+    font-size: 1em;
+    color: white;
   }
 }
