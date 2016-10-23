@@ -3,13 +3,12 @@
 @import "bootstrap";
 @import "colors.scss";
 @import "custom.scss";
-@@import "about.scss";
+@import "about.scss";
 
 /*Home Page*/
 .introduction{
-  min-height: 640px;
+  max-height: 640px;
 //  padding-top: 30px;
-
 }
 
 #carouseltop{
