@@ -10,6 +10,10 @@
   overflow-x: hidden;
 }
 
+.col-xs-6{
+  padding: 0 0 0 0;
+}
+
 #clusterA{
 
   height: 640px;
@@ -22,10 +26,10 @@
 
 #right{
   margin-top: 10px;
-  padding-left: 10px;
+  padding-left: 15px;
   border-left: solid white 1px;
   p,a{
-    padding-left: 10px;
+    //padding-left: 10px;
     font-size:1.2em;
     color: white;
   }
@@ -33,11 +37,11 @@
 
 #left{
   margin-top: 10px;
-//  padding-right: 10px;
+  padding-left: 15px;
   border-right: solid white 1px;
   float:right;
   p,a{
-    padding-right: 10px;
+    //padding-right: 10px;
     font-size: 1.2em;
     color: white;
   }
