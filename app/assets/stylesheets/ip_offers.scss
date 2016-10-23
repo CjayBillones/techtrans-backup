@@ -1,7 +1,13 @@
 // Place all the styles related to the IPOffers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "colors.scss";
 
 .bg{
-
+  min-height: 640px;
+  overflow: visible;
+  background-color: lighten($dark-blue, 15%);
+  padding-top: 60px;
 }
