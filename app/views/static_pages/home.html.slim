@@ -16,24 +16,30 @@
         .carousel-caption
           h1
             | UP DILIMAN IP AND TECHNOLOGY TRANSFER
-          h3 Bridging Technology Gaps Through Research and Innovation
+          h3 Ensuring Protection and Efficient Technology Transfer for the Public Good
           br
           .text-center
             = link_to "Learn More", about_path, class: "btn btn-primary btn-lg"
       .item        
         .img-fluid
-          = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "IP Needs")
-        .carousel-caption
-          h1
-            | IP Needs
-          h3 Lorem ipsum...
-      .item        
-        .img-fluid
           = image_tag("static/orangephone.jpg", :width=> "100%", :alt=> "IP Offers")
         .carousel-caption
           h1
-            | IP Offers
-          h3 Lorem ipsum...
+            | Share Your Discoveries Now
+          h3 <Insert supporting tagline here>
+          br
+          .text-center
+            = link_to "View IP Offers", ip_offers_path, class: "btn btn-primary btn-lg"
+      .item        
+        .img-fluid
+          = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "IP Needs")
+        .carousel-caption
+          h1
+            | Find Your Needs Today
+          h3 <Insert supporting tagline here>
+          br
+          .text-center
+          = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
       .item        
         .img-fluid
           = image_tag("static/bluenotebook.jpg", :width=> "100%", :alt=> "Featured Articles")
