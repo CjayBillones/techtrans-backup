@@ -8,7 +8,7 @@
   
     .carousel-inner role="listbox"
       .item.active
-        .section-img
+        .img-fluid
          = image_tag("static/bluelb2.jpeg", :width=> "100%", :alt=> "About")        
         / .fill 
         //alt="bg1" style="background-image: url(static/bluebike.jpeg);"
@@ -16,26 +16,32 @@
         .carousel-caption
           h1
             | UP DILIMAN IP AND TECHNOLOGY TRANSFER
-          h3 Bridging Technology Gaps Through Research and Innovation
+          h3 Ensuring Protection and Efficient Technology Transfer for the Public Good
           br
           .text-center
             = link_to "Learn More", about_path, class: "btn btn-primary btn-lg"
       .item        
-        .section-img
-          = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "IP Needs")
-        .carousel-caption
-          h1
-            | IP Needs
-          h3 Lorem ipsum...
-      .item        
-        .section-img
+        .img-fluid
           = image_tag("static/orangephone.jpg", :width=> "100%", :alt=> "IP Offers")
         .carousel-caption
           h1
-            | IP Offers
-          h3 Lorem ipsum...
+            | Share Your Discoveries Now
+          h3 <Insert supporting tagline here>
+          br
+          .text-center
+            = link_to "View IP Offers", ip_offers_path, class: "btn btn-primary btn-lg"
       .item        
-        .section-img
+        .img-fluid
+          = image_tag("static/redcoffee.jpg", :width=> "100%", :alt=> "IP Needs")
+        .carousel-caption
+          h1
+            | Find Your Needs Today
+          h3 <Insert supporting tagline here>
+          br
+          .text-center
+          = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
+      .item        
+        .img-fluid
           = image_tag("static/bluenotebook.jpg", :width=> "100%", :alt=> "Featured Articles")
         .carousel-caption
           h1
@@ -49,12 +55,14 @@
       span.glyphicon.glyphicon-chevron-right aria-hidden="true"
       span.sr-only
         |Next
+
+
       
 .introduction
-  .container.fluid
+  #IPOffers.container-fluid
     .row
       .col-md-6
-        .section-img
+        .img-fluid
           #img-responsiveIP
             = image_tag("static/ipoffers.jpg", :size => "400x300")
       .col-md-6
@@ -71,17 +79,16 @@
       - @ip_offers.each_with_index do |ip_offer, index|
         = link_to ip_offer do
           .col-md-2.side-margin-19
-            #cimage.section-img
+            #cimage.img-fluid
               = image_tag ip_offer.photo.url, :size => "161x106"
             h5
               .text-center
                 = simple_format(truncate(ip_offer.title, length: 20))
         - break if index >= 4
-    .row
-      .hr
+
 
 .introduction
-  .container.fluid
+  #IPNeeds.container-fluid
     .row
       .col-md-6
         h2
@@ -92,7 +99,7 @@
           = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
           br
       .col-md-6
-        .section-img
+        .img-fluid
           #img-responsiveIP
             = image_tag("static/ipneeds.jpg", :size => "400x300")
     .row
@@ -102,11 +109,9 @@
       - @ip_needs.each_with_index do |ip_need, index|
         = link_to ip_need do
           .col-md-2.side-margin-19
-            .section-img
+            .img-fluid
               = image_tag "ip/ip-need-#{ip_need.id-1}.jpeg", :size => "161x106"
             h5
               .text-center
                 = simple_format(truncate(ip_need.title, length: 20))
         - break if index >= 4
-    .row
-      .hr

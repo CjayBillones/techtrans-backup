@@ -1,0 +1,48 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "colors.scss";
+@import "custom.scss";
+
+.section{
+  //overflow: auto;
+  height: 640px;
+  padding-top: 100px;
+  overflow-x: hidden;
+}
+
+.col-xs-6{
+  padding: 0 0 0 0;
+}
+
+#clusterA{
+
+  height: 640px;
+  // background-color: lighten($dark-blue, 15%);
+  background-color: $main-red;
+  overflow: hidden;
+  //padding-bottom: 30px;
+
+}
+
+#right{
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: solid white 1px;
+  p,a{
+    //padding-left: 10px;
+    font-size:1.2em;
+    color: white;
+  }
+}
+
+#left{
+  margin-top: 10px;
+  padding-left: 15px;
+  border-right: solid white 1px;
+  float:right;
+  p,a{
+    //padding-right: 10px;
+    font-size: 1.2em;
+    color: white;
+  }
+}

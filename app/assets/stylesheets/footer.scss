@@ -1,29 +1,30 @@
 @import "colors.scss";
 
 .footer-above {
-  background-color: $dark-blue;
+  background-color: white;
   padding: 5px 10px 10px 5px;
   border-top: 2px solid $gray;
   color: white;
 
   h1,h2,h3{
-    color: $gray;
+    color: $dark-blue;
     text-align: left;
   }
   p{
-    color: $gray;
+    color: $dark-blue;
     font-size: 1em;
   }
   a {
-    color: $gray;
+    color: $dark-blue;
     &:hover {
-      color: white;
+      //color: white;
+      color: $light-blue;
     }
   }
 }
 
 .footer-below{
-  background-color: $dark-blue;
+  background-color: white;
   padding-top: 2px;
   border-top: 2px solid $gray;
   border-bottom: 2px solid $gray;
@@ -31,7 +32,7 @@
   p{
     text-align: center;
     font-size: 1em;
-    color:$gray;
+    color: $dark-blue;
     margin: 0 auto;
   }
 }

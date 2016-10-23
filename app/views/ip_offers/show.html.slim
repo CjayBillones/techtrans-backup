@@ -1,8 +1,9 @@
-.introduction
-  .container
+= render 'ip_offers/sidebar'
+.bg
+  .container-fluid
     .row
-      .col-md-4
-        = image_tag @ip_offer.photo.url(:small)
+      / .col-md-4
+      /   = image_tag @ip_offer.photo.url(:small)
       .col-md-8
         h1
           = @ip_offer.title
@@ -11,8 +12,9 @@
           = fullname(@user) + ' | '
           = local_time(@ip_offer.created_at)
     .row
-      p
-        = simple_format(@ip_offer.description)
+      .col-md-8
+        p
+          = simple_format(@ip_offer.description)
     .row
       -if !@ip_offer.document_file_name.nil?
         = link_to "Download File Attachment", @ip_offer.document.url(:original, false)
