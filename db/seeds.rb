@@ -1,15 +1,17 @@
 require 'csv'
 
-industry = Industry.create(
-                    industry_name: "UP Center for Student Innovations",
-                    contact_email: "dcs.innovate@gmail.com",
-                    contact_number: "(+63) 995 3769 223")
+11.times do |n|
+  industry = Industry.create!(
+                      industry_name: "UP Center for Student Innovations",
+                      contact_email: "dcs.innovate@gmail.com",
+                      contact_number: "(+63) 995 3769 223")
 
-academe = Academe.create(
-                    user_type: "Student",
-                    id_number: "2012-27860",
-                    contact_number: "(+63) 995 3769 223",
-                  )
+  academe = Academe.create!(
+                      user_type: "Student",
+                      id_number: "2012-27860",
+                      contact_number: "(+63) 995 3769 223",
+                    )
+end
 
 user = User.create!(
                   first_name: "Cjay",
@@ -20,30 +22,47 @@ user = User.create!(
                   accounts_id: 1,
                   accounts_type: "Industry")
 
-user = User.create!(
-                  first_name: "Dyosa",
-                  last_name: "Andaca",
-                  email: "mariaaprilrose@gmail.com",
-                  password: "password", password_confirmation: "password", activated: true,
-                  activated_at: Time.zone.now,
-                  accounts_id: 1,
-                  accounts_type: "Academe")
+#user = User.create!(
+#                  first_name: "Dyosa",
+#                  last_name: "Andaca",
+#                  email: "mariaaprilrose@gmail.com",
+#                  password: "password", password_confirmation: "password", activated: true,
+#                  activated_at: Time.zone.now,
+#                  accounts_id: 1,
+#                  accounts_type: "Academe")
 
-10.times do |n|
-  name  = Faker::Name.name
-  first_name = name.split[0]
-  last_name = name.split[1]
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(
-                first_name: first_name,
-                last_name: last_name,
-                email: email,
-                password:              password,
-                password_confirmation: password,
-                activated: true,
-                activated_at: Time.zone.now)
-end
+#10.times do |n|
+
+#  name  = Faker::Name.name
+#  first_name = name.split[0]
+#  last_name = name.split[1]
+#  email = "example-#{n+1}@railstutorial.org"
+#  password = "password"
+  
+#  if n%2 == 0 do
+#    User.create!(
+#                  first_name: first_name,
+#                  last_name: last_name,
+#                  email: email,
+#                  password:              password,
+#                  password_confirmation: password,
+#                  activated: true,
+#                  activated_at: Time.zone.now,
+#                  accounts_id: n+2,
+#                  accounts_type: "Academe")
+#  else
+#    User.create!(
+#              first_name: first_name,
+#              last_name: last_name,
+#              email: email,
+#              password:              password,
+#              password_confirmation: password,
+#              activated: true,
+#              activated_at: Time.zone.now,
+#              accounts_id: +2,
+#              accounts_type: "Industry")
+#  end
+#end
 
 ip_offers_csv = File.read(Rails.root.join('lib', 'seeds', 'ip-offers-seeds.csv'))
 csv = CSV.parse(ip_offers_csv, :headers => true, :encoding => 'ISO-8859-1')
