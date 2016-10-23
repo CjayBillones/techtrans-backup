@@ -18,13 +18,44 @@
 //    .row
 //      -if !@ip_offer.document_file_name.nil?
 //        = link_to "Download File Attachment", @ip_offer.document.url(:original, false)
-.introduction
-  .container-fluid  
-    .row
-      .col-md-8
-      .col-md-4
+.container-fluid  
+  .row
+    .col-md-8
+      #ip-offer.h3
+        = @ip_offer.subtitle
+      #typography.h5
+        = @ip_offer.inventors
+      hr
+      #typography.h3
+        | Overview:
+      #typography.p
+        = @ip_offer.overview
+
+      - if current_user
+        = render 'full_show'
+      - else
+        br
+        hr
+        .center
+          = link_to "Login to view full information of this IP Offer!", login_path, class: "btn btn-warning btn-lg"
+        hr
+      br
+    .col-md-4
+      #top
         .well.nav.nav-stacked.affix-top
-          h2
-            = @ip_offer.title
-          br
-            = image_tag @ip_offer.photo.url(:home_display)
+          - if current_user
+            = link_to "Submit IP Offer", new_ip_offer_path, class: "btn btn-default btn-md btn-block"
+      .well.nav.nav-stacked.affix-top
+        h2
+          = @ip_offer.title
+          hr
+        br
+          = image_tag @ip_offer.photo.url, :size => "385x250"
+        br
+        .center
+          - if current_user
+            = link_to "Interested", '#', class: "btn btn-primary btn-md btn-block"
+            = link_to "Download File Attachment", @ip_offer.document.url(:original, false), class: "btn btn-success btn-md btn-block"
+            - if current_user == @user
+              = link_to "Edit IP Offer", '#', class: "btn btn-warning btn-md btn-block"
+              = link_to "Delete IP Offer", '#', class: "btn btn-danger btn-md btn-block"
