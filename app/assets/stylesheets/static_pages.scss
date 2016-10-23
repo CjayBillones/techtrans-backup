@@ -67,7 +67,8 @@
   margin-top: 0;
   padding-top: 100px;
   height: 640px;
-  background-color: lighten($dark-blue, 15%);
+  // background-color: lighten($dark-blue, 15%);
+  background-color: $main-red;
   //background-image: url(static/bluelb3.jpeg);
   //background-repeat:no-repeat;
   //background-size: 100%;
@@ -78,7 +79,8 @@
   padding-top: 100px;
   align-items: center;
   height: 640px;
-  background-color: $main-red;
+  // background-color: $main-red;
+  background-color: lighten($dark-blue, 15%);
 
 }
 
@@ -87,7 +89,8 @@
   padding-top: 100px;
   align-items: center;
   height: 640px;
-  background-color: lighten($dark-blue, 15%);
+  background-color: $main-red;
+  // background-color: lighten($dark-blue, 15%);
 }
 
 .img-fluid{
