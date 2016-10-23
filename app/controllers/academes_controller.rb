@@ -59,7 +59,7 @@ class AcademesController < ApplicationController
     end
 
     def academe_params
-      params.require(:academe).permit(:user_type, :id_number, :contact_number, :address, 
+      params.require(:academe).permit(:user_type, :birthday, :id_number, :contact_number, :address, 
                                       :fb_url, :linkedin_url)
     end
 

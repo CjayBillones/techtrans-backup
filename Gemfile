@@ -23,6 +23,7 @@ gem 'carmen-rails', '~> 1.0.0'
 gem 'country_select', '~> 2.5', '>= 2.5.2'
 gem 'active_link_to'
 gem 'select2-rails'
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 
