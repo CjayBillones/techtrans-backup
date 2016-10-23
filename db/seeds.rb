@@ -1,8 +1,8 @@
 require 'csv'
 
 industry = Industry.create(
-                    name: "UP Center for Student Innovations",
-                    email: "dcs.innovate@gmail.com",
+                    industry_name: "UP Center for Student Innovations",
+                    contact_email: "dcs.innovate@gmail.com",
                     contact_number: "(+63) 995 3769 223")
 
 academe = Academe.create(

@@ -32,11 +32,20 @@ ActiveRecord::Schema.define(version: 20161016181750) do
   end
 
   create_table "industries", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "industry_name"
+    t.string   "country_code"
+    t.string   "address"
+    t.string   "contact_person"
+    t.string   "contact_email"
     t.string   "contact_number"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "classification"
+    t.integer  "employee_count", default: 1, null: false
+    t.string   "locations"
+    t.string   "site_url"
+    t.string   "fb_url"
+    t.string   "linkedin_url"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "ip_needs", force: :cascade do |t|

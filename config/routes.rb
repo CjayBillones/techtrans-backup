@@ -27,6 +27,17 @@ Rails.application.routes.draw do
   resources :ip_offers
   resources :ip_needs
 
-  resources :industries
-  resources :academes
+  resources :industries do
+    collection do
+      get 'register' => 'industries#new'
+    end
+  end
+
+  resources :academes do
+    collection do
+      get 'register' => 'academes#new'
+    end
+  end
+
+
 end
