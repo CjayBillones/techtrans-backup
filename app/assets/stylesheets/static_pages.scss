@@ -4,11 +4,17 @@
 @import "colors.scss";
 @import "custom.scss";
 @import "about.scss";
+//@import "expertise.scss"
 
 /*Home Page*/
 .introduction{
   max-height: 640px;
 //  padding-top: 30px;
+}
+
+.section{
+  height: 640px;
+  padding-top: 100px;
 }
 
 #carouseltop{
