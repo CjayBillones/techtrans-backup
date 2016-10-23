@@ -3,8 +3,10 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
+    @academe = Academe.create(user_type: "Student", id_number: "2012-00000")
     @user = User.new(first_name: "Example", last_name: "User", email: "user@example.com", 
-                    password: "foobar", password_confirmation: "foobar")
+                    password: "foobar", password_confirmation: "foobar", 
+                    accounts_type: "Academe", accounts_id: @academe.id)
   end
 
   test "should be valid" do
@@ -89,6 +91,14 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     @user.ip_offers.create!(title: "Lorem ipsum", description: "Lorem ipsum")
     assert_difference 'IpOffer.count', -1 do
+      @user.destroy
+    end
+  end
+
+  test "associated ip_needs should be desroyed" do
+    @user.save
+    @user.ip_needs.create!(title: "Lorem ipsum", description: "Lorem ipsum")
+    assert_difference 'IpNeed.count', -1 do
       @user.destroy
     end
   end

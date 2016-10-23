@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+cjay_industry:
+  id: 1
+  industry_name: UP Center for Student Innovations
+  country_code: PHL
+  address: Alumni Engineers Centennial Hall
+  contact_person: Cjay Billones
+  contact_number: (+63) 995 3769 223
+  contact_email: dcs.innovate@gmail.com
+  classification: Education
+  employee_count: 55
+  fb_url: https://www.facebook.com/upcsi
