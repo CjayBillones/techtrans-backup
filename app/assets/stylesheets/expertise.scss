@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "colors.scss";
-@import "custom.scss";
+//@import "custom.scss";
 
 .section{
   //overflow: auto;
@@ -14,35 +14,49 @@
   padding: 0 0 0 0;
 }
 
+#expertisebg{
+  background-image: url('static/expertise.jpg');
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
 #clusterA{
 
   height: 640px;
   // background-color: lighten($dark-blue, 15%);
-  background-color: $dark-blue;
-  overflow: hidden;
+
+  //background: transparent($main-red, 30);
+  overflow: visible;
   //padding-bottom: 30px;
+  background-image: url('static/expertise.jpg');
+  background-repeat: repeat-y;
+  background-size: cover;
+  h1,h2,h3,h4,p,span{
+    color: $dark-blue;
+  }
+
 
 }
 
 #right{
   margin-top: 10px;
   padding-left: 15px;
-  border-left: solid white 1px;
+  border-left: solid $dark-blue 1px;
   p,a{
     //padding-left: 10px;
     font-size:1.2em;
-    color: white;
+    color: $dark-blue;
   }
 }
 
 #left{
   margin-top: 10px;
   padding-left: 15px;
-  border-right: solid white 1px;
+  border-right: solid $dark-blue 1px;
   float:right;
   p,a{
     //padding-right: 10px;
     font-size: 1.2em;
-    color: white;
+    color: $dark-blue;
   }
 }
