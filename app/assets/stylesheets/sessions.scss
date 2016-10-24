@@ -1,3 +1,10 @@
+@import "colors.scss";
+.bg{
+  background-image: url('static/loginbg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
 #form {
   .container  {
     margin-top: 145px;
@@ -6,7 +13,8 @@
 }
 
 #loginbox {
-  padding: 20px;
+  padding: 0px;
+  border: solid 1px $gray;
 }
 
 .white-alpha-90 {
@@ -21,6 +29,9 @@
 
 .panel-heading {
   border-bottom: 1px solid #aaa;
+  h2{
+    color: $dark-blue;
+  }
 }
 
 .panel-title {
