@@ -1,16 +1,41 @@
 = form_for(@ip_offer) do |f|
   = render 'shared/error_messages', object: f.object
 
-  = f.label :title, '* Title:'
-  = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :title, '* Short Title:'
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :subtitle, 'Long Title:'
+    = f.text_area :subtitle, class: 'form-control'
   
-  = f.label :overview, '* Description:'
-  = f.text_area :overview, class: 'form-control'
+  .form-group
+    = f.label :overview, '* Overview:'
+    = f.text_area :overview, class: 'form-control'
 
-  = f.label :photo, 'Photo Attachment:'
-  = f.file_field :photo
+  .form-group
+    = f.label :key_features, 'Key Features: '
+    = f.text_area :key_features, class: 'form-control'
 
-  = f.label :document, 'Document Attachment:'
-  = f.file_field :document
+  .form-group
+    = f.label :applications, 'Applications: '
+    = f.text_area :applications, class: 'form-control'
+
+  .form-group
+    = f.label :customer_edge, 'Customer Edge: '
+    = f.text_area :customer_edge, class: 'form-control'
+
+  .form-group
+    = f.label :market_opportunity, 'Market Opportunity:'
+    = f.text_area :market_opportunity, class: 'form-control'
+
+  .form-group
+    = f.label :photo, 'Photo Attachment:'
+    = f.file_field :photo, class: 'form-control'
+
+  .form-group
+    = f.label :document, 'Document Attachment:'
+    = f.file_field :document, class: 'form-control'
  
-  = f.submit yield(:button_text), class: "btn btn-primary"
+  .form-group
+    = f.submit yield(:button_text), class: "btn btn-primary"

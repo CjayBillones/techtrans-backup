@@ -1,8 +1,11 @@
 - provide(:title, 'New IP Offer')
-- provide(:button_text, 'Create')
-
-h1
-  | Create New IP Offer
-.row
-  .col-md-6.col-md-offset-3
-    = render 'ip_offer_form'
+- provide(:button_text, 'Submit IP Offer')
+#ipoffersbg
+  .container-fluid
+    .col-md-6.col-md-offset-3
+      .well
+        h1
+          | Submit IP Offer
+    .row
+      .col-md-6.col-md-offset-3
+        = render 'ip_offer_form'
