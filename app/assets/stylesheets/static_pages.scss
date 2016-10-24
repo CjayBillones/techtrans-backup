@@ -49,10 +49,18 @@
     }
 }
 
+#articles.carousel-caption{
+  border-radius: 0px;
+  width: 100%;
+  top: 75%;
+  left:0;
+  bottom:0;
+}
+
 .carousel-indicators{
   //top: 500px;
   top: initial;
-  bottom: 10%;
+  bottom: 5%;
 }
 
 .carousel,.item, .active{
