@@ -1,3 +1,16 @@
-// Place all the styles related to the academes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors.scss";
+
+.bg{
+  background-image: url('static/loginbg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#new_academe{
+  padding: 20px;
+  border: solid 1px $gray;
+  background-color: white;
+  h2{
+    color: $dark-blue;
+  }
+}
