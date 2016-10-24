@@ -6,7 +6,7 @@
 @import "about.scss";
 @import "expertise.scss";
 
-// /* Home Page*/
+/* Home Page*/
 
 .introduction{
   max-height: 640px;
@@ -25,9 +25,17 @@
 
 }
 
+.item{
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
 .carousel-caption{
-    top: 50px;
-    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+
     //background-color: lighten(black,60%);
     border-radius: 30px;
     background: rgba(0,0,0,0.3);
@@ -43,8 +51,8 @@
 
 .carousel-indicators{
   //top: 500px;
-  top: auto;
-  bottom: 100px;
+  top: initial;
+  bottom: 10%;
 }
 
 .carousel,.item, .active{
