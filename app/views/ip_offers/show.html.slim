@@ -39,3 +39,8 @@
             - if current_user == @user
               = link_to "Edit IP Offer", '#', class: "btn btn-warning btn-md btn-block"
               = link_to "Delete IP Offer", '#', class: "btn btn-danger btn-md btn-block"
+          br
+          = social_share_button_tag(@ip_offer.title)
+
+
+
