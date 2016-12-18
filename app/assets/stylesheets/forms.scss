@@ -40,3 +40,8 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+label.required:after{
+  content: " * ";
+  color: #ff0000;
+}

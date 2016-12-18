@@ -1,23 +1,23 @@
 = form_for @industry do |i| 
   h2 Personal Information
   = fields_for @user do |u|
-    = u.label :first_name
+    = u.label :first_name, 'First Name', class: 'required'
     = u.text_field :first_name, class: 'form-control'
     
-    = u.label :last_name
+    = u.label :last_name, 'Last Name', class: 'required'
     = u.text_field :last_name, class: 'form-control'
     
-    = u.label :email
+    = u.label :email, 'Email', class: 'required'
     = u.email_field :email, class: 'form-control'
     
-    = u.label :password
+    = u.label :password, 'Password', class: 'required'
     = u.password_field :password, class: 'form-control'
     
-    = u.label :password_confirmation, "Password Confirmation"
+    = u.label :password_confirmation, 'Password Confirmation', class: 'required'
     = u.password_field :password_confirmation, class: 'form-control'
 
   h2 Industry Information
-  = i.label :industry_name, 'Name of Organization'
+  = i.label :industry_name, 'Name of Organization', class: 'required'
   = i.text_field :industry_name, class: 'form-control'
 
   = i.label :classification, 'Industry Classification'

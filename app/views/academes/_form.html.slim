@@ -2,39 +2,39 @@
   h2 Personal Information
   = fields_for @user do |u|
     .form-group
-      = u.label :first_name, 'First Name'
-      = u.text_field :first_name, class: 'form-control'
+      = u.label :first_name, 'First Name', class: 'required'
+      = u.text_field :first_name, required: true, class: 'form-control'
     
     .form-group
-      = u.label :last_name, 'Last Name'
+      = u.label :last_name, 'Last Name', class: 'required'
       = u.text_field :last_name, class: 'form-control'
     
     .form-group
-      = u.label :email
+      = u.label :email, 'Email', class: 'required'
       = u.email_field :email, class: 'form-control'
     
     .form-group
-      = u.label :password
+      = u.label :password, 'Password', class: 'required'
       = u.password_field :password, class: 'form-control'
     
     .form-group
-      = u.label :password_confirmation, "Password Confirmation"
+      = u.label :password_confirmation, 'Password Confirmation', class: 'required'
       = u.password_field :password_confirmation, class: 'form-control'
 
-  .form-group
-    = a.label :birthday, 'Date of Birth'
-    #academe_birthday
-      .input-group.date
-        = a.text_field :birthday, placeholder: 'mm/dd/yyyy', class:'form-control'
-        span.input-group-addon
-          i.fa.fa-calendar
+  /.form-group
+  /  = a.label :birthday, 'Date of Birth'
+  /  academe_birthday
+  /    .input-group.date
+  /      = a.text_field :birthday, placeholder: 'mm/dd/yyyy', class:'form-control'
+  /      span.input-group-addon
+  /        i.fa.fa-calendar
 
   .form-group
-    = a.label :user_type, 'User Type'
+    = a.label :user_type, 'User Type', class: 'required'
     = a.select(:user_type, selUserTypes, {prompt: 'Select User Type'}, class: 'form-control')
 
   .form-group
-    = a.label :id_number, 'Student/Employee Number'
+    = a.label :id_number, 'Student/Employee Number', class: 'required'
     = a.text_field :id_number, class: 'form-control'
 
   .form-group
