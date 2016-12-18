@@ -2,39 +2,39 @@
   = render 'shared/error_messages', object: f.object
 
   .form-group
-    = f.label :title, '* Short Title:'
+    = f.label :title, 'Short Title', class: 'required'
     = f.text_field :title, class: 'form-control'
 
   .form-group
-    = f.label :subtitle, 'Long Title:'
+    = f.label :subtitle, 'Long Title'
     = f.text_area :subtitle, class: 'form-control'
   
   .form-group
-    = f.label :overview, '* Overview:'
+    = f.label :overview, 'Overview', class: 'required'
     = f.text_area :overview, class: 'form-control'
 
   .form-group
-    = f.label :key_features, 'Key Features: '
+    = f.label :key_features, 'Key Features'
     = f.text_area :key_features, class: 'form-control'
 
   .form-group
-    = f.label :applications, 'Applications: '
+    = f.label :applications, 'Applications'
     = f.text_area :applications, class: 'form-control'
 
   .form-group
-    = f.label :customer_edge, 'Customer Edge: '
+    = f.label :customer_edge, 'Customer Edge'
     = f.text_area :customer_edge, class: 'form-control'
 
   .form-group
-    = f.label :market_opportunity, 'Market Opportunity:'
+    = f.label :market_opportunity, 'Market Opportunity'
     = f.text_area :market_opportunity, class: 'form-control'
 
   .form-group
-    = f.label :photo, 'Photo Attachment:'
+    = f.label :photo, 'Photo Attachment'
     = f.file_field :photo, class: 'form-control'
 
   .form-group
-    = f.label :document, 'Document Attachment:'
+    = f.label :document, 'Document Attachment'
     = f.file_field :document, class: 'form-control'
  
   .form-group

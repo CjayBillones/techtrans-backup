@@ -1,16 +1,29 @@
 = form_for(@ip_need) do |f|
   = render 'shared/error_messages', object: f.object
 
-  = f.label :title, '* Title:'
-  = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :title, 'Title', class: 'required'
+    = f.text_field :title, class: 'form-control'
   
-  = f.label :description, '* Description:'
-  = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :description, 'Description', class: 'required'
+    = f.text_area :description, class: 'form-control'
 
-  = f.label :photo, 'Photo Attachment:'
-  = f.file_field :photo
+  .form-group
+    = f.label :features, 'Features'
+    = f.text_area :features, class: 'form-control'
 
-  = f.label :document, 'Document Attachment:'
-  = f.file_field :document
+  .form-group
+    = f.label :business_model, 'Business Model'
+    = f.text_area :business_model, class: 'form-control'
+
+  .form-group
+    = f.label :photo, 'Photo Attachment'
+    = f.file_field :photo, class: 'form-control'
+
+  .form-group
+    = f.label :document, 'Document Attachmen:'
+    = f.file_field :document, class: 'form-control'
  
-  = f.submit yield(:button_text), class: "btn btn-primary"
+  .form-group
+    = f.submit yield(:button_text), class: "btn btn-primary"
