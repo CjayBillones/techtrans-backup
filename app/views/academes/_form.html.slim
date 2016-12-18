@@ -1,6 +1,7 @@
 = form_for @academe do |a| 
   h2 Personal Information
   = fields_for @user do |u|
+
     .form-group
       = u.label :first_name, 'First Name', class: 'required'
       = u.text_field :first_name, required: true, class: 'form-control'
@@ -32,6 +33,10 @@
   .form-group
     = a.label :user_type, 'User Type', class: 'required'
     = a.select(:user_type, selUserTypes, {prompt: 'Select User Type'}, class: 'form-control')
+
+  .form-group
+    = a.label :user_bio, 'Biography'
+    = a.text_area :user_bio, class: 'form-control'
 
   .form-group
     = a.label :id_number, 'Student/Employee Number', class: 'required'

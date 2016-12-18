@@ -23,6 +23,9 @@
   = i.label :classification, 'Industry Classification'
   = i.select(:classification, selClassification, {prompt: 'Select Classification'}, class: 'form-control')
 
+  = i.label :organization_bio, 'Organization Biography'
+  = i.text_area :organization_bio, class: 'form-control'
+
   = i.label :country_code
   = i.country_select(:country_code, { priority: %w(US PH) , prompt: 'Select Country'}, class: 'form-control')
 

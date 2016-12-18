@@ -1,6 +1,7 @@
 class CreateAcademes < ActiveRecord::Migration[5.0]
   def change
     create_table :academes do |t|
+      t.text   :user_bio
       t.string :user_type
       t.string :id_number
       t.string :contact_number

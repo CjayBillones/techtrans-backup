@@ -2,8 +2,9 @@ class CreateIndustries < ActiveRecord::Migration[5.0]
   def change
     create_table :industries do |t|
       t.string :industry_name
+      t.text   :organization_bio
       t.string :country_code
-      t.string :address
+      t.text   :address
       t.string :contact_person
       t.string :contact_email   
       t.string :contact_number
