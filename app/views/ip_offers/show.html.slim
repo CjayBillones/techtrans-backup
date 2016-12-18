@@ -9,7 +9,7 @@
       #typography.h3
         | Overview:
       #typography.p
-        = @ip_offer.overview
+        = simple_format(@ip_offer.overview)
 
       - if current_user
         = render 'full_show'
@@ -22,8 +22,8 @@
       br
     .col-md-4
       #top
-        .well.nav.nav-stacked.affix-top
-          - if current_user
+        - if current_user
+          .well.nav.nav-stacked.affix-top
             = link_to "Submit IP Offer", new_ip_offer_path, class: "btn btn-default btn-md btn-block"
       .well.nav.nav-stacked.affix-top
         h2

@@ -1,8 +1,12 @@
 - provide(:title, 'New IP Need')
 - provide(:button_text, 'Create')
 
-h1
-  | Create New IP Need
-.row
-  .col-md-6.col-md-offset-3
-    = render 'ip_need_form'
+#ipoffersbg
+  .container-fluid
+    .col-md-6.col-md-offset-3
+      .well
+        h1
+          | Submit IP Need
+    .row
+      .col-md-6.col-md-offset-3
+        = render 'ip_need_form'
