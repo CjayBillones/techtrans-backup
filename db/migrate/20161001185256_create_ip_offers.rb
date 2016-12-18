@@ -9,6 +9,7 @@ class CreateIpOffers < ActiveRecord::Migration[5.0]
       t.text    :customer_edge
       t.text    :market_opportunity
       t.text    :inventors
+      t.text    :patent_status
       t.references :user, foreign_key: true
 
       t.timestamps

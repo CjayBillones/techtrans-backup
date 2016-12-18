@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20161016181750) do
     t.text     "customer_edge"
     t.text     "market_opportunity"
     t.text     "inventors"
+    t.text     "patent_status"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

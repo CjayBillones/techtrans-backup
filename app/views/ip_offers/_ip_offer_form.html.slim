@@ -36,6 +36,10 @@
   .form-group
     = f.label :document, 'Document Attachment'
     = f.file_field :document, class: 'form-control'
+
+  .form-group
+    = f.label :patent_status, 'Patent Status'
+    = f.select(:patent_status, selPatentStatus, {prompt: 'Select Patent Status'}, class: 'form-control')
  
   .form-group
     = f.submit yield(:button_text), class: "btn btn-primary"
