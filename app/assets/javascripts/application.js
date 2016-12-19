@@ -22,7 +22,7 @@
 //= require_tree .
 
 //$(document).ready(function() { $("#industry_classification, #industry_country_code, #academe_user_type").select2(); });
-$(document).on('turbolinks:load', function() { $("#industry_classification, #industry_country_code, #academe_user_type").select2(); });
+$(document).on('turbolinks:load', function() { $("#industry_classification, #industry_country_code, #academe_user_type, #ip_need_privacy_option, #ip_offer_patent_status").select2(); });
 
 $(document).on('turbolinks:load', function(){
   $('#academe_birthday .input-group.date').datepicker({

@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20161016181750) do
     t.text     "description"
     t.text     "features"
     t.text     "business_model"
+    t.string   "privacy_option"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

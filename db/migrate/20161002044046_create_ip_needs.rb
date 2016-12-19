@@ -5,6 +5,7 @@ class CreateIpNeeds < ActiveRecord::Migration[5.0]
       t.text :description
       t.text :features
       t.text :business_model
+      t.string :privacy_option
       t.references :user, foreign_key: true
 
       t.timestamps

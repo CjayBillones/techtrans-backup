@@ -22,8 +22,12 @@
     = f.file_field :photo, class: 'form-control'
 
   .form-group
-    = f.label :document, 'Document Attachmen:'
+    = f.label :document, 'Document Attachment'
     = f.file_field :document, class: 'form-control'
+
+  .form-group
+    = f.label :privacy_option, "Privacy Option", class: 'required'
+    = f.select(:privacy_option, selPrivacyOptions, {prompt: 'Select Privacy Option'}, class: 'form-control')
  
   .form-group
     = f.submit yield(:button_text), class: "btn btn-primary"
