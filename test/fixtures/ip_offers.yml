@@ -1,23 +1,43 @@
 coatin:
   title: "CoaTIN"
-  description: "I just ate an orange!"
+  subtitle: "CoaTIN"
+  overview: "I just ate an orange!"
+  key_features: "I just ate an orange!"
+  applications: "I just ate an orange!"
+  customer_edge: "I just ate an orange!"
+  market_opportunity: "I just ate an orange!"
   created_at: <%= 10.minutes.ago %>
   user_id: 1
 
 oral_vaccine:
   title: "Oral Vaccine" 
-  description: "Check out the @tauday site by @mhartl: http://tauday.com"
+  subtitle: "CoaTIN"
+  overview: "I just ate an orange!"
+  key_features: "I just ate an orange!"
+  applications: "I just ate an orange!"
+  customer_edge: "I just ate an orange!"
+  market_opportunity: "I just ate an orange!"
   created_at: <%= 3.years.ago %>
   user_id: 2
 
 gaia_dam:
   title: "Gaia Dam"
-  description: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  subtitle: "CoaTIN"
+  overview: "I just ate an orange!"
+  key_features: "I just ate an orange!"
+  applications: "I just ate an orange!"
+  customer_edge: "I just ate an orange!"
+  market_opportunity: "I just ate an orange!"
   created_at: <%= 2.hours.ago %>
   user_id: 2
 
 uprint:
   title: "UPrint"
-  description: "Writing a short test"
+  subtitle: "CoaTIN"
+  overview: "I just ate an orange!"
+  key_features: "I just ate an orange!"
+  applications: "I just ate an orange!"
+  customer_edge: "I just ate an orange!"
+  market_opportunity: "I just ate an orange!"
   created_at: <%= Time.zone.now %>
   user_id: 1

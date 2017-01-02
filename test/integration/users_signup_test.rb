@@ -108,9 +108,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                     },
                                     academe: {
                                       user_type: "Student",
-                                      id_number: " ",
-                                      contact_number: " ",
-                                      birthday: " "
+                                      id_number: "201227860",
+                                      contact_number: " "
                                     }
       }
     end

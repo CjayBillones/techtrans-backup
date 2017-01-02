@@ -32,7 +32,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect create when not logged in" do
     post ip_offers_path, params: { ip_offer: {
                                             title:       "Lorem Ipsum",
-                                            description: "Lorem Ipsum"
+                                            overview: "Lorem Ipsum"
                                         }}
     assert_redirected_to login_path
   end
@@ -41,7 +41,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     post ip_offers_path, params: { ip_offer: {
                                             title:       "Lorem Ipsume",
-                                            description: "Lorem Ipsum",
+                                            overview: "Lorem Ipsum",
                                         }}
     assert_redirected_to @user.ip_offers.first    
   end
@@ -66,7 +66,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update when not logged in" do
     patch ip_offer_path(@ip_offer), params: { ip_offer: {
                                                 title:       "Lorem Ipsum",
-                                                description: "Lorem Ipsum"
+                                                overview: "Lorem Ipsum"
                                             }}
     assert_redirected_to login_path
   end
@@ -75,7 +75,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@other_user)
     patch ip_offer_path(@ip_offer), params: { ip_offer: {
                                             title:       "Lorem Ipsum",
-                                            description: "Lorem Ipsum"
+                                            overview: "Lorem Ipsum"
                                         }}
     assert_redirected_to root_path
   end
@@ -84,7 +84,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     patch ip_offer_path(@ip_offer), params: { ip_offer: {
                                                 title:       "Lorem Ipsum",
-                                                description: "Lorem Ipsum"
+                                                overview: "Lorem Ipsum"
                                             }}
     assert_redirected_to @ip_offer
   end

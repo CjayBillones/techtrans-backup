@@ -5,7 +5,6 @@ class CreateAcademes < ActiveRecord::Migration[5.0]
       t.string :user_type
       t.string :id_number
       t.string :contact_number
-      t.date   :birthday
       t.text   :address
       t.string :fb_url
       t.string :linkedin_url
