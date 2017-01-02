@@ -30,7 +30,10 @@
           = @ip_offer.title
           hr
         br
-          = image_tag @ip_offer.photo.url, :size => "385x250"
+          - if @ip_offer.photo.present?
+            = image_tag @ip_offer.photo.url, :size => "385x250"
+          - else
+            = image_tag 'placeholders/no_image_general.jpg', :size => "385x250"
         br
         .center
           - if current_user
