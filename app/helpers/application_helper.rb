@@ -35,7 +35,7 @@ module ApplicationHelper
         t = Tag.create(name: tag)
         tag_ids.concat(t.id.to_s)
       else
-        tag_ids.concat(tag)
+        tag_ids.concat(tag) unless Tag.find_by_id(Integer(tag)).nil?
       end
     end
     return tag_ids
