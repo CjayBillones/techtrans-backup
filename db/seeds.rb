@@ -1,17 +1,28 @@
 require 'csv'
 
-#11.times do |n|
-  industry = Industry.create!(
+tags = ["Materials and Industry Resources",
+        "Fishery, AquacultureAgriculture, Forestry & Natural Resources",
+        "Education",
+        "Food and other Fermented Products",
+        "Energy and Environment",
+        "Health and Wellness",
+        "Corporate Solutions", 
+        "Designs"]
+
+tags.each do |t|
+  tag = Tag.create(name: t) if !Tag.find_by_name(t)
+end
+
+industry = Industry.create!(
                       industry_name: "UP Center for Student Innovations",
                       contact_email: "dcs.innovate@gmail.com",
                       contact_number: "(+63) 995 3769 223") if !Industry.find_by_contact_email("dcs.innovate@gmail.com")
 
-  academe = Academe.create!(
+academe = Academe.create!(
                       user_type: "Student",
                       id_number: "2012-27860",
                       contact_number: "(+63) 995 3769 223",
                     ) if !Academe.find_by_id_number("2012-27860")
-#end
 
 user = User.create!(
                   first_name: "Cjay",
