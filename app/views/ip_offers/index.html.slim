@@ -10,7 +10,10 @@
           .col-md-3.vcenter
             a href='#'
               img-responsive
-                = image_tag ip_offer.photo.url, :size => "250x200"
+                - if ip_offer.photo.present?
+                  = image_tag ip_offer.photo.url, :size => "250x200"
+                - else
+                  = image_tag 'placeholders/no_image_general.jpg', :size => "250x200"
           .col-md-9.vcenter
             h3
               = ip_offer.title
