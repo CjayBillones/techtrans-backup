@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170102055136) do
     t.text     "features"
     t.text     "business_model"
     t.string   "privacy_option"
+    t.text     "tags"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170102055136) do
     t.text     "market_opportunity"
     t.text     "inventors"
     t.text     "patent_status"
+    t.text     "tags"
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -100,9 +102,7 @@ ActiveRecord::Schema.define(version: 20170102055136) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

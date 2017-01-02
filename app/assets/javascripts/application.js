@@ -21,12 +21,27 @@
 //= require social-share-button
 //= require_tree .
 
-//$(document).ready(function() { $("#industry_classification, #industry_country_code, #academe_user_type").select2(); });
 $(document).on('turbolinks:load', function() { $("#industry_classification, #industry_country_code, #academe_user_type, #ip_need_privacy_option, #ip_offer_patent_status").select2(); });
 
 $(document).on('turbolinks:load', function(){
   $('#academe_birthday .input-group.date').datepicker({
     startView: 'years',
     autoclose: true
+  });
+});
+
+$(document).on('turbolinks:load', function() {
+  $("#ip_offer_tag_tokens").tokenInput("/tags.json", {
+    crossDomain: false,
+    prePopulate: $("#ip_offer_tag_tokens").data("pre"),
+    theme: "facebook"
+  });
+});
+
+$(document).on('turbolinks:load', function() {
+  $("#ip_need_tag_tokens").tokenInput("/tags.json", {
+    crossDomain: false,
+    prePopulate: $("#ip_need_tag_tokens").data("pre"),
+    theme: "facebook"
   });
 });

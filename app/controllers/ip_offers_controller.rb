@@ -18,8 +18,9 @@ class IpOffersController < ApplicationController
   end
 
   def create
+    #render plain: params[:ip_offer].inspect
     @ip_offer = current_user.ip_offers.build(ip_offer_params)
-
+    
     if @ip_offer.save
       flash[:success] = "Successfully created listing!"
       redirect_to @ip_offer
@@ -52,7 +53,9 @@ class IpOffersController < ApplicationController
   private
 
     def ip_offer_params
-      params.require(:ip_offer).permit(:title, :description, :photo, :document)
+      params.require(:ip_offer).permit(:title, :subtitle, :overview, :key_features,
+                                       :applications, :customer_edge, :market_opportunity,
+                                       :inventors, :patent_status, :photo, :document, :tag_tokens)
     end
 
     def correct_user

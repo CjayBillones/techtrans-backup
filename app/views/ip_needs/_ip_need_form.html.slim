@@ -28,6 +28,10 @@
   .form-group
     = f.label :privacy_option, "Privacy Option", class: 'required'
     = f.select(:privacy_option, selPrivacyOptions, {prompt: 'Select Privacy Option'}, class: 'form-control')
+
+  .form-group
+    = f.label :tag_tokens, 'Tags'
+    = f.text_field :tag_tokens
  
   .form-group
     = f.submit yield(:button_text), class: "btn btn-primary"

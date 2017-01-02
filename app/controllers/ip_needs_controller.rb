@@ -18,6 +18,7 @@ class IpNeedsController < ApplicationController
   end
 
   def create
+    #render plain: params[:ip_need].inspect
     @ip_need = current_user.ip_needs.build(ip_need_params)
 
     if @ip_need.save
@@ -52,7 +53,8 @@ class IpNeedsController < ApplicationController
   private
 
     def ip_need_params
-      params.require(:ip_need).permit(:title, :description, :photo, :document)
+      params.require(:ip_need).permit(:title, :description, :features, :business_model,
+                                      :privacy_option, :photo, :document, :tag_tokens)
     end
 
     def correct_user
