@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def is_number?(string)
+    true if Integer(string) rescue false
+  end
+
   # Returns the full title on a per-page basis.
   def full_title(page_title = '')
     base_title = "IP Technology Transfer Unit"
@@ -20,6 +24,21 @@ module ApplicationHelper
 
   def admin_user
     redirect_to(root_path) unless current_user.admin?
+  end
+
+  def create_new_tags(tag_token)
+    tag_ids = ""
+    tags = tag_token.split(',')
+    tags.each do |tag|
+      tag_ids.concat(',') if !tag_ids.empty?
+      if !is_number?(tag)
+        t = Tag.create(name: tag)
+        tag_ids.concat(t.id.to_s)
+      else
+        tag_ids.concat(tag)
+      end
+    end
+    return tag_ids
   end
 
 end

@@ -1,5 +1,6 @@
 class IpNeed < ApplicationRecord
-
+  include ApplicationHelper
+  
   default_scope -> { order(created_at: :desc) }
 
   validates :user_id, presence: true
@@ -23,8 +24,8 @@ class IpNeed < ApplicationRecord
 
   attr_reader :tag_tokens
 
-  def tag_tokens=(ids)
-    self.tags = ids
+  def tag_tokens=(tokens)
+    self.tags = create_new_tags(tokens)
   end
 
 end

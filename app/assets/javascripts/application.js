@@ -33,7 +33,10 @@ $(document).on('turbolinks:load', function(){
 $(document).on('turbolinks:load', function() {
   $("#ip_offer_tag_tokens").tokenInput("/tags.json", {
     crossDomain: false,
-    preventDuplicates: true,   
+    preventDuplicates: true,
+    //allowCustomEntry: true,
+    allowFreeTagging: true,
+    onFreeTaggingAdd: true,
     prePopulate: $("#ip_offer_tag_tokens").data("pre"),
     theme: "facebook"
   });
@@ -42,7 +45,10 @@ $(document).on('turbolinks:load', function() {
 $(document).on('turbolinks:load', function() {
   $("#ip_need_tag_tokens").tokenInput("/tags.json", {
     crossDomain: false,
-    preventDuplicates: true, 
+    preventDuplicates: true,
+    //allowCustomEntry: true,
+    allowFreeTagging: true,
+    onFreeTaggingAdd: true,
     prePopulate: $("#ip_need_tag_tokens").data("pre"),
     theme: "facebook"
   });
