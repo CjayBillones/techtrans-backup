@@ -27,6 +27,7 @@ class IndustriesController < ApplicationController
         render 'new'
       end
     else
+      puts @industry.errors.full_messages
       render 'new'
     end
   end
@@ -61,7 +62,7 @@ class IndustriesController < ApplicationController
     def industry_params
       params.require(:industry).permit(:industry_name, :country_code, :address, :contact_person,
                                       :contact_email, :contact_number, :classification, :employee_count,
-                                      :site_url, :fb_url, :linkedin_url)
+                                      :site_url, :fb_url, :linkedin_url, :terms)
     end
 
     def correct_user

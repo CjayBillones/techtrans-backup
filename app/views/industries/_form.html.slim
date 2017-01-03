@@ -35,7 +35,7 @@
   = i.label :contact_person
   = i.text_field :contact_person, class: 'form-control'
 
-  = i.label :contact_email
+  = i.label :contact_email, class: 'required'
   = i.text_field :contact_email, class: 'form-control'
 
   = i.label :contact_number
@@ -52,5 +52,13 @@
 
   = i.label :linkedin_url, 'Linkedin Link'
   = i.text_field :linkedin_url, class: 'form-control'
+
+  = i.label :terms, 'Terms'
+  = i.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
+  col-xs-6.col-xs-offset-3
+    = i.label :terms, class: 'checkbox' do
+      = i.check_box :terms, class: 'pull-left'
+      span
+        | Agree with the terms and conditions  
 
   = i.submit yield(:button_text), class: 'btn btn-primary'
