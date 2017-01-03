@@ -41,4 +41,8 @@ module ApplicationHelper
     return tag_ids
   end
 
+  def terms_of_agreement
+    terms = File.read('public/terms/terms.txt')
+  end
+
 end

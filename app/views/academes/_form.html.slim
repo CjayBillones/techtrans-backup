@@ -58,5 +58,13 @@
     = a.label :linkedin_url, 'Linkedin Link'
     = a.text_field :linkedin_url, class: 'form-control'
 
+  = a.label :terms, 'Terms'
+  = a.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
+  col-xs-6.col-xs-offset-3
+    = a.label :terms, class: 'checkbox' do
+      = a.check_box :terms, class: 'pull-left'
+      span
+        | Agree with the terms and conditions
+
   .form-group
     = a.submit yield(:button_text), class: 'btn btn-primary'
