@@ -40,6 +40,10 @@
   .form-group
     = f.label :patent_status, 'Patent Status'
     = f.select(:patent_status, selPatentStatus, {prompt: 'Select Patent Status'}, class: 'form-control')
+
+  .form-group
+    = f.label :tags
+    = f.text_field :tag_list, class: 'form-control'
  
   .form-group
     = f.submit yield(:button_text), class: "btn btn-primary"
