@@ -143,3 +143,16 @@
   background-image: url('static/overview.png');
   background-size: cover;
 }
+
+i.circle{
+  font-size: 1.6em;
+  width: 1.6em;
+  text-align: center;
+  line-height: 1.6em;
+  background: #fff;
+  color: #333;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #333; 
+  border-radius: 0.8em; /* or 50% width & line-height */
+}
