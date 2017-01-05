@@ -28,4 +28,24 @@
       .ui.divider
       .ui.basic.segment
         h3.ui.header.left.floated style="padding-top: 6px;" Featured Offers
-        .ui.basic.primary.button.right.floated View Offers  
+        .ui.basic.primary.button.right.floated View Offers
+    - @offers.each do |offer|
+      = link_to offer do
+        -if offer.photo.present?
+          = image_tag offer.photo.url(:home_display)
+        - else
+          = image_tag 'placeholders/no_image_general.jpg'
+        = simple_format(truncate(offer.title, length: 25))
+  .one.column.row.featured.fluid
+    .column
+      .ui.divider
+      .ui.basic.segment
+        h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
+        .ui.basic.primary.button.right.floated View Needs
+    - @needs.each do |need|
+      = link_to need do
+        -if need.photo.present?
+          = image_tag need.photo.url(:home_display)
+        - else
+          = image_tag 'placeholders/no_image_general.jpg'
+        = simple_format(truncate(need.title, length: 25))
