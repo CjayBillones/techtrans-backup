@@ -19,6 +19,7 @@
 //= require select2-full
 //= require bootstrap-datepicker
 //= require social-share-button
+//= require jquery.tokeninput
 //= require_tree .
 
 //$(document).ready(function() { $("#industry_classification, #industry_country_code, #academe_user_type").select2(); });
