@@ -101,10 +101,7 @@ ActiveRecord::Schema.define(version: 20170103154816) do
     t.index ["user_id"], name: "index_ip_offers_on_user_id"
   end
 
-<<<<<<< HEAD
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-=======
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.string   "taggable_type"
@@ -128,7 +125,6 @@ ActiveRecord::Schema.define(version: 20170103154816) do
     t.string  "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
->>>>>>> 028a3ebe71aea179306fbd74977b2d19c99df16e
   end
 
   create_table "users", force: :cascade do |t|
