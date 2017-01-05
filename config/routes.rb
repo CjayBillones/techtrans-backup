@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/itso-ipophl' => 'static_pages#itso_ipophl'
   get '/resources' => 'static_pages#resources'
 
+  get '/contact' => 'static_pages#contact', as: 'contact'
+  post '/contact' => 'static_pages#send_message_email'
+
   resources :users
   get '/register' => 'users#new'
   post '/register' => 'users#create'
@@ -27,6 +30,8 @@ Rails.application.routes.draw do
   resources :ip_offers
   resources :ip_needs
   resources :tags
+
+  get '/tags' => 'tags#index'
 
   resources :industries do
     collection do

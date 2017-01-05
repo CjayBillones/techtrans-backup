@@ -76,6 +76,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                     industry: {
                                       industry_name: "UP Center for Student Innovations",
                                       country_code: "PHL",
+                                      contact_email: "dcs.innovate@gmail.com",
                                       employee_count: 1
                                     }
       }

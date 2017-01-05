@@ -54,7 +54,7 @@ class IpNeedsController < ApplicationController
 
     def ip_need_params
       params.require(:ip_need).permit(:title, :description, :features, :business_model,
-                                      :privacy_option, :photo, :document, :tag_tokens)
+                                      :privacy_option, :photo, :document, :tag_list)
     end
 
     def correct_user

@@ -1,0 +1,16 @@
+.container-fluid
+  = form_for @message, url: contact_path do |f|
+    
+    .form-group
+     = f.label :name, 'Name'
+     = f.text_field :name, class: 'form-control'
+   
+    .form-group
+      = f.label :email, 'Email'
+      = f.text_field :email, class: 'form-control'
+
+    .form-group
+      = f.label :content, 'Content'
+      = f.text_area :content, class: 'form-control' 
+    
+    = f.submit "Send", class: 'btn btn-primary'

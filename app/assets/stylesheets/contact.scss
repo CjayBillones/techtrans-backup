@@ -1,0 +1,10 @@
+@import "colors.scss";
+
+#new_message{
+  padding: 70px;
+  border: solid 1px $gray;
+  background-color: white;
+  h2{
+    color: $dark-blue;
+  }
+}
