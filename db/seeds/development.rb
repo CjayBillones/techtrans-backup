@@ -89,6 +89,18 @@ end
                             linkedin_url: linkedin_url)
 end
 
+# Admin User Population #
+user = User.create!(first_name: "Admin",
+                    last_name: "User",
+                    email: "admin1@gmail.com",
+                    password: "password",
+                    password_confirmation: "password",
+                    activated: true,
+                    activated_at: Time.zone.now,
+                    accounts_id: 1,
+                    accounts_type:"Academe",
+                    admin: true) if !User.find_by_email("admin1@gmail.com")
+
 # User Population #
 5.times do |n|
   first_name = Faker::Name.first_name
@@ -102,11 +114,11 @@ end
                       password_confirmation: "password",
                       activated: true,
                       activated_at: Time.zone.now,
-                      accounts_id: rand(1...6),
+                      accounts_id: n+1,
                       accounts_type: "Industry") if !User.find_by_email(email)
 end
 
-5.times do |n|
+4.times do |n|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "academe#{n}@gmail.com"
@@ -118,7 +130,7 @@ end
                       password_confirmation: "password",
                       activated: true,
                       activated_at: Time.zone.now,
-                      accounts_id: rand(1...6),
+                      accounts_id: n+2,
                       accounts_type: "Academe") if !User.find_by_email(email)
 end
 
@@ -152,7 +164,6 @@ csv.each do |row|
             offer.tag_list.add("#{row['Tags']}")
             offer.save if !IpOffer.find_by_title(row['Title'])
           end
-  #IpOffer.first.tag_list.add("#{row['Tags']}", parse: true).save
 end
 
 ip_needs_csv = File.read(Rails.root.join('lib', 'seeds', 'ip-needs-seeds.csv'))
@@ -180,5 +191,6 @@ csv.each do |row|
             need.tag_list.add("#{row['Tags']}")
             need.save if !IpNeed.find_by_title(row['Title'])
           end
-  #IpNeed.first.tag_list.add(row['Tags'], parse: true).save
 end
+
+puts "Database population complete!"
