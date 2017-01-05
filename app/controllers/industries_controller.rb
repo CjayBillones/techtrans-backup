@@ -27,7 +27,7 @@ class IndustriesController < ApplicationController
         render 'new'
       end
     else
-      puts @industry.errors.full_messages
+      #puts @industry.errors.full_messages
       render 'new'
     end
   end
