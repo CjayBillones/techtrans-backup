@@ -1,11 +1,13 @@
-rails db:drop db:create db:migrate
-
+#!/bin/bash
+bundle exec rake db:drop db:create db:migrate
+#
 if [ $# -eq 0 ] || [ $1 = "development" ]; then
-  rails db:seed RAILS_ENV=development
+  bundle exec rake db:seed RAILS_ENV=development
 elif [ $1 = "test" ]; then
-  rails db:seed RAILS_ENV=$1
+  bundle exec rake db:seed RAILS_ENV=test
 elif [ $1 = "production" ]; then
-  rails db:seed RAILS_ENV=$1
+  bundle exec rake db:seed RAILS_ENV=production
 else
-  echo "Error: Invalid argument. Only accepts one of the following: [development | test | production]"
+  echo "Error: Invalid argument"
+  echo "Usage: ./setup.sh [development | test | production]"
 fi
