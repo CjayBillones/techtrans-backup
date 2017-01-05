@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 11d3a5b905646c6fd397f7710f95fb9eb29f0865
+  specs:
+    ckeditor (4.2.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
+GIT
   remote: https://github.com/thoughtbot/paperclip.git
   revision: b01f47407a03feabd41ac8786b577310e3be87b6
   specs:
@@ -159,6 +167,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
@@ -272,6 +281,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.6)
   byebug (= 9.0.0)
   carmen-rails (~> 1.0.0)
+  ckeditor!
   coffee-rails (= 4.2.1)
   country_select (~> 2.5, >= 2.5.2)
   faker (= 1.6.3)
