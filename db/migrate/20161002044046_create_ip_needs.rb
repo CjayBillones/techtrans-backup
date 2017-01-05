@@ -1,11 +1,12 @@
 class CreateIpNeeds < ActiveRecord::Migration[5.0]
   def change
     create_table :ip_needs do |t|
-      t.text :title
-      t.text :description
-      t.text :features
-      t.text :business_model
-      t.string :privacy_option
+      t.text    :title
+      t.text    :description
+      t.text    :features
+      t.text    :business_model
+      t.string  :privacy_option
+      t.text    :tags
       t.references :user, foreign_key: true
 
       t.timestamps

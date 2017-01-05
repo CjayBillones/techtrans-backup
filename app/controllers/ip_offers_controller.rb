@@ -18,8 +18,9 @@ class IpOffersController < ApplicationController
   end
 
   def create
+    #render plain: params[:ip_offer].inspect
     @ip_offer = current_user.ip_offers.build(ip_offer_params)
-
+    
     if @ip_offer.save
       @ip_offer.tag_list = params[:tag_list]
       flash[:success] = "Successfully created listing!"
@@ -54,8 +55,8 @@ class IpOffersController < ApplicationController
 
     def ip_offer_params
       params.require(:ip_offer).permit(:title, :subtitle, :overview, :key_features,
-                                      :applications, :customer_edge, :market_opportunity,
-                                      :patent_status, :photo, :document, :tag_list)
+                                       :applications, :customer_edge, :market_opportunity,
+                                       :patent_status, :photo, :document, :tag_list)
     end
 
     def correct_user
