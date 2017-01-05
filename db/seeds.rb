@@ -1,4 +1,25 @@
+load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+=begin
 require 'csv'
+
+# Tag Population Start #
+tags = ["Materials and Industry Resources",
+        "Fishery and Aquaculture", 
+        "Agriculture", 
+        "Forestry",
+        "Natural Resources",
+        "Education",
+        "Food and other Fermented Products",
+        "Energy and Environment",
+        "Health and Wellness",
+        "Corporate Solutions",
+        "Designs"]
+
+tags.each do |t|
+  tag = ActsAsTaggableOn::Tag.create(name: t) if !ActsAsTaggableOn::Tag.find_by_name(t)
+end
+
+# Tag Population End #
 
 #11.times do |n|
   industry = Industry.create!(
@@ -115,3 +136,4 @@ csv.each do |row|
           :type => MIME::Types.type_for(document_path).first.content_type
           )).save if !IpNeed.find_by_title(row['Title'])
 end
+=end
