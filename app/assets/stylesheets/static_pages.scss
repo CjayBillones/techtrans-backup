@@ -1,10 +1,10 @@
 // Contains all Static_Pages-related CSS
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 @import "colors.scss";
-@import "custom.scss";
-@import "about.scss";
-@import "expertise.scss";
+// @import "custom.scss";
+// @import "about.scss";
+// @import "expertise.scss";
 
 /* Home Page*/
 
@@ -134,7 +134,12 @@
   margin-left: 70px;
  }
 
-
+// Semantic UI Implementation
 .ui.menu{
   font-size: 14px;
+}
+
+.splash{
+  background-image: url('static/overview.png');
+  background-size: cover;
 }
