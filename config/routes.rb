@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   resources :ip_offers
   resources :ip_needs
 
+  get '/tags' => 'tags#index'
+
   resources :industries do
     collection do
       get 'register' => 'industries#new'
