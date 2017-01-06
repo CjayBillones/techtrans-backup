@@ -9,4 +9,4 @@ h1
     = fullname(User.find(article.user_id)) + ' | '
     = local_time(article.created_at)
   p
-    = simple_format(article.content.html_safe)
+    = simple_format(article.content, {}, :sanitize => false)

@@ -35,4 +35,13 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+
+
+  // Configure your file manager integration
+  config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
+  config.filebrowserImageBrowseUrl = "/ckeditor/pictures";
+  config.filebrowserUploadUrl = "/ckeditor/attachment_files";
+  config.filebrowserImageUploadUrl = "/ckeditor/pictures";
+  //config.resize_dir: 'both';
+
 };
