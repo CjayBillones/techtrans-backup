@@ -29,23 +29,74 @@
       .ui.basic.segment
         h3.ui.header.left.floated style="padding-top: 6px;" Featured Offers
         .ui.basic.primary.button.right.floated View Offers
+  .five.column.row
     - @offers.each do |offer|
-      = link_to offer do
-        -if offer.photo.present?
-          = image_tag offer.photo.url(:home_display)
-        - else
-          = image_tag 'placeholders/no_image_general.jpg'
-        = simple_format(truncate(offer.title, length: 25))
-  .one.column.row.featured.fluid
-    .column
-      .ui.divider
-      .ui.basic.segment
-        h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
-        .ui.basic.primary.button.right.floated View Needs
+      .column
+        = link_to offer, class: 'ui card' do
+          .image
+            -if offer.photo.present?
+              = image_tag offer.photo.url(:home_display)
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          .content
+            h5.ui.header
+              = simple_format(truncate(offer.title, length: 20))
+  .ui.container.grid
+    .row style="padding-top: 36px;"
+      .column.center.aligned
+        h2.ui.header style="font-size: 32px;" Needs
+    .three.column.row.offers
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-question.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Determine 
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-file-o.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Submit
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-search.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Search
+    .one.column.row.featured.fluid
+      .column
+        .ui.divider
+        .ui.basic.segment
+          h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
+          .ui.basic.primary.button.right.floated View Needs
+  .five.column.row
     - @needs.each do |need|
-      = link_to need do
-        -if need.photo.present?
-          = image_tag need.photo.url(:home_display)
-        - else
-          = image_tag 'placeholders/no_image_general.jpg'
-        = simple_format(truncate(need.title, length: 25))
+      .column
+        = link_to need, class: 'ui card' do
+          .image
+            -if need.photo.present?
+              = image_tag need.photo.url(:home_display)
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          .content
+            h5.ui.header
+              = simple_format(truncate(need.title, length: 20))
+  .ui.container.grid
+    .one.column.row style="padding-top: 36px;"
+      .column
+        h2.ui.header Recent Articles
+    .row
+      .seven.wide.column
+        img.ui.image src="https://unsplash.it/g/500/300?random"
+      .nine.wide.column
+        h3.ui.header Article Title 1
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis similique, architecto delectus rem quasi maxime, placeat voluptates quas veniam qui accusamus natus consectetur sed ut nemo. Odio temporibus maxime laudantium?  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate nisi dolor eveniet dicta a mollitia explicabo enim molestiae, totam vero voluptatem nam perferendis nulla! Odio reiciendis corrupti similique iste.
+    .three.column.row
+      .column
+        img.ui.image src="https://unsplash.it/g/400/250?random"
+        h3.ui.header.centered Article Title 2
+      .column
+        img.ui.image src="https://unsplash.it/g/400/250?random"
+        h3.ui.header.centered Article Title 3
+      .column
+        img.ui.image src="https://unsplash.it/g/400/250?random"
+        h3.ui.header.centered Article Title 4
+    .row
+      .column
+        a.ui.header.right.floated style="font-size: 18px;" href="#" 
+          h4 View Articles
