@@ -8,6 +8,10 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
+  config.language = 'en';
+
+  config.height = '400px';
+
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
@@ -22,8 +26,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'styles' },
-		{ name: 'colors' },
-		{ name: 'about' }
+		{ name: 'colors' }
 	];
 
 	// Remove some buttons provided by the standard plugins, which are
@@ -43,5 +46,7 @@ CKEDITOR.editorConfig = function( config ) {
   config.filebrowserUploadUrl = "/ckeditor/attachment_files";
   config.filebrowserImageUploadUrl = "/ckeditor/pictures";
   //config.resize_dir: 'both';
+
+  config.disallowedContent = 'img{width,height}';
 
 };
