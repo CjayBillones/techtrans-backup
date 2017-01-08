@@ -1,33 +1,32 @@
 .ui.borderless.fixed.menu
   .ui.container
-    / root_path
-    a.header.item href="#" UP IPTTU
-    / root_path
-    a.item href="#" Home
-    / about_path
-    a.item href="#" About
-    / Dropdown
-      / Offers -> ip_offers_path
-      / Needs -> ip_needs_path
-    a.item href="#" IP Portal
-    / articles_path
-    a.item href="#" Articles
-    / expertise_path
-    a.item href="#" Expertise
-    / itso_ipophl_path
-    a.item href="#" ITSO-IPOPHL
-    / resources_path
-    a.item href="#" Resources
-    / contact_path
-    a.item href="#" Contact
+    = link_to 'UP IPTTU', root_path, class: 'header item'
+    = link_to 'Home', root_path, class: 'item'
+    = link_to 'About', about_path, class: 'item'
+
+    .ui.dropdown.item 
+      | IP Portal
+      .menu
+        = link_to 'Offers', ip_offers_path, class: 'item'
+        = link_to 'Needs', ip_needs_path, class: 'item'
+
+    = link_to 'Articles', articles_path, class: 'item'
+    
+    = link_to 'Expertise', expertise_path, class: 'item'
+    
+    = link_to 'ITSO-IPOPHL', itso_ipophl_path, class: 'item'
+
+    = link_to 'Resources', resources_path, class: 'item'
+
+    = link_to 'Contact', contact_path, class: 'item'
     .right.menu
       - if !current_user
-        / login_path
-        a.item href="#" Login
-        / Dropdown
-          / Academe -> register_academes_path
-          / Industry -> register_industries_path
-        a.item href="#" Register
+        = link_to 'Login', login_path, class: 'item'
+        .ui.dropdown.item 
+          | Register
+          .menu
+            = link_to 'Academe', register_academes_path, class: 'item'
+            = link_to 'Industry', register_industries_path, class: 'item'
       - else
         a.item
           = link_to 'Profile', current_user
