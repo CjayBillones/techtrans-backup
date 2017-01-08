@@ -1,28 +1,30 @@
-= form_for @academe do |a| 
-  h2 Personal Information
+= form_for @academe, html: { class: 'ui form text container' }  do |a| 
+  h2.ui.header.center.aligned Academe Registration
+
+  .ui.dividing.header Account Information
   = fields_for @user do |u|
 
-    .form-group
+    .field
       = u.label :first_name, 'First Name', class: 'required'
       = u.text_field :first_name, required: true, class: 'form-control'
     
-    .form-group
+    .field
       = u.label :last_name, 'Last Name', class: 'required'
       = u.text_field :last_name, class: 'form-control'
     
-    .form-group
+    .field
       = u.label :email, 'Email', class: 'required'
       = u.email_field :email, class: 'form-control'
     
-    .form-group
+    .field
       = u.label :password, 'Password', class: 'required'
       = u.password_field :password, class: 'form-control'
     
-    .form-group
+    .field
       = u.label :password_confirmation, 'Password Confirmation', class: 'required'
       = u.password_field :password_confirmation, class: 'form-control'
 
-  /.form-group
+  /.field
   /  = a.label :birthday, 'Date of Birth'
   /  academe_birthday
   /    .input-group.date
@@ -30,41 +32,40 @@
   /      span.input-group-addon
   /        i.fa.fa-calendar
 
-  .form-group
+  .field
     = a.label :user_type, 'User Type', class: 'required'
     = a.select(:user_type, selUserTypes, {prompt: 'Select User Type'}, class: 'form-control')
-
-  .form-group
+  .ui.dividing.header Personal Information
+  .field
     = a.label :user_bio, 'Biography'
     = a.text_area :user_bio, class: 'form-control'
 
-  .form-group
+  .field
     = a.label :id_number, 'Student/Employee Number', class: 'required'
     = a.text_field :id_number, class: 'form-control'
 
-  .form-group
+  .field
     = a.label :contact_number
     = a.text_field :contact_number, class: 'form-control'
 
-  .form-group
+  .field
     = a.label :address
     = a.text_field :address, class: 'form-control'
 
-  .form-group
+  .field
     = a.label :fb_url, 'Facebook Link'
     = a.text_field :fb_url, class: 'form-control'
 
-  .form-group
+  .field
     = a.label :linkedin_url, 'Linkedin Link'
     = a.text_field :linkedin_url, class: 'form-control'
-
-  = a.label :terms, 'Terms'
-  = a.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
-  col-xs-6.col-xs-offset-3
-    = a.label :terms, class: 'checkbox' do
-      = a.check_box :terms, class: 'pull-left'
-      span
-        | Agree with the terms and conditions
-
-  .form-group
-    = a.submit yield(:button_text), class: 'btn btn-primary'
+  .ui.dividing.header Terms of Use and Non-Disclosure Agreement
+  .field  
+    = a.label :terms, 'Terms of Agreement'
+    = a.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
+  .inline.field
+    .ui.checkbox
+      = a.check_box :terms
+      = a.label :terms, 'I agree with the terms and conditions.'
+  .field
+    = a.submit yield(:button_text), class: 'ui button primary'
