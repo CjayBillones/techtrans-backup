@@ -2,7 +2,11 @@ module IpOffersHelper
   include ActsAsTaggableOn::TagsHelper
   
   def selPatentStatus
-    @patent_status = ['Not Patented', 'Processing Patent','Patented'] 
+    @patent_status = ['Filed','Patented'] 
+  end
+
+  def selCategory
+    @categories = ['Trademark', 'Copyright']
   end
 
 end

@@ -18,6 +18,7 @@ gem 'faker',          '1.6.3'
 gem 'figaro'
 gem 'local_time'
 gem 'font-awesome-rails'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip', git: "https://github.com/thoughtbot/paperclip.git"
 gem 'carmen-rails', '~> 1.0.0'
 gem 'country_select', '~> 2.5', '>= 2.5.2'

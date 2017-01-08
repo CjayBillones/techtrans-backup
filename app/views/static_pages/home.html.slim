@@ -5,7 +5,8 @@
         h1.ui.header 
           .content style="font-size: 28px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
           .sub.header Ensuring Protection and Efficient Technology Transfer for the Public Good
-        .ui.button.primary Learn More
+        .ui.basic.button.primary 
+          = link_to 'Learn More', about_path
 .ui.container.grid.stackable
   .row style="padding-top: 36px;"
     .column.center.aligned
@@ -28,7 +29,8 @@
       .ui.divider
       .ui.basic.segment
         h3.ui.header.left.floated style="padding-top: 6px;" Featured Offers
-        .ui.basic.primary.button.right.floated View Offers
+        .ui.basic.primary.button.right.floated 
+          = link_to 'View Offers', ip_offers_path
   .five.column.row
     - @offers.each do |offer|
       .column
@@ -63,7 +65,8 @@
         .ui.divider
         .ui.basic.segment
           h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
-          .ui.basic.primary.button.right.floated View Needs
+          .ui.basic.primary.button.right.floated 
+            = link_to 'View Needs', ip_needs_path
   .five.column.row
     - @needs.each do |need|
       .column
@@ -82,21 +85,32 @@
         h2.ui.header Recent Articles
     .row
       .seven.wide.column
-        img.ui.image src="https://unsplash.it/g/500/300?random"
+        img.ui.image
+          - if @articles.first.banner_photo.present?
+            = image_tag @articles.first.banner_photo.url
+          - else
+            = image_tag 'placeholders/no_image_general.jpg'
       .nine.wide.column
-        h3.ui.header Article Title 1
-        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis similique, architecto delectus rem quasi maxime, placeat voluptates quas veniam qui accusamus natus consectetur sed ut nemo. Odio temporibus maxime laudantium?  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate nisi dolor eveniet dicta a mollitia explicabo enim molestiae, totam vero voluptatem nam perferendis nulla! Odio reiciendis corrupti similique iste.
+        h3.ui.header
+          = @articles.first.title
+        p
+          - if @articles.first.content.length > 475
+            = simple_format(truncate(@articles.first.content, length: 475) + link_to(" Read more", @articles.first))
+          - else
+            = simple_format(truncate(@articles.first.content, length: 475))
+
     .three.column.row
-      .column
-        img.ui.image src="https://unsplash.it/g/400/250?random"
-        h3.ui.header.centered Article Title 2
-      .column
-        img.ui.image src="https://unsplash.it/g/400/250?random"
-        h3.ui.header.centered Article Title 3
-      .column
-        img.ui.image src="https://unsplash.it/g/400/250?random"
-        h3.ui.header.centered Article Title 4
+      - 3.times do |n|
+        .column
+          img.ui.img
+            - if @articles[n].banner_photo.present?
+              = image_tag @articles[n].banner_photo.url
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          h3.ui.header.centered
+            = link_to @articles[n].title, @articles[n]
     .row
       .column
-        a.ui.header.right.floated style="font-size: 18px;" href="#" 
-          h4 View Articles
+        a.ui.header.right.floated style="font-size: 18px;"
+          h4 
+            = link_to 'View Articles', articles_path

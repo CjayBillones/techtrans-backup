@@ -43,7 +43,7 @@ user_types = ['Student', 'Researcher', 'Faculty']
 5.times do |n|
   email = "industry#{n}@gmail.com"
   industry_name = Faker::Company.name
-  organization_bio = Faker::Lorem.paragraphs(rand(1...5))
+  organization_bio = Faker::Lorem.paragraphs(rand(1...5)).join("\n\n")
   country_code = Faker::Address.country_code
   address = generate_address
   contact_person = Faker::Name.name
@@ -72,7 +72,7 @@ end
 # Academe Population #
 5.times do |n|
   username = Faker::Lorem.word
-  user_bio = Faker::Lorem.paragraphs(rand(1...5))
+  user_bio = Faker::Lorem.paragraphs(rand(1...5)).join("\n\n")
   user_type = user_types[rand(0...3)]
   id_number = rand(195000000...201799999).to_s
   contact_number = Faker::PhoneNumber.cell_phone
@@ -89,6 +89,18 @@ end
                             linkedin_url: linkedin_url)
 end
 
+# Admin User Population #
+user = User.create!(first_name: "Admin",
+                    last_name: "User",
+                    email: "admin1@gmail.com",
+                    password: "password",
+                    password_confirmation: "password",
+                    activated: true,
+                    activated_at: Time.zone.now,
+                    accounts_id: 1,
+                    accounts_type:"Academe",
+                    admin: true) if !User.find_by_email("admin1@gmail.com")
+
 # User Population #
 5.times do |n|
   first_name = Faker::Name.first_name
@@ -102,11 +114,11 @@ end
                       password_confirmation: "password",
                       activated: true,
                       activated_at: Time.zone.now,
-                      accounts_id: rand(1...6),
+                      accounts_id: n+1,
                       accounts_type: "Industry") if !User.find_by_email(email)
 end
 
-5.times do |n|
+4.times do |n|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "academe#{n}@gmail.com"
@@ -118,8 +130,26 @@ end
                       password_confirmation: "password",
                       activated: true,
                       activated_at: Time.zone.now,
-                      accounts_id: rand(1...6),
+                      accounts_id: n+2,
                       accounts_type: "Academe") if !User.find_by_email(email)
+end
+
+# Article Population #
+
+image_path = "#{Rails.root}/lib/assets/images/sample.jpg"
+image_file = File.new(image_path)
+5.times do |n|
+  article = User.first.articles.build(
+              title: Faker::Lorem.words(rand(5...15)).join(' '),
+              content: Faker::Lorem.paragraphs(rand(5...10)).join("\n\n"),
+              banner_photo: ActionDispatch::Http::UploadedFile.new(
+                :filename => File.basename(image_file),
+                :tempfile => image_file,
+                :type => MIME::Types.type_for(image_path).first.content_type
+            )).tap do |article|
+              article.tag_list.add("News, Feature, Announcement", parse: true)
+              article.save
+            end
 end
 
 # IP Offer Population #
@@ -140,19 +170,18 @@ csv.each do |row|
           market_opportunity: row['Market Opportunity'],
           inventors: row['Inventors'],
           photo: ActionDispatch::Http::UploadedFile.new(
-          :filename => File.basename(image_file),
-          :tempfile => image_file,
-          :type => MIME::Types.type_for(image_path).first.content_type
+            :filename => File.basename(image_file),
+            :tempfile => image_file,
+            :type => MIME::Types.type_for(image_path).first.content_type
           ),
           document: ActionDispatch::Http::UploadedFile.new(
-          :filename => File.basename(document_file),
-          :tempfile => document_file,
-          :type => MIME::Types.type_for(document_path).first.content_type,
+            :filename => File.basename(document_file),
+            :tempfile => document_file,
+            :type => MIME::Types.type_for(document_path).first.content_type,
           )).tap do |offer|
-            offer.tag_list.add("#{row['Tags']}")
+            offer.tag_list.add("#{row['Tags']}", parse: true)
             offer.save if !IpOffer.find_by_title(row['Title'])
           end
-  #IpOffer.first.tag_list.add("#{row['Tags']}", parse: true).save
 end
 
 ip_needs_csv = File.read(Rails.root.join('lib', 'seeds', 'ip-needs-seeds.csv'))
@@ -168,17 +197,18 @@ csv.each do |row|
           features: row['Features'],
           business_model: row['Business Model'],
           photo: ActionDispatch::Http::UploadedFile.new(
-          :filename => File.basename(image_file),
-          :tempfile => image_file,
-          :type => MIME::Types.type_for(image_path).first.content_type
+            :filename => File.basename(image_file),
+            :tempfile => image_file,
+            :type => MIME::Types.type_for(image_path).first.content_type
           ),
           document: ActionDispatch::Http::UploadedFile.new(
-          :filename => File.basename(document_file),
-          :tempfile => document_file,
-          :type => MIME::Types.type_for(document_path).first.content_type,
+            :filename => File.basename(document_file),
+            :tempfile => document_file,
+            :type => MIME::Types.type_for(document_path).first.content_type,
           )).tap do |need|
-            need.tag_list.add("#{row['Tags']}")
+            need.tag_list.add("#{row['Tags']}", parse: true)
             need.save if !IpNeed.find_by_title(row['Title'])
           end
-  #IpNeed.first.tag_list.add(row['Tags'], parse: true).save
 end
+
+puts "Database population complete!"

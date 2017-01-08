@@ -1,5 +1,7 @@
 class UserMailer < ApplicationMailer
 
+  default from: "no-reply@gmail.com"
+
   def account_activation(user)
     @user = user
     mail to: user.email, subject: "Account Activation"

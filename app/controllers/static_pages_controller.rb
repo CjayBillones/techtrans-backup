@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   
   def home
+    @articles = Article.last(4)
     @offers = IpOffer.last(5)
     @needs = IpNeed.last(5)
   end
