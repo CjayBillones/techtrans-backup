@@ -21,9 +21,15 @@
     / contact_path
     a.item href="#" Contact
     .right.menu
-      / login_path
-      a.item href="#" Login
-      / Dropdown
-        / Academe -> register_academes_path
-        / Industry -> register_industries_path
-      a.item href="#" Register
+      - if !current_user
+        / login_path
+        a.item href="#" Login
+        / Dropdown
+          / Academe -> register_academes_path
+          / Industry -> register_industries_path
+        a.item href="#" Register
+      - else
+        a.item
+          = link_to 'Profile', current_user
+        a.item
+          = link_to 'Logout', logout_path, method: 'delete'
