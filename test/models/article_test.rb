@@ -3,7 +3,7 @@ require 'test_helper'
 class ArticleTest < ActiveSupport::TestCase
 
   def setup
-    @user = users(:cjay)
+    @user = users(:admin)
     @article = @user.articles.build(title:"Lorem Ipsum", content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec tellus eu diam elementum laoreet. Morbi mauris erat, eleifend ut maximus eu, imperdiet eget nunc.")
   end
 
