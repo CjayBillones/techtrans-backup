@@ -108,9 +108,7 @@
             - else
               = image_tag 'placeholders/no_image_general.jpg'
           h3.ui.header.centered
-            = link_to @articles[n].title, @articles[n]
+            = link_to @articles[n].title, @articles[n], style: 'color: #333;'
     .row
       .column
-        a.ui.header.right.floated style="font-size: 18px;"
-          h4 
-            = link_to 'View Articles', articles_path
+        = link_to 'View Articles', articles_path, class: 'ui basic button primary right floated'
