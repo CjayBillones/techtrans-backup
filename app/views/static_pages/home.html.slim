@@ -1,4 +1,4 @@
-.ui.grid
+.ui.grid.stackable
   .row.splash.middle.aligned style="height: 80vh;"
     .seven.wide.column.centered.center.aligned
       .ui.segment.centered style="background-color: rgba(255,255,255,.7);"
@@ -7,7 +7,7 @@
           .sub.header Ensuring Protection and Efficient Technology Transfer for the Public Good
         .ui.basic.button.primary 
           = link_to 'Learn More', about_path
-.ui.container.grid
+.ui.container.grid.stackable
   .row style="padding-top: 36px;"
     .column.center.aligned
       h2.ui.header style="font-size: 32px;" Offers
@@ -43,7 +43,7 @@
           .content
             h5.ui.header
               = simple_format(truncate(offer.title, length: 20))
-  .ui.container.grid
+  .ui.container.grid.stackable
     .row style="padding-top: 36px;"
       .column.center.aligned
         h2.ui.header style="font-size: 32px;" Needs
@@ -79,7 +79,7 @@
           .content
             h5.ui.header
               = simple_format(truncate(need.title, length: 20))
-  .ui.container.grid
+  .ui.container.grid.stackable
     .one.column.row style="padding-top: 36px;"
       .column
         h2.ui.header Recent Articles

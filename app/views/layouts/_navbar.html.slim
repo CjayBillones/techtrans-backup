@@ -1,13 +1,29 @@
 .ui.borderless.fixed.menu
   .ui.container
+    / root_path
     a.header.item href="#" UP IPTTU
+    / root_path
     a.item href="#" Home
+    / about_path
     a.item href="#" About
-    a.item href="#" Articles
+    / Dropdown
+      / Offers -> ip_offers_path
+      / Needs -> ip_needs_path
     a.item href="#" IP Portal
+    / articles_path
+    a.item href="#" Articles
+    / expertise_path
     a.item href="#" Expertise
+    / itso_ipophl_path
     a.item href="#" ITSO-IPOPHL
+    / resources_path
     a.item href="#" Resources
+    / contact_path
+    a.item href="#" Contact
     .right.menu
+      / login_path
       a.item href="#" Login
+      / Dropdown
+        / Academe -> register_academes_path
+        / Industry -> register_industries_path
       a.item href="#" Register
