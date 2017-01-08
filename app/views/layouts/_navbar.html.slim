@@ -1,62 +1,13 @@
-header.navbar.navbar-default.navbar-fixed-top role= "navigation"
-  .container
-    .navbar-header
-      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="false"
-        span.sr-only Toggle Navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      .navbar-logo
-        = link_to image_tag("logo/UPD_logo.png", style:"max-height: 40px;"), root_path, id:"logo"
-        = link_to "UP IPTTU", root_path, id: "iptulogo"
-    .navbar-collapse.collapse                
-      ul.nav.navbar-nav
-        li
-          = link_to "Home", root_path, :wrap_tag => :li
-          //= active_link_to "Home", root_path, :wrap_tag => :li, :active => [['static_pages'], ['home']]
-        li
-          = link_to "About Us", about_path, :wrap_tag => :li
-        li
-          = link_to "Expertise", expertise_path, :wrap_tag => :li
-        li.dropdown
-          a.dropdown-toggle data-toggle="dropdown" href="#" 
-          
-            | IP Portal
-          ul.dropdown-menu role="menu"
-            li
-              = link_to "IP Offers", ip_offers_path
-            li
-              = link_to "IP Needs", ip_needs_path
-        li
-          = link_to "ITSO-IPOPHL", itso_ipophl_path, :wrap_tag => :li
-        li
-          = link_to "Resources", resources_path, :wrap_tag => :li
-        li
-          = link_to "Contact", contact_path, :wrap_tag => :li
-      - if logged_in?
-        ul.nav.navbar-nav.navbar-right
-          li.dropdown
-            a.dropdown-toggle data-toggle="dropdown" href="#"
-              | Account
-              span.caret
-            ul.dropdown-menu role="menu"
-              li
-                = link_to "Profile", current_user
-              li
-                = link_to "Settings", edit_user_path(current_user)
-              li.divider
-              li
-                = link_to "Logout", logout_path, method: "delete"
-      - else
-        ul.nav.navbar-nav.navbar-right
-          li
-            = link_to "Log in", login_path, :wrap_tag => :li
-          li.dropdown
-            a.dropdown-toggle data-toggle="dropdown" href="#" 
-            
-              | Register
-            ul.dropdown-menu role="menu"
-              li
-                = link_to "Academe", register_academes_path
-              li
-                = link_to "Industry", register_industries_path
+.ui.borderless.fixed.menu
+  .ui.container
+    a.header.item href="#" UP IPTTU
+    a.item href="#" Home
+    a.item href="#" About
+    a.item href="#" Articles
+    a.item href="#" IP Portal
+    a.item href="#" Expertise
+    a.item href="#" ITSO-IPOPHL
+    a.item href="#" Resources
+    .right.menu
+      a.item href="#" Login
+      a.item href="#" Register

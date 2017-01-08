@@ -1,9 +1,9 @@
 class StaticPagesController < ApplicationController
   
   def home
-    @articles = Article.all
-    @ip_offers = IpOffer.all
-    @ip_needs = IpNeed.all
+    @articles = Article.last(4)
+    @offers = IpOffer.last(5)
+    @needs = IpNeed.last(5)
   end
 
   def about

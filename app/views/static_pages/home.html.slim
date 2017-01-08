@@ -1,114 +1,102 @@
-#carouseltop
-  #myCarousel.carousel.slide data-ride="carousel"
-    ol.carousel-indicators
-      li.active data-target="#myCarousel" data-slide-to="0"
-      li data-target="#myCarousel" data-slide-to="1"
-      li data-target="#myCarousel" data-slide-to="2" 
-      li data-target="#myCarousel" data-slide-to="3"           
-  
-    .carousel-inner role="listbox"
-      .item.active
-        .img-fluid
-         = image_tag("static/overview", :width=> "100%", :alt=> "About")        
-        .carousel-caption
-          h1
-            | UP DILIMAN IP AND TECHNOLOGY TRANSFER
-          h3 Ensuring Protection and Efficient Technology Transfer for the Public Good
-          br
-          .text-center
-            = link_to "Learn More", about_path, class: "btn btn-primary btn-lg"
-      .item        
-        .img-fluid
-          = image_tag("static/ip-offer.png", :width=> "100%", :alt=> "IP Offers")
-        .carousel-caption
-          h1
-            | Share Your Discoveries Now
-          h3 We help university faculty and researchers advance their work by assisting them from disclosure to deployment. Let the world know about your research outputs. Submit your IP Offers today.
-          br
-          .text-center
-            = link_to "View IP Offers", ip_offers_path, class: "btn btn-primary btn-lg"
-      .item        
-        .img-fluid
-          = image_tag("static/ip-need.png", :width=> "100%", :alt=> "IP Needs")
-        .carousel-caption
-          h1
-            | Find Your IP Needs
-          h3 When it comes to innovative, real-world industry solutions, we're here to help. Post your IP Needs and partner with us to achieve your business goals.
-          br
-          .text-center
-          = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
-      .item        
-        .img-fluid
-          = image_tag("static/feature1.png", :width=> "100%", :alt=> "Featured Articles")
-        #articles.carousel-caption
-          h1
-            | UP Diliman student research bags 3rd in the 2015 AMY Intellectual Property Awards
-
-    a.left.carousel-control href="#myCarousel" role="button" data-slide="prev"
-      span.glyphicon.glyphicon-chevron-left aria-hidden="true"
-      span.sr-only
-        |Prev
-    a.right.carousel-control href="#myCarousel" role="button" data-slide="next"
-      span.glyphicon.glyphicon-chevron-right aria-hidden="true"
-      span.sr-only
-        |Next
-
-
-      
-.introduction
-  #IPOffers.container-fluid
+.ui.grid
+  .row.splash.middle.aligned style="height: 80vh;"
+    .seven.wide.column.centered.center.aligned
+      .ui.segment.centered style="background-color: rgba(255,255,255,.7);"
+        h1.ui.header 
+          .content style="font-size: 28px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
+          .sub.header Ensuring Protection and Efficient Technology Transfer for the Public Good
+        .ui.button.primary Learn More
+.ui.container.grid
+  .row style="padding-top: 36px;"
+    .column.center.aligned
+      h2.ui.header style="font-size: 32px;" Offers
+  .three.column.row.offers
+    .column.center.aligned
+      .ui.basic.segment 
+        i.fa.fa-lightbulb-o.circle style="font-size: 100px;" aria-hidden="true"
+        h3.ui.header style="font-size: 24px;" Create 
+    .column.center.aligned
+      .ui.basic.segment 
+        i.fa.fa-lock.circle style="font-size: 100px;" aria-hidden="true"
+        h3.ui.header style="font-size: 24px;" Protect
+    .column.center.aligned
+      .ui.basic.segment 
+        i.fa.fa-child.circle style="font-size: 100px;" aria-hidden="true"
+        h3.ui.header style="font-size: 24px;" Share
+  .one.column.row.featured.fluid
+    .column
+      .ui.divider
+      .ui.basic.segment
+        h3.ui.header.left.floated style="padding-top: 6px;" Featured Offers
+        .ui.basic.primary.button.right.floated View Offers
+  .five.column.row
+    - @offers.each do |offer|
+      .column
+        = link_to offer, class: 'ui card' do
+          .image
+            -if offer.photo.present?
+              = image_tag offer.photo.url(:home_display)
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          .content
+            h5.ui.header
+              = simple_format(truncate(offer.title, length: 20))
+  .ui.container.grid
+    .row style="padding-top: 36px;"
+      .column.center.aligned
+        h2.ui.header style="font-size: 32px;" Needs
+    .three.column.row.offers
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-question.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Determine 
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-file-o.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Submit
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-search.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Search
+    .one.column.row.featured.fluid
+      .column
+        .ui.divider
+        .ui.basic.segment
+          h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
+          .ui.basic.primary.button.right.floated View Needs
+  .five.column.row
+    - @needs.each do |need|
+      .column
+        = link_to need, class: 'ui card' do
+          .image
+            -if need.photo.present?
+              = image_tag need.photo.url(:home_display)
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          .content
+            h5.ui.header
+              = simple_format(truncate(need.title, length: 20))
+  .ui.container.grid
+    .one.column.row style="padding-top: 36px;"
+      .column
+        h2.ui.header Recent Articles
     .row
-      .col-md-6
-        .img-fluid
-          #img-responsiveIP
-            = image_tag("static/ip-offers.jpg", :size => "400x300")
-      .col-md-6
-        h2
-          | Intellectual Property Offers
-        p 
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          .text-center
-            = link_to "View IP Offers", ip_offers_path, class: "btn btn-primary btn-lg"
+      .seven.wide.column
+        img.ui.image src="https://unsplash.it/g/500/300?random"
+      .nine.wide.column
+        h3.ui.header Article Title 1
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis similique, architecto delectus rem quasi maxime, placeat voluptates quas veniam qui accusamus natus consectetur sed ut nemo. Odio temporibus maxime laudantium?  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptate nisi dolor eveniet dicta a mollitia explicabo enim molestiae, totam vero voluptatem nam perferendis nulla! Odio reiciendis corrupti similique iste.
+    .three.column.row
+      .column
+        img.ui.image src="https://unsplash.it/g/400/250?random"
+        h3.ui.header.centered Article Title 2
+      .column
+        img.ui.image src="https://unsplash.it/g/400/250?random"
+        h3.ui.header.centered Article Title 3
+      .column
+        img.ui.image src="https://unsplash.it/g/400/250?random"
+        h3.ui.header.centered Article Title 4
     .row
-      .hr
-      h3
-        | Featured IP Offers
-      - @ip_offers.each_with_index do |ip_offer, index|
-        = link_to ip_offer do
-          .col-md-2.side-margin-19
-            #cimage.img-fluid
-              = image_tag ip_offer.photo.url(:home_display)
-            h5
-              .text-center
-                = simple_format(truncate(ip_offer.title, length: 25))
-        - break if index >= 4
-
-
-.introduction
-  #IPNeeds.container-fluid
-    .row
-      .col-md-6
-        h2
-          | Intellectual Property Needs
-        p 
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nulla purus, et mattis dui pretium ut. Nunc ut elit ligula. Nulla dignissim nisl sit amet arcu feugiat vestibulum. Integer non luctus arcu, a congue ipsum. Cras non ultrices velit. Pellentesque in sodales lectus, eu sodales ligula. Nunc vitae scelerisque ex, ac dapibus ex. Curabitur ac dictum turpis. Integer ac elit in augue malesuada laoreet ac id ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        .text-center
-          = link_to "View IP Needs", ip_needs_path, class: "btn btn-primary btn-lg"
-          br
-      .col-md-6
-        .img-fluid
-          #img-responsiveIP
-            = image_tag("static/ip-needs.jpg", :size => "400x300")
-    .row
-      .hr
-      h3
-        | Featured IP Needs
-      - @ip_needs.each_with_index do |ip_need, index|
-        = link_to ip_need do
-          .col-md-2.side-margin-19
-            .img-fluid
-              = image_tag ip_need.photo.url(:home_display)
-            h5
-              .text-center
-                = simple_format(truncate(ip_need.title, length: 25))
-        - break if index >= 4
+      .column
+        a.ui.header.right.floated style="font-size: 18px;" href="#" 
+          h4 View Articles
