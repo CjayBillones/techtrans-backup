@@ -1,6 +1,6 @@
 class MessageMailer < ApplicationMailer
 
-  default from: "noreply@google.com"
+  default from: "no-reply@gmail.com"
   default to: "billonesciprian08@gmail.com"
 
   def new_message(message)
