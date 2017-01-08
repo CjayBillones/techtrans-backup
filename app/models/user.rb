@@ -20,6 +20,8 @@ class User < ApplicationRecord
 
   belongs_to :accounts, :polymorphic => true
 
+  acts_as_follower
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)

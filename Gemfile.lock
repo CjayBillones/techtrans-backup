@@ -7,6 +7,13 @@ GIT
       orm_adapter (~> 0.5.0)
 
 GIT
+  remote: git://github.com/tcocca/acts_as_follower.git
+  revision: c395dd2f1d62a5879e9d084c770dc35e02ee1043
+  specs:
+    acts_as_follower (0.2.1)
+      activerecord (>= 4.0)
+
+GIT
   remote: https://github.com/thoughtbot/paperclip.git
   revision: b01f47407a03feabd41ac8786b577310e3be87b6
   specs:
@@ -276,6 +283,7 @@ PLATFORMS
 DEPENDENCIES
   active_link_to
   acts-as-taggable-on
+  acts_as_follower!
   bcrypt (= 3.1.11)
   bootstrap-datepicker-rails (~> 1.6, >= 1.6.1.1)
   bootstrap-sass (= 3.3.6)

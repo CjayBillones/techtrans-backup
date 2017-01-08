@@ -6,6 +6,8 @@ class IpOffer < ApplicationRecord
   acts_as_taggable
   acts_as_taggable_on :tags
 
+  acts_as_followable
+
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }
 

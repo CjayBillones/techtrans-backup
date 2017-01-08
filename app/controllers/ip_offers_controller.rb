@@ -9,8 +9,8 @@ class IpOffersController < ApplicationController
   end
 
   def show
-    @ip_offer = IpOffer.find(params[:id])
-    @user = User.find(@ip_offer.user_id)
+    @ip = IpOffer.find(params[:id])
+    @user = User.find(@ip.user_id)
   end
 
   def new

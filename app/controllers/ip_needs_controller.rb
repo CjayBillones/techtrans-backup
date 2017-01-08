@@ -9,8 +9,8 @@ class IpNeedsController < ApplicationController
   end
 
   def show
-    @ip_need = IpNeed.find(params[:id])
-    @user = User.find(@ip_need.user_id)
+    @ip = IpNeed.find(params[:id])
+    @user = User.find(@ip.user_id)
   end
 
   def new

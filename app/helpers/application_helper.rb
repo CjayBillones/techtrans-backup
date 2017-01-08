@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def is_number?(string)
-    true if Integer(string) rescue false
-  end
-
   # Returns the full title on a per-page basis.
   def full_title(page_title = '')
     base_title = "IP Technology Transfer Unit"
@@ -24,6 +20,22 @@ module ApplicationHelper
 
   def admin_user
     redirect_to(root_path) unless current_user.admin?
+  end
+
+  def academe_user
+    redirect_to(root_path) unless (current_user.accounts.class == Academe)
+  end
+
+  def indstry_user
+    redirect_to(root_path) unless (current_user.accounts.class == Industry)
+  end
+
+  def academe_user?
+    return current_user.accounts.class == Academe
+  end
+
+  def industry_user?
+    return current_user.accounts.class == Industry
   end
 
   def terms_of_agreement

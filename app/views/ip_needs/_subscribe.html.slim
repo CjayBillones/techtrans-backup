@@ -1,0 +1,6 @@
+= form_tag('/subscribe', id:'subscription_form', method: 'subscribe') do
+  = hidden_field_tag :authenticity_token, form_authenticity_token
+  = hidden_field_tag :follower_id, current_user.id
+  = hidden_field_tag :followed_id, @ip.id
+  = hidden_field_tag :followed_type, @ip.class
+  = submit_tag("Subscribe")
