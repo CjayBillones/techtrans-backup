@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
 
-  default_scope -> { order(created_at: :desc) }
+  default_scope -> { order(created_at: :desc) }  
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }
@@ -12,6 +12,9 @@ class Article < ApplicationRecord
   validates_attachment_size :banner_photo, :less_than => 25.megabytes
   validates_attachment_content_type :banner_photo, content_type: /\Aimage/
   validates_attachment_file_name :banner_photo, matches: [/png\z/, /jpe?g\z/]
+
+  acts_as_taggable
+  acts_as_taggable_on :tags
 
   belongs_to :user
 

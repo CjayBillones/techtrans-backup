@@ -161,7 +161,7 @@ csv.each do |row|
           :tempfile => document_file,
           :type => MIME::Types.type_for(document_path).first.content_type,
           )).tap do |offer|
-            offer.tag_list.add("#{row['Tags']}")
+            offer.tag_list.add("#{row['Tags']}", parse: true)
             offer.save if !IpOffer.find_by_title(row['Title'])
           end
 end
@@ -188,7 +188,7 @@ csv.each do |row|
           :tempfile => document_file,
           :type => MIME::Types.type_for(document_path).first.content_type,
           )).tap do |need|
-            need.tag_list.add("#{row['Tags']}")
+            need.tag_list.add("#{row['Tags']}", parse: true)
             need.save if !IpNeed.find_by_title(row['Title'])
           end
 end
