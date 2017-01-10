@@ -1,16 +1,21 @@
-.container-fluid
-  = form_for @message, url: contact_path do |f|
+.ui.grid
+  .row.middle.aligned.three.column style="height: 80vh;"
+    .column.centered
+      h2.ui.header.center.aligned Contact Form
+      .ui.segment
+        = form_for @message, url: contact_path, html: {class: 'ui form'} do |f|
     
-    .form-group
-     = f.label :name, 'Name'
-     = f.text_field :name, class: 'form-control'
-   
-    .form-group
-      = f.label :email, 'Email'
-      = f.text_field :email, class: 'form-control'
+          .field.required
+          = f.label :name, 'Name'
+          = f.text_field :name, class: 'form-control'
+        
+          .field.required
+            = f.label :email, 'Email'
+            = f.text_field :email, class: 'form-control'
 
-    .form-group
-      = f.label :content, 'Content'
-      = f.text_area :content, class: 'form-control' 
-    
-    = f.submit "Send", class: 'btn btn-primary'
+          .field.required
+            = f.label :content, 'Content'
+            = f.text_area :content, class: 'form-control'
+
+          .field.required
+            = f.submit "Send", class: 'ui button primary'
