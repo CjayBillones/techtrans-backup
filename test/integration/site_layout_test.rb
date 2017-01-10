@@ -5,7 +5,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout_links" do
     get root_path
     assert_template 'static_pages/home'
+<<<<<<< Updated upstream
     #assert_select "a[href=?]", root_path, count: 3
+=======
+    assert_select "a[href=?]", root_path, count: 2
+>>>>>>> Stashed changes
     assert_select "a[href=?]", about_path, count: 2
     assert_select "a[href=?]", expertise_path
     assert_select "a[href=?]", ip_offers_path
