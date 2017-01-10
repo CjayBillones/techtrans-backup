@@ -23,11 +23,4 @@ $(document).ready(function(){
     // $(".right").click(function(){
     //     $("#myCarousel").carousel("next");
     // });
-
-    $('.slider').glide({
-        autoplay: false,
-        arrowsWrapperClass: 'slider-arrows',
-        arrowRightText: '',
-        arrowLeftText: ''
-    });
 });

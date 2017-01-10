@@ -1,37 +1,37 @@
-= form_for(@ip_need) do |f|
+= form_for @ip_need, html: {class: 'ui form'} do |f|
   = render 'shared/error_messages', object: f.object
 
-  .form-group
+  .field.required
     = f.label :title, 'Title', class: 'required'
     = f.text_field :title, class: 'form-control'
   
-  .form-group
+  .field.required
     = f.label :description, 'Description', class: 'required'
     = f.text_area :description, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :features, 'Features'
     = f.text_area :features, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :business_model, 'Business Model'
     = f.text_area :business_model, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :photo, 'Photo Attachment'
     = f.file_field :photo, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :document, 'Document Attachment'
     = f.file_field :document, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :privacy_option, "Privacy Option", class: 'required'
     = f.select(:privacy_option, selPrivacyOptions, {prompt: 'Select Privacy Option'}, class: 'form-control')
 
-  .form-group
+  .field
     = f.label :tags
     = f.text_field :tag_list, class: 'form-control'
  
-  .form-group
-    = f.submit yield(:button_text), class: "btn btn-primary"
+  .field
+    = f.submit yield(:button_text), class: "ui button primary"

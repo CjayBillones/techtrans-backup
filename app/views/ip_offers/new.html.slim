@@ -1,11 +1,9 @@
 - provide(:title, 'New IP Offer')
 - provide(:button_text, 'Submit IP Offer')
-#ipoffersbg
-  .container-fluid
-    .col-md-6.col-md-offset-3
-      .well
-        h1
-          | Submit IP Offer
-    .row
-      .col-md-6.col-md-offset-3
+
+.ui.grid
+  .row.middle.aligned.three.column
+    .column.centered style="padding-top: 20px;"
+      h2.ui.header.center.aligned Submit IP Offer
+      .ui.segment
         = render 'ip_offer_form'
