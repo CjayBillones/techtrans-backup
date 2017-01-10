@@ -1,19 +1,19 @@
-= form_for @article do |f|
+= form_for @article, html: {class: 'ui form'} do |f|
   
-  .form-grouop
+  .field
     = f.label :title
     = f.text_field :title, class: 'form-control'
   
-  .form-group
+  .field
     = f.label :content
     = f.cktext_area :content, rows: 10
 
-  .form-group
-    = f.label :tags
-    = f.text_field :tag_list, class: 'form-control'
-
-  .form-group
+  .field
     = f.label :banner_photo, "Banner Photo"
     = f.file_field :banner_photo, class: 'form-control'
+
+  .field
+    = f.label :tags
+    = f.text_field :tag_list, class: 'form-control'
   
-  = f.submit "Save", class: 'btn btn-primary'
+  = f.submit "Save", class: "ui button primary"
