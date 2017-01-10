@@ -1,49 +1,49 @@
-= form_for(@ip_offer) do |f|
+= form_for @ip_offer, html: {class: 'ui form'} do |f|
   = render 'shared/error_messages', object: f.object
 
-  .form-group
+  .field.required
     = f.label :title, 'Short Title', class: 'required'
     = f.text_field :title, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :subtitle, 'Long Title'
     = f.text_area :subtitle, class: 'form-control'
   
-  .form-group
+  .field.required
     = f.label :overview, 'Overview', class: 'required'
     = f.text_area :overview, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :key_features, 'Key Features'
     = f.text_area :key_features, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :applications, 'Applications'
     = f.text_area :applications, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :customer_edge, 'Customer Edge'
     = f.text_area :customer_edge, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :market_opportunity, 'Market Opportunity'
     = f.text_area :market_opportunity, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :photo, 'Photo Attachment'
     = f.file_field :photo, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :document, 'Document Attachment'
     = f.file_field :document, class: 'form-control'
 
-  .form-group
+  .field
     = f.label :patent_status, 'Patent Status'
     = f.select(:patent_status, selPatentStatus, {prompt: 'Select Patent Status'}, class: 'form-control')
 
-  .form-group
+  .field
     = f.label :tags
     = f.text_field :tag_list, class: 'form-control'
 
-  .form-group
-    = f.submit yield(:button_text), class: "btn btn-primary"
+  .field
+    = f.submit yield(:button_text), class: "ui button primary"
