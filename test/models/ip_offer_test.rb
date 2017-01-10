@@ -3,7 +3,7 @@ require 'test_helper'
 class IpOfferTest < ActiveSupport::TestCase
 
   def setup
-    @user = users(:cjay)
+    @user = users(:admin)
     @ip_offer = @user.ip_offers.build(title:"Lorem Ipsum", overview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
   end
 

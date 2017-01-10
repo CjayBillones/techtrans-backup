@@ -3,8 +3,8 @@ require 'test_helper'
 class IpOffersControllerTest < ActionDispatch::IntegrationTest
   
   def setup
-    @user       = users(:cjay)
-    @other_user = users(:dyosa)
+    @user       = users(:admin)
+    @other_user = users(:academe_one)
     @ip_offer = ip_offers(:coatin)
   end
 

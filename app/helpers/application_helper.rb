@@ -19,14 +19,17 @@ module ApplicationHelper
   end
 
   def admin_user
+    flash[:danger] = "You do not have access rights on this page"
     redirect_to(root_path) unless current_user.admin?
   end
 
   def academe_user
+    flash[:danger] = "You do not have access rights on this page"
     redirect_to(root_path) unless (current_user.accounts.class == Academe)
   end
 
   def indstry_user
+    flash[:danger] = "You do not have access rights on this page"
     redirect_to(root_path) unless (current_user.accounts.class == Industry)
   end
 

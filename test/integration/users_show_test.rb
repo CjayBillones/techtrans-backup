@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersShowTest < ActionDispatch::IntegrationTest
 
   def setup
-    @unactivated_user = users(:malory)  
+    @unactivated_user = users(:inactive)  
   end
 
   test "must not show deactivated users" do

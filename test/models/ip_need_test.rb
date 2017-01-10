@@ -3,7 +3,7 @@ require 'test_helper'
 class IpNeedTest < ActiveSupport::TestCase
 
   def setup
-    @user = users(:cjay)
+    @user = users(:admin)
     @ip_need = @user.ip_needs.build(title:"Lorem Ipsum", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
   end
 
