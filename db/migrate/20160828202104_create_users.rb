@@ -2,7 +2,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       t.string    :first_name
-      t.string    :middle_initial
       t.string    :last_name
       t.string    :username
       t.string    :email
@@ -14,6 +13,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string    :reset_digest
       t.datetime  :reset_sent_at
       t.boolean   :admin, default: false
+      t.boolean   :approved, default: false
       t.references :accounts, polymorphic: true, index: true
       t.timestamps
     end

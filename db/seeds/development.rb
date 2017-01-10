@@ -99,7 +99,8 @@ user = User.create!(first_name: "Admin",
                     activated_at: Time.zone.now,
                     accounts_id: 1,
                     accounts_type:"Academe",
-                    admin: true) if !User.find_by_email("admin1@gmail.com")
+                    admin: true,
+                    approved: true) if !User.find_by_email("admin1@gmail.com")
 
 # User Population #
 5.times do |n|
@@ -113,6 +114,7 @@ user = User.create!(first_name: "Admin",
                       password: "password",
                       password_confirmation: "password",
                       activated: true,
+                      approved: true,
                       activated_at: Time.zone.now,
                       accounts_id: n+1,
                       accounts_type: "Industry") if !User.find_by_email(email)
@@ -129,6 +131,7 @@ end
                       password: "password",
                       password_confirmation: "password",
                       activated: true,
+                      approved: true,
                       activated_at: Time.zone.now,
                       accounts_id: n+2,
                       accounts_type: "Academe") if !User.find_by_email(email)
@@ -169,6 +172,7 @@ csv.each do |row|
           customer_edge: row['Customer Edge'],
           market_opportunity: row['Market Opportunity'],
           inventors: row['Inventors'],
+          approved: true,
           photo: ActionDispatch::Http::UploadedFile.new(
             :filename => File.basename(image_file),
             :tempfile => image_file,
@@ -196,6 +200,7 @@ csv.each do |row|
           description: row['Description'],
           features: row['Features'],
           business_model: row['Business Model'],
+          approved: true,
           photo: ActionDispatch::Http::UploadedFile.new(
             :filename => File.basename(image_file),
             :tempfile => image_file,

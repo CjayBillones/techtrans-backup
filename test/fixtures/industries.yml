@@ -7,5 +7,15 @@ cjay_industry:
   contact_number: (+63) 995 3769 223
   contact_email: dcs.innovate@gmail.com
   classification: Education
-  employee_count: 55
-  fb_url: https://www.facebook.com/upcsi
+  fb_url: <%= Faker::Internet.url %>
+
+unapproved_industry:
+  id: 4
+  industry_name: <%= Faker::Company.name %>
+  country_code: PHL
+  address: Alumni Engineers Centennial Hall
+  contact_person: <%= Faker::Name.name %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  contact_email: <%= Faker::Internet.email %>
+  classification: Education
+  fb_url: <%= Faker::Internet.url %>
