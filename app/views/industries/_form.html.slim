@@ -1,64 +1,86 @@
-= form_for @industry do |i| 
-  h2 Personal Information
+= form_for @industry, html: {class: 'ui form container text'} do |i| 
+  h2.ui.header.center.aligned Industry Registration
   = fields_for @user do |u|
-    = u.label :first_name, 'First Name', class: 'required'
-    = u.text_field :first_name, class: 'form-control'
+    .ui.dividing.header Account Information
+
+    .field.required
+      = u.label :first_name, 'First Name', class: 'required'
+      = u.text_field :first_name, class: 'form-control'
     
-    = u.label :last_name, 'Last Name', class: 'required'
-    = u.text_field :last_name, class: 'form-control'
+    .field.required
+      = u.label :last_name, 'Last Name', class: 'required'
+      = u.text_field :last_name, class: 'form-control'
     
-    = u.label :email, 'Email', class: 'required'
-    = u.email_field :email, class: 'form-control'
+    .field.required
+      = u.label :email, 'Email', class: 'required'
+      = u.email_field :email, class: 'form-control'
     
-    = u.label :password, 'Password', class: 'required'
-    = u.password_field :password, class: 'form-control'
+    .field.required
+      = u.label :password, 'Password', class: 'required'
+      = u.password_field :password, class: 'form-control'
     
-    = u.label :password_confirmation, 'Password Confirmation', class: 'required'
-    = u.password_field :password_confirmation, class: 'form-control'
+    .field.required
+      = u.label :password_confirmation, 'Password Confirmation', class: 'required'
+      = u.password_field :password_confirmation, class: 'form-control'
 
-  h2 Industry Information
-  = i.label :industry_name, 'Name of Organization', class: 'required'
-  = i.text_field :industry_name, class: 'form-control'
+  .ui.dividing.header Organization Information
 
-  = i.label :classification, 'Industry Classification'
-  = i.select(:classification, selClassification, {prompt: 'Select Classification'}, class: 'form-control')
-
-  = i.label :organization_bio, 'Organization Biography'
-  = i.text_area :organization_bio, class: 'form-control'
-
-  = i.label :country_code
-  = i.country_select(:country_code, { priority: %w(US PH) , prompt: 'Select Country'}, class: 'form-control')
-
-  = i.label :address
-  = i.text_field :address, class: 'form-control'
-
-  = i.label :contact_person
-  = i.text_field :contact_person, class: 'form-control'
-
-  = i.label :contact_email, class: 'required'
-  = i.text_field :contact_email, class: 'form-control'
-
-  = i.label :contact_number
-  = i.text_field :contact_number, class: 'form-control'
-
-  = i.label :employee_count, 'Number of Employees'
-  = i.number_field :employee_count, value: 1, min: '1', class: 'form-control'
+  .field.required
+    = i.label :industry_name, 'Name of Organization', class: 'required'
+    = i.text_field :industry_name, class: 'form-control'
   
-  = i.label :site_url, 'Website Link'
-  = i.text_field :site_url, class: 'form-control'
+  .field
+    = i.label :classification, 'Industry Classification'
+    = i.select(:classification, selClassification, {prompt: 'Select Classification'}, class: 'form-control')
 
-  = i.label :fb_url, 'Facebook Link'
-  = i.text_field :fb_url, class: 'form-control'
+  .field
+    = i.label :organization_bio, 'Organization Biography'
+    = i.text_area :organization_bio, class: 'form-control'
 
-  = i.label :linkedin_url, 'Linkedin Link'
-  = i.text_field :linkedin_url, class: 'form-control'
+  .field
+    = i.label :country_code
+    = i.country_select(:country_code, { priority: %w(US PH) , prompt: 'Select Country'}, class: 'form-control')
 
-  = i.label :terms, 'Terms'
-  = i.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
-  col-xs-6.col-xs-offset-3
-    = i.label :terms, class: 'checkbox' do
-      = i.check_box :terms, class: 'pull-left'
-      span
-        | Agree with the terms and conditions  
+  .field
+    = i.label :address
+    = i.text_field :address, class: 'form-control'
 
-  = i.submit yield(:button_text), class: 'btn btn-primary'
+  .field
+    = i.label :contact_person
+    = i.text_field :contact_person, class: 'form-control'
+
+  .field
+    = i.label :contact_email, class: 'required'
+    = i.text_field :contact_email, class: 'form-control'
+
+  .field
+    = i.label :contact_number
+    = i.text_field :contact_number, class: 'form-control'
+
+  .field
+    = i.label :employee_count, 'Number of Employees'
+    = i.number_field :employee_count, value: 1, min: '1', class: 'form-control'
+  
+  .field
+    = i.label :site_url, 'Website Link'
+    = i.text_field :site_url, class: 'form-control'
+
+  .field
+    = i.label :fb_url, 'Facebook Link'
+    = i.text_field :fb_url, class: 'form-control'
+
+  .field
+    = i.label :linkedin_url, 'Linkedin Link'
+    = i.text_field :linkedin_url, class: 'form-control'
+
+  .ui.dividing.header Terms of Use and Non-Disclosure Agreement
+
+  .field  
+    = i.label :terms, 'Terms of Agreement'
+    = i.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
+  .inline.field.required
+    .ui.checkbox
+      = i.check_box :terms
+      = i.label :terms, 'I agree with the terms and conditions.'
+  .field
+    = i.submit yield(:button_text), class: 'ui button primary'
