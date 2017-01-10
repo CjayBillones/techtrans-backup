@@ -77,7 +77,7 @@
 
   .field  
     = i.label :terms, 'Terms of Agreement'
-    = i.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
+    = i.text_area :terms_of_agreement, value: terms_of_agreement, rows: 15, readonly: true, class: 'form-control'
   .inline.field.required
     .ui.checkbox
       = i.check_box :terms

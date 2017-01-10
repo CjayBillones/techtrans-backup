@@ -64,7 +64,7 @@
   .ui.dividing.header Terms of Use and Non-Disclosure Agreement
   .field  
     = a.label :terms, 'Terms of Agreement'
-    = a.text_area :terms_of_agreement, value: terms_of_agreement, readonly: true, class: 'form-control'
+    = a.text_area :terms_of_agreement, value: terms_of_agreement, rows: 15, readonly: true, class: 'form-control'
   .inline.field.required
     .ui.checkbox
       = a.check_box :terms
