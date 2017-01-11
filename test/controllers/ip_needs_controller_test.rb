@@ -6,7 +6,7 @@ class IpNeedsControllerTest < ActionDispatch::IntegrationTest
     @admin_user = users(:admin)
     @academe_user = users(:academe_one)
     @industry_user = users(:industry_one)
-    @ip_need = ip_needs(:coatin)
+    @ip_need = ip_needs(:need_two)
   end
 
   test "should get index" do

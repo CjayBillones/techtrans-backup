@@ -5,7 +5,7 @@ class CreateIpNeeds < ActiveRecord::Migration[5.0]
       t.text    :description
       t.text    :features
       t.text    :business_model
-      t.string  :privacy_option, default: "Private"
+      t.string  :privacy_option, default: "private"
       t.text    :tags
       t.string :approval_status, default: 'pending'
       t.references :user, foreign_key: true

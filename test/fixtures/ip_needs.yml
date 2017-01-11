@@ -1,32 +1,67 @@
-admin_need:
-  title: <%= Faker::Lorem.words(rand(5...10)) %>
-  description: <%= Faker::Lorem.paragraphs(rand(5...10)) %>
-  features: <%= Faker::Lorem.paragraphs(rand(5...10)) %>
-  business_model: <%= Faker::Lorem.paragraphs(rand(5...10)) %>
-  privacy_option: "Private"
-  created_at: <%= 5.minutes.ago %>
+need_one:
+  id: 1
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  description: <%= Faker::Lorem.paragraph %>
+  features: <%= Faker::Lorem.paragraph %>
+  business_model: <%= Faker::Lorem.paragraph %>
+  privacy_option: public
+  approval_status: approved
+  created_at: <%= 3.hours.ago %>
   user_id: 1
 
-coatin:
-  title: "CoaTIN"
-  description: "I just ate an orange!"
-  created_at: <%= 10.minutes.ago %>
+need_two:
+  id: 2
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  description: <%= Faker::Lorem.paragraph %>
+  features: <%= Faker::Lorem.paragraph %>
+  business_model: <%= Faker::Lorem.paragraph %>
+  privacy_option: public
+  approval_status: approved
+  created_at: <%= 5.minutes.ago %>
   user_id: 2
 
-oral_vaccine:
-  title: "Oral Vaccine" 
-  description: "Check out the @tauday site by @mhartl: http://tauday.com"
-  created_at: <%= 3.years.ago %>
+need_three:
+  id: 3
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  description: <%= Faker::Lorem.paragraph %>
+  features: <%= Faker::Lorem.paragraph %>
+  business_model: <%= Faker::Lorem.paragraph %>
+  privacy_option: public
+  approval_status: approved
+  created_at: <%= Time.now %>
   user_id: 3
 
-gaia_dam:
-  title: "Gaia Dam"
-  description: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
-  created_at: <%= 2.hours.ago %>
-  user_id: 4
+pending_need:
+  id: 4
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  description: <%= Faker::Lorem.paragraph %>
+  features: <%= Faker::Lorem.paragraph %>
+  business_model: <%= Faker::Lorem.paragraph %>
+  privacy_option: public
+  approval_status: pending
+  created_at: <%= Time.now %>
+  user_id: 2
 
-uprint:
-  title: "UPrint"
-  description: "Writing a short test"
-  created_at: <%= Time.zone.now %>
-  user_id: 5
+rejected_need:
+  id: 5
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  description: <%= Faker::Lorem.paragraph %>
+  features: <%= Faker::Lorem.paragraph %>
+  business_model: <%= Faker::Lorem.paragraph %>
+  privacy_option: public
+  approval_status: rejected
+  created_at: <%= Time.now %>
+  user_id: 3
+
+private_need:
+  id: 6
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  description: <%= Faker::Lorem.paragraph %>
+  features: <%= Faker::Lorem.paragraph %>
+  business_model: <%= Faker::Lorem.paragraph %>
+  privacy_option: private
+  approval_status: approved
+  created_at: <%= Time.now %>
+  user_id: 3
+
+

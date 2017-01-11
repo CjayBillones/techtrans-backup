@@ -54,7 +54,7 @@ industry_one:
   accounts_type: Industry
   accounts_id: 1
 
-indutry_two:
+industry_two:
   id: 5
   first_name: Industry
   last_name: User 2

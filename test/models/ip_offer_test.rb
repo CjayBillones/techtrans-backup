@@ -3,8 +3,8 @@ require 'test_helper'
 class IpOfferTest < ActiveSupport::TestCase
 
   def setup
-    @user = users(:admin)
-    @ip_offer = @user.ip_offers.build(title:"Lorem Ipsum", overview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+    @admin_user = users(:admin)
+    @ip_offer = @admin_user.ip_offers.build(title:"Lorem Ipsum", overview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
   end
 
   test "should be valid" do
@@ -32,7 +32,7 @@ class IpOfferTest < ActiveSupport::TestCase
   #end
 
   test "order should be most recent first" do
-    assert_equal ip_offers(:uprint), IpOffer.first
+    assert_equal ip_offers(:offer_three), IpOffer.first
   end
 
 end

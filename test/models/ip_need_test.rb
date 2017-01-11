@@ -32,7 +32,7 @@ class IpNeedTest < ActiveSupport::TestCase
   end
 
   test "order should be most recent first" do
-    assert_equal ip_needs(:uprint), IpNeed.first
+    assert_equal ip_needs(:need_three), IpNeed.first
   end
 
 end

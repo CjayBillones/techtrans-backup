@@ -1,5 +1,59 @@
-dyosa_academe:
+student_one:
   id: 1
+  user_bio: <%= Faker::Lorem.paragraph %>
   user_type: Student
-  id_number: 2011-40995
-  contact_number: 877-8888
+  id_number: <%= rand(199000000...201800000) %>
+  contact_number: <= Faker::PhoneNumber.phone_number %>
+  address: <%= Faker::Address.street_address + Faker::Address.city %>
+  fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
+
+researcher_one:
+  id: 2
+  user_bio: <%= Faker::Lorem.paragraph %> 
+  user_type: Researcher
+  id_number: <%= rand(195000000...201800000) %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  address: <%= Faker::Address.street_address + Faker::Address.city%>
+  fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
+
+faculty_one:
+  id: 3
+  user_bio: <%= Faker::Lorem.paragraph %>
+  user_type: Faculty
+  id_number: <%= rand(195000000...201800000) %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  address: <%= Faker::Address.street_address + Faker::Address.city %>
+  fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
+
+student_two:
+  id: 4
+  user_bio: <%= Faker::Lorem.paragraph %>
+  user_type: Student
+  id_number: <%= rand(199000000...201800000) %>
+  contact_number: <= Faker::PhoneNumber.phone_number %>
+  address: <%= Faker::Address.street_address + Faker::Address.city %>
+  fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
+
+researcher_two:
+  id: 5
+  user_bio: <%= Faker::Lorem.paragraph %> 
+  user_type: Researcher
+  id_number: <%= rand(195000000...201800000) %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  address: <%= Faker::Address.street_address + Faker::Address.city%>
+  fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
+
+faculty_two:
+  id: 6
+  user_bio: <%= Faker::Lorem.paragraph %>
+  user_type: Faculty
+  id_number: <%= rand(195000000...201800000) %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  address: <%= Faker::Address.street_address + Faker::Address.city %>
+  fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>

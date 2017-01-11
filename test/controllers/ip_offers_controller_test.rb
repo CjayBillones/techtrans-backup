@@ -5,7 +5,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user       = users(:admin)
     @other_user = users(:academe_one)
-    @ip_offer = ip_offers(:coatin)
+    @ip_offer = ip_offers(:offer_one)
   end
 
   test "should get index" do

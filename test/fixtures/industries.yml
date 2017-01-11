@@ -1,32 +1,55 @@
-cjay_industry:
+industry_one:
   id: 1
-  industry_name: UP Center for Student Innovations
+  industry_name: <%= Faker::Company.name %>
+  organization_bio: <%= Faker::Lorem.paragraph %>
   country_code: PHL
-  address: Alumni Engineers Centennial Hall
-  contact_person: Cjay Billones
-  contact_number: (+63) 995 3769 223
-  contact_email: dcs.innovate@gmail.com
+  address: <%= Faker::Address.street_address + Faker::Address.city %>
+  contact_person: <%= Faker::Name.name %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  contact_email: <%= Faker::Internet.url %>
   classification: Education
+  site_url: <%= Faker::Internet.url %>
   fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
+
+industry_two:
+  id: 2
+  industry_name: <%= Faker::Company.name %>
+  organization_bio: <%= Faker::Lorem.paragraph %>
+  country_code: PHL
+  address: <%= Faker::Address.street_address + Faker::Address.city %>
+  contact_person: <%= Faker::Name.name %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  contact_email: <%= Faker::Internet.url %>
+  classification: Education
+  site_url: <%= Faker::Internet.url %>
+  fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
 
 inactive_industry:
   id: 3
   industry_name: <%= Faker::Company.name %>
+  organization_bio: <%= Faker::Lorem.paragraph %>
   country_code: PHL
   address: <%= Faker::Address.street_address + Faker::Address.city %>
   contact_person: <%= Faker::Name.name %>
   contact_number: <%= Faker::PhoneNumber.phone_number %>
   contact_email: <%= Faker::Internet.email %>
   classification: Education
+  site_url: <%= Faker::Internet.url %>
   fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>
 
 unapproved_industry:
   id: 4
   industry_name: <%= Faker::Company.name %>
+  organization_bio: <%= Faker::Lorem.paragraph %>
   country_code: PHL
   address: Alumni Engineers Centennial Hall
   contact_person: <%= Faker::Name.name %>
   contact_number: <%= Faker::PhoneNumber.phone_number %>
   contact_email: <%= Faker::Internet.email %>
   classification: Education
+  site_url: <%= Faker::Internet.url %>
   fb_url: <%= Faker::Internet.url %>
+  linkedin_url: <%= Faker::Internet.url %>

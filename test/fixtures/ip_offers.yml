@@ -1,43 +1,76 @@
-coatin:
-  title: "CoaTIN"
-  subtitle: "CoaTIN"
-  overview: "I just ate an orange!"
-  key_features: "I just ate an orange!"
-  applications: "I just ate an orange!"
-  customer_edge: "I just ate an orange!"
-  market_opportunity: "I just ate an orange!"
-  created_at: <%= 10.minutes.ago %>
+offer_one:
+  id: 1
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  subtitle: <%= Faker::Lorem.words(rand(1...3)) %>
+  overview: <%= Faker::Lorem.paragraph %>
+  key_features: <%= Faker::Lorem.paragraph %>
+  applications: <%= Faker::Lorem.paragraph %>
+  customer_edge: <%= Faker::Lorem.paragraph %>
+  market_opportunity: <%= Faker:: Lorem.paragraph %>
+  inventors: <%= Faker::Name.name %>
+  patent_status: Filed
+  approval_status: approved
+  created_at: <%= 3.hours.ago %>
   user_id: 1
 
-oral_vaccine:
-  title: "Oral Vaccine" 
-  subtitle: "CoaTIN"
-  overview: "I just ate an orange!"
-  key_features: "I just ate an orange!"
-  applications: "I just ate an orange!"
-  customer_edge: "I just ate an orange!"
-  market_opportunity: "I just ate an orange!"
-  created_at: <%= 3.years.ago %>
+offer_two:
+  id: 2
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  subtitle: <%= Faker::Lorem.words(rand(1...3)) %>
+  overview: <%= Faker::Lorem.paragraph %>
+  key_features: <%= Faker::Lorem.paragraph %>
+  applications: <%= Faker::Lorem.paragraph %>
+  customer_edge: <%= Faker::Lorem.paragraph %>
+  market_opportunity: <%= Faker:: Lorem.paragraph %>
+  inventors: <%= Faker::Name.name %>
+  patent_status: Patented
+  approval_status: approved
+  created_at: <%= 5.minutes.ago %>
   user_id: 2
 
-gaia_dam:
-  title: "Gaia Dam"
-  subtitle: "CoaTIN"
-  overview: "I just ate an orange!"
-  key_features: "I just ate an orange!"
-  applications: "I just ate an orange!"
-  customer_edge: "I just ate an orange!"
-  market_opportunity: "I just ate an orange!"
-  created_at: <%= 2.hours.ago %>
+offer_three:
+  id: 3
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  subtitle: <%= Faker::Lorem.words(rand(1...3)) %>
+  overview: <%= Faker::Lorem.paragraph %>
+  key_features: <%= Faker::Lorem.paragraph %>
+  applications: <%= Faker::Lorem.paragraph %>
+  customer_edge: <%= Faker::Lorem.paragraph %>
+  market_opportunity: <%= Faker:: Lorem.paragraph %>
+  inventors: <%= Faker::Name.name %>
+  patent_status: Filed
+  approval_status: approved
+  created_at: <%= Time.now %>
+  user_id: 3
+
+pending_offer:
+  id: 4
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  subtitle: <%= Faker::Lorem.words(rand(1...3)) %>
+  overview: <%= Faker::Lorem.paragraph %>
+  key_features: <%= Faker::Lorem.paragraph %>
+  applications: <%= Faker::Lorem.paragraph %>
+  customer_edge: <%= Faker::Lorem.paragraph %>
+  market_opportunity: <%= Faker:: Lorem.paragraph %>
+  inventors: <%= Faker::Name.name %>
+  patent_status: Filed
+  approval_status: pending
+  created_at: <%= Time.now %>
   user_id: 2
 
-uprint:
-  title: "UPrint"
-  subtitle: "CoaTIN"
-  overview: "I just ate an orange!"
-  key_features: "I just ate an orange!"
-  applications: "I just ate an orange!"
-  customer_edge: "I just ate an orange!"
-  market_opportunity: "I just ate an orange!"
-  created_at: <%= Time.zone.now %>
-  user_id: 1
+rejected_offer:
+  id: 5
+  title: <%= Faker::Lorem.words(rand(1...20)) %>
+  subtitle: <%= Faker::Lorem.words(rand(1...3)) %>
+  overview: <%= Faker::Lorem.paragraph %>
+  key_features: <%= Faker::Lorem.paragraph %>
+  applications: <%= Faker::Lorem.paragraph %>
+  customer_edge: <%= Faker::Lorem.paragraph %>
+  market_opportunity: <%= Faker:: Lorem.paragraph %>
+  inventors: <%= Faker::Name.name %>
+  patent_status: Filed
+  approval_status: rejected
+  created_at: <%= Time.now %>
+  user_id: 3
+
+

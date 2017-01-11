@@ -204,6 +204,7 @@ csv.each do |row|
           features: row['Features'],
           business_model: row['Business Model'],
           approval_status: 'approved',
+          privacy_option: 'public',
           photo: ActionDispatch::Http::UploadedFile.new(
             :filename => File.basename(image_file),
             :tempfile => image_file,
