@@ -92,6 +92,7 @@ end
 # Admin User Population #
 user = User.create!(first_name: "Admin",
                     last_name: "User",
+                    username: "admin1",
                     email: "admin1@gmail.com",
                     password: "password",
                     password_confirmation: "password",
@@ -110,6 +111,7 @@ user = User.create!(first_name: "Admin",
 
   user = User.create!(first_name: first_name,
                       last_name: last_name,
+                      username: "industry#{n}@gmail.com",
                       email: email,
                       password: "password",
                       password_confirmation: "password",
@@ -127,6 +129,7 @@ end
 
   user = User.create!(first_name: first_name,
                       last_name: last_name,
+                      username: "academe#{n}@gmail.com",
                       email: email,
                       password: "password",
                       password_confirmation: "password",

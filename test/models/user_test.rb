@@ -4,8 +4,8 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @academe = Academe.create(user_type: "Student", id_number: "2012-00000")
-    @user = User.new(first_name: "Example", last_name: "User", email: "user@example.com", 
-                    password: "foobar", password_confirmation: "foobar", 
+    @user = User.new(first_name: "Example", last_name: "User", email: "user@example.com",
+                    username: "username", password: "foobar", password_confirmation: "foobar", 
                     accounts_type: "Academe", accounts_id: @academe.id)
   end
 

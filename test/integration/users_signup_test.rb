@@ -27,6 +27,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post academes_path, params: { user: {
                                           first_name: " ",
                                           last_name: " ",
+                                          username: "username1",
                                           email: "user@invalid",
                                           password: "foo",
                                           password_confirmation: "bar",
@@ -48,6 +49,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post industries_path, params: { user: {
                                             first_name: "Cjay",
                                             last_name: "Billones",
+                                            username: "username2",
                                             email: "user@example.com",
                                             password: "foobar",
                                             password_confirmation: "foobar"
@@ -69,6 +71,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post industries_path, params: { user: {
                                             first_name: "Example",
                                             last_name: "User",
+                                            username: "username3",
                                             email: "user@example.com",
                                             password: "password",
                                             password_confirmation: "password",
@@ -103,6 +106,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post academes_path, params: { user: {
                                             first_name: "Example",
                                             last_name: "User",
+                                            username: "username4",
                                             email: "user@example.com",
                                             password: "password",
                                             password_confirmation: "password",

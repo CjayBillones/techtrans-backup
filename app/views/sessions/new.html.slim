@@ -6,8 +6,8 @@
       .ui.segment
         = form_for(:session, url: login_path, :html => {:id => 'loginform', :class => 'ui form'}) do |f|
           .field
-            = f.label :email
-            = f.email_field :email, placeholder: "Email Address", class: 'form-control'
+            = f.label :email, 'Username or Email'
+            = f.text_field :email_or_username, placeholder: "Username or Email Address", class: 'form-control'
           .field
             = f.label :password
             = f.password_field :password, placeholder: "Password", class: 'form-control'

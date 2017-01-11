@@ -2,6 +2,7 @@ admin:
   id: 1
   first_name: Admin
   last_name: User
+  username: admin1
   email: admin1@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: true
@@ -15,6 +16,7 @@ academe_one:
   id: 2
   first_name: Academe
   last_name: User 1
+  username: academe1
   email: academe1@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: false
@@ -28,6 +30,7 @@ academe_two:
   id: 3
   first_name: Academe
   last_name: User 2
+  username: academe2
   email: academe2@gmail.com
   password_digest: <$= User.digest('password') %>
   admin: false
@@ -41,6 +44,7 @@ industry_one:
   id: 4
   first_name: Industry
   last_name: User 1
+  username: industry1
   email: industry1@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: false
@@ -54,6 +58,7 @@ indutry_two:
   id: 5
   first_name: Industry
   last_name: User 2
+  username: industry2
   email: industry2@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: false
@@ -67,6 +72,7 @@ inactive:
   id: 6
   first_name: Inactive
   last_name: User
+  username: inactive
   email: inactive@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: false
@@ -78,6 +84,7 @@ unapproved:
   id: 7
   first_name: Unapproved
   last_name: User
+  username: unapproved
   email: unapproved@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: false
