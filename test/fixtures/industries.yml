@@ -9,6 +9,17 @@ cjay_industry:
   classification: Education
   fb_url: <%= Faker::Internet.url %>
 
+inactive_industry:
+  id: 3
+  industry_name: <%= Faker::Company.name %>
+  country_code: PHL
+  address: <%= Faker::Address.street_address + Faker::Address.city %>
+  contact_person: <%= Faker::Name.name %>
+  contact_number: <%= Faker::PhoneNumber.phone_number %>
+  contact_email: <%= Faker::Internet.email %>
+  classification: Education
+  fb_url: <%= Faker::Internet.url %>
+
 unapproved_industry:
   id: 4
   industry_name: <%= Faker::Company.name %>

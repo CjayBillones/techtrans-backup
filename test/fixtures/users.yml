@@ -70,6 +70,7 @@ inactive:
   email: inactive@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: false
+  approved: true
   accounts_type: Industry
   accounts_id: 3
 
