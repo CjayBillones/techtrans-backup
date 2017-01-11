@@ -11,7 +11,7 @@ class CreateIpOffers < ActiveRecord::Migration[5.0]
       t.text    :inventors
       t.text    :patent_status
       t.text    :tags
-      t.boolean :approved, default: false
+      t.string :approval_status, default: 'pending'
       t.references :user, foreign_key: true
 
       t.timestamps
