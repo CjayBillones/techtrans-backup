@@ -6,7 +6,7 @@ admin:
   password_digest: <%= User.digest('password') %>
   admin: true
   activated: true
-  approved: true
+  approval_status: 'approved'
   activated_at: <%= Time.zone.now %>
   accounts_type: Academe
   accounts_id: 1
@@ -19,7 +19,7 @@ academe_one:
   password_digest: <%= User.digest('password') %>
   admin: false
   activated: true
-  approved: true
+  approval_status: 'approved'
   activated_at: <%= Time.zone.now %>
   accounts_type: Academe
   accounts_id: 2
@@ -32,7 +32,7 @@ academe_two:
   password_digest: <$= User.digest('password') %>
   admin: false
   activated: true
-  approved: true
+  approval_status: 'approved'
   activated_at: <%= Time.zone.now %>
   accounts_type: Academe
   accounts_id: 3
@@ -45,7 +45,7 @@ industry_one:
   password_digest: <%= User.digest('password') %>
   admin: false
   activated: true
-  approved: true
+  approval_status: 'approved'
   activated_at: <%= Time.zone.now %>
   accounts_type: Industry
   accounts_id: 1
@@ -58,7 +58,7 @@ indutry_two:
   password_digest: <%= User.digest('password') %>
   admin: false
   activated: true
-  approved: true
+  approval_status: 'approved'
   activated_at: <%= Time.zone.now %>
   accounts_type: Industry
   accounts_id: 2
@@ -70,6 +70,7 @@ inactive:
   email: inactive@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: false
+  approval_status: 'approved'
   accounts_type: Industry
   accounts_id: 3
 

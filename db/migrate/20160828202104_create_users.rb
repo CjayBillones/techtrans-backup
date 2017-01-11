@@ -13,7 +13,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string    :reset_digest
       t.datetime  :reset_sent_at
       t.boolean   :admin, default: false
-      t.boolean   :approved, default: false
+      t.string   :approval_status, default: 'pending'
       t.references :accounts, polymorphic: true, index: true
       t.timestamps
     end

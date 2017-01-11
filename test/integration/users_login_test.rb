@@ -23,7 +23,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: {email: @unapproved_user.email, password: 'password'}}
     assert_not is_logged_in?
     assert_not flash.empty?
-    @unapproved_user.update!(approved: true)
+    @unapproved_user.update!(approval_status: 'approved')
     assert_not flash.empty?
     post login_path, params: { session: {email: @unapproved_user.email, password: 'password'}}
     assert is_logged_in?
