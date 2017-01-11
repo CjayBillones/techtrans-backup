@@ -1,55 +1,38 @@
-.container-fluid
-  .row
-    //.col-md-4
-    //  = image_tag @ip.photo.url(:small)
-    .col-md-8
-      //1
-      //  = @ip.title
-      #ip-offer.h3
-        = @ip.title 
-      hr     
-      #typography.h3
-        | Description:
-      #typography.p
-        = @ip.description
-      
-      - if current_user
-        = render 'full_show'
-      - else
-        br
-        hr
-        .center
-          = link_to "Login to view full information of this IP Offer!", login_path, class: "btn btn-warning btn-lg"
-        hr
-      br
-    .col-md-4
-      #top
-        - if current_user
-          .well.nav.nav-stacked.affix-top
-            = link_to "Submit IP Need", new_ip_need_path, class: "btn btn-default btn-md btn-block"
-      .well.nav.nav-stacked.affix-top
-        h2
+/= social_share_button_tag(@ip.title)
+
+.ui.grid.container
+  .row style="padding-top: 35px;"
+    .ten.wide.column
+      h2.ui.header 
+        .content 
           = @ip.title
-          hr
-        br
-          - if @ip.photo.present?
-            = image_tag @ip.photo.url, :size => "385x250"
-          - else
-            = image_tag 'placeholders/no_image_general.jpg', :size => "385x250"
-        br
-        .center
-          - if current_user
-            - if !current_user.following?(@ip)
-              = render 'subscribe'
-            - else
-              = render 'unsubscribe'
-            = link_to "Download File Attachment", @ip.document.url(:original, false), class: "btn btn-success btn-md btn-block"
-            - if current_user == @user
-              = link_to "Edit IP Offer", '#', class: "btn btn-warning btn-md btn-block"
-              = link_to "Delete IP Offer", '#', class: "btn btn-danger btn-md btn-block"
-  //.row
-  //  p
-  //    = simple_format(@ip.description) 
-  //.row
-  //  -if !@ip.document_file_name.nil?
-  //    = link_to "Download File Attachment", @ip.document.url(:original, false)
+      .ui.divider
+      - if !@ip.description.nil? && !@ip.description.empty?      
+        h3.ui.header
+          | Description:
+        p 
+          = simple_format(@ip.description)
+        .ui.divider
+      - if current_user
+        - if !@ip.features.nil? && !@ip.features.empty?
+          h3.ui.header
+            | Features:
+          p 
+            = simple_format(@ip.features)
+          .ui.divider
+        - if !@ip.business_model.nil? && !@ip.business_model.empty? 
+          h3.ui.header
+            | Business Model:
+          p 
+            = simple_format(@ip.business_model)
+          .ui.divider
+      - else
+        | You have limited access to view the whole page. Sign up as 
+        = link_to ' academe user ', register_academes_path
+        | or as
+        = link_to ' industry user ', register_industries_path
+        | and
+        = link_to ' login ', login_path
+        | to view full page
+        .ui.divider
+    = render 'sidebar'

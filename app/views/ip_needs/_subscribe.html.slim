@@ -3,4 +3,4 @@
   = hidden_field_tag :follower_id, current_user.id
   = hidden_field_tag :followed_id, @ip.id
   = hidden_field_tag :followed_type, @ip.class
-  = submit_tag("Subscribe")
+  = submit_tag "Subscribe", class: 'ui button primary fluid'

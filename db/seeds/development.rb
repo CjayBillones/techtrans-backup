@@ -111,7 +111,7 @@ user = User.create!(first_name: "Admin",
 
   user = User.create!(first_name: first_name,
                       last_name: last_name,
-                      username: "industry#{n}@gmail.com",
+                      username: "industry#{n}",
                       email: email,
                       password: "password",
                       password_confirmation: "password",
@@ -129,7 +129,7 @@ end
 
   user = User.create!(first_name: first_name,
                       last_name: last_name,
-                      username: "academe#{n}@gmail.com",
+                      username: "academe#{n}",
                       email: email,
                       password: "password",
                       password_confirmation: "password",
