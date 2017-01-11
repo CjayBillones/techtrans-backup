@@ -1,49 +1,106 @@
-.container-fluid  
-  .row
-    .col-md-8
-      #ip-offer.h3
-        = @ip.subtitle
-      #typography.h5
-        = @ip.inventors
-      hr
-      #typography.h3
-        | Overview:
-      #typography.p
-        = simple_format(@ip.overview)
+/ .container-fluid  
+/   .row
+/     .col-md-8
+/       #ip-offer.h3
+/         = @ip.subtitle
+/       #typography.h5
+/         = @ip.inventors
+/       hr
+/       #typography.h3
+/         | Overview:
+/       #typography.p
+/         = simple_format(@ip.overview)
 
-      - if current_user
-        = render 'full_show'      
-      - else
-        br
-        hr
-        .center
-          = link_to "Login to view full information of this IP Offer!", login_path, class: "btn btn-warning btn-lg"
-        hr
-      br
-    .col-md-4
-      #top
-        - if current_user
-          .well.nav.nav-stacked.affix-top
-            = link_to "Submit IP Offer", new_ip_offer_path, class: "btn btn-default btn-md btn-block"
-      .well.nav.nav-stacked.affix-top
-        h2
-          = @ip.title
-          hr
-        br
-          - if @ip.photo.present?
-            = image_tag @ip.photo.url, :size => "385x250"
-          - else
-            = image_tag 'placeholders/no_image_general.jpg', :size => "385x250"
-        br
-        .center
-          - if current_user
-            - if !current_user.following?(@ip)
-              = render 'subscribe'
-            - else
-              = render 'unsubscribe'  
-            = link_to "Download File Attachment", @ip.document.url(:original, false), class: "btn btn-success btn-md btn-block"
-            - if current_user == @user
-              = link_to "Edit IP Offer", '#', class: "btn btn-warning btn-md btn-block"
-              = link_to "Delete IP Offer", '#', class: "btn btn-danger btn-md btn-block"
+/       - if current_user
+/         = render 'full_show'      
+/       - else
+/         br
+/         hr
+/         .center
+/           = link_to "Login to view full information of this IP Offer!", login_path, class: "btn btn-warning btn-lg"
+/         hr
+/       br
+/     .col-md-4
+/       #top
+/         - if current_user
+/           .well.nav.nav-stacked.affix-top
+/             = link_to "Submit IP Offer", new_ip_offer_path, class: "btn btn-default btn-md btn-block"
+/       .well.nav.nav-stacked.affix-top
+/         h2
+/           = @ip.title
+/           hr
+/         br
+/           - if @ip.photo.present?
+/             = image_tag @ip.photo.url, :size => "385x250"
+/           - else
+/             = image_tag 'placeholders/no_image_general.jpg', :size => "385x250"
+/         br
+/         .center
+/           - if current_user
+/             - if !current_user.following?(@ip)
+/               = render 'subscribe'
+/             - else
+/               = render 'unsubscribe'  
+/             = link_to "Download File Attachment", @ip.document.url(:original, false), class: "btn btn-success btn-md btn-block"
+/             - if current_user == @user
+/               = link_to "Edit IP Offer", '#', class: "btn btn-warning btn-md btn-block"
+/               = link_to "Delete IP Offer", '#', class: "btn btn-danger btn-md btn-block"
+/           br
+/           = social_share_button_tag(@ip.title)
+
+.ui.grid.container
+  .row style="padding-top: 35px;"
+    .ten.wide.column
+      h2.ui.header 
+        .content 
+          | TITLE
+          .sub.header INVENTORS
+      .ui.divider
+      h3.ui.header
+        | Overview:
+      p 
+        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia libero consequatur animi laboriosam rem qui fugit, odit harum. Sint impedit incidunt aliquam cupiditate voluptatum inventore voluptate eos at. Optio, delectus!
+      .ui.divider
+      h3.ui.header
+        | Key Features:
+      p 
+        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia libero consequatur animi laboriosam rem qui fugit, odit harum. Sint impedit incidunt aliquam cupiditate voluptatum inventore voluptate eos at. Optio, delectus!
+      .ui.divider
+      h3.ui.header
+        | Applications:
+      p 
+        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia libero consequatur animi laboriosam rem qui fugit, odit harum. Sint impedit incidunt aliquam cupiditate voluptatum inventore voluptate eos at. Optio, delectus!
+      .ui.divider
+      h3.ui.header
+        | Customer Edge:
+      p 
+        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia libero consequatur animi laboriosam rem qui fugit, odit harum. Sint impedit incidunt aliquam cupiditate voluptatum inventore voluptate eos at. Optio, delectus!
+      .ui.divider
+      h3.ui.header
+        | Market Opportunity:
+      p 
+        |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia libero consequatur animi laboriosam rem qui fugit, odit harum. Sint impedit incidunt aliquam cupiditate voluptatum inventore voluptate eos at. Optio, delectus!
+    .six.wide.column
+      .ui.sticky style="z-index: -1;"
+        .ui.segment
+          .ui.search
+            .ui.icon.input style="width: 100%;"
+              input.prompt type="text" placeholder="Search"
+              i.search.icon
+            .results
           br
-          = social_share_button_tag(@ip.title)
+          .ui.button.primary.fluid Submit New Offer
+        .ui.segment
+          h2.ui.header style="background-color: #888; text-align: center;"
+            | title
+          .ui.image
+            img src="https://unsplash.it/400/200"
+          br
+          br
+          .ui.button.primary.fluid Interested
+          br
+          .ui.button.positive.fluid Download PDF Copy
+          br
+          .ui.buttons.fluid
+            .ui.button.orange Edit
+            .ui.button.red Delete
