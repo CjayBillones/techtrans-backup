@@ -6,7 +6,7 @@
           input.prompt type="text" placeholder="Search"
           i.search.icon
         .results
-      - if current_user          
+      - if current_user && current_user.accounts.class != Industry          
         br
           = link_to 'Submit New Offer', new_ip_offer_path, class: 'ui button primary fluid'
     .ui.segment
