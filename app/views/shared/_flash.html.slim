@@ -1,2 +1,9 @@
-- flash.each do |message_type, message|
-  = content_tag(:div, message, class: "alert alert-#{message_type}")
+- if !flash.empty?
+  .ui.grid
+    .row
+      .sixteen.wide.column.center.aligned
+        .ui.error.message.compact
+          - flash.each do |message_type, message|
+            ul.list
+              li
+                = content_tag(:div, message, class: "alert alert-#{message_type}")
