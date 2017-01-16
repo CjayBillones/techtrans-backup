@@ -29,7 +29,7 @@ need_three:
   privacy_option: public
   approval_status: approved
   created_at: <%= Time.now %>
-  user_id: 3
+  user_id: 4
 
 pending_need:
   id: 4
