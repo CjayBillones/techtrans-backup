@@ -1,2 +1,31 @@
-.ui.grid
-  h1 Admin Dashboard
+h1.ui.header Manage Users
+.ui.divider
+.ui.top.attached.tabular.menu
+  a.active.item All Users
+  a.item Pending Users
+.ui.segment.bottom.attached
+  table.ui.table.stackable
+    thead
+      tr
+        th No.
+        th Email
+        th Username        
+        th Type
+        th Actions
+    tbody
+    - @users.each do |user|           
+      tr
+        td 
+          = user.id    
+        td 
+          = user.email
+        td 
+          = user.username
+        td
+          = user.class
+        td
+          | View Details | Approve
+    tfoot
+      tr.center.aligned
+        th colspan="5"
+          = will_paginate @users
