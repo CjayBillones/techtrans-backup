@@ -5,7 +5,11 @@ class IpOffersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]  
   
   def index
-    @ip_offers = IpOffer.all
+    if params[:tag]
+      @ip_offers = IpOffer.tagged_with(params[:tag])
+    else
+      @ip_offers = IpOffer.all
+    end
   end
 
   def show

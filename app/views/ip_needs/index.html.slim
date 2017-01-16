@@ -14,15 +14,15 @@
               = image_tag ip_need.photo.url, style: "width: 250px; height: 200px;"
             - else
               = image_tag 'placeholders/no_image_general.jpg', style: "width: 250px; height: 200px;"
+        .eleven.wide.column  
           h3.ui.header 
             .content
-              = ip_need.title
+              = link_to ip_need.title, ip_need
             .sub.header
               | Posted by 
               = fullname(User.find(ip_need.user_id)) + ' | '
               = local_time(ip_need.created_at)
           p 
             = simple_format(truncate(ip_need.description, length: 500))
-            = link_to ip_need, class: "ui button basic blue" do
-              | View IP Need &nbsp;
-              i.fa.fa-chevron-right
+            | Tags: 
+            = raw ip_need.tag_list.map { |t| link_to t, tag_ip_needs_path(t)}.join(', ')

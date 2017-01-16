@@ -17,13 +17,12 @@
         .eleven.wide.column
           h3.ui.header 
             .content
-              = ip_offer.title
+              = link_to ip_offer.title, ip_offer
             .sub.header
               | Posted by 
               = fullname(User.find(ip_offer.user_id)) + ' | '
               = local_time(ip_offer.created_at)
           p 
             = simple_format(truncate(ip_offer.overview, length: 500))
-            = link_to ip_offer, class: "ui button basic blue" do
-              | View IP Offer &nbsp;
-              i.fa.fa-chevron-right
+            | Tags: 
+            = raw ip_offer.tag_list.map { |t| link_to t, tag_ip_offers_path(t)}.join(', ')

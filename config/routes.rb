@@ -26,9 +26,23 @@ Rails.application.routes.draw do
   
   resources :researchers
 
-  resources :articles
-  resources :ip_offers
-  resources :ip_needs
+  resources :articles do
+    collection do
+      get 'tags/:tag', to: 'articles#index', as: :tag
+    end
+  end
+
+  resources :ip_offers do
+    collection do
+      get '/tags/:tag', to: 'ip_offers#index', as: :tag
+    end
+  end
+
+  resources :ip_needs do
+    collection do
+      get '/tags/:tag', to: 'ip_needs#index', as: :tag
+    end
+  end
 
   get '/tags' => 'tags#index'
   post '/subscribe' => 'subscriptions#subscribe'

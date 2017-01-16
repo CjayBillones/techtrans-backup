@@ -5,7 +5,11 @@ class IpNeedsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]  
 
   def index
-    @ip_needs = IpNeed.all
+    if params[:tag]
+      @ip_needs = IpNeed.tagged_with(params[:tag])
+    else
+      @ip_needs = IpNeed.all
+    end
   end
 
   def show
