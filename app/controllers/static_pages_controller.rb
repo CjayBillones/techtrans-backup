@@ -11,7 +11,7 @@ class StaticPagesController < ApplicationController
       @needs = IpNeed.last(5)
     end
 
-    if current_user.admin?
+    if current_user && current_user.admin?
       @users = User.paginate(:page => params[:page], :per_page => 5)
     end
   end
