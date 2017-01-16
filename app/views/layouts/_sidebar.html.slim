@@ -1,0 +1,40 @@
+.ui.grid
+  .row
+    .two.wide.column style="height: 100%;"
+      .ui.vertical.menu style="border: none; width:100%"
+        a.item href="/"
+          = image_tag("logo/banner.png")
+        .item 
+          .header Main
+          .menu
+            a.item Home
+            = link_to 'Profile', current_user
+            a.item Contact
+            = link_to 'Logout', logout_path, method: 'delete', class: 'item'
+        .item 
+          .header Users
+          .menu
+            a.item Manage Users
+        a.item.header IP Portal
+        .item  
+          .header Offers
+          .menu
+            a.item Manage Offers
+            a.item Submit New Offer
+        .item  
+          .header Needs
+          .menu
+            a.item Manage Needs
+            a.item Submit New Need
+        .item  
+          .header Article
+          .menu
+            a.item Manage Articles
+            a.item Post New Article
+        .item  
+          .header Resources
+          .menu
+            a.item Manage Resources
+            a.item Upload New Resource
+    .fourteen.wide.column style="padding-top: 30px;"
+      = yield

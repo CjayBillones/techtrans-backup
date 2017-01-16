@@ -1,0 +1,37 @@
+.ui.container style="margin-top: 70px;"
+  h2.ui.header.center.aligned User Dashboard
+  .ui.search style="margin-bottom: 20px;"
+    .ui.icon.input style="width: 100%;"
+      input.prompt type="text" placeholder="Search"
+      i.search.icon
+    .results
+    .ui.grid
+  - @ips.each do |ip|
+    .row.ui.basic.segment
+      .five.wide.column
+        .ui.image.left.floated.middle.aligned.medium
+          - if ip.photo.present?
+            = image_tag ip.photo.url, style: "width: 250px; height: 200px;"
+          - else
+            = image_tag 'placeholders/no_image_general.jpg', style: "width: 250px; height: 200px;"
+        h3.ui.header 
+          .content
+            = ip.title
+          .sub.header
+            | Posted by 
+            = fullname(User.find(ip.user_id)) + ' | '
+            = local_time(ip.created_at)
+        p 
+          - if ip.class == IpOffer
+            = simple_format(truncate(ip.overview, length: 500))
+            = link_to ip, class: "ui button basic blue" do
+              | View IP Offer &nbsp;
+              i.fa.fa-chevron-right
+          - else
+            = simple_format(truncate(ip.description, length: 500))
+            = link_to ip, class: "ui button basic blue" do
+              | View IP Need &nbsp;
+              i.fa.fa-chevron-right
+  .ui.centered.grid
+    .attached.center.aligned.menu
+      = will_paginate @ips, renderer: WillPaginateSemanticUi::ActionView::Renderer
