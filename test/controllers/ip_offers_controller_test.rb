@@ -3,8 +3,9 @@ require 'test_helper'
 class IpOffersControllerTest < ActionDispatch::IntegrationTest
   
   def setup
-    @user       = users(:admin)
-    @other_user = users(:academe_one)
+    @admin_user       = users(:admin)
+    @academe_user = users(:academe_one)
+    @industry_user = users(:industry_one)
     @ip_offer = ip_offers(:offer_one)
   end
 
@@ -24,9 +25,30 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new when user is logged in" do
-    log_in_as(@user)
+    log_in_as(@admin_user)
     get new_ip_offer_path
     assert_response :success
+  end
+
+  test "should redirect new when not academe or admin user" do
+    log_in_as(@industry_user)
+    get new_ip_offer_path
+    assert_response :redirect
+    assert_redirected_to root_path
+    logout
+    assert_not is_logged_in?
+
+    log_in_as(@admin_user)
+    get new_ip_offer_path
+    assert_response :success
+    logout
+    assert_not is_logged_in?
+
+    log_in_as(@academe_user)
+    get new_ip_offer_path
+    assert_response :success
+    logout
+    assert_not is_logged_in?
   end
 
   test "should redirect create when not logged in" do
@@ -38,12 +60,12 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create IP offer when user is logged in" do
-    log_in_as(@user)
+    log_in_as(@admin_user)
     post ip_offers_path, params: { ip_offer: {
                                             title:       "Lorem Ipsume",
                                             overview: "Lorem Ipsum",
                                         }}
-    assert_redirected_to @user.ip_offers.first    
+    assert_redirected_to @admin_user.ip_offers.first    
   end
 
   test "should redirect edit when not logged in" do
@@ -52,13 +74,13 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect edit when wrong user is logged in" do
-    log_in_as(@other_user)
+    log_in_as(@academe_user)
     get edit_ip_offer_path(@ip_offer)
     assert_redirected_to root_path
   end
 
   test "should get edit when correct user is logged in" do
-    log_in_as(@user)
+    log_in_as(@admin_user)
     get edit_ip_offer_path(@ip_offer)
     assert_response :success
   end
@@ -72,7 +94,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect update when wrong user is logged in" do
-    log_in_as(@other_user)
+    log_in_as(@academe_user)
     patch ip_offer_path(@ip_offer), params: { ip_offer: {
                                             title:       "Lorem Ipsum",
                                             overview: "Lorem Ipsum"
@@ -81,7 +103,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update when correct user is logged in" do
-    log_in_as(@user)
+    log_in_as(@admin_user)
     patch ip_offer_path(@ip_offer), params: { ip_offer: {
                                                 title:       "Lorem Ipsum",
                                                 overview: "Lorem Ipsum"
@@ -97,7 +119,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect destroy when wrong user is logged in" do
-    log_in_as(@other_user)
+    log_in_as(@academe_user)
     assert_no_difference 'IpOffer.count' do
       delete ip_offer_path(@ip_offer)
     end
@@ -105,7 +127,7 @@ class IpOffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy when correct user is logged in" do
-    log_in_as(@user)
+    log_in_as(@admin_user)
     assert_difference 'IpOffer.count', -1 do
       delete ip_offer_path(@ip_offer)
     end

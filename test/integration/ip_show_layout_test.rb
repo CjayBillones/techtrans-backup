@@ -13,6 +13,19 @@ class IpShowLayoutTest < ActionDispatch::IntegrationTest
     @other_need = ip_needs(:need_one)
   end
 
+  test "industry_user should not see submit new offer button" do
+    log_in_as(@industry_user)
+    assert is_logged_in?
+    get ip_offer_path(@academe_user_offer)
+    assert_template "ip_offers/show"
+    assert_dom_equal "/ip_offers/#{@academe_user_offer.id}", ip_offer_path(@academe_user_offer)
+    assert_select 'input' do |btn|
+      btn.each do |s|
+        assert_no_match 'Submit New Offer', btn.to_s
+      end
+    end
+  end
+
   test "unsigned in user should not see subscribe, unsubsctibe, edit, delete, download, submit offer buttons on offer" do
     get ip_offer_path(@academe_user_offer)
     assert_template "ip_offers/show"
