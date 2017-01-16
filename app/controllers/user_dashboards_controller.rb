@@ -31,7 +31,14 @@ class UserDashboardsController < ApplicationController
   end
 
   def manage_subscriptions
-    @ip_subscriptions = current_user.follows
+    @ip_subscriptions = []
+    current_user.all_follows.each do |f|
+      if f.followable_type == "IpOffer"
+        @ip_subscriptions.push(IpOffer.find(f.followable_id))
+      else
+        @ip_subscriptions.push(IpNeed.find(f.followable_id))
+      end
+    end
   end
 
 end
