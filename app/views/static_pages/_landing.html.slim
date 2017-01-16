@@ -1,0 +1,114 @@
+.ui.grid.stackable
+  .row.splash.middle.aligned style="height: 80vh;"
+    .seven.wide.column.centered.center.aligned
+      .ui.segment.centered style="background-color: rgba(255,255,255,.7);"
+        h1.ui.header 
+          .content style="font-size: 28px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
+          .sub.header Ensuring Protection and Efficient Technology Transfer for the Public Good
+        .ui.basic.button.primary 
+          = link_to 'Learn More', about_path
+.ui.container.grid.stackable
+  .row style="padding-top: 36px;"
+    .column.center.aligned
+      h2.ui.header style="font-size: 32px;" Offers
+  .three.column.row.offers
+    .column.center.aligned
+      .ui.basic.segment 
+        i.fa.fa-lightbulb-o.circle style="font-size: 100px;" aria-hidden="true"
+        h3.ui.header style="font-size: 24px;" Create 
+    .column.center.aligned
+      .ui.basic.segment 
+        i.fa.fa-lock.circle style="font-size: 100px;" aria-hidden="true"
+        h3.ui.header style="font-size: 24px;" Protect
+    .column.center.aligned
+      .ui.basic.segment 
+        i.fa.fa-child.circle style="font-size: 100px;" aria-hidden="true"
+        h3.ui.header style="font-size: 24px;" Share
+  .one.column.row.featured.fluid
+    .column
+      .ui.divider
+      .ui.basic.segment
+        h3.ui.header.left.floated style="padding-top: 6px;" Featured Offers
+        .ui.basic.primary.button.right.floated 
+          = link_to 'View Offers', ip_offers_path
+  .five.column.row
+    - @offers.each do |offer|
+      .column
+        = link_to offer, class: 'ui card' do
+          .image
+            -if offer.photo.present?
+              = image_tag offer.photo.url(:home_display)
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          .content
+            h5.ui.header
+              = simple_format(truncate(offer.title, length: 20))
+  .ui.container.grid.stackable
+    .row style="padding-top: 36px;"
+      .column.center.aligned
+        h2.ui.header style="font-size: 32px;" Needs
+    .three.column.row.offers
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-question.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Determine 
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-file-o.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Submit
+      .column.center.aligned
+        .ui.basic.segment 
+          i.fa.fa-search.circle style="font-size: 100px;" aria-hidden="true"
+          h3.ui.header style="font-size: 24px;" Search
+    .one.column.row.featured.fluid
+      .column
+        .ui.divider
+        .ui.basic.segment
+          h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
+          .ui.basic.primary.button.right.floated 
+            = link_to 'View Needs', ip_needs_path
+  .five.column.row
+    - @needs.each do |need|
+      .column
+        = link_to need, class: 'ui card' do
+          .image
+            -if need.photo.present?
+              = image_tag need.photo.url(:home_display)
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          .content
+            h5.ui.header
+              = simple_format(truncate(need.title, length: 20))
+  .ui.container.grid.stackable
+    .one.column.row style="padding-top: 36px;"
+      .column
+        h2.ui.header Recent Articles
+    .row
+      .seven.wide.column
+        img.ui.image
+          - if @articles.first.banner_photo.present?
+            = image_tag @articles.first.banner_photo.url
+          - else
+            = image_tag 'placeholders/no_image_general.jpg'
+      .nine.wide.column
+        h3.ui.header
+          = @articles.first.title
+        p
+          - if @articles.first.content.length > 475
+            = simple_format(truncate(@articles.first.content, length: 475) + link_to(" Read more", @articles.first))
+          - else
+            = simple_format(truncate(@articles.first.content, length: 475))
+
+    .three.column.row
+      - 3.times do |n|
+        .column
+          img.ui.img
+            - if @articles[n].banner_photo.present?
+              = image_tag @articles[n].banner_photo.url
+            - else
+              = image_tag 'placeholders/no_image_general.jpg'
+          h3.ui.header.centered
+            = link_to @articles[n].title, @articles[n], style: 'color: #333;'
+    .row
+      .column
+        = link_to 'View Articles', articles_path, class: 'ui basic button primary right floated'
