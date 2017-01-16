@@ -28,4 +28,4 @@ div style="padding-right: 14px;"
     tfoot
       tr.center.aligned
         th colspan="5"
-          = will_paginate @users
+          = will_paginate @users, renderer: WillPaginateSemanticUi::ActionView::Renderer

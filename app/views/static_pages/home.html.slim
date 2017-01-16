@@ -1,7 +1,4 @@
 - if !current_user
   = render 'landing'
 - else
-  - if current_user.admin?
-    = render 'admin_dashboard'
-  - else
-    = render 'user_dashboard'
+  = render 'user_dashboard'

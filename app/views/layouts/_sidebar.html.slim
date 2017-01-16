@@ -7,34 +7,29 @@
         .item 
           .header Main
           .menu
-            a.item Home
-            = link_to 'Profile', current_user
-            a.item Contact
+            = link_to 'Home', root_path, class: 'item'
+            = link_to 'Profile', current_user, class: 'item'
+            = link_to 'Contact', contact_path, class: 'item' if !current_user.admin?
             = link_to 'Logout', logout_path, method: 'delete', class: 'item'
         .item 
           .header Users
           .menu
-            a.item Manage Users
-        a.item.header IP Portal
-        .item  
-          .header Offers
+            = link_to 'Manage Users', admin_manage_users_path, class: 'item'
+        .item
+          .header IP Portal
           .menu
-            a.item Manage Offers
-            a.item Submit New Offer
-        .item  
-          .header Needs
-          .menu
-            a.item Manage Needs
-            a.item Submit New Need
+            = link_to 'Manage IPs', admin_manage_ips_path, class: 'item'
+            = link_to 'Submit New Offer', new_ip_offer_path, class: 'item'
+            = link_to 'Submit New Need', new_ip_need_path, class: 'item'
         .item  
           .header Article
           .menu
-            a.item Manage Articles
-            a.item Post New Article
+            = link_to 'Manage Articles', admin_manage_articles_path, class: 'item'
+            = link_to 'Post New Article', new_article_path, class: 'item'
         .item  
           .header Resources
           .menu
-            a.item Manage Resources
+            = link_to 'Manage Resources', admin_manage_resources_path, class: 'item'
             a.item Upload New Resource
     .fourteen.wide.column style="padding-top: 30px;"
       = render 'shared/flash'

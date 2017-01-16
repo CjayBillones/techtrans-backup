@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   
   def home
     if current_user
+      if current_user.admin?
+        redirect_to admin_path
+      end
       offers = IpOffer.all
       needs = IpNeed.all
       @ips = (offers + needs).sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 1)
@@ -9,10 +12,6 @@ class StaticPagesController < ApplicationController
       @articles = Article.last(4)
       @offers = IpOffer.last(5)
       @needs = IpNeed.last(5)
-    end
-
-    if current_user && current_user.admin?
-      @users = User.paginate(:page => params[:page], :per_page => 5)
     end
   end
 

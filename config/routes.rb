@@ -60,5 +60,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/admin' => 'admin_dashboards#analytics'
+  get '/admin/manage_users' => 'admin_dashboards#manage_users'
+  get '/admin/manage_ips' => 'admin_dashboards#manage_ips'
+  get '/admin/manage_articles' => 'admin_dashboards#manage_articles'
+  get '/admin/manage_resources' => 'admin_dashboards#manage_resources'
 
 end
