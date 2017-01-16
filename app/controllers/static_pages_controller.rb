@@ -4,10 +4,9 @@ class StaticPagesController < ApplicationController
     if current_user
       if current_user.admin?
         redirect_to admin_path
+      else
+        redirect_to user_dashboard_path
       end
-      offers = IpOffer.all
-      needs = IpNeed.all
-      @ips = (offers + needs).sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 1)
     else
       @articles = Article.last(4)
       @offers = IpOffer.last(5)
