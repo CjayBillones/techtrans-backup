@@ -11,6 +11,7 @@ html
     .wrapper
       - if !current_user
         = render 'layouts/navbar'
+        .flash-buffer style="margin-top: 80px;"
         = render 'shared/flash'
         
         = yield
