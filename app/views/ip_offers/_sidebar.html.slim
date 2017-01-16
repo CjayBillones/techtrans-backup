@@ -33,3 +33,5 @@
         .ui.buttons.fluid
           = link_to 'Edit', edit_ip_offer_path(@ip), class: 'ui button orange'
           = link_to 'Delete', ip_offer_path(@ip.id), method: :delete, data: {:confirm => 'Are you sure?'}, class: 'ui button red'
+      | Tags: 
+      = raw @ip.tag_list.map { |t| link_to t, tag_ip_offers_path(t)}.join(', ')
