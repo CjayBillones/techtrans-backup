@@ -34,7 +34,7 @@
     = i.select(:classification, selClassification, {prompt: 'Select Classification'}, class: 'form-control')
 
   .field
-    = i.label :organization_bio, 'Organization Biography'
+    = i.label :organization_bio, 'Organization Profile'
     = i.text_area :organization_bio, class: 'form-control'
 
   .field
@@ -46,22 +46,6 @@
     = i.text_field :address, class: 'form-control'
 
   .field
-    = i.label :contact_person
-    = i.text_field :contact_person, class: 'form-control'
-
-  .field
-    = i.label :contact_email, class: 'required'
-    = i.text_field :contact_email, class: 'form-control'
-
-  .field
-    = i.label :contact_number
-    = i.text_field :contact_number, class: 'form-control'
-
-  .field
-    = i.label :employee_count, 'Number of Employees'
-    = i.number_field :employee_count, value: 1, min: '1', class: 'form-control'
-  
-  .field
     = i.label :site_url, 'Website Link'
     = i.text_field :site_url, class: 'form-control'
 
@@ -72,6 +56,28 @@
   .field
     = i.label :linkedin_url, 'Linkedin Link'
     = i.text_field :linkedin_url, class: 'form-control'
+
+  .ui.dividing.header Contact Person Information
+
+  .field
+    = i.label :contact_person
+    = i.text_field :contact_person, class: 'form-control'
+
+  .field
+    = i.label :designation
+    = i.text_field :designation, class: 'form-control'
+
+  .field
+    = i.label :contact_email, class: 'required'
+    = i.text_field :contact_email, class: 'form-control'
+
+  .field
+    = i.label :contact_number
+    = i.text_field :contact_number, class: 'form-control'
+
+  /.field
+  /  = i.label :employee_count, 'Number of Employees'
+  /  = i.number_field :employee_count, value: 1, min: '1', class: 'form-control'
 
   .ui.dividing.header Terms of Use and Non-Disclosure Agreement
 
