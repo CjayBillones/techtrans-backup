@@ -1,0 +1,28 @@
+div style="padding-right: 14px;"
+  h1.ui.header Manage Articles
+  .ui.top.attached.tabular.menu
+    a.active.item All Articles
+    /a.item Approved Submissions
+    /a.item Pending Submissions
+  table.ui.table.stackable.bottom.attached.celled
+    thead
+      tr
+        th No.
+        th Title     
+        th Actions
+    tbody
+    - @articles.each_with_index do |article, i|           
+      tr
+        td 
+          = i+1
+        td 
+          = link_to article.title, article
+        td
+          | Edit | Delete
+    tfoot
+      tr.center.aligned
+        th colspan="5"
+          - if @articles
+            = will_paginate @articles, renderer: WillPaginateSemanticUi::ActionView::Renderer
+          - else
+            | No Article to Display

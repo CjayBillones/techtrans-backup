@@ -1,5 +1,6 @@
-.ui.container style="margin-top: 70px;"
+.ui.container
   h2.ui.header.center.aligned User Dashboard
+  .ui.divider
   .ui.search style="margin-bottom: 20px;"
     .ui.icon.input style="width: 100%;"
       input.prompt type="text" placeholder="Search"
@@ -16,7 +17,7 @@
             = image_tag 'placeholders/no_image_general.jpg', style: "width: 250px; height: 200px;"
         h3.ui.header 
           .content
-            = ip.title
+            = link_to ip.title, ip
           .sub.header
             | Posted by 
             = fullname(User.find(ip.user_id)) + ' | '
@@ -24,14 +25,12 @@
         p 
           - if ip.class == IpOffer
             = simple_format(truncate(ip.overview, length: 500))
-            = link_to ip, class: "ui button basic blue" do
-              | View IP Offer &nbsp;
-              i.fa.fa-chevron-right
+            | Tags: 
+            = raw ip.tag_list.map { |t| link_to t, dashboard_tag_path(t)}.join(', ')
           - else
             = simple_format(truncate(ip.description, length: 500))
-            = link_to ip, class: "ui button basic blue" do
-              | View IP Need &nbsp;
-              i.fa.fa-chevron-right
+            | Tags: 
+            = raw ip.tag_list.map { |t| link_to t, dashboard_tag_path(t)}.join(', ')
   .ui.centered.grid
     .attached.center.aligned.menu
       = will_paginate @ips, renderer: WillPaginateSemanticUi::ActionView::Renderer

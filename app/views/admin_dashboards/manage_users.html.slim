@@ -11,12 +11,13 @@ div style="padding-right: 14px;"
         th Email
         th Username        
         th Type
+        th Approval Status
         th Actions
     tbody
-    - @users.each do |user|           
+    - @users.each_with_index do |user, i|           
       tr
         td 
-          = user.id    
+          = i+1
         td 
           = user.email
         td 
@@ -24,8 +25,13 @@ div style="padding-right: 14px;"
         td
           = user.class
         td
+          = user.approval_status
+        td
           | View Details | Approve
     tfoot
       tr.center.aligned
         th colspan="5"
-          = will_paginate @users
+          - if @users
+            = will_paginate @users, renderer: WillPaginateSemanticUi::ActionView::Renderer
+          - else
+            | No Users

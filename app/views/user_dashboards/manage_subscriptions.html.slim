@@ -1,0 +1,30 @@
+div style="padding-right: 14px;"
+  h1.ui.header Manage Subscriptions
+  .ui.divider
+  .ui.top.attached.tabular.menu
+    a.active.item All Subscriptions
+  table.ui.table.stackable.bottom.attached.celled
+    thead
+      tr
+        th No.
+        th IP Title
+        th IP Type
+        th Actions
+    tbody
+    - @ip_subscriptions.each_with_index do |ip, i|           
+      tr
+        td 
+          = i+1
+        td 
+          = link_to ip.title, ip
+        td 
+          = (ip.class == IpOffer) ? 'Offer':'Need'
+        td
+          | View Details | Approve
+    tfoot
+      tr.center.aligned
+        th colspan="5"
+          - if @ipsubscriptions
+            = will_paginate @ip_subscriptions, renderer: WillPaginateSemanticUi::ActionView::Renderer
+          - else
+            | No Subscriptions

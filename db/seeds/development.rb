@@ -60,6 +60,7 @@ user_types = ['Student', 'Researcher', 'Faculty']
                               country_code:country_code,
                               address: address,
                               contact_person: contact_person,
+                              designation: 'VP for External Relations',
                               contact_number: contact_number,
                               contact_email: email,
                               classification: classification,

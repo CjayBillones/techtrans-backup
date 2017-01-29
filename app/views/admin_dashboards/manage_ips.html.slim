@@ -1,0 +1,34 @@
+div style="padding-right: 14px;"
+  h1.ui.header Manage IPs
+  .ui.top.attached.tabular.menu
+    a.active.item All IPs
+    /a.item Approved Submissions
+    /a.item Pending Submissions
+  table.ui.table.stackable.bottom.attached.celled
+    thead
+      tr
+        th No.
+        th IP Title
+        th IP Type        
+        th Approval Status
+        th Actions
+    tbody
+    - @ips.each_with_index do |ip, i|           
+      tr
+        td 
+          = i+1
+        td 
+          = link_to ip.title, ip
+        td 
+          = (ip.class == IpOffer) ? 'Offer':'Need'
+        td
+          = ip.approval_status
+        td
+          | View Details | Approve
+    tfoot
+      tr.center.aligned
+        th colspan="5"
+          - if @ips
+            = will_paginate @ips, renderer: WillPaginateSemanticUi::ActionView::Renderer
+          - else
+            | No IPs to Display
