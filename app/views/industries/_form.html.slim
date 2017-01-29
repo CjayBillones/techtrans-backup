@@ -63,15 +63,15 @@
 
   .ui.dividing.header Contact Person Information
 
-  .field
-    = i.label :contact_person
+  .field.required
+    = i.label :contact_person, class: 'required'
     = i.text_field :contact_person, class: 'form-control'
 
-  .field
-    = i.label :designation
+  .field.required
+    = i.label :designation, class: 'required'
     = i.text_field :designation, class: 'form-control'
 
-  .field
+  .field.required
     = i.label :contact_email, class: 'required'
     = i.text_field :contact_email, class: 'form-control'
 
@@ -87,7 +87,7 @@
 
   .field  
     = i.label :terms, 'Terms of Agreement'
-    = i.text_area :terms_of_agreement, value: terms_of_agreement, rows: 15, readonly: true, class: 'form-control'
+    = text_area_tag :terms_of_agreement, terms_of_agreement, rows: 15, readonly: true, class: 'form-control'
   .inline.field.required
     .ui.checkbox
       = i.check_box :terms

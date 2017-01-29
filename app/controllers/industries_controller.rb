@@ -59,9 +59,10 @@ class IndustriesController < ApplicationController
     end
 
     def industry_params
-      params.require(:industry).permit(:industry_name, :country_code, :address, :contact_person,
-                                      :contact_email, :contact_number, :classification, :employee_count,
-                                      :site_url, :fb_url, :linkedin_url, :terms)
+      params.require(:industry).permit(:industry_name, :classification, :organization_bio,
+                                      :country_code, :address, :site_url, :fb_url, :linkedin_url, 
+                                      :contact_person, :designation, :contact_email, :contact_number, 
+                                      :terms)
     end
 
     def correct_user
