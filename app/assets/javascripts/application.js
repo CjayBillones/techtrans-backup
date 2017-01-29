@@ -21,6 +21,8 @@
 //= require social-share-button
 //= require jquery.tokeninput
 //= require ckeditor/init
+//= require jquery.dataTables.min
+//= require dataTables.semanticui.min
 //= require semantic.min
 //= require_tree .
 
