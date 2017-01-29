@@ -1,11 +1,22 @@
-.banner style="background-image: url(#{@article.banner_photo});"
-  .ui.text.container
-    h1.ui.header
-      = @article.title
-      .sub.header
-        | Posted by 
-        = fullname(User.find(@article.user_id)) + ' | '
-        = local_time(@article.created_at)
+- if current_user
+  .banner style="background-image: url(#{@article.banner_photo});"
+    .ui.text.container
+      h1.ui.header
+        = @article.title
+        .sub.header
+          | Posted by 
+          = fullname(User.find(@article.user_id)) + ' | '
+          = local_time(@article.created_at)
+-else
+  .banner style="margin-top: 10vh; background-image: url(#{@article.banner_photo});"
+    .ui.text.container
+      h1.ui.header
+        = @article.title
+        .sub.header
+          | Posted by 
+          = fullname(User.find(@article.user_id)) + ' | '
+          = local_time(@article.created_at)
+
 .ui.text.container.article 
   p
     = simple_format(@article.content)
