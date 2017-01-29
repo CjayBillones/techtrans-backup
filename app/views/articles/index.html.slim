@@ -23,6 +23,6 @@
               = fullname(User.find(article.user_id)) + ' | '
               = local_time(article.created_at)
           p 
-            = simple_format(truncate(article.content, length: 295))
+            = simple_format(truncate(article.content, length: 295, :escape => false), {}, :sanitize => false)
             | Tags: 
             = raw article.tag_list.map { |t| link_to t, tag_articles_path(t)}.join(', ')
