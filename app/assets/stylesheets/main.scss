@@ -11,11 +11,12 @@
 }
 
 .banner {
-    position: relative;
-    margin-top: 10vh;
-    height: 60vh;
-    background-image: url('https://unsplash.it/1920/1366/?blur');
-    background-position: cover;
+  position: relative;
+  margin-top: 10vh;
+  height: 60vh;
+  background-size: cover;
+  background-repeat:   no-repeat;
+  background-position: cover;
 }
 
 .banner .ui.text.container {
