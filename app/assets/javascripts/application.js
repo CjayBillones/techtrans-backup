@@ -21,6 +21,7 @@
 //= require social-share-button
 //= require jquery.tokeninput
 //= require ckeditor/init
+//= require semantic.min
 //= require_tree .
 
 $(document).on('turbolinks:load', function() { $("#industry_classification, #industry_country_code, #academe_user_type, #ip_need_privacy_option, #ip_offer_patent_status").select2(); });
