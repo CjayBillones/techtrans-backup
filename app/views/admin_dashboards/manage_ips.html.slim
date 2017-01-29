@@ -1,34 +1,286 @@
 div style="padding-right: 14px;"
   h1.ui.header Manage IPs
-  .ui.top.attached.tabular.menu
-    a.active.item All IPs
-    /a.item Approved Submissions
-    /a.item Pending Submissions
-  table.ui.table.stackable.bottom.attached.celled
-    thead
-      tr
-        th No.
-        th IP Title
-        th IP Type        
-        th Approval Status
-        th Actions
-    tbody
-    - @ips.each_with_index do |ip, i|           
-      tr
-        td 
-          = i+1
-        td 
-          = link_to ip.title, ip
-        td 
-          = (ip.class == IpOffer) ? 'Offer':'Need'
-        td
-          = ip.approval_status
-        td
-          | View Details | Approve
-    tfoot
-      tr.center.aligned
-        th colspan="5"
-          - if @ips
-            = will_paginate @ips, renderer: WillPaginateSemanticUi::ActionView::Renderer
-          - else
-            | No IPs to Display
+  ui.divider
+
+#context1
+  .ui.secondary.menu
+    a.item.active data-tab="all-ips"  All IPs
+    a.item data-tab="ip-offers"  Offers
+    a.item data-tab="ip-needs"  Needs
+  .ui.tab.segment.active data-tab="all-ips" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="all-ips/all"  List All
+      a.item data-tab="all-ips/approved"  Approved
+      a.item data-tab="all-ips/pending"  Pending
+    .ui.bottom.attached.tab.segment.active data-tab="all-ips/all"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @ips.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@ips.empty?
+                = will_paginate @ips, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+    .ui.bottom.attached.tab.segment data-tab="all-ips/approved"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @accepted_ips.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@accepted_ips.empty?
+                = will_paginate @accepted_ips, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+    .ui.bottom.attached.tab.segment data-tab="all-ips/pending"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @pending_ips.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@pending_ips.empty?
+                = will_paginate @pending_ips, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+  .ui.tab.segment data-tab="ip-offers" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="ip-offers/a"  All Offers
+      a.item data-tab="ip-offers/b"  Approved Offers
+      a.item data-tab="ip-offers/c"  Pending Offers
+    .ui.bottom.attached.tab.segment.active data-tab="ip-offers/a"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @offers.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@offers.empty?
+                = will_paginate @offers, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+    .ui.bottom.attached.tab.segment data-tab="ip-offers/b"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @accepted_offers.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@accepted_offers.empty?
+                = will_paginate @accepted_offers, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+    .ui.bottom.attached.tab.segment data-tab="ip-offers/c"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @pending_offers.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@pending_offers.empty?
+                = will_paginate @pending_offers, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+  .ui.tab.segment data-tab="ip-needs" 
+    .ui.top.attached.tabular.menu
+      a.item data-tab="ip-needs/a"  All Needs
+      a.item data-tab="ip-needs/b"  Approved Needs
+      a.item data-tab="ip-needs/c"  Pending Needs
+    .ui.bottom.attached.tab.segment data-tab="ip-needs/a"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @needs.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@needs.empty?
+                = will_paginate @needs, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+    .ui.bottom.attached.tab.segment data-tab="ip-needs/b"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @accepted_needs.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@accepted_needs.empty?
+                = will_paginate @accepted_needs, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+    .ui.bottom.attached.tab.segment data-tab="ip-needs/c"
+      table.ui.table.stackable.bottom.attached.celled
+        thead
+          tr
+            th.center.aligned No.
+            th IP Title
+            th IP Type        
+            th Approval Status
+            th Actions
+        tbody
+        - @pending_needs.each_with_index do |ip, i|           
+          tr
+            td.center.aligned 
+              = i+1
+            td 
+              = link_to ip.title, ip
+            td 
+              = (ip.class == IpOffer) ? 'Offer':'Need'
+            td
+              = ip.approval_status
+            td
+              | View Details | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              - if !@pending_needs.empty?
+                = will_paginate @pending_needs, renderer: WillPaginateSemanticUi::ActionView::Renderer
+              - else
+                | No IPs to Display
+
