@@ -9,6 +9,10 @@
       = u.email_field :email, class: 'form-control'
     
     .field.required
+      = u.label :username, 'Username', class: 'required'
+      = u.text_field :username, class: 'form-control'
+
+    .field.required
       = u.label :password, 'Password', class: 'required'
       = u.password_field :password, class: 'form-control'
     
