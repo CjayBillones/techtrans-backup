@@ -1,37 +1,35 @@
 div style="padding-right: 14px;"
   h1.ui.header Manage Users
   .ui.divider
-  .ui.top.attached.tabular.menu
-    a.active.item All Users
-    a.item Pending Users
-  table.ui.table.stackable.bottom.attached.celled
-    thead
-      tr
-        th No.
-        th Email
-        th Username        
-        th Type
-        th Approval Status
-        th Actions
-    tbody
+
+table#user-data-table.ui.celled.table[width="100%" cellspacing="0"]
+  thead
+    tr
+      th Username
+      th Email
+      th Account Type
+      th Approval Status
+      th Actions
+  tbody
     - @users.each_with_index do |user, i|           
       tr
         td 
-          = i+1
+          = link_to user.username, user_path(user)
         td 
           = user.email
-        td 
-          = user.username
         td
-          = user.class
+          = user.accounts.class
         td
           = user.approval_status
         td
-          | View Details | Approve
-    tfoot
-      tr.center.aligned
+          | Approve
+  tfoot
+    tr.center.aligned
+      - if @users.empty?
         th colspan="5"
-          - if @users
-            = will_paginate @users, renderer: WillPaginateSemanticUi::ActionView::Renderer
-          - else
-            | No Users
+          | No Users to Show
+      - else
+        th colspan="5"
+          = "#{@users.count} Total Users | "
+          = "#{@users.where(approval_status: 'approved').count} Approved | "
+          = "#{@users.where(approval_status: 'pending').count} Pending"

@@ -4,7 +4,7 @@ class AdminDashboardsController < ApplicationController
   end
 
   def manage_users
-    @users = User.paginate(:page => params[:page], :per_page => 10)
+    @users = User.all
   end
 
   def manage_ips
