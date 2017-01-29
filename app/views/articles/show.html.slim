@@ -1,9 +1,12 @@
-  h1
-    = @article.title
-  h2
-    | Posted by 
-    = fullname(User.find(@article.user_id)) + ' | '
-    = local_time(@article.created_at)
+.banner 
+  .ui.text.container
+    h1.ui.header
+      = @article.title
+      .sub.header
+        | Posted by 
+        = fullname(User.find(@article.user_id)) + ' | '
+        = local_time(@article.created_at)
+.ui.text.container.article 
   p
     = simple_format(@article.content, {}, :sanitize => false)
   p

@@ -1,4 +1,5 @@
 @import 'colors.scss';
+@import url('https://fonts.googleapis.com/css?family=Lora');
 
 .footer-below{
     text-align: center;
@@ -7,6 +8,28 @@
     background-color: #333;
     padding: 5px;
     margin-top: 14px;
+}
+
+.banner {
+    position: relative;
+    margin-top: 10vh;
+    height: 60vh;
+    background-image: url('https://unsplash.it/1920/1366/?blur');
+    background-position: cover;
+}
+
+.banner .ui.text.container {
+    position: absolute;
+    bottom: 5vh;
+    left: 25%;
+    right: 25%;
+}
+
+.article.text.container p {
+    font-size: 18px;
+    line-height: 2;
+    font-family: 'Lora', serif;
+    letter-spacing: 1.3px;
 }
 
 html, body {
