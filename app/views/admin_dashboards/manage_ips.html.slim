@@ -18,7 +18,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -26,20 +25,16 @@ div style="padding-right: 14px;"
             tr
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
-              td 
-                - if ip.class == IpOffer
-                  = link_to ip.title, ip_offer_path(ip)
-                - else
-                  = link_to ip.title, ip_need_path(ip)
-              td 
-                = (ip.class == IpOffer) ? 'Offer':'Need'
+              td
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@ips.count} Total IPs | "
               = "#{@accepted_ips.count} Approved | "
               = "#{@pending_ips.count} Pending"
@@ -49,7 +44,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -58,19 +52,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                - if ip.class == IpOffer
-                  = link_to ip.title, ip_offer_path(ip)
-                - else
-                  = link_to ip.title, ip_need_path(ip)
-              td 
-                = (ip.class == IpOffer) ? 'Offer':'Need'
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@ips.count} Total IPs | "
               = "#{@accepted_ips.count} Approved | "
               = "#{@pending_ips.count} Pending"
@@ -80,7 +70,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -89,19 +78,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                - if ip.class == IpOffer
-                  = link_to ip.title, ip_offer_path(ip)
-                - else
-                  = link_to ip.title, ip_need_path(ip)
-              td 
-                = (ip.class == IpOffer) ? 'Offer':'Need'
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@ips.count} Total IPs | "
               = "#{@accepted_ips.count} Approved | "
               = "#{@pending_ips.count} Pending"
@@ -116,7 +101,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -125,16 +109,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))            
               td 
-                = link_to ip.title, ip_offer_path(ip)
-              td 
-                | Offer
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@offers.count} Total Offers | "
               = "#{@accepted_offers.count} Approved | "
               = "#{@pending_offers.count} Pending"
@@ -144,7 +127,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -153,16 +135,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))           
               td 
-                = link_to ip.title, ip_offer_path(ip)
-              td 
-                | Offer
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@offers.count} Total Offers | "
               = "#{@accepted_offers.count} Approved | "
               = "#{@pending_offers.count} Pending"
@@ -172,7 +153,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -181,16 +161,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_offer_path(ip)
-              td 
-                | Offer
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@offers.count} Total Offers | "
               = "#{@accepted_offers.count} Approved | "
               = "#{@pending_offers.count} Pending"
@@ -205,7 +184,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -214,16 +192,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_need_path(ip)
-              td 
-                | Need
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@needs.count} Total Needs | "
               = "#{@accepted_needs.count} Approved | "
               = "#{@pending_needs.count} Pending"
@@ -233,7 +210,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -242,16 +218,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_need_path(ip)
-              td 
-                | Need
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@needs.count} Total Needs | "
               = "#{@accepted_needs.count} Approved | "
               = "#{@pending_needs.count} Pending"
@@ -261,7 +236,6 @@ div style="padding-right: 14px;"
           tr
             th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
             th Actions
         tbody
@@ -270,16 +244,15 @@ div style="padding-right: 14px;"
               td.center.aligned 
                 i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_need_path(ip)
-              td 
-                | Need
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@needs.count} Total Needs | "
               = "#{@accepted_needs.count} Approved | "
               = "#{@pending_needs.count} Pending"

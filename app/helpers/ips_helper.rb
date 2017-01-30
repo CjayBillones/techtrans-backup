@@ -30,4 +30,28 @@ module IpsHelper
     end     
   end
 
+  def ip_type_icon(ip)
+    if ip.class ==IpOffer
+      'fa-universal-access'
+    else
+      'fa-lightbulb-o'
+    end
+  end
+
+  def ip_type_text(ip)
+    if ip.class == IpOffer
+      'Offer'
+    else
+      'Need'
+    end
+  end
+
+  def ip_url_path(ip)
+    if ip.class == IpOffer
+      ip_offer_path(ip)
+    else
+      ip_need_path(ip)
+    end
+  end
+
 end
