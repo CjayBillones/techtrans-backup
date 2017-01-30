@@ -2,34 +2,139 @@ div style="padding-right: 14px;"
   h1.ui.header Manage Users
   .ui.divider
 
-table#user-data-table.ui.celled.table[width="100%" cellspacing="0"]
-  thead
-    tr
-      th Username
-      th Email
-      th Account Type
-      th Approval Status
-      th Actions
-  tbody
-    - @users.each_with_index do |user, i|           
-      tr
-        td 
-          = link_to user.username, user_path(user)
-        td 
-          = user.email
-        td
-          = user.accounts.class
-        td
-          = user.approval_status
-        td
-          | Approve
-  tfoot
-    tr.center.aligned
-      - if @users.empty?
-        th colspan="5"
-          | No Users to Show
-      - else
-        th colspan="5"
-          = "#{@users.count} Total Users | "
-          = "#{@users.where(approval_status: 'approved').count} Approved | "
-          = "#{@users.where(approval_status: 'pending').count} Pending"
+#admin-manage-users
+  .ui.secondary.menu
+    a.item.active data-tab="all-users"  Overview
+    a.item data-tab="admin-users"  Admin Users
+    a.item data-tab="academe-users"  Academe Users
+    a.item data-tab="industry-users"  Industry Users
+  .ui.tab.segment.active data-tab="all-users" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="all-users/all"  All Users
+      a.item data-tab="all-users/approved"  Approved Users
+      a.item data-tab="all-users/pending"  Pending Users
+      a.item data-tab="all-users/deactivated" Deactivated Users
+    .ui.bottom.attached.tab.segment.active data-tab="all-users/all"
+      table#all-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+        tbody
+          - @users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              = "#{@users.count} Total Users | "
+              = "#{@approved_users.count} Approved | "
+              = "#{@pending_users.count} Pending | "
+              = "#{@deactivated_users.count} Deactivated |"
+              = "#{@rejected_users.count} Rejected"
+/    .ui.bottom.attached.tab.segment data-tab="all-ips/approved"
+/      table#approved-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
+/        thead
+/          tr
+/            th.center.aligned Status
+/            th.center.aligned Type
+/            th.center.aligned IP Title
+/            th.center.aligned Submitted by
+/            th.center.aligned Interested
+/        tbody
+/          - @accepted_ips.each_with_index do |ip, i|           
+/            tr
+/              td.center.aligned 
+/                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
+/              td.center.aligned
+/                = ip_type(ip)
+/              td 
+/                = link_to ip.title, ip_url_path(ip)
+/              td
+/                = User.find(ip.user_id).username
+/              td.center.aligned
+/                = ip.followers_count
+/        tfoot
+/          tr.center.aligned
+/            th colspan="5"
+/              = "#{@ips.count} Total IPs | "
+/              = "#{@accepted_ips.count} Approved | "
+/              = "#{@pending_ips.count} Pending | "
+/              = "#{@rejected_ips.count} Rejected"
+/    .ui.bottom.attached.tab.segment data-tab="all-ips/pending"
+/      table#pending-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
+/        thead
+/          tr
+/            th.center.aligned Status
+/            th.center.aligned Type
+/            th.center.aligned IP Title
+/            th.center.aligned Submitted by
+/            th.center.aligned Actions
+/        tbody
+/          - @pending_ips.each_with_index do |ip, i|           
+/            tr
+/              td.center.aligned 
+/                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
+/              td.center.aligned
+/                = ip_type(ip)
+/              td 
+/                = link_to ip.title, ip_url_path(ip)
+/              td
+/                = User.find(ip.user_id).username
+/              td.center.aligned
+/                = link_to 'Approve', admin_approve_ip_path(id: ip, ip_type: ip.class), method: :post, data: {:confirm => /'Are you sure?'},class: 'ui button primary'
+/                = link_to 'Reject', admin_reject_ip_path(id: ip, ip_type: ip.class), method: :post, data: {:confirm => /'Are you sure?'}, class: 'ui button red '
+/        tfoot
+/          tr.center.aligned
+/            th colspan="5"
+/              = "#{@ips.count} Total IPs | "
+/              = "#{@accepted_ips.count} Approved | "
+/              = "#{@pending_ips.count} Pending | "
+/              = "#{@rejected_ips.count} Rejected"
+/    .ui.bottom.attached.tab.segment data-tab="all-ips/rejected"
+/      table#all-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
+/        thead
+/          tr
+/            th.center.aligned Status
+/            th.center.aligned Type
+/            th.center.aligned IP Title
+/            th.center.aligned Submitted by
+/            th.center.aligned Actions
+/        tbody
+/          - @rejected_ips.each_with_index do |ip, i|           
+/            tr
+/              td.center.aligned 
+/                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
+/              td.center.aligned
+/                = ip_type(ip)
+/              td
+/                = link_to ip.title, ip_url_path(ip)
+/              td
+/                = User.find(ip.user_id).username
+/              td.center.aligned
+/                = link_to 'Approve', admin_approve_ip_path(id: ip, ip_type: ip.class), method: :post, data: {:confirm => /'Are you sure?'},class: 'ui button primary'
+/        tfoot
+/          tr.center.aligned
+/            th colspan="5"
+/              = "#{@ips.count} Total IPs | "
+/              = "#{@accepted_ips.count} Approved | "
+/              = "#{@pending_ips.count} Pending | "
+/              = "#{@rejected_ips.count} Rejected"
