@@ -19,7 +19,7 @@ div style="padding-right: 14px;"
             th.center.aligned Status
             th.center.aligned IP Title
             th.center.aligned Submitted by
-            th.center.aligned Actions
+            th.center.aligned Interested
         tbody
           - @ips.each_with_index do |ip, i|           
             tr
@@ -31,7 +31,7 @@ div style="padding-right: 14px;"
               td
                 = User.find(ip.user_id).username
               td.center.aligned
-                | Approve
+                = ip.followers_count
         tfoot
           tr.center.aligned
             th colspan="4"
@@ -45,7 +45,7 @@ div style="padding-right: 14px;"
             th.center.aligned Status
             th.center.aligned IP Title
             th.center.aligned Submitted by
-            th.center.aligned Actions
+            th.center.aligned Interested
         tbody
           - @accepted_ips.each_with_index do |ip, i|           
             tr
@@ -56,8 +56,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = ip.followers_count
         tfoot
           tr.center.aligned
             th colspan="4"
@@ -102,7 +102,7 @@ div style="padding-right: 14px;"
             th.center.aligned Status
             th.center.aligned IP Title
             th.center.aligned Submitted by
-            th.center.aligned Actions
+            th.center.aligned Interested
         tbody
           - @offers.each_with_index do |ip, i|           
             tr
@@ -113,8 +113,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = ip.followers_count
         tfoot
           tr.center.aligned
             th colspan="4"
@@ -128,7 +128,7 @@ div style="padding-right: 14px;"
             th.center.aligned Status
             th.center.aligned IP Title
             th.center.aligned Submitted by
-            th.center.aligned Actions
+            th.center.aligned Interested
         tbody
           - @accepted_offers.each_with_index do |ip, i|           
             tr
@@ -139,8 +139,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = ip.followers_count
         tfoot
           tr.center.aligned
             th colspan="4"
@@ -185,7 +185,7 @@ div style="padding-right: 14px;"
             th.center.aligned Status
             th.center.aligned IP Title
             th.center.aligned Submitted by
-            th.center.aligned Actions
+            th.center.aligned Interested
         tbody
           - @needs.each_with_index do |ip, i|           
             tr
@@ -196,8 +196,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = ip.followers_count
         tfoot
           tr.center.aligned
             th colspan="4"
@@ -211,7 +211,7 @@ div style="padding-right: 14px;"
             th.center.aligned Status
             th.center.aligned IP Title
             th.center.aligned Submitted by
-            th.center.aligned Actions
+            th.center.aligned Interested
         tbody
           - @accepted_needs.each_with_index do |ip, i|           
             tr
@@ -222,8 +222,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = ip.followers_count
         tfoot
           tr.center.aligned
             th colspan="4"
