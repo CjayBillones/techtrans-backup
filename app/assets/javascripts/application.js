@@ -26,11 +26,21 @@
 //= require semantic.min
 //= require_tree .
 
-$(document).on('turbolinks:load', function() { $("#industry_classification, #industry_country_code, #academe_user_type, #ip_need_privacy_option, #ip_offer_patent_status").select2(); });
-
 $(document).on('turbolinks:load', function(){
   $('#academe_birthday .input-group.date').datepicker({
     startView: 'years',
     autoclose: true
+  });
+});
+
+$(document).on('turbolinks:load', function() {
+  $("#industry_classification, #industry_country_code, #academe_user_type, #ip_need_privacy_option, #ip_offer_patent_status").select2();
+  $('#admin-manage-ip .menu .item').tab({
+    context: $('#admin-manage-ip')
+  });
+  $('.ui.checkbox').checkbox();
+  $('.ui.dropdown').dropdown();
+  $('.ui.sticky').sticky({
+    offset: 60
   });
 });
