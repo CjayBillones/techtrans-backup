@@ -16,14 +16,17 @@ class AdminDashboardsController < ApplicationController
     @offers = IpOffer.all
     @accepted_offers = IpOffer.where(approval_status: 'approved')
     @pending_offers = IpOffer.where(approval_status: 'pending')
+    @rejected_offers = IpOffer.where(approval_status: 'rejected')
     # Load Needs
     @needs = IpNeed.all
     @accepted_needs = IpNeed.where(approval_status: 'approved')
     @pending_needs = IpNeed.where(approval_status: 'pending')
+    @rejected_needs = IpNeed.where(approval_status: 'rejected')
     # Load All
     @ips = (@offers + @needs)
     @accepted_ips = (@accepted_offers + @accepted_needs)
     @pending_ips = (@pending_offers + @pending_needs)
+    @rejected_ips = (@rejected_offers + @rejected_needs)
   end
 
   def manage_articles
