@@ -55,6 +55,12 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
+  def resend_activation_email
+    self.send(:create_activation_digest)
+    self.send_activation_email
+    self.save
+  end
+
   def create_reset_digest
     self.reset_token = User.new_token
     update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)

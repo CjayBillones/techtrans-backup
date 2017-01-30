@@ -111,7 +111,8 @@ div style="padding-right: 14px;"
             th.center.aligned Fullname
             th.center.aligned Username
             th.center.aligned Email
-            th.center.aligned Actions
+            th.center.aligned style="width: 20%;" 
+              | Actions
         tbody
           - @pending_approval_users.each_with_index do |user, i|           
             tr
@@ -126,7 +127,8 @@ div style="padding-right: 14px;"
               td
                 = user.email
               td.center.aligned
-                | Approve
+                = link_to 'Approve', admin_approve_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary mini'
+                = link_to 'Reject', admin_reject_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
         tfoot
           tr.center.aligned
             th colspan="6"
@@ -166,7 +168,7 @@ div style="padding-right: 14px;"
               td
                 = user.email
               td.center.aligned
-                | Resend Activation Link
+                = link_to 'Resend Activation Link', admin_resend_activation_link_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary mini'
         tfoot
           tr.center.aligned
             th colspan="6"
@@ -206,7 +208,7 @@ div style="padding-right: 14px;"
               td
                 = user.email
               td.center.aligned
-                = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'ui button primary'
+                = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary small'
         tfoot
           tr.center.aligned
             th colspan="6"
@@ -246,7 +248,7 @@ div style="padding-right: 14px;"
               td
                 = user.email
               td.center.aligned
-                | Approve
+                = link_to 'Approve', admin_approve_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary small'
         tfoot
           tr.center.aligned
             th colspan="6"
@@ -262,92 +264,3 @@ div style="padding-right: 14px;"
               = " #{@deactivated_users.count} Deactivated | "
               i.fa.fa-times style="color:red" title='rejected'
               = " #{@rejected_users.count} Rejected"
-
-/    .ui.bottom.attached.tab.segment data-tab="all-ips/approved"
-/      table#approved-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
-/        thead
-/          tr
-/            th.center.aligned Status
-/            th.center.aligned Type
-/            th.center.aligned IP Title
-/            th.center.aligned Submitted by
-/            th.center.aligned Interested
-/        tbody
-/          - @accepted_ips.each_with_index do |ip, i|           
-/            tr
-/              td.center.aligned 
-/                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
-/              td.center.aligned
-/                = ip_type(ip)
-/              td 
-/                = link_to ip.title, ip_url_path(ip)
-/              td
-/                = User.find(ip.user_id).username
-/              td.center.aligned
-/                = ip.followers_count
-/        tfoot
-/          tr.center.aligned
-/            th colspan="5"
-/              = "#{@ips.count} Total IPs | "
-/              = "#{@accepted_ips.count} Approved | "
-/              = "#{@pending_ips.count} Pending | "
-/              = "#{@rejected_ips.count} Rejected"
-/    .ui.bottom.attached.tab.segment data-tab="all-ips/pending"
-/      table#pending-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
-/        thead
-/          tr
-/            th.center.aligned Status
-/            th.center.aligned Type
-/            th.center.aligned IP Title
-/            th.center.aligned Submitted by
-/            th.center.aligned Actions
-/        tbody
-/          - @pending_ips.each_with_index do |ip, i|           
-/            tr
-/              td.center.aligned 
-/                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
-/              td.center.aligned
-/                = ip_type(ip)
-/              td 
-/                = link_to ip.title, ip_url_path(ip)
-/              td
-/                = User.find(ip.user_id).username
-/              td.center.aligned
-/                = link_to 'Approve', admin_approve_ip_path(id: ip, ip_type: ip.class), method: :post, data: {:confirm => /'Are you sure?'},class: 'ui button primary'
-/                = link_to 'Reject', admin_reject_ip_path(id: ip, ip_type: ip.class), method: :post, data: {:confirm => /'Are you sure?'}, class: 'ui button red '
-/        tfoot
-/          tr.center.aligned
-/            th colspan="5"
-/              = "#{@ips.count} Total IPs | "
-/              = "#{@accepted_ips.count} Approved | "
-/              = "#{@pending_ips.count} Pending | "
-/              = "#{@rejected_ips.count} Rejected"
-/    .ui.bottom.attached.tab.segment data-tab="all-ips/rejected"
-/      table#all-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
-/        thead
-/          tr
-/            th.center.aligned Status
-/            th.center.aligned Type
-/            th.center.aligned IP Title
-/            th.center.aligned Submitted by
-/            th.center.aligned Actions
-/        tbody
-/          - @rejected_ips.each_with_index do |ip, i|           
-/            tr
-/              td.center.aligned 
-/                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
-/              td.center.aligned
-/                = ip_type(ip)
-/              td
-/                = link_to ip.title, ip_url_path(ip)
-/              td
-/                = User.find(ip.user_id).username
-/              td.center.aligned
-/                = link_to 'Approve', admin_approve_ip_path(id: ip, ip_type: ip.class), method: :post, data: {:confirm => /'Are you sure?'},class: 'ui button primary'
-/        tfoot
-/          tr.center.aligned
-/            th colspan="5"
-/              = "#{@ips.count} Total IPs | "
-/              = "#{@accepted_ips.count} Approved | "
-/              = "#{@pending_ips.count} Pending | "
-/              = "#{@rejected_ips.count} Rejected"
