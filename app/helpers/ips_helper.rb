@@ -30,6 +30,10 @@ module IpsHelper
     end     
   end
 
+  def ip_type(ip)
+    (ip.class == IpOffer) ? 'Offer' : 'Need'
+  end
+
   def ip_type_icon(ip)
     if ip.class ==IpOffer
       'fa-universal-access'
