@@ -11,8 +11,9 @@ div style="padding-right: 14px;"
   .ui.tab.segment.active data-tab="all-users" 
     .ui.top.attached.tabular.menu
       a.item.active data-tab="all-users/all"  All Users
-      a.item data-tab="all-users/approved"  Approved Users
-      a.item data-tab="all-users/pending"  Pending Users
+      a.item data-tab="all-users/active"  Active Users
+      a.item data-tab="all-users/pending-approval"  Pending Approval Users
+      a.item data-tab="all-users/pending-activation"  Pending Activation Users
       a.item data-tab="all-users/deactivated" Deactivated Users
     .ui.bottom.attached.tab.segment.active data-tab="all-users/all"
       table#all-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
@@ -45,11 +46,65 @@ div style="padding-right: 14px;"
         tfoot
           tr.center.aligned
             th colspan="7"
-              = "#{@users.count} Total Users | "
-              = "#{@approved_users.count} Approved | "
-              = "#{@pending_users.count} Pending | "
-              = "#{@deactivated_users.count} Deactivated |"
-              = "#{@rejected_users.count} Rejected"
+              i.fa.fa-user
+              = " #{@users.count} Total Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              = " #{@pending_activation_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="all-users/active"
+      table#approved-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+        tbody
+          - @approved_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              i.fa.fa-user
+              = " #{@users.count} Total Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              = " #{@pending_activation_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_users.count} Rejected"
+
+
+
+
 /    .ui.bottom.attached.tab.segment data-tab="all-ips/approved"
 /      table#approved-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
 /        thead

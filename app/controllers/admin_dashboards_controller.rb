@@ -9,8 +9,9 @@ class AdminDashboardsController < ApplicationController
 
   def manage_users
     @users = User.all
-    @approved_users = User.where(approval_status: 'approved')
-    @pending_users = User.where(approval_status: 'pending')
+    @approved_users = User.where(approval_status: 'approved', activated: true).where.not(activated_at: nil)
+    @pending_activation_users = User.where(approval_status: 'approved', activated: false, activated_at: nil)
+    @pending_approval_users = User.where(approval_status: 'pending')
     @deactivated_users = User.where(approval_status: 'approved', activated: false).where.not(activated_at: nil)
     @rejected_users = User.where(approval_status: 'rejected')
   end

@@ -20,13 +20,13 @@ module UsersHelper
 
   def user_status_text(user)
     if user.approval_status == 'approved' and user.activated and !user.activated_at.nil?
-      'approved and activated'
+      'active'
     elsif user.approval_status == 'approved' and !user.activated and user.activated_at.nil?
-      'approved but not activated yet'
+      'pending activation'
     elsif user.approval_status == 'approved' and !user.activated and !user.activated_at.nil?
       'deactivated'
     elsif user.approval_status == 'pending'
-      'pending'
+      'pending approval'
     else
       'rejected'
     end    
