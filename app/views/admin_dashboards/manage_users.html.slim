@@ -15,6 +15,7 @@ div style="padding-right: 14px;"
       a.item data-tab="all-users/pending-approval"  Pending Approval Users
       a.item data-tab="all-users/pending-activation"  Pending Activation Users
       a.item data-tab="all-users/deactivated" Deactivated Users
+      a.item data-tab="all-users/rejected" Rejected Users
     .ui.bottom.attached.tab.segment.active data-tab="all-users/all"
       table#all-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
@@ -101,9 +102,166 @@ div style="padding-right: 14px;"
               = " #{@deactivated_users.count} Deactivated | "
               i.fa.fa-times style="color:red" title='rejected'
               = " #{@rejected_users.count} Rejected"
-
-
-
+    .ui.bottom.attached.tab.segment data-tab="all-users/pending-approval"
+      table#pending-approval-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @pending_approval_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@users.count} Total Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              = " #{@pending_activation_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="all-users/pending-activation"
+      table#pending-activation-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @pending_activation_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                | Resend Activation Link
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@users.count} Total Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              = " #{@pending_activation_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="all-users/deactivated"
+      table#deactivated-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @deactivated_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                | Reactivate
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@users.count} Total Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              = " #{@pending_activation_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="all-users/rejected"
+      table#rejected-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @rejected_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@users.count} Total Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              = " #{@pending_activation_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_users.count} Rejected"
 
 /    .ui.bottom.attached.tab.segment data-tab="all-ips/approved"
 /      table#approved-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
