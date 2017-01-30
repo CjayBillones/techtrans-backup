@@ -16,30 +16,25 @@ div style="padding-right: 14px;"
       table#all-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @ips.each_with_index do |ip, i|           
             tr
-              td 
-                - if ip.class == IpOffer
-                  = link_to ip.title, ip_offer_path(ip)
-                - else
-                  = link_to ip.title, ip_need_path(ip)
-              td 
-                = (ip.class == IpOffer) ? 'Offer':'Need'
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
+              td
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@ips.count} Total IPs | "
               = "#{@accepted_ips.count} Approved | "
               = "#{@pending_ips.count} Pending"
@@ -47,30 +42,25 @@ div style="padding-right: 14px;"
       table#approved-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @accepted_ips.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                - if ip.class == IpOffer
-                  = link_to ip.title, ip_offer_path(ip)
-                - else
-                  = link_to ip.title, ip_need_path(ip)
-              td 
-                = (ip.class == IpOffer) ? 'Offer':'Need'
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@ips.count} Total IPs | "
               = "#{@accepted_ips.count} Approved | "
               = "#{@pending_ips.count} Pending"
@@ -78,30 +68,25 @@ div style="padding-right: 14px;"
       table#pending-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @pending_ips.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                - if ip.class == IpOffer
-                  = link_to ip.title, ip_offer_path(ip)
-                - else
-                  = link_to ip.title, ip_need_path(ip)
-              td 
-                = (ip.class == IpOffer) ? 'Offer':'Need'
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@ips.count} Total IPs | "
               = "#{@accepted_ips.count} Approved | "
               = "#{@pending_ips.count} Pending"
@@ -114,27 +99,25 @@ div style="padding-right: 14px;"
       table#offers-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @offers.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))            
               td 
-                = link_to ip.title, ip_offer_path(ip)
-              td 
-                | Offer
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@offers.count} Total Offers | "
               = "#{@accepted_offers.count} Approved | "
               = "#{@pending_offers.count} Pending"
@@ -142,27 +125,25 @@ div style="padding-right: 14px;"
       table#accepted-offers-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @accepted_offers.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))           
               td 
-                = link_to ip.title, ip_offer_path(ip)
-              td 
-                | Offer
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@offers.count} Total Offers | "
               = "#{@accepted_offers.count} Approved | "
               = "#{@pending_offers.count} Pending"
@@ -170,27 +151,25 @@ div style="padding-right: 14px;"
       table#pending-offers-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @pending_offers.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_offer_path(ip)
-              td 
-                | Offer
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@offers.count} Total Offers | "
               = "#{@accepted_offers.count} Approved | "
               = "#{@pending_offers.count} Pending"
@@ -203,27 +182,25 @@ div style="padding-right: 14px;"
       table#needs-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @needs.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_need_path(ip)
-              td 
-                | Need
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@needs.count} Total Needs | "
               = "#{@accepted_needs.count} Approved | "
               = "#{@pending_needs.count} Pending"
@@ -231,27 +208,25 @@ div style="padding-right: 14px;"
       table#accepted-needs-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @accepted_needs.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_need_path(ip)
-              td 
-                | Need
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@needs.count} Total Needs | "
               = "#{@accepted_needs.count} Approved | "
               = "#{@pending_needs.count} Pending"
@@ -259,27 +234,25 @@ div style="padding-right: 14px;"
       table#pending-needs-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
+            th.center.aligned Status
             th IP Title
-            th IP Type
             th Submitted by
-            th Approval Status
             th Actions
         tbody
           - @pending_needs.each_with_index do |ip, i|           
             tr
+              td.center.aligned 
+                i.fa class=(status_icon(ip)) style=(status_style(ip)) title=(status_text(ip))
               td 
-                = link_to ip.title, ip_need_path(ip)
-              td 
-                | Need
+                i.fa class=(ip_type_icon(ip)) style="padding-right: 15px" title=(ip_type_text(ip))
+                = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                = ip.approval_status
               td
                 | Approve
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="4"
               = "#{@needs.count} Total Needs | "
               = "#{@accepted_needs.count} Approved | "
               = "#{@pending_needs.count} Pending"
