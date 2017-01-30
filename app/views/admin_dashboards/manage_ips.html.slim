@@ -82,8 +82,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = link_to 'Approve', admin_approve_ip_path(id: ip, ip_type: ip.class), method: :post, class: 'ui button primary'
         tfoot
           tr.center.aligned
             th colspan="4"
@@ -165,8 +165,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = link_to 'Approve', admin_approve_ip_path(id: ip, ip_type: ip.class), method: :post, class: 'ui button primary' 
         tfoot
           tr.center.aligned
             th colspan="4"
@@ -248,8 +248,8 @@ div style="padding-right: 14px;"
                 = link_to ip.title, ip_url_path(ip)
               td
                 = User.find(ip.user_id).username
-              td
-                | Approve
+              td.center.aligned
+                = link_to 'Approve', admin_approve_ip_path(id: ip, ip_type: ip.class), method: :post, class: 'ui button primary' 
         tfoot
           tr.center.aligned
             th colspan="4"

@@ -14,7 +14,7 @@ module IpsHelper
     if ip.approval_status == 'approved'
       'color:green'
     elsif ip.approval_status == 'pending'
-      'color:yellow'
+      'color:black'
     else
       'color:red'
     end 
