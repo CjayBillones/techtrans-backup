@@ -14,7 +14,7 @@ module IpsHelper
     if ip.approval_status == 'approved'
       'color:green'
     elsif ip.approval_status == 'pending'
-      'color:yellow'
+      'color:black'
     else
       'color:red'
     end 
@@ -30,28 +30,20 @@ module IpsHelper
     end     
   end
 
+  def ip_type(ip)
+    (ip.class == IpOffer) ? 'Offer' : 'Need'
+  end
+
   def ip_type_icon(ip)
-    if ip.class ==IpOffer
-      'fa-universal-access'
-    else
-      'fa-lightbulb-o'
-    end
+    (ip.class == IpOffer) ? 'fa-universal-access' : 'fa-lightbulb-o'
   end
 
   def ip_type_text(ip)
-    if ip.class == IpOffer
-      'Offer'
-    else
-      'Need'
-    end
+    (ip.class == IpOffer) ? 'Offer' : 'Need'
   end
 
   def ip_url_path(ip)
-    if ip.class == IpOffer
-      ip_offer_path(ip)
-    else
-      ip_need_path(ip)
-    end
+    (ip.class == IpOffer) ? ip_offer_path(ip) : ip_need_path(ip)
   end
 
 end

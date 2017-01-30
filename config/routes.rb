@@ -66,6 +66,9 @@ Rails.application.routes.draw do
   get '/admin/manage_articles' => 'admin_dashboards#manage_articles'
   get '/admin/manage_resources' => 'admin_dashboards#manage_resources'
 
+  post '/admin/approve_ip' => 'admins#approve_ip'
+  post '/admin/reject_ip' => 'admins#reject_ip'
+
   get '/dashboard' => 'user_dashboards#index', as: 'user_dashboard'
   get '/dashboard/tags/:tags', to: 'user_dashboards#index', as: :dashboard_tag
   get '/manage_submissions' => 'user_dashboards#manage_submissions'
