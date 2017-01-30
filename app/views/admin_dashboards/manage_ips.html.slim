@@ -1,34 +1,285 @@
 div style="padding-right: 14px;"
   h1.ui.header Manage IPs
-  .ui.top.attached.tabular.menu
-    a.active.item All IPs
-    /a.item Approved Submissions
-    /a.item Pending Submissions
-  table.ui.table.stackable.bottom.attached.celled
-    thead
-      tr
-        th No.
-        th IP Title
-        th IP Type        
-        th Approval Status
-        th Actions
-    tbody
-    - @ips.each_with_index do |ip, i|           
-      tr
-        td 
-          = i+1
-        td 
-          = link_to ip.title, ip
-        td 
-          = (ip.class == IpOffer) ? 'Offer':'Need'
-        td
-          = ip.approval_status
-        td
-          | View Details | Approve
-    tfoot
-      tr.center.aligned
-        th colspan="5"
-          - if @ips
-            = will_paginate @ips, renderer: WillPaginateSemanticUi::ActionView::Renderer
-          - else
-            | No IPs to Display
+  ui.divider
+
+#context1
+  .ui.secondary.menu
+    a.item.active data-tab="all-ips"  All IPs
+    a.item data-tab="ip-offers"  Offers
+    a.item data-tab="ip-needs"  Needs
+  .ui.tab.segment.active data-tab="all-ips" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="all-ips/all"  List All
+      a.item data-tab="all-ips/approved"  Approved
+      a.item data-tab="all-ips/pending"  Pending
+    .ui.bottom.attached.tab.segment.active data-tab="all-ips/all"
+      table#all-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @ips.each_with_index do |ip, i|           
+            tr
+              td 
+                - if ip.class == IpOffer
+                  = link_to ip.title, ip_offer_path(ip)
+                - else
+                  = link_to ip.title, ip_need_path(ip)
+              td 
+                = (ip.class == IpOffer) ? 'Offer':'Need'
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@ips.count} Total IPs | "
+              = "#{@accepted_ips.count} Approved | "
+              = "#{@pending_ips.count} Pending"
+    .ui.bottom.attached.tab.segment data-tab="all-ips/approved"
+      table#approved-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @accepted_ips.each_with_index do |ip, i|           
+            tr
+              td 
+                - if ip.class == IpOffer
+                  = link_to ip.title, ip_offer_path(ip)
+                - else
+                  = link_to ip.title, ip_need_path(ip)
+              td 
+                = (ip.class == IpOffer) ? 'Offer':'Need'
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@ips.count} Total IPs | "
+              = "#{@accepted_ips.count} Approved | "
+              = "#{@pending_ips.count} Pending"
+    .ui.bottom.attached.tab.segment data-tab="all-ips/pending"
+      table#pending-ips-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @pending_ips.each_with_index do |ip, i|           
+            tr
+              td 
+                - if ip.class == IpOffer
+                  = link_to ip.title, ip_offer_path(ip)
+                - else
+                  = link_to ip.title, ip_need_path(ip)
+              td 
+                = (ip.class == IpOffer) ? 'Offer':'Need'
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@ips.count} Total IPs | "
+              = "#{@accepted_ips.count} Approved | "
+              = "#{@pending_ips.count} Pending"
+  .ui.tab.segment data-tab="ip-offers" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="ip-offers/a"  All Offers
+      a.item data-tab="ip-offers/b"  Approved Offers
+      a.item data-tab="ip-offers/c"  Pending Offers
+    .ui.bottom.attached.tab.segment.active data-tab="ip-offers/a"
+      table#offers-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @offers.each_with_index do |ip, i|           
+            tr
+              td 
+                = link_to ip.title, ip_offer_path(ip)
+              td 
+                | Offer
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@offers.count} Total Offers | "
+              = "#{@accepted_offers.count} Approved | "
+              = "#{@pending_offers.count} Pending"
+    .ui.bottom.attached.tab.segment data-tab="ip-offers/b"
+      table#accepted-offers-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @accepted_offers.each_with_index do |ip, i|           
+            tr
+              td 
+                = link_to ip.title, ip_offer_path(ip)
+              td 
+                | Offer
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@offers.count} Total Offers | "
+              = "#{@accepted_offers.count} Approved | "
+              = "#{@pending_offers.count} Pending"
+    .ui.bottom.attached.tab.segment data-tab="ip-offers/c"
+      table#pending-offers-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @pending_offers.each_with_index do |ip, i|           
+            tr
+              td 
+                = link_to ip.title, ip_offer_path(ip)
+              td 
+                | Offer
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@offers.count} Total Offers | "
+              = "#{@accepted_offers.count} Approved | "
+              = "#{@pending_offers.count} Pending"
+  .ui.tab.segment data-tab="ip-needs" 
+    .ui.top.attached.tabular.menu
+      a.item data-tab="ip-needs/a"  All Needs
+      a.item data-tab="ip-needs/b"  Approved Needs
+      a.item data-tab="ip-needs/c"  Pending Needs
+    .ui.bottom.attached.tab.segment data-tab="ip-needs/a"
+      table#needs-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @needs.each_with_index do |ip, i|           
+            tr
+              td 
+                = link_to ip.title, ip_need_path(ip)
+              td 
+                | Need
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@needs.count} Total Needs | "
+              = "#{@accepted_needs.count} Approved | "
+              = "#{@pending_needs.count} Pending"
+    .ui.bottom.attached.tab.segment data-tab="ip-needs/b"
+      table#accepted-needs-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @accepted_needs.each_with_index do |ip, i|           
+            tr
+              td 
+                = link_to ip.title, ip_need_path(ip)
+              td 
+                | Need
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@needs.count} Total Needs | "
+              = "#{@accepted_needs.count} Approved | "
+              = "#{@pending_needs.count} Pending"
+    .ui.bottom.attached.tab.segment data-tab="ip-needs/c"
+      table#pending-needs-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th IP Title
+            th IP Type
+            th Submitted by
+            th Approval Status
+            th Actions
+        tbody
+          - @pending_needs.each_with_index do |ip, i|           
+            tr
+              td 
+                = link_to ip.title, ip_need_path(ip)
+              td 
+                | Need
+              td
+                = User.find(ip.user_id).username
+              td
+                = ip.approval_status
+              td
+                | Approve
+        tfoot
+          tr.center.aligned
+            th colspan="5"
+              = "#{@needs.count} Total Needs | "
+              = "#{@accepted_needs.count} Approved | "
+              = "#{@pending_needs.count} Pending"

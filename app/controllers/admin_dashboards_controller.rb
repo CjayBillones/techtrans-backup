@@ -8,9 +8,18 @@ class AdminDashboardsController < ApplicationController
   end
 
   def manage_ips
-    offers = IpOffer.all
-    needs = IpNeed.all
-    @ips = (offers + needs).paginate(:page => params[:page], :per_page => 10)
+    # Load Offers
+    @offers = IpOffer.all
+    @accepted_offers = IpOffer.where(approval_status: 'approved')
+    @pending_offers = IpOffer.where(approval_status: 'pending')
+    # Load Needs
+    @needs = IpNeed.all
+    @accepted_needs = IpNeed.where(approval_status: 'approved')
+    @pending_needs = IpNeed.where(approval_status: 'pending')
+    # Load All
+    @ips = (@offers + @needs)
+    @accepted_ips = (@accepted_offers + @accepted_needs)
+    @pending_ips = (@pending_offers + @pending_needs)
   end
 
   def manage_articles
