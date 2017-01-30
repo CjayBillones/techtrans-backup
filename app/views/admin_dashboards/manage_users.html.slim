@@ -206,7 +206,7 @@ div style="padding-right: 14px;"
               td
                 = user.email
               td.center.aligned
-                | Reactivate
+                = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'ui button primary'
         tfoot
           tr.center.aligned
             th colspan="6"

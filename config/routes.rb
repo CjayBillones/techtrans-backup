@@ -68,6 +68,9 @@ Rails.application.routes.draw do
 
   post '/admin/approve_ip' => 'admins#approve_ip'
   post '/admin/reject_ip' => 'admins#reject_ip'
+  post '/admin/approve_user' => 'admins#approve_user'
+  post '/admin/reject_user' => 'admins#reject_user'
+  post '/admin/reactivate_user' => 'admins#reactivate_user'
 
   get '/dashboard' => 'user_dashboards#index', as: 'user_dashboard'
   get '/dashboard/tags/:tags', to: 'user_dashboards#index', as: :dashboard_tag

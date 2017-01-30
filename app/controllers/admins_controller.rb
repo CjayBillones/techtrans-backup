@@ -24,4 +24,22 @@ class AdminsController < ApplicationController
     redirect_to admin_manage_ips_path()
   end
 
+  def approve_user
+    
+  end
+
+  def reject_user
+    
+  end
+
+  def reactivate_user
+    user = User.find(params[:id])
+
+    if user
+      user.update!(activated: true)
+    end
+
+    redirect_to admin_manage_users_path()
+  end
+
 end
