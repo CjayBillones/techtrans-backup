@@ -264,3 +264,119 @@ div style="padding-right: 14px;"
               = " #{@deactivated_users.count} Deactivated | "
               i.fa.fa-times style="color:red" title='rejected'
               = " #{@rejected_users.count} Rejected"
+  .ui.tab.segment data-tab="admin-users" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="admin-users/all"  All Admins
+      a.item data-tab="admin-users/active"  Active Admins
+      a.item data-tab="admin-users/deactivated" Deactivated Admins
+    .ui.bottom.attached.tab.segment.active data-tab="admin-users/all"
+      table#all-admin-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+            th.center.aligned Actions
+        tbody
+          - @admin_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+              td.center.aligned
+                | Revoke Admin
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              i.fa.fa-user
+              = " #{@admin_users.count} Total Admin Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_admin_users.count} Active | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_admin_users.count} Deactivated "
+    .ui.bottom.attached.tab.segment data-tab="admin-users/active"
+      table#active-admin-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+            th.center.aligned Actions
+        tbody
+          - @approved_admin_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+              td.center.aligned
+                | Revoke Admin
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              i.fa.fa-user
+              = " #{@admin_users.count} Total Admin Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_admin_users.count} Active | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_admin_users.count} Deactivated "
+    .ui.bottom.attached.tab.segment data-tab="admin-users/deactivated"
+      table#deactivated-admin-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+            th.center.aligned Actions
+        tbody
+          - @deactivated_admin_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+              td.center.aligned
+                = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary small'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@admin_users.count} Total Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_admin_users.count} Active | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_admin_users.count} Deactivated"

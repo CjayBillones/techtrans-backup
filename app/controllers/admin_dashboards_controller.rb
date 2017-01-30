@@ -14,6 +14,27 @@ class AdminDashboardsController < ApplicationController
     @pending_approval_users = User.where(approval_status: 'pending')
     @deactivated_users = User.where(approval_status: 'approved', activated: false).where.not(activated_at: nil)
     @rejected_users = User.where(approval_status: 'rejected')
+
+    @admin_users = User.where(admin: true)
+    @approved_admin_users = User.where(admin: true, approval_status: 'approved', activated: true).where.not(activated_at: nil)
+    @pending_activation_admin_users = User.where(admin: true, approval_status: 'approved', activated: false, activated_at: nil)
+    @pending_approval_admin_users = User.where(admin: true, approval_status: 'pending')
+    @deactivated_admin_users = User.where(admin: true, approval_status: 'approved', activated: false).where.not(activated_at: nil)
+    @rejected_admin_users = User.where(admin: true, approval_status: 'rejected')
+
+    @academe_users = User.where(accounts_type: "Academe", admin: false, )
+    @approved_academe_users = User.where(accounts_type: "Academe", admin: false, approval_status: 'approved', activated: true).where.not(activated_at: nil)
+    @pending_activation_academe_users = User.where(accounts_type: "Academe", admin: false, approval_status: 'approved', activated: false, activated_at: nil)
+    @pending_approval_academe_users = User.where(accounts_type: "Academe", admin: false, approval_status: 'pending')
+    @deactivated_academe_users = User.where(accounts_type: "Academe", admin: false, approval_status: 'approved', activated: false).where.not(activated_at: nil)
+    @rejected_academe_users = User.where(accounts_type: "Academe", admin: false, approval_status: 'rejected')
+
+    @industry_users = User.where(accounts_type: "Industry")
+    @approved_industry_users = User.where(accounts_type: "Industry", approval_status: 'approved', activated: true).where.not(activated_at: nil)
+    @pending_activation_industry_users = User.where(accounts_type: "Industry", approval_status: 'approved', activated: false, activated_at: nil)
+    @pending_approval_industry_users = User.where(accounts_type: "Industry", approval_status: 'pending')
+    @deactivated_industry_users = User.where(accounts_type: "Industry", approval_status: 'approved', activated: false).where.not(activated_at: nil)
+    @rejected_industry_users = User.where(accounts_type: "Industry", approval_status: 'rejected')
   end
 
   def manage_ips
