@@ -50,7 +50,7 @@ module UsersHelper
     if user.admin?
       'Admin'
     else
-      (user.class == Academe) ? 'Academe' : 'Industry'
+      (user.accounts.class == Academe) ? 'Academe' : 'Industry'
     end
   end
 
