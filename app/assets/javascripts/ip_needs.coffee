@@ -6,7 +6,7 @@ $(document).ready ->
   $('#ip_need_tag_list').tokenInput '/tags.json',
     crossDomain: false
     tokenValue: 'name'
-    preventDuplicate: true
+    preventDuplicates: true
     allowFreeTagging: true
     onFreeTaggingAdd: true
     prePopulate: $('#ip_need_tag_list').data('pre')
