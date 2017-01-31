@@ -279,7 +279,6 @@ div style="padding-right: 14px;"
             th.center.aligned Email
             th.center.aligned IP Submissions
             th.center.aligned IP Interests
-            th.center.aligned Actions
         tbody
           - @admin_users.each_with_index do |user, i|           
             tr
@@ -295,11 +294,9 @@ div style="padding-right: 14px;"
                 = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
               td.center.aligned
                 = user.follow_count
-              td.center.aligned
-                = link_to 'Remove Admin', admin_revoke_admin_access_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
         tfoot
           tr.center.aligned
-            th colspan="7"
+            th colspan="6"
               i.fa.fa-user
               = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
@@ -316,7 +313,6 @@ div style="padding-right: 14px;"
             th.center.aligned Email
             th.center.aligned IP Submissions
             th.center.aligned IP Interests
-            th.center.aligned Actions
         tbody
           - @approved_admin_users.each_with_index do |user, i|           
             tr
@@ -332,11 +328,9 @@ div style="padding-right: 14px;"
                 = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
               td.center.aligned
                 = user.follow_count
-              td.center.aligned
-                = link_to 'Remove Admin', admin_revoke_admin_access_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
         tfoot
           tr.center.aligned
-            th colspan="7"
+            th colspan="6"
               i.fa.fa-user
               = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
@@ -366,7 +360,6 @@ div style="padding-right: 14px;"
               td.center.aligned
                 .tiny.ui.vertical.buttons
                   = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary', style: "margin-bottom: 5px;"
-                  = link_to 'Remove Admin', admin_revoke_admin_access_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red'
         tfoot
           tr.center.aligned
             th colspan="5"
