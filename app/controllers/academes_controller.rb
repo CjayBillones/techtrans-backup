@@ -5,6 +5,14 @@ class AcademesController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
+  def index
+    @academes = User.where("username like ?", "%#{params[:q]}%").where.not(admin: true)
+
+    respond_to do |format|
+      format.json { render :json => @academes.map(&:attributes) }
+    end
+  end
+
   def new
     @user = User.new
     @academe = Academe.new

@@ -1,7 +1,8 @@
-$(document).on 'turbolinks:load', ->
+$(document).ready ->
   $('#academe_user_tokens').tokenInput '/academes.json',
     crossDomain: false
-    tokenValue: 'username'
-    preventDuplicate: true
+    propertyToSearch: 'username'
+    tokenValue: 'id'
+    preventDuplicates: true
     theme: 'facebook'
   return

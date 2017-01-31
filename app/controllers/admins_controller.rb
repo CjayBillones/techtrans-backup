@@ -66,11 +66,16 @@ class AdminsController < ApplicationController
   end
 
   def grant_admin_access
-    user = User.find(params[:id])
 
-    if user
-      user.update!(admin: true)
+    user_ids = params[:academe_user_tokens].split(',')
+    
+    if user_ids
+      user_ids.each do |id|
+        User.find(id).update!(admin: true)
+      end
     end
+
+    redirect_to :back
   end
 
   def revoke_admin_access

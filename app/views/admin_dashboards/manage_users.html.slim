@@ -264,7 +264,7 @@ div style="padding-right: 14px;"
               = " #{@deactivated_users.count} Deactivated | "
               i.fa.fa-times style="color:red" title='rejected'
               = " #{@rejected_users.count} Rejected"
-  .ui.tab.segment data-tab="admin-users" 
+  .ui.tab.segment data-tab="admin-users"
     .ui.top.attached.tabular.menu
       a.item.active data-tab="admin-users/all"  All
       a.item data-tab="admin-users/active"  Active
@@ -376,6 +376,25 @@ div style="padding-right: 14px;"
               = " #{@approved_admin_users.count} Active | "
               i.fa.fa-ban style="color:red" title='deactivated'
               = " #{@deactivated_admin_users.count} Deactivated"
+    h2.ui.header Admin Settings
+    .ui.divider
+    br
+    .ui.container.grid.stackable
+      .row
+        .four.wide.column
+          .row
+            .ui.top.left.attached.green.label Add Admin Users
+        .twelve.wide.column
+          .ui.form
+            = form_tag('/admin/grant_admin_access', id:'grant_admin_access', method: 'grant_admin_access') do
+                .inline.fields
+                  .three.wide.field
+                    = label_tag :user_tokens, "Select Users: "
+                  .nine.wide.field
+                    = text_field_tag :academe_user_tokens, ''
+                  .four.wide.field
+                    = submit_tag "Add Admin", class: 'ui right floated button primary'
+    .ui.divider    
   .ui.tab.segment data-tab="academe-users" 
     .ui.top.attached.tabular.menu
       a.item.active data-tab="academe-users/all"  All
