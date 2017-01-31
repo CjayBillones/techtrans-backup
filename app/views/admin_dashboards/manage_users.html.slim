@@ -394,6 +394,20 @@ div style="padding-right: 14px;"
                     = text_field_tag :academe_user_tokens, ''
                   .four.wide.field
                     = submit_tag "Add Admin", class: 'ui right floated button primary'
+      .row
+        .four.wide.column
+          .row
+            .ui.top.left.attached.orange.label Remove Admin Users
+        .twelve.wide.column
+          .ui.form
+            = form_tag('/admin/revoke_admin_access', id:'remove_admin_access', method: 'revoke_admin_access') do
+                .inline.fields
+                  .three.wide.field
+                    = label_tag :user_tokens, "Select Users: "
+                  .nine.wide.field
+                    = text_field_tag :admin_user_tokens, ''
+                  .four.wide.field
+                    = submit_tag "Remove Admin", class: 'ui right floated button red'
     .ui.divider    
   .ui.tab.segment data-tab="academe-users" 
     .ui.top.attached.tabular.menu
