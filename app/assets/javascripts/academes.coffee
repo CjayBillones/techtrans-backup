@@ -1,5 +1,5 @@
 $(document).ready ->
-  $('#admin_user_tokens').tokenInput '/admins.json',
+  $('#academe_user_tokens').tokenInput '/academes.json',
     crossDomain: false
     propertyToSearch: 'username'
     tokenValue: 'id'
