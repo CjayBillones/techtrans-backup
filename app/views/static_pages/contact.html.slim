@@ -2,16 +2,15 @@
   .ui.container style="margin-top: 100px;"
 
 - provide(:title, 'Contact')
-  
-.row.middle.aligned.three.column style="height: 80vh;"
-  .column.centered
+
+.ui.container.grid.stackable
+  .ten.wide.column.centered
     h2.ui.header.center.aligned Contact Form
     .ui.segment
       = form_for @message, url: contact_path, html: {class: 'ui form'} do |f|
-  
         .field.required
-        = f.label :name, 'Name'
-        = f.text_field :name, class: 'form-control'
+          = f.label :name, 'Name'
+          = f.text_field :name, class: 'form-control'
       
         .field.required
           = f.label :email, 'Email'
