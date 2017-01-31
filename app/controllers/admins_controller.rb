@@ -56,10 +56,28 @@ class AdminsController < ApplicationController
   end
 
   def resend_activation_link
-    @user = User.find(params[:id])
+    user = User.find(params[:id])
 
-    if @user
-      @user.resend_activation_email
+    if user
+      user.resend_activation_email
+    end
+
+    redirect_to admin_manage_users_path
+  end
+
+  def grant_admin_access
+    user = User.find(params[:id])
+
+    if user
+      user.update!(admin: true)
+    end
+  end
+
+  def revoke_admin_access
+    user = User.find(params[:id])
+
+    if user
+      user.update!(admin: false)
     end
 
     redirect_to admin_manage_users_path
