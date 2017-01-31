@@ -1,19 +1,9 @@
-/ .ui.grid.stackable
-/   .row.splash.middle.aligned style="height: 80vh;"
-/     .seven.wide.column.centered.center.aligned
-/       .ui.segment.centered style="background-color: rgba(255,255,255,.7);"
-/         h1.ui.header 
-/           .content style="font-size: 28px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
-/           .sub.header Ensuring Protection and Efficient Technology Transfer for the Public Good
-/         .ui.basic.button.primary 
-/           = link_to 'Learn More', about_path
-
 .slick-slider.js-slick
   .photo.splash
     .ui.grid.stackable.middle.aligned style="height: 100vh;"
       .row
-        .thirteen.wide.column.centered.center.aligned
-          .ui.segment.centered style="background-color: rgba(255,255,255,.7); padding: 20px;"
+        .twelve.wide.column.centered.center.aligned
+          .ui.segment.centered style="background-color: rgba(255,255,255,.5); padding: 20px;"
             h1.ui.header 
               .content style="font-size: 36px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
               .sub.header style="margin-top: 10px; font-size: 22px;" Ensuring Protection and Efficient Technology Transfer for the Public Good
@@ -24,12 +14,12 @@
                   .bordered 
                     span.content OFFERS
                   p style="font-size: 20px;" We help university faculty and researchers advance their work by assisting them from disclosure to deployment. Let the world know about your research outputs. Submit your IPs today!
-                  .ui.basic.blue.button Get Started
+                  .ui.green.button.large Get Started
                 .column.center.aligned
                   .bordered 
                     span.content NEEDS
                   p [style="font-size: 20px;"] When it comes to innovative, real–world industry solutions, we're here to help. Post your IP needs and partner with us to achieve your business goals.
-                  .ui.basic.blue.button Get Started
+                  .ui.green.button.large Get Started
 
   .photo style="background-image: url('http://unsplash.it/1366/768');"
     .ui.grid.stackable.middle.aligned style="height: 100vh;"
@@ -64,8 +54,7 @@
       .ui.divider
       .ui.basic.segment
         h3.ui.header.left.floated style="padding-top: 6px;" Featured Offers
-        .ui.basic.primary.button.right.floated 
-          = link_to 'View Offers', ip_offers_path
+        = link_to 'View Offers', ip_offers_path, class: 'ui primary button right floated medium'
   .five.column.row
     - @offers.each do |offer|
       .column
@@ -100,8 +89,7 @@
         .ui.divider
         .ui.basic.segment
           h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
-          .ui.basic.primary.button.right.floated 
-            = link_to 'View Needs', ip_needs_path
+          = link_to 'View Needs', ip_needs_path, class: 'ui primary button right floated'
   .five.column.row
     - @needs.each do |need|
       .column
@@ -117,7 +105,8 @@
   .ui.container.grid.stackable
     .one.column.row style="padding-top: 36px;"
       .column
-        h2.ui.header Recent Articles
+        h2.ui.header.left.floated style="padding-top: 6px;" Recent Articles
+        = link_to 'View Articles', articles_path, class: 'ui primary button right floated'
     .row
       .seven.wide.column
         img.ui.image
@@ -144,6 +133,3 @@
               = image_tag 'placeholders/no_image_general.jpg'
           h3.ui.header.centered
             = link_to @articles[n].title, @articles[n], style: 'color: #333;'
-    .row
-      .column
-        = link_to 'View Articles', articles_path, class: 'ui basic button primary right floated'
