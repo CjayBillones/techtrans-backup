@@ -38,6 +38,9 @@ $(document).on('turbolinks:load', function() {
   $('#admin-manage-ip .menu .item').tab({
     context: $('#admin-manage-ip')
   });
+  $('#admin-manage-users .menu .item').tab({
+    context: $('#admin-manage-users')
+  });
   $('.ui.checkbox').checkbox();
   $('.ui.dropdown').dropdown();
   $('.ui.sticky').sticky({
