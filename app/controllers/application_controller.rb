@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  before_action :set_cache_buster
+  before_filter :set_cache_buster
 
   private
     def set_cache_buster
