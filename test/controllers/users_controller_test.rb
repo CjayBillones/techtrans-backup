@@ -11,11 +11,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get users_path
     assert_redirected_to login_url
   end
-  
-  test "should get new" do
-    get register_path
-    assert_response :success
-  end
 
   test "should redirect edit when not logged in" do
     get edit_user_path(@user)
