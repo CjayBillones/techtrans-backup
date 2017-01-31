@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'turbolinks:load', ->
+$(document).ready ->
   $('#article_tag_list').tokenInput '/tags.json',
     crossDomain: false
     tokenValue: 'name'
