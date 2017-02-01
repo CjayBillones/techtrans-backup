@@ -23,6 +23,7 @@
 //= require jquery.dataTables.min
 //= require dataTables.semanticui.min
 //= require semantic.min
+//= require slick.min
 //= require_tree .
 
 $(document).ready(function(){
