@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 ruby '2.3.0'
 
 gem 'rails',          '5.0.0.1'
-gem 'bootstrap-sass', '3.3.6'   # Add boostrap
+#gem 'bootstrap-sass', '3.3.6'   # Add boostrap
 gem 'puma',           '3.4.0'   # Used as app server
 gem 'sass-rails',     '5.0.6'   # Use SCSS for stylesheets
 gem 'uglifier',       '3.0.0'   # Used as compressor for JavaScript assets

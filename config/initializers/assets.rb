@@ -10,4 +10,8 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( token-input-facebook.css )
+Rails.application.config.assets.precompile += %w( slick.scss )
 Rails.application.config.assets.precompile += %w( jquery.tokeninput.js )
+Rails.application.config.assets.precompile += %w( slick.min.js )
+Rails.application.config.assets.precompile += %w( semantic.min.js )
+Rails.application.config.assets.precompile += %w( main.min.js )

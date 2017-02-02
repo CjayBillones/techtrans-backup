@@ -61,7 +61,7 @@
         = link_to offer, class: 'ui card' do
           .image
             -if offer.photo.present?
-              = image_tag offer.photo.url(:home_display)
+              = image_tag offer.photo.url(:display)
             - else
               = image_tag 'placeholders/no_image_general.jpg'
           .content
@@ -96,7 +96,7 @@
         = link_to need, class: 'ui card' do
           .image
             -if need.photo.present?
-              = image_tag need.photo.url(:home_display)
+              = image_tag need.photo.url(:display)
             - else
               = image_tag 'placeholders/no_image_general.jpg'
           .content

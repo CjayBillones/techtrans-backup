@@ -14,7 +14,7 @@ class IpNeed < ApplicationRecord
 
   belongs_to :user
 
-  has_attached_file :photo, :styles => { :home_display => "200x106!"},
+  has_attached_file :photo, :styles => { :display => "200x106!"},
                     :url  => "/assets/ip-needs/:id/images/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/ip-needs/:id/images/:style/:basename.:extension"
   validates_attachment_size :photo, :less_than => 25.megabytes

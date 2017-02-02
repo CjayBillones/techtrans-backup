@@ -134,7 +134,7 @@ needs = IpNeed.all
 offers = IpOffer.all
 ips = needs + offers
 
-if !ips.nil
+if !ips.nil?
   ips.each do |ip|
     ip.update!(approval_decision_at: Time.now)
   end

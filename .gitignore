@@ -26,10 +26,5 @@
 # Ignore application configuration
 /config/application.yml
 
-/public/assets/ip-needs/
-/public/assets/ip-offers/
-/public/assets/articles/
-/public/ckeditor_assets/
-
 /db/schema.rb
 /db/*.sqlite3
