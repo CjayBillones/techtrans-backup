@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+// require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap
-//= require turbolinks
+// require turbolinks
 //= require local_time
 //= require select2-full
 //= require bootstrap-datepicker
@@ -24,26 +23,16 @@
 //= require jquery.dataTables.min
 //= require dataTables.semanticui.min
 //= require semantic.min
+//= require slick.min
 //= require_tree .
 
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
   $('#academe_birthday .input-group.date').datepicker({
     startView: 'years',
     autoclose: true
   });
 });
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   $("#industry_classification, #industry_country_code, #academe_user_type, #ip_need_privacy_option, #ip_offer_patent_status").select2();
-  $('#admin-manage-ip .menu .item').tab({
-    context: $('#admin-manage-ip')
-  });
-  $('#admin-manage-users .menu .item').tab({
-    context: $('#admin-manage-users')
-  });
-  $('.ui.checkbox').checkbox();
-  $('.ui.dropdown').dropdown();
-  $('.ui.sticky').sticky({
-    offset: 60
-  });
 });

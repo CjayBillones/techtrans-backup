@@ -14,23 +14,6 @@ class UsersController < ApplicationController
     redirect_to root_path and return unless @user.activated?
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      # login @user # Login user upon signup
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to login_path
-    else
-      render 'new'
-    end
-  end
-
   def edit
     @user = User.find(params[:id])
   end

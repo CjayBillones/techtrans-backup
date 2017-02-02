@@ -5,6 +5,14 @@ class AdminsController < ApplicationController
   before_action :logged_in_user
   before_action :admin_user
 
+  def index
+    @admins = User.where("username like ?", "%#{params[:q]}%").where(admin: true)
+
+    respond_to do |format|
+      format.json { render :json => @admins.map(&:attributes) }
+    end
+  end
+
   def approve_ip
     ip = (params[:ip_type] == 'IpOffer') ? IpOffer.find(params[:id]) : IpNeed.find(params[:id])
     
@@ -66,21 +74,29 @@ class AdminsController < ApplicationController
   end
 
   def grant_admin_access
-    user = User.find(params[:id])
 
-    if user
-      user.update!(admin: true)
+    user_ids = params[:academe_user_tokens].split(',')
+    
+    if user_ids
+      user_ids.each do |id|
+        User.find(id).update!(admin: true)
+      end
     end
+
+    redirect_to :back
   end
 
   def revoke_admin_access
-    user = User.find(params[:id])
 
-    if user
-      user.update!(admin: false)
+    user_ids = params[:admin_user_tokens].split(',')
+
+    if user_ids
+      user_ids.each do |id|
+        User.find(id).update!(admin: false)
+      end
     end
 
-    redirect_to admin_manage_users_path
+    redirect_to :back
   end
 
 end

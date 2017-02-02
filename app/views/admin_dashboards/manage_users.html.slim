@@ -10,12 +10,12 @@ div style="padding-right: 14px;"
     a.item data-tab="industry-users"  Industry Users
   .ui.tab.segment.active data-tab="all-users" 
     .ui.top.attached.tabular.menu
-      a.item.active data-tab="all-users/all"  All Users
-      a.item data-tab="all-users/active"  Active Users
-      a.item data-tab="all-users/pending-approval"  Pending Approval Users
-      a.item data-tab="all-users/pending-activation"  Pending Activation Users
+      a.item.active data-tab="all-users/all"  All
+      a.item data-tab="all-users/active"  Active
+      a.item data-tab="all-users/pending-approval"  Pending Approval
+      a.item data-tab="all-users/pending-activation"  Pending Activation
       a.item data-tab="all-users/deactivated" Deactivated Users
-      a.item data-tab="all-users/rejected" Rejected Users
+      a.item data-tab="all-users/rejected" Rejected
     .ui.bottom.attached.tab.segment.active data-tab="all-users/all"
       table#all-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
@@ -51,7 +51,7 @@ div style="padding-right: 14px;"
               = " #{@users.count} Total Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_users.count} Active | "
-              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
               = " #{@pending_activation_users.count} Pending Activation | "
               i.fa.fa-hourglass-half title='pending approval'
               = " #{@pending_approval_users.count} Pending Approval | "
@@ -94,7 +94,7 @@ div style="padding-right: 14px;"
               = " #{@users.count} Total Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_users.count} Active | "
-              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
               = " #{@pending_activation_users.count} Pending Activation | "
               i.fa.fa-hourglass-half title='pending approval'
               = " #{@pending_approval_users.count} Pending Approval | "
@@ -136,7 +136,7 @@ div style="padding-right: 14px;"
               = " #{@users.count} Total Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_users.count} Active | "
-              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
               = " #{@pending_activation_users.count} Pending Activation | "
               i.fa.fa-hourglass-half title='pending approval'
               = " #{@pending_approval_users.count} Pending Approval | "
@@ -176,7 +176,7 @@ div style="padding-right: 14px;"
               = " #{@users.count} Total Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_users.count} Active | "
-              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
               = " #{@pending_activation_users.count} Pending Activation | "
               i.fa.fa-hourglass-half title='pending approval'
               = " #{@pending_approval_users.count} Pending Approval | "
@@ -216,7 +216,7 @@ div style="padding-right: 14px;"
               = " #{@users.count} Total Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_users.count} Active | "
-              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
               = " #{@pending_activation_users.count} Pending Activation | "
               i.fa.fa-hourglass-half title='pending approval'
               = " #{@pending_approval_users.count} Pending Approval | "
@@ -256,7 +256,7 @@ div style="padding-right: 14px;"
               = " #{@users.count} Total Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_users.count} Active | "
-              i.fa.fa-exclamation-triangle style="color:yellow" title='pending activation'
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
               = " #{@pending_activation_users.count} Pending Activation | "
               i.fa.fa-hourglass-half title='pending approval'
               = " #{@pending_approval_users.count} Pending Approval | "
@@ -264,11 +264,11 @@ div style="padding-right: 14px;"
               = " #{@deactivated_users.count} Deactivated | "
               i.fa.fa-times style="color:red" title='rejected'
               = " #{@rejected_users.count} Rejected"
-  .ui.tab.segment data-tab="admin-users" 
+  .ui.tab.segment data-tab="admin-users"
     .ui.top.attached.tabular.menu
-      a.item.active data-tab="admin-users/all"  All Admins
-      a.item data-tab="admin-users/active"  Active Admins
-      a.item data-tab="admin-users/deactivated" Deactivated Admins
+      a.item.active data-tab="admin-users/all"  All
+      a.item data-tab="admin-users/active"  Active
+      a.item data-tab="admin-users/deactivated" Deactivated
     .ui.bottom.attached.tab.segment.active data-tab="admin-users/all"
       table#all-admin-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
@@ -279,7 +279,6 @@ div style="padding-right: 14px;"
             th.center.aligned Email
             th.center.aligned IP Submissions
             th.center.aligned IP Interests
-            th.center.aligned Actions
         tbody
           - @admin_users.each_with_index do |user, i|           
             tr
@@ -295,13 +294,11 @@ div style="padding-right: 14px;"
                 = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
               td.center.aligned
                 = user.follow_count
-              td.center.aligned
-                = link_to 'Revoke Admin', admin_revoke_admin_access_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
         tfoot
           tr.center.aligned
-            th colspan="7"
+            th colspan="6"
               i.fa.fa-user
-              = " #{@admin_users.count} Total Admin Users | "
+              = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_admin_users.count} Active | "
               i.fa.fa-ban style="color:red" title='deactivated'
@@ -316,7 +313,6 @@ div style="padding-right: 14px;"
             th.center.aligned Email
             th.center.aligned IP Submissions
             th.center.aligned IP Interests
-            th.center.aligned Actions
         tbody
           - @approved_admin_users.each_with_index do |user, i|           
             tr
@@ -332,13 +328,11 @@ div style="padding-right: 14px;"
                 = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
               td.center.aligned
                 = user.follow_count
-              td.center.aligned
-                = link_to 'Revoke Admin', admin_revoke_admin_access_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
         tfoot
           tr.center.aligned
-            th colspan="7"
+            th colspan="6"
               i.fa.fa-user
-              = " #{@admin_users.count} Total Admin Users | "
+              = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_admin_users.count} Active | "
               i.fa.fa-ban style="color:red" title='deactivated'
@@ -366,13 +360,557 @@ div style="padding-right: 14px;"
               td.center.aligned
                 .tiny.ui.vertical.buttons
                   = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary', style: "margin-bottom: 5px;"
-                  = link_to 'Remove Admin', admin_revoke_admin_access_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red'
         tfoot
           tr.center.aligned
             th colspan="5"
               i.fa.fa-user
-              = " #{@admin_users.count} Total Users | "
+              = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
               = " #{@approved_admin_users.count} Active | "
               i.fa.fa-ban style="color:red" title='deactivated'
               = " #{@deactivated_admin_users.count} Deactivated"
+    h2.ui.header Admin Settings
+    .ui.divider
+    br
+    .ui.container.grid.stackable
+      .row
+        .four.wide.column
+          .row
+            .ui.top.left.attached.green.label Add Admin Users
+        .twelve.wide.column
+          .ui.form
+            = form_tag('/admin/grant_admin_access', id:'grant_admin_access', method: 'grant_admin_access') do
+                .inline.fields
+                  .three.wide.field
+                    = label_tag :user_tokens, "Select Users: "
+                  .nine.wide.field
+                    = text_field_tag :academe_user_tokens, ''
+                  .four.wide.field
+                    = submit_tag "Add Admin", class: 'ui right floated button primary'
+      .row
+        .four.wide.column
+          .row
+            .ui.top.left.attached.orange.label Remove Admin Users
+        .twelve.wide.column
+          .ui.form
+            = form_tag('/admin/revoke_admin_access', id:'remove_admin_access', method: 'revoke_admin_access') do
+                .inline.fields
+                  .three.wide.field
+                    = label_tag :user_tokens, "Select Users: "
+                  .nine.wide.field
+                    = text_field_tag :admin_user_tokens, ''
+                  .four.wide.field
+                    = submit_tag "Remove Admin", class: 'ui right floated button red'
+    .ui.divider    
+  .ui.tab.segment data-tab="academe-users" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="academe-users/all"  All
+      a.item data-tab="academe-users/active"  Active
+      a.item data-tab="academe-users/pending-approval"  Pending Approval
+      a.item data-tab="academe-users/pending-activation"  Pending Activation
+      a.item data-tab="academe-users/deactivated" Deactivated
+      a.item data-tab="academe-users/rejected" Rejected
+    .ui.bottom.attached.tab.segment.active data-tab="academe-users/all"
+      table#all-academe-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+        tbody
+          - @academe_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              i.fa.fa-user
+              = " #{@academe_users.count} Academe Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_academe_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_academe_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_academe_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_academe_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_academe_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="academe-users/active"
+      table#approved-academe-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+        tbody
+          - @approved_academe_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              i.fa.fa-user
+              = " #{@academe_users.count} Academe Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_academe_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_academe_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_academe_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_academe_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_academe_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="academe-users/pending-approval"
+      table#pending-approval-academe-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned style="width: 20%;" 
+              | Actions
+        tbody
+          - @pending_approval_academe_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Approve', admin_approve_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary mini'
+                = link_to 'Reject', admin_reject_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@academe_users.count} Academe Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_academe_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_academe_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_academe_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_academe_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_academe_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="academe-users/pending-activation"
+      table#pending-activation-academe-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @pending_activation_academe_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Resend Activation Link', admin_resend_activation_link_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary mini'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@academe_users.count} Academe Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_academe_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_academe_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_academe_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_academe_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_academe_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="academe-users/deactivated"
+      table#deactivated-academe-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @deactivated_academe_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary small'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@academe_users.count} Academe Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_academe_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_academe_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_academe_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_academe_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_academe_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="academe-users/rejected"
+      table#rejected-academe-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @rejected_academe_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Approve', admin_approve_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary small'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@academe_users.count} Academe Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_academe_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_academe_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_academe_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_academe_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_academe_users.count} Rejected"
+  .ui.tab.segment data-tab="industry-users" 
+    .ui.top.attached.tabular.menu
+      a.item.active data-tab="industry-users/all"  All
+      a.item data-tab="industry-users/active"  Active
+      a.item data-tab="industry-users/pending-approval"  Pending Approval
+      a.item data-tab="industry-users/pending-activation"  Pending Activation
+      a.item data-tab="industry-users/deactivated" Deactivated
+      a.item data-tab="industry-users/rejected" Rejected
+    .ui.bottom.attached.tab.segment.active data-tab="industry-users/all"
+      table#all-industry-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+        tbody
+          - @industry_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              i.fa.fa-user
+              = " #{@industry_users.count} Industry Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_industry_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_industry_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_industry_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_industry_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_industry_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="industry-users/active"
+      table#approved-industry-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned IP Submissions
+            th.center.aligned IP Interests
+        tbody
+          - @approved_industry_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = (user_ip_submissions(user).nil?) ? 0 : user_ip_submissions(user).count
+              td.center.aligned
+                = user.follow_count
+        tfoot
+          tr.center.aligned
+            th colspan="7"
+              i.fa.fa-user
+              = " #{@industry_users.count} Industry Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_industry_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_industry_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_industry_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_industry_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_industry_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="industry-users/pending-approval"
+      table#pending-approval-industry-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned style="width: 20%;" 
+              | Actions
+        tbody
+          - @pending_approval_industry_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Approve', admin_approve_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary mini'
+                = link_to 'Reject', admin_reject_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@industry_users.count} Industry Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_industry_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_industry_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_industry_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_industry_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_industry_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="industry-users/pending-activation"
+      table#pending-activation-industry-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @pending_activation_industry_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Resend Activation Link', admin_resend_activation_link_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary mini'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@industry_users.count} Industry Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_industry_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_industry_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_industry_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_industry_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_industry_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="industry-users/deactivated"
+      table#deactivated-industry-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @deactivated_industry_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary small'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@industry_users.count} Industry Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_industry_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_industry_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_industry_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_industry_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_industry_users.count} Rejected"
+    .ui.bottom.attached.tab.segment data-tab="industry-users/rejected"
+      table#rejected-industry-users-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Status
+            th.center.aligned Type
+            th.center.aligned Fullname
+            th.center.aligned Username
+            th.center.aligned Email
+            th.center.aligned Actions
+        tbody
+          - @rejected_industry_users.each_with_index do |user, i|           
+            tr
+              td.center.aligned 
+                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user_type(user)
+              td
+                = link_to fullname(user), user
+              td
+                = user.username
+              td
+                = user.email
+              td.center.aligned
+                = link_to 'Approve', admin_approve_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary small'
+        tfoot
+          tr.center.aligned
+            th colspan="6"
+              i.fa.fa-user
+              = " #{@industry_users.count} Industry Users | "
+              i.fa.fa-check style="color:green" title='active'
+              = " #{@approved_industry_users.count} Active | "
+              i.fa.fa-exclamation-triangle style="color:orange" title='pending activation'
+              = " #{@pending_activation_industry_users.count} Pending Activation | "
+              i.fa.fa-hourglass-half title='pending approval'
+              = " #{@pending_approval_industry_users.count} Pending Approval | "
+              i.fa.fa-ban style="color:red" title='deactivated'
+              = " #{@deactivated_industry_users.count} Deactivated | "
+              i.fa.fa-times style="color:red" title='rejected'
+              = " #{@rejected_industry_users.count} Rejected"

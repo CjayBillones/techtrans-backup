@@ -64,15 +64,14 @@
       .ui.divider
       .ui.basic.segment
         h3.ui.header.left.floated style="padding-top: 6px;" Featured Offers
-        .ui.basic.primary.button.right.floated 
-          = link_to 'View Offers', ip_offers_path
+        = link_to 'View Offers', ip_offers_path, class: 'ui primary button right floated medium'
   .five.column.row
     - @offers.each do |offer|
       .column
         = link_to offer, class: 'ui card' do
           .image
             -if offer.photo.present?
-              = image_tag offer.photo.url(:home_display)
+              = image_tag offer.photo.url(:display)
             - else
               = image_tag 'placeholders/no_image_general.jpg'
           .content
@@ -100,15 +99,14 @@
         .ui.divider
         .ui.basic.segment
           h3.ui.header.left.floated style="padding-top: 6px;" Featured Needs
-          .ui.basic.primary.button.right.floated 
-            = link_to 'View Needs', ip_needs_path
+          = link_to 'View Needs', ip_needs_path, class: 'ui primary button right floated'
   .five.column.row
     - @needs.each do |need|
       .column
         = link_to need, class: 'ui card' do
           .image
             -if need.photo.present?
-              = image_tag need.photo.url(:home_display)
+              = image_tag need.photo.url(:display)
             - else
               = image_tag 'placeholders/no_image_general.jpg'
           .content
@@ -117,7 +115,8 @@
   .ui.container.grid.stackable
     .one.column.row style="padding-top: 36px;"
       .column
-        h2.ui.header Recent Articles
+        h2.ui.header.left.floated style="padding-top: 6px;" Recent Articles
+        = link_to 'View Articles', articles_path, class: 'ui primary button right floated'
     .row
       .seven.wide.column
         img.ui.image

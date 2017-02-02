@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   get '/contact' => 'static_pages#contact', as: 'contact'
   post '/contact' => 'static_pages#send_message_email'
 
-  resources :users
-  get '/register' => 'users#new'
-  post '/register' => 'users#create'
+  resources :users, except: [:new, :create]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -60,6 +58,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/admins' => 'admins#index'
   get '/admin' => 'admin_dashboards#analytics'
   get '/admin/manage_users' => 'admin_dashboards#manage_users'
   get '/admin/manage_ips' => 'admin_dashboards#manage_ips'

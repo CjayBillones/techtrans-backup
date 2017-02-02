@@ -17,3 +17,16 @@ html
         = render 'layouts/sidebar'
 
       = render 'layouts/footer'
+    
+    javascript:
+      $('.ui.checkbox').checkbox();
+      $('.ui.dropdown').dropdown();
+      $('.ui.sticky').sticky({
+        offset: 60
+      });
+      $('#admin-manage-ip .menu .item').tab({
+        context: $('#admin-manage-ip')
+      });
+      $('#admin-manage-users .menu .item').tab({
+        context: $('#admin-manage-users')
+      });

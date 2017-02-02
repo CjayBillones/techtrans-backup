@@ -1,0 +1,1 @@
+(function(){$(document).ready(function(){$("#academe_user_tokens").tokenInput("/academes.json",{crossDomain:!1,propertyToSearch:"username",tokenValue:"id",preventDuplicates:!0,theme:"facebook"})})}).call(this);
