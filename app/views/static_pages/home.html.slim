@@ -1,9 +1,19 @@
+/ .ui.grid.stackable
+/   .row.splash.middle.aligned style="height: 80vh;"
+/     .seven.wide.column.centered.center.aligned
+/       .ui.segment.centered style="background-color: rgba(255,255,255,.7);"
+/         h1.ui.header 
+/           .content style="font-size: 28px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
+/           .sub.header Ensuring Protection and Efficient Technology Transfer for the Public Good
+/         .ui.basic.button.primary 
+/           = link_to 'Learn More', about_path
+
 .slick-slider.js-slick
   .photo.splash
     .ui.grid.stackable.middle.aligned style="height: 100vh;"
       .row
-        .twelve.wide.column.centered.center.aligned
-          .ui.segment.centered style="background-color: rgba(255,255,255,.5); padding: 20px;"
+        .thirteen.wide.column.centered.center.aligned
+          .ui.segment.centered style="background-color: rgba(255,255,255,.7); padding: 20px;"
             h1.ui.header 
               .content style="font-size: 36px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
               .sub.header style="margin-top: 10px; font-size: 22px;" Ensuring Protection and Efficient Technology Transfer for the Public Good
@@ -14,12 +24,12 @@
                   .bordered 
                     span.content OFFERS
                   p style="font-size: 20px;" We help university faculty and researchers advance their work by assisting them from disclosure to deployment. Let the world know about your research outputs. Submit your IPs today!
-                  .ui.green.button.large Get Started
+                  .ui.basic.blue.button Get Started
                 .column.center.aligned
                   .bordered 
                     span.content NEEDS
                   p [style="font-size: 20px;"] When it comes to innovative, real–world industry solutions, we're here to help. Post your IP needs and partner with us to achieve your business goals.
-                  .ui.green.button.large Get Started
+                  .ui.basic.blue.button Get Started
 
   .photo style="background-image: url('http://unsplash.it/1366/768');"
     .ui.grid.stackable.middle.aligned style="height: 100vh;"
@@ -31,7 +41,7 @@
             h1.ui.header.center.aligned Article
             p style="font-size: 18px;"  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit error placeat sint minus soluta distinctio, enim natus recusandae explicabo delectus neque quisquam dicta maxime culpa architecto? Sit ex, atque ullam!
 
-.ui.divider style="margin-top: -5px; border-color: #7b1113;"
+/ .ui.divider style="margin-top: -5px; border-color: #7b1113;"
 .ui.container.grid.stackable
   .row style="padding-top: 36px;"
     .column.center.aligned
@@ -125,11 +135,14 @@
 
     .three.column.row
       - 3.times do |n|
-        .column
+        = link_to @articles[n], class: 'column'
           img.ui.img
             - if @articles[n].banner_photo.present?
               = image_tag @articles[n].banner_photo.url
             - else
               = image_tag 'placeholders/no_image_general.jpg'
-          h3.ui.header.centered
-            = link_to @articles[n].title, @articles[n], style: 'color: #333;'
+          h4.ui.header.centered
+            = @articles[n].title
+    .row
+      .column
+        = link_to 'View Articles', articles_path, class: 'ui basic button primary right floated'
