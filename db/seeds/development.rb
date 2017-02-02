@@ -143,22 +143,6 @@ end
 
 # Article Population #
 
-image_path = "#{Rails.root}/lib/assets/images/sample.jpg"
-image_file = File.new(image_path)
-5.times do |n|
-  article = User.first.articles.build(
-              title: Faker::Lorem.words(rand(5...15)).join(' '),
-              content: Faker::Lorem.paragraphs(rand(5...10)).join("\n\n"),
-              banner_photo: ActionDispatch::Http::UploadedFile.new(
-                :filename => File.basename(image_file),
-                :tempfile => image_file,
-                :type => MIME::Types.type_for(image_path).first.content_type
-            )).tap do |article|
-              article.tag_list.add("News, Feature, Announcement", parse: true)
-              article.save
-            end
-end
-
 articles_csv = File.read("#{Rails.root}/lib/seeds/articles.csv")
 csv = CSV.parse(articles_csv, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
@@ -169,7 +153,7 @@ csv.each do |row|
   article = User.where(admin: true).first.articles.build(
             title: row['Title'],
             content: content_file,
-            photo: ActionDispatch::Http::UploadedFile.new(
+            banner_photo: ActionDispatch::Http::UploadedFile.new(
               :filename => File.basename(image_file),
               :tempfile => image_file,
               :type => MIME::Types.type_for(image_path).first.content_type
