@@ -159,6 +159,26 @@ image_file = File.new(image_path)
             end
 end
 
+articles_csv = File.read("#{Rails.root}/lib/seeds/articles.csv")
+csv = CSV.parse(articles_csv, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  content_path = "#{Rails.root}/lib/seeds/articles/#{row['Content']}"
+  content_file = File.read(content_path)
+  image_path = "#{Rails.root}/lib/assets/images/#{row['Image']}"
+  image_file = File.new(image_path)
+  article = User.where(admin: true).first.articles.build(
+            title: row['Title'],
+            content: content_file,
+            photo: ActionDispatch::Http::UploadedFile.new(
+              :filename => File.basename(image_file),
+              :tempfile => image_file,
+              :type => MIME::Types.type_for(image_path).first.content_type
+            )).tap do |article|
+              article.tag_list.add("#{row['Tags']}", parse: true)
+              article.save if !Article.find_by_title(row['Title'])
+            end
+end
+
 # IP Offer Population #
 ip_offers_csv = File.read(Rails.root.join('lib', 'seeds', 'ip-offers-seeds.csv'))
 csv = CSV.parse(ip_offers_csv, :headers => true, :encoding => 'ISO-8859-1')
