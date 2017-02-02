@@ -30,6 +30,7 @@ gem 'acts-as-taggable-on'
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
 gem 'will_paginate', '~> 3.1.0'
 gem "will_paginate_semantic_ui"
+gem 'sanitize', '~> 4.0', '>= 4.0.1'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
