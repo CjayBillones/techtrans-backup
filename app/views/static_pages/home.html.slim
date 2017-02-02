@@ -136,14 +136,14 @@
 
     .three.column.row
       - 3.times do |n|
-        .column
+        = link_to @articles[n], class: 'column'
           img.ui.img
             - if @articles[n].banner_photo.present?
               = image_tag @articles[n].banner_photo.url
             - else
               = image_tag 'placeholders/no_image_general.jpg'
-          h3.ui.header.centered
-            = link_to @articles[n].title, @articles[n], style: 'color: #333;'
+          h4.ui.header.centered
+            = @articles[n].title
     .row
       .column
         = link_to 'View Articles', articles_path, class: 'ui basic button primary right floated'
