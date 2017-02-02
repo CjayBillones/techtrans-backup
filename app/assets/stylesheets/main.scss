@@ -106,7 +106,7 @@ html, body {
     top: 0;
     left: 0;
     display: block;
-  max-height: 731px;
+  max-height: 100vh;
   overflow: hidden;
 }
 
@@ -370,7 +370,7 @@ html, body {
 .photo {
   background-size: cover;
   background-position: center center;
-  padding-bottom: 12%;
+  padding-bottom: 5%;
   height: 100vh;
 }
 
