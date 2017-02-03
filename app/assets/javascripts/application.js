@@ -36,14 +36,3 @@ $(document).ready(function(){
 $(document).ready(function() {
   $("#industry_classification, #industry_country_code, #academe_user_type, #ip_need_privacy_option, #ip_offer_patent_status").select2();
 });
-
-$(document).ready(function(){
-    $('.js-slick').slick({
-    autoplay: true,
-    autoplaySpeed: 5000,
-    dots: true,
-    draggable: false,
-    fade: true,
-    speed: 1000
-  });
-});
