@@ -1,1 +1,0 @@
-(function(){$(document).ready(function(){$("#admin_user_tokens").tokenInput("/admins.json",{crossDomain:!1,propertyToSearch:"username",tokenValue:"id",preventDuplicates:!0,theme:"facebook"})})}).call(this);
