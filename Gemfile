@@ -9,8 +9,6 @@ gem 'sass-rails',     '5.0.6'   # Use SCSS for stylesheets
 gem 'uglifier',       '3.0.0'   # Used as compressor for JavaScript assets
 gem 'coffee-rails',   '4.2.1'   # Used for .coffee assets and views
 gem 'jquery-rails',   '4.1.1'   # Use as the JavaScript library
-gem 'turbolinks',     '5.0.1'   # Makes navigating your web application faster
-gem 'jquery-turbolinks'
 gem 'jbuilder',       '2.4.1'   # Build JSON APIs with ease.
 gem 'bcrypt',         '3.1.11'  # Use ActiveModel has_secure_password
 gem 'slim-rails'
