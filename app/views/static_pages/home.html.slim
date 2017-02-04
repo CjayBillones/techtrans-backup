@@ -14,12 +14,12 @@
                   .bordered 
                     span.content OFFERS
                   p style="font-size: 18px;" We help university faculty and researchers advance their work by assisting them from disclosure to deployment. Let the world know about your research outputs. Submit your IPs today!
-                  .ui.basic.blue.button Get Started
+                  = button_to 'Get Started', '#offers', method: :get, class: 'ui basic blue button' 
                 .column.center.aligned
                   .bordered 
                     span.content NEEDS
                   p [style="font-size: 18px;"] When it comes to innovative, real–world industry solutions, we're here to help. Post your IP needs and partner with us to achieve your business goals.
-                  .ui.basic.blue.button Get Started
+                  = button_to 'Get Started', '#needs', method: :get, class: 'ui basic blue button'
 
   .photo style="background-image: url(#{Article.first.banner_photo.url.split('?')[0]});"
     .ui.grid.stackable.middle.aligned style="height: 100vh;"
@@ -34,7 +34,7 @@
             .ui.basic.blue.bottom.attached.button 
               = link_to(" Read more", Article.first)
 / .ui.divider style="margin-top: -5px; border-color: #7b1113;"
-.ui.container.grid.stackable
+#offers.ui.container.grid.stackable
   .row style="padding-top: 36px;"
     .column.center.aligned
       h2.ui.header style="font-size: 32px;" Offers
@@ -69,7 +69,7 @@
           .content
             h5.ui.header
               = simple_format(truncate(offer.title, length: 20))
-  .ui.container.grid.stackable
+  #needs.ui.container.grid.stackable
     .row style="padding-top: 36px;"
       .column.center.aligned
         h2.ui.header style="font-size: 32px;" Needs
