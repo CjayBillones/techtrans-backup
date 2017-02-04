@@ -3,7 +3,7 @@
     .ui.grid.stackable.middle.aligned style="height: 100vh;"
       .row
         .thirteen.wide.column.centered.center.aligned
-          .ui.segment.centered style="background-color: rgba(255,255,255,.7); padding: 20px;"
+          .ui.segment.centered style="background-color: rgba(255,255,255,.6); padding: 20px;"
             h1.ui.header 
               .content style="font-size: 36px;" UP DILIMAN IP AND TECHNOLOGY TRANSFER
               .sub.header style="margin-top: 10px; font-size: 22px;" Ensuring Protection and Efficient Technology Transfer for the Public Good
@@ -13,12 +13,12 @@
                 .column.center.aligned style="border-right-style: solid; border-width: 1px; border-color: rgba(36,36,36,.15);"
                   .bordered 
                     span.content OFFERS
-                  p style="font-size: 20px;" We help university faculty and researchers advance their work by assisting them from disclosure to deployment. Let the world know about your research outputs. Submit your IPs today!
+                  p style="font-size: 18px;" We help university faculty and researchers advance their work by assisting them from disclosure to deployment. Let the world know about your research outputs. Submit your IPs today!
                   .ui.basic.blue.button Get Started
                 .column.center.aligned
                   .bordered 
                     span.content NEEDS
-                  p [style="font-size: 20px;"] When it comes to innovative, real–world industry solutions, we're here to help. Post your IP needs and partner with us to achieve your business goals.
+                  p [style="font-size: 18px;"] When it comes to innovative, real–world industry solutions, we're here to help. Post your IP needs and partner with us to achieve your business goals.
                   .ui.basic.blue.button Get Started
 
   .photo style="background-image: url(#{Article.first.banner_photo.url.split('?')[0]});"
@@ -31,7 +31,8 @@
             h3.ui.header = Article.first.title 
             p style="font-size: 18px;"
               = simple_format(truncate(Sanitize.fragment(Article.first.content), length: 350))
-            .ui.basic.blue.bottom.attached.button = link_to(" Read more", Article.first)
+            .ui.basic.blue.bottom.attached.button 
+              = link_to(" Read more", Article.first)
 / .ui.divider style="margin-top: -5px; border-color: #7b1113;"
 .ui.container.grid.stackable
   .row style="padding-top: 36px;"
@@ -120,7 +121,7 @@
           = @articles.first.title
         p
           - if @articles.first.content.length > 875
-            = simple_format(truncate(Sanitize.fragment(@articles.first.content), length: 875) + link_to(" Read more", @articles.first))
+            = simple_format(truncate(Sanitize.fragment(@articles.first.content), length: 875) + "   " + link_to("Read more", @articles.first, class: 'ui basic blue button tiny'))
           - else
             = simple_format(truncate(Sanitize.fragment(@articles.first.content), length: 875))
 
