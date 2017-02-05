@@ -102,6 +102,7 @@ user = User.create!(first_name: "Admin",
                     accounts_id: 1,
                     accounts_type:"Academe",
                     admin: true,
+                    admin_type: 'superadmin',
                     approval_status: 'approved') if !User.find_by_email("admin1@gmail.com")
 
 # User Population #

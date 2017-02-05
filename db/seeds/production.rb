@@ -35,10 +35,10 @@ user_types = ['Student', 'Researcher', 'Faculty']
 academe = Academe.create!(user_type: 'Admin',
                           id_number: '0000-00000')
 
-user = User.create(first_name: 'Techadmin',
-                   last_name: 'User',
-                   username: 'techadmin',
-                   email: 'techadmin@up.edu.ph',
+user = User.create(first_name: 'System',
+                   last_name: 'Administrator',
+                   username: 'iptechtransfer.upd',
+                   email: 'iptechtransfer.upd@up.edu.ph',
                    password: 'techadmin2k16',
                    password_confirmation: 'techadmin2k16',
                    activated: true,
