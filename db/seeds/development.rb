@@ -40,7 +40,7 @@ industry_classifications = ["Agriculture, Forestry and Fishing', 'Mining and Qua
 user_types = ['Student', 'Researcher', 'Faculty']
 
 # Industry Population #
-5.times do |n|
+25.times do |n|
   email = "industry#{n}@gmail.com"
   industry_name = Faker::Company.name
   organization_bio = Faker::Lorem.paragraphs(rand(1...5)).join("\n\n")
@@ -71,7 +71,7 @@ user_types = ['Student', 'Researcher', 'Faculty']
 end
 
 # Academe Population #
-5.times do |n|
+25.times do |n|
   username = Faker::Lorem.word
   user_bio = Faker::Lorem.paragraphs(rand(1...5)).join("\n\n")
   user_type = user_types[rand(0...3)]
@@ -105,8 +105,11 @@ user = User.create!(first_name: "Admin",
                     admin_type: 'superadmin',
                     approval_status: 'approved') if !User.find_by_email("admin1@gmail.com")
 
+activated = [true, false]
+approval_status = ['approved', 'pending', 'rejected']
+
 # User Population #
-5.times do |n|
+25.times do |n|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "industry#{n}@gmail.com"
@@ -117,14 +120,14 @@ user = User.create!(first_name: "Admin",
                       email: email,
                       password: "password",
                       password_confirmation: "password",
-                      activated: true,
-                      approval_status: 'approved',
+                      activated: activated[rand(0...2)],
+                      approval_status: approval_status[rand(0...3)],
                       activated_at: Time.zone.now,
                       accounts_id: n+1,
                       accounts_type: "Industry") if !User.find_by_email(email)
 end
 
-4.times do |n|
+24.times do |n|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "academe#{n}@gmail.com"
@@ -135,8 +138,8 @@ end
                       email: email,
                       password: "password",
                       password_confirmation: "password",
-                      activated: true,
-                      approval_status: 'approved',
+                      activated: activated[rand(0...2)],
+                      approval_status: approval_status[rand(0...3)],
                       activated_at: Time.zone.now,
                       accounts_id: n+2,
                       accounts_type: "Academe") if !User.find_by_email(email)
