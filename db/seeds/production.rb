@@ -18,6 +18,13 @@ tags.each do |t|
 end
 
 # User Population #
+
+def generate_address
+  street = Faker::Address.street_address
+  city = Faker::Address.city
+  return street + city
+end
+
 industry_classifications = ["Agriculture, Forestry and Fishing', 'Mining and Quarrying",
                     "Manufacturing', 'Electricity, Gas, Steam and Air-conditioning Supply",
                       "Water Supply, Sewerage, Waste Management and Remediation Activities",
