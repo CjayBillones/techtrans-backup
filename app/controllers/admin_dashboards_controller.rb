@@ -55,10 +55,8 @@ class AdminDashboardsController < ApplicationController
     @rejected_ips = (@rejected_offers + @rejected_needs)
   end
 
-  def manage_ineractions
-    @offers = IpOffer.all
-    @needs = IpNeed.all
-    @ips = (@offers + @needs)
+  def manage_interactions
+    @all_follows = Follow.all
   end
 
   def manage_articles

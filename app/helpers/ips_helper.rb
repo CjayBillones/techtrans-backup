@@ -30,6 +30,14 @@ module IpsHelper
     end     
   end
 
+  def ip_poster(ip)
+    User.find(ip.user_id)
+  end
+
+  def get_ip(ip_type, id)
+    (ip_type == "IpOffer") ? IpOffer.find(id) : IpNeed.find(id)
+  end
+
   def ip_type(ip)
     (ip.class == IpOffer) ? 'Offer' : 'Need'
   end
