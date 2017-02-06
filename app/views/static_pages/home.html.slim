@@ -21,18 +21,18 @@
                   p [style="font-size: 18px;"] When it comes to innovative, real–world industry solutions, we're here to help. Post your IP needs and partner with us to achieve your business goals.
                   = button_to 'Get Started', '#needs', method: :get, class: 'ui basic blue button'
 
-  .photo style="background-image: url(#{Article.first.banner_photo.url.split('?')[0]});"
+  .photo style="background-image: url(#{@featured_article.banner_photo.url.split('?')[0]});"
     .ui.grid.stackable.middle.aligned style="height: 100vh;"
       .row.three.columns
         .column
         .column
         .column style="padding-right: 10%;"
           .ui.segment style="background-color: rgba(255,255,255,.7);"
-            h3.ui.header = Article.first.title 
+            h3.ui.header = @featured_article.title 
             p style="font-size: 18px;"
-              = simple_format(truncate(Sanitize.fragment(Article.first.content), length: 350))
+              = simple_format(truncate(Sanitize.fragment(@featured_article.content), length: 350))
             .ui.basic.blue.bottom.attached.button 
-              = link_to(" Read more", Article.first)
+              = link_to(" Read more", @featured_article)
 / .ui.divider style="margin-top: -5px; border-color: #7b1113;"
 #offers.ui.container.grid.stackable
   .row style="padding-top: 36px;"
