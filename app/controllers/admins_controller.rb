@@ -130,4 +130,9 @@ class AdminsController < ApplicationController
     redirect_to :back
   end
 
+  def unsubfeature_article
+    SubfeaturedArticle.find(params[:id]).destroy
+    redirect_to :back
+  end
+
 end
