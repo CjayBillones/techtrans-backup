@@ -231,4 +231,21 @@ csv.each do |row|
           end
 end
 
+@active_academes = User.where(accounts_type: "Academe", activated: true, approval_status: 'approved').where.not(activated_at: nil)
+@active_industries = User.where(accounts_type: "Industry", activated: true, approval_status: 'approved').where.not(activated_at: nil)
+
+10.times do |n|
+  academe = @active_academes[rand(0...@active_academes.count)]
+  offer = IpOffer.find(rand(1...IpOffer.count+1))
+  need = IpNeed.find(rand(1...IpNeed.count+1))
+  academe.follow(offer) if !academe.following?(offer)
+  academe.follow(need) if !academe.following?(need)
+end
+
+10.times do |n|
+  industry = @active_industries[rand(0...@active_industries.count)]
+  offer = IpOffer.find(rand(1...IpOffer.count+1))
+  industry.follow(offer) if !industry.following?(offer)
+end
+
 puts "Database population complete!"
