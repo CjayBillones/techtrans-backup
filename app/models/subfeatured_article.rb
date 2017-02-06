@@ -1,0 +1,2 @@
+class SubfeaturedArticle < ApplicationRecord
+end
