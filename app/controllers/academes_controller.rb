@@ -6,7 +6,7 @@ class AcademesController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    @academes = User.where("username like ?", "%#{params[:q]}%").where.not(admin: true)
+    @academes = User.where("username like ?", "%#{params[:q]}%").where(approval_status: 'approved', activated: true).where.not(admin: true)
 
     respond_to do |format|
       format.json { render :json => @academes.map(&:attributes) }
