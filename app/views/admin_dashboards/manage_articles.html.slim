@@ -18,15 +18,19 @@ div style="padding-right: 14px;"
             th.center.aligned Actions
         tbody        
           tr
-            td
-              = link_to Article.first.title, Article.first
-            td.center.aligned
-              = link_to 'Edit', edit_article_path(Article.first), class: 'compact ui button primary mini'
-              = link_to 'Delete', article_path(Article.first), method: :delete, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
+            - if @featured_article
+              td
+                = link_to @featured_article.title, @featured_article
+              td.center.aligned
+                = link_to 'Unfeature', admin_unfeature_article_path(id: @featured_article), method: :post, data: {:confirm => 'Do you want to unfeature this article?'}, class: 'compact ui button orange mini'
+                = link_to 'Edit', edit_article_path(@featured_article), class: 'compact ui button primary mini'
+                = link_to 'Delete', article_path(@featured_article), method: :delete, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
+            - else
+              td.center.aligned colspan="2"
+                | Nothing to display
         tfoot
           tr.center.aligned
             th colspan="2"
-              = "#{@articles.count} Articles"
       .ui.divider
       h3.ui.header.center.aligned Sub-Featured Articles
       table.ui.celled.table
@@ -57,8 +61,14 @@ div style="padding-right: 14px;"
           - @articles.each_with_index do |article, i|           
             tr
               td
-                = link_to article.title, article
+                - if article.featured
+                  .ui.teal.horizontal.label.tiny Featured                
+                = link_to article.title, article            
               td.center.aligned
+                - if !article.featured
+                  = link_to 'Feature', admin_feature_article_path(id: article), method: :post, data: {:confirm => 'Featuring this article will remove the current featured article. Do you want to proceed?'}, class: 'compact ui button green mini'
+                - else
+                  = link_to 'Unfeature', admin_unfeature_article_path(id: article), method: :post, data: {:confirm => 'Do you want to unfeature this article?'}, class: 'compact ui button orange mini'
                 = link_to 'Edit', edit_article_path(article), class: 'compact ui button primary mini'
                 = link_to 'Delete', article_path(article), method: :delete, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
         tfoot

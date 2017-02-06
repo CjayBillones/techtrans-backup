@@ -56,7 +56,8 @@ class AdminDashboardsController < ApplicationController
   end
 
   def manage_articles
-    @articles = Article.all.paginate(:page => params[:page], :per_page => 10)
+    @featured_article = Article.where(featured: true).first
+    @articles = Article.all
   end
 
   def manage_resources
