@@ -100,4 +100,27 @@ class AdminsController < ApplicationController
     redirect_to :back
   end
 
+  def feature_article
+    featured_article = Article.where(featured: true).first
+    article = Article.find(params[:id])
+
+    featured_article.update!(featured: false) if featured_article
+
+    if article
+      article.update!(featured: true)
+    end
+
+    redirect_to :back
+  end
+
+  def unfeature_article
+    featured_article = Article.find(params[:id])
+
+    if featured_article
+      featured_article.update!(featured: false)
+    end
+
+    redirect_to :back
+  end
+
 end

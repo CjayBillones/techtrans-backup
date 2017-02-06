@@ -8,6 +8,7 @@ class StaticPagesController < ApplicationController
         redirect_to user_dashboard_path
       end
     else
+      @featured_article = (Article.where(featured: true).first.nil?) ? Article.find(rand(1...Article.count+1)) : Article.where(featured: true).first
       @articles = Article.last(4)
       @offers = IpOffer.last(5)
       @needs = IpNeed.last(5)

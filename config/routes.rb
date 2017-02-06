@@ -73,6 +73,8 @@ Rails.application.routes.draw do
   post '/admin/resend_activation_link' => 'admins#resend_activation_link'
   post '/admin/grant_admin_access' => 'admins#grant_admin_access'
   post '/admin/revoke_admin_access' => 'admins#revoke_admin_access'
+  post '/admin/feature_article' => 'admins#feature_article'
+  post '/admin/unfeature_article' => 'admins#unfeature_article'
 
   get '/dashboard' => 'user_dashboards#index', as: 'user_dashboard'
   get '/dashboard/tags/:tags', to: 'user_dashboards#index', as: :dashboard_tag
