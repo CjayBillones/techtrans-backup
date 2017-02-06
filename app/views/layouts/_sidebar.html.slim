@@ -21,6 +21,7 @@
           .menu
             - if current_user.admin?
               = link_to 'Manage IPs', admin_manage_ips_path, class: 'item'
+              = link_to 'Manage Interactions', admin_manage_interactions_path, class: 'item'
               = link_to 'Submit New Offer', new_ip_offer_path, class: 'item'
               = link_to 'Submit New Need', new_ip_need_path, class: 'item'
             - else
