@@ -286,6 +286,7 @@ div style="padding-right: 14px;"
         thead
           tr
             th.center.aligned Status
+            th.center.aligned Type
             th.center.aligned Fullname
             th.center.aligned Username
             th.center.aligned Email
@@ -300,6 +301,8 @@ div style="padding-right: 14px;"
                   i.fa class='fa-hourglass-half' title='pending approval'
                 - else
                   i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user.admin_type
               td
                 = link_to fullname(user), user
               td
@@ -312,7 +315,7 @@ div style="padding-right: 14px;"
                 = user.follow_count
         tfoot
           tr.center.aligned
-            th colspan="6"
+            th colspan="7"
               i.fa.fa-user
               = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
@@ -324,6 +327,7 @@ div style="padding-right: 14px;"
         thead
           tr
             th.center.aligned Status
+            th.center.aligned Type
             th.center.aligned Fullname
             th.center.aligned Username
             th.center.aligned Email
@@ -334,6 +338,8 @@ div style="padding-right: 14px;"
             tr
               td.center.aligned 
                 i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user.admin_type
               td
                 = link_to fullname(user), user
               td
@@ -346,7 +352,7 @@ div style="padding-right: 14px;"
                 = user.follow_count
         tfoot
           tr.center.aligned
-            th colspan="6"
+            th colspan="7"
               i.fa.fa-user
               = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
@@ -358,6 +364,7 @@ div style="padding-right: 14px;"
         thead
           tr
             th.center.aligned Status
+            th.center.aligned Type
             th.center.aligned Fullname
             th.center.aligned Username
             th.center.aligned Email
@@ -367,6 +374,8 @@ div style="padding-right: 14px;"
             tr
               td.center.aligned 
                 i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                = user.admin_type
               td
                 = link_to fullname(user), user
               td
@@ -378,7 +387,7 @@ div style="padding-right: 14px;"
                   = link_to 'Reactivate', admin_reactivate_user_path(id: user), method: :post, data: {:confirm => 'Are you sure?'}, class: 'compact ui button primary', style: "margin-bottom: 5px;"
         tfoot
           tr.center.aligned
-            th colspan="5"
+            th colspan="6"
               i.fa.fa-user
               = " #{@admin_users.count} Admin Users | "
               i.fa.fa-check style="color:green" title='active'
