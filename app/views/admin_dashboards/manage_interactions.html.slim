@@ -1,0 +1,28 @@
+div style="padding-right: 14px;"
+  h1.ui.header Manage Interactions
+  .ui.divider
+
+table#manage-all-user-ip-interaction-data-table.ui.celled.table[width="100%" cellspacing="0"]
+  thead
+    tr
+      th.center.aligned IP Type
+      th.center.aligned IP Title
+      th.center.aligned Submitted By
+      th.center.aligned Interested Party
+  tbody
+    - @all_follows.each_with_index do |follow, i|
+      - ip = get_ip(follow.followable_type, follow.followable_id)
+      - poster = ip_poster(ip)
+      - interested = User.find(follow.follower_id)  
+      tr
+        td.center.aligned
+          = ip_type(ip)
+        td
+          = link_to ip.title, ip
+        td
+          = link_to poster.email, poster
+        td
+          = link_to interested.email, interested
+  tfoot
+    tr.center.aligned
+      th colspan="4s"

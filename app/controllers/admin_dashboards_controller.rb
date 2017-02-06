@@ -55,6 +55,10 @@ class AdminDashboardsController < ApplicationController
     @rejected_ips = (@rejected_offers + @rejected_needs)
   end
 
+  def manage_interactions
+    @all_follows = Follow.all
+  end
+
   def manage_articles
     @featured_article = Article.where(featured: true).first
     @subfeatured_articles = SubfeaturedArticle.all.order(ranking: :asc)
