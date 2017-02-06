@@ -54,6 +54,7 @@ user = User.create(first_name: 'System',
                    accounts_id: 1,
                    accounts_type: 'Academe',
                    admin: true,
+                   admin_type: 'superadmin',
                    approval_status: 'approved') if !User.find_by_email('techadmin@up.edu.ph')
 
 # Industry Population #
