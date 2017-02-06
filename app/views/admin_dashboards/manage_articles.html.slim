@@ -1,44 +1,35 @@
-/div style="padding-right: 14px;"
-/  h1.ui.header Manage Articles
-/  .ui.top.attached.tabular.menu
-/    a.active.item All Articles
-/    a.item Approved Submissions
-/    a.item Pending Submissions
-/  table.ui.table.stackable.bottom.attached.celled
-/    thead
-/      tr
-/        th No.
-/        th Title     
-/        th Actions
-/    tbody
-/    - @articles.each_with_index do |article, i|           
-/      tr
-/        td 
-/          = i+1
-/        td 
-/          = link_to article.title, article
-/        td
-/          | Edit | Delete
-/    tfoot
-/      tr.center.aligned
-/        th colspan="5"
-/          - if @articles
-/            = will_paginate @articles, renderer: WillPaginateSemanticUi::ActionView::Renderer
-/          - else
-/            | No Article to Display
-
 div style="padding-right: 14px;"
   h1.ui.header Manage Articles
   .ui.divider
 
 #admin-manage-articles
   .ui.secondary.menu
-    a.item.active data-tab="all-users"  Overview
-  .ui.tab.segment.active data-tab="all-articles" 
+    a.item.active data-tab="all-articles"  Overview 
+  .ui.tab.segment.active data-tab="all-articles"  
     .ui.top.attached.tabular.menu
-      a.item.active data-tab="all-articles/all"  All
-    .ui.bottom.attached.tab.segment.active data-tab="all-articles/all"
-      table#all-articles-data-table.ui.celled.table[width="100%" cellspacing="0"]
+      a.item.active data-tab="all-articles/featured"  Featured
+      a.item data-tab="all-articles/all"  All
+    .ui.bottom.attached.tab.segment.active data-tab="all-articles/featured"
+      h3.ui.header.center.aligned Main Featured Article
+      table.ui.celled.table
+        thead
+          tr
+            th.center.aligned Title
+            th.center.aligned Actions
+        tbody        
+          tr
+            td
+              = link_to Article.first.title, Article.first
+            td.center.aligned
+              = link_to 'Edit', edit_article_path(Article.first), class: 'compact ui button primary mini'
+              = link_to 'Delete', article_path(Article.first), method: :delete, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
+        tfoot
+          tr.center.aligned
+            th colspan="2"
+              = "#{@articles.count} Articles"
+      .ui.divider
+      h3.ui.header.center.aligned Sub-Featured Articles
+      table.ui.celled.table
         thead
           tr
             th.center.aligned Title
@@ -55,3 +46,22 @@ div style="padding-right: 14px;"
           tr.center.aligned
             th colspan="2"
               = "#{@articles.count} Articles"
+      .ui.divider 
+    .ui.bottom.attached.tab.segment data-tab="all-articles/all"
+      table#all-articles-data-table.ui.celled.table[width="100%" cellspacing="0"]
+        thead
+          tr
+            th.center.aligned Title
+            th.center.aligned Actions
+        tbody
+          - @articles.each_with_index do |article, i|           
+            tr
+              td
+                = link_to article.title, article
+              td.center.aligned
+                = link_to 'Edit', edit_article_path(article), class: 'compact ui button primary mini'
+                = link_to 'Delete', article_path(article), method: :delete, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
+        tfoot
+          tr.center.aligned
+            th colspan="2"
+              = "#{@articles.count} Articles" 
