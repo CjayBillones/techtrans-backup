@@ -123,4 +123,11 @@ class AdminsController < ApplicationController
     redirect_to :back
   end
 
+  def subfeature_article
+    existing_ranking = SubfeaturedArticle.where(ranking: params[:ranking]).first
+    existing_ranking.destroy() if existing_ranking
+    SubfeaturedArticle.create!(ranking: params[:ranking], article_id: params[:article_id])
+    redirect_to :back
+  end
+
 end

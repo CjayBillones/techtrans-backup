@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   post '/admin/revoke_admin_access' => 'admins#revoke_admin_access'
   post '/admin/feature_article' => 'admins#feature_article'
   post '/admin/unfeature_article' => 'admins#unfeature_article'
+  post '/admin/subfeature_article' => 'admins#subfeature_article'
+  post '/admin/unsubfeature_article' => 'admins#unsubfeature_article'
 
   get '/dashboard' => 'user_dashboards#index', as: 'user_dashboard'
   get '/dashboard/tags/:tags', to: 'user_dashboards#index', as: :dashboard_tag

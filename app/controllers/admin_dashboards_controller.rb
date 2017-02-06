@@ -57,6 +57,7 @@ class AdminDashboardsController < ApplicationController
 
   def manage_articles
     @featured_article = Article.where(featured: true).first
+    @subfeatured_articles = SubfeaturedArticle.all.order(ranking: :asc)
     @articles = Article.all
   end
 
