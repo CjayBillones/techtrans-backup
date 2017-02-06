@@ -70,9 +70,10 @@ div style="padding-right: 14px;"
       table#all-articles-data-table.ui.celled.table[width="100%" cellspacing="0"]
         thead
           tr
-            th.center.aligned ID
-            th.center.aligned Title
-            th.center.aligned Actions
+            th.center.aligned.one.wide ID
+            th.center.aligned.eight.wide Title
+            th.center.aligned.three.wide Tags
+            th.center.aligned.four.wide Actions
         tbody
           - @articles.each_with_index do |article, i|           
             tr
@@ -80,8 +81,17 @@ div style="padding-right: 14px;"
                 = article.id
               td
                 - if article.featured
-                  .ui.teal.horizontal.label.tiny Featured                
+                  .ui.teal.horizontal.label.tiny Featured
+                - if subfeatured?(article)
+                  .ui.olive.horizontal.label.tiny Subfeatured                
                 = link_to article.title, article            
+              td.center.aligned
+                - if article.tagged_with?('announcement')
+                  .ui.tag.label.mini.red announcement
+                - if article.tagged_with?('news')
+                  .ui.tag.label.mini.green news                
+                - if article.tagged_with?('feature')
+                  .ui.tag.label.mini.purple feature
               td.center.aligned
                 - if !article.featured
                   = link_to 'Feature', admin_feature_article_path(id: article), method: :post, data: {:confirm => 'Featuring this article will remove the current featured article. Do you want to proceed?'}, class: 'compact ui button green mini'
@@ -91,8 +101,15 @@ div style="padding-right: 14px;"
                 = link_to 'Delete', article_path(article), method: :delete, data: {:confirm => 'Are you sure?'}, class: 'compact ui button red mini'
         tfoot
           tr.center.aligned
-            th colspan="2"
-              = "#{@articles.count} Articles"
+            th colspan="4"
+              i.fa.fa-file-text-o
+              = " #{@articles.count} Articles | "
+              i.fa.fa-newspaper-o
+              = " #{@articles.tagged_with('news').count} News | "
+              i.fa.fa-star
+              = " #{@articles.tagged_with('feature').count} Features | "
+              i.fa.fa-bullhorn
+              = " #{@articles.tagged_with('announcement').count} Announcments"
     h2.ui.header Article Settings
     .ui.divider
     br

@@ -17,4 +17,8 @@ module ArticlesHelper
     return articles
   end
 
+  def subfeatured?(article)
+    true if SubfeaturedArticle.where(article_id: article).first
+  end
+
 end

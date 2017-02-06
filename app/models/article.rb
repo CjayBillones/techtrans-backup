@@ -18,4 +18,8 @@ class Article < ApplicationRecord
 
   belongs_to :user
 
+  def tagged_with?(tag)
+    true if self.tag_list.include?(tag)
+  end
+
 end
