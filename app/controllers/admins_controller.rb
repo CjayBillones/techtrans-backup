@@ -76,10 +76,11 @@ class AdminsController < ApplicationController
   def grant_admin_access
 
     user_ids = params[:academe_user_tokens].split(',')
+    admin_type = params[:admin_type]
     
     if user_ids
       user_ids.each do |id|
-        User.find(id).update!(admin: true)
+        User.find(id).update!(admin: true, admin_type: admin_type)
       end
     end
 
