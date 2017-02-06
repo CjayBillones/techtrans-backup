@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
-  
+  include ArticlesHelper
+
   def home
     if current_user
       if current_user.admin?
@@ -9,6 +10,7 @@ class StaticPagesController < ApplicationController
       end
     else
       @featured_article = (Article.where(featured: true).first.nil?) ? Article.find(rand(1...Article.count+1)) : Article.where(featured: true).first
+      @subfeatured_articles = subfeatured_articles(SubfeaturedArticle.all)
       @articles = Article.last(4)
       @offers = IpOffer.last(5)
       @needs = IpNeed.last(5)

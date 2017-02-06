@@ -112,26 +112,26 @@
     .row
       .seven.wide.column
         img.ui.image
-          - if @articles.first.banner_photo.present?
-            = image_tag @articles.first.banner_photo.url(:head_featured)
+          - if @subfeatured_articles[0].banner_photo.present?
+            = image_tag @subfeatured_articles[0].banner_photo.url(:head_featured)
           - else
             = image_tag 'placeholders/no_image_general.jpg'
       .nine.wide.column
         h3.ui.header
-          = @articles.first.title
+          = @subfeatured_articles[0].title
         p
-          - if @articles.first.content.length > 875
-            = simple_format(truncate(Sanitize.fragment(@articles.first.content), length: 875) + "   " + link_to("Read more", @articles.first, class: 'ui basic blue button tiny'))
+          - if @subfeatured_articles[0].content.length > 875
+            = simple_format(truncate(Sanitize.fragment(@subfeatured_articles[0].content), length: 875) + "   " + link_to("Read more", @subfeatured_articles[0], class: 'ui basic blue button tiny'))
           - else
-            = simple_format(truncate(Sanitize.fragment(@articles.first.content), length: 875))
+            = simple_format(truncate(Sanitize.fragment(@subfeatured_articles[0].content), length: 875))
 
     .three.column.row
       - 3.times do |n|
-        = link_to @articles[n+1], class: 'column'
+        = link_to @subfeatured_articles[n+1], class: 'column'
           img.ui.img
-            - if @articles[n+1].banner_photo.present?
-              = image_tag @articles[n+1].banner_photo.url(:sub_featured)
+            - if @subfeatured_articles[n+1].banner_photo.present?
+              = image_tag @subfeatured_articles[n+1].banner_photo.url(:sub_featured)
             - else
               = image_tag 'placeholders/no_image_general.jpg'
           h4.ui.header.centered
-            = @articles[n+1].title
+            = @subfeatured_articles[n+1].title
