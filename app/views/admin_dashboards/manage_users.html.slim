@@ -31,7 +31,11 @@ div style="padding-right: 14px;"
           - @users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -117,7 +121,11 @@ div style="padding-right: 14px;"
           - @pending_approval_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -158,7 +166,11 @@ div style="padding-right: 14px;"
           - @pending_activation_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -283,7 +295,11 @@ div style="padding-right: 14px;"
           - @admin_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td
                 = link_to fullname(user), user
               td
@@ -425,7 +441,11 @@ div style="padding-right: 14px;"
           - @academe_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -511,7 +531,11 @@ div style="padding-right: 14px;"
           - @pending_approval_academe_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -552,7 +576,11 @@ div style="padding-right: 14px;"
           - @pending_activation_academe_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -681,7 +709,11 @@ div style="padding-right: 14px;"
           - @industry_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -766,8 +798,12 @@ div style="padding-right: 14px;"
         tbody
           - @pending_approval_industry_users.each_with_index do |user, i|           
             tr
-              td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+              td.center.aligned
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
@@ -808,7 +844,11 @@ div style="padding-right: 14px;"
           - @pending_activation_industry_users.each_with_index do |user, i|           
             tr
               td.center.aligned 
-                i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
+                - if (user.approval_status == 'pending') and (!user.activated and user.activated_at.nil?)
+                  i.fa class='fa-exclamation-triangle' style='color:orange' title='pending activation'
+                  i.fa class='fa-hourglass-half' title='pending approval'
+                - else
+                  i.fa class=(user_status_icon(user)) style=(user_status_style(user)) title=(user_status_text(user))
               td.center.aligned
                 = user_type(user)
               td
